@@ -1,0 +1,15 @@
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\entity\IBasePermission.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\entity\IResource.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\entity\IProduct.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\dao\IUserDao.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\entity\BasePermission.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\dao\IProductDao.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\entity\IUserRole.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\dao\IResourceDao.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\entity\IRole.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\entity\IUser.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\entity\IRoleResource.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\dao\IUserRoleDao.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\dao\IRoleDao.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\dao\IRoleResourceDao.java
+D:\lc\origin\origin\origin-data-api\src\main\java\com\origin\data\dao\IBaseDao.java

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.origin.data.mybatis.dao.ResourceDao">
+	
+	<sql id="selectPart">
+		SELECT
+		id,audit_flag auditFlag,create_date createDate,delete_flag deleteFlag,update_date updateDate,icon,NAME,order_no orderNo,TYPE,url,parent_id parentId
+		FROM ogn_resource
+		where 1=1
+	</sql>
+	<sql id="queryParams">
+		<if test="auditFlag != null">AND audit_flag=#{auditFlag}</if>
+		<if test="createDate != null">AND create_date=#{createDate}</if>
+		<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
+		<if test="updateDate != null">AND update_date=#{updateDate}</if>
+		<if test="icon != null and icon != '' ">AND icon=#{icon}</if>
+		<if test="name != null and name != '' ">AND name=#{name}</if>
+		<if test="orderNo != null and orderNo != '' ">AND order_no=#{orderNo}</if>
+		<if test="type != null and type != '' ">AND type=#{type}</if>
+		<if test="url != null ">AND url=#{url}</if>
+		<if test="parentId != null and parentId != '' ">AND parent_id=#{parentId}</if>
+	</sql>
+	<sql id="orderBy">
+		ORDER BY order_no
+	</sql>
+	<select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.Resource">
+		<include refid="selectPart"/>
+		AND id=#{0}
+	</select>
+	<select id="findFirst" parameterType="com.origin.data.mybatis.entity.Resource" resultType="com.origin.data.mybatis.entity.Resource">
+		<include refid="selectPart"/>
+		<include refid="queryParams"/>
+	</select>
+	<select id="find" parameterType="com.origin.data.mybatis.entity.Resource" resultType="com.origin.data.mybatis.entity.Resource">
+		<include refid="selectPart"/>
+		<include refid="queryParams"/>
+		<include refid="orderBy"/>
+	</select>
+	<insert id="save" parameterType="com.origin.data.mybatis.entity.User">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">  
+            SELECT LAST_INSERT_ID()  
+        </selectKey> 
+        insert into ogn_resource (
+			`name`,`type`,`url`
+	        <if test="auditFlag != null">,`audit_flag`</if>
+			<if test="createDate != null">,`create_date`</if>
+			<if test="deleteFlag != null">,`delete_flag`</if>
+			<if test="updateDate != null">,`update_date`</if>
+			<if test="icon != null and icon != '' ">,`icon`</if>
+			<if test="orderNo != null and orderNo != '' ">,`order_no`</if>
+			<if test="parentId != null ">,`parent_id`</if>
+		) values (
+			#{name},#{type},#{url}
+           	<if test="auditFlag != null">,#{auditFlag}</if>
+			<if test="createDate != null">,#{createDate}</if>
+			<if test="deleteFlag != null">,#{deleteFlag}</if>
+			<if test="updateDate != null">,#{updateDate}</if>
+			<if test="icon != null and icon != '' ">,#{icon}</if>
+			<if test="orderNo != null and orderNo != '' ">,#{orderNo}</if>
+			<if test="parentId != null ">,#{parentId}</if>
+       )
+    </insert>
+    
+    <update id="update" parameterType="com.origin.data.mybatis.entity.Resource" >
+        update ogn_resource 
+        set id=id
+		<if test="auditFlag != null">,audit_flag=#{auditFlag}</if>
+		<if test="createDate != null">,create_date=#{createDate}</if>
+		<if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
+		<if test="updateDate != null">,update_date=#{updateDate}</if>
+		<if test="name != null and name != '' ">,name=#{name}</if>
+		<if test="type != null and type != '' ">,type=#{type}</if>
+		<if test="url != null and url != '' ">,url=#{url}</if>
+		<if test="icon != null and icon != '' ">,icon=#{icon}</if>
+		<if test="orderNo != null ">,order_no=#{orderNo}</if>
+		/*lic*/
+		<!--<if test="parentId != null and parentId != '' ">,parent_id=#{parentId}</if>-->
+		<choose>
+			<when test="parentId != null and parentId != ''">
+				,parent_id=#{parentId}
+			</when>
+			<otherwise>
+				,parent_id=NULL
+			</otherwise>
+		</choose>
+        where id=#{id}
+    </update>
+    <update id="updateBatch" parameterType="list" >
+	     <foreach collection="list" item="item"  separator=";" >
+	        update ogn_resource 
+	        set name=#{item.name},url=#{item.url},order_no=#{item.orderNo},icon=#{item.icon}
+			<if test="item.auditFlag != null">,audit_flag=#{item.auditFlag}</if>
+			<if test="item.createDate != null">,create_date=#{item.createDate}</if>
+			<if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
+			<if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
+			<if test="item.type != null and item.type != '' ">,type=#{item.type}</if>
+			<if test="item.parentId != null and item.parentId != '' ">,parent_id=#{item.parentId}</if>
+	        where id=#{item.id}
+        </foreach>
+    </update>
+    <update id="updatePks" >
+    	<foreach collection="#{0}" item="item" open="" separator="" close="">  
+            update ogn_resource set status=#{1} where id=#{item};
+        </foreach>
+    </update>
+    
+    <delete id="delete" parameterType="int">
+        delete from ogn_resource where id=#{id}
+    </delete>
+	
+    <!--  获取所有启用的菜单 -->
+    <select id="findEnabledResources" resultType="com.origin.data.mybatis.entity.Resource">
+        SELECT id,audit_flag auditFlag,create_date createDate,delete_flag deleteFlag,update_date updateDate,icon,NAME,order_no orderNo,TYPE,url,parent_id parentId
+        FROM ogn_resource
+        WHERE 1=1 AND delete_flag = 0
+        ORDER BY order_no ASC
+    </select>
+    <!--  获取指定资源的子集资源 -->
+    <select id="findChildren" parameterType="int" resultType="com.origin.data.mybatis.entity.Resource">
+        SELECT id,audit_flag auditFlag,create_date createDate,delete_flag deleteFlag,update_date updateDate,icon,NAME,order_no orderNo,TYPE,url,parent_id parentId
+        FROM ogn_resource
+        WHERE 1=1 AND delete_flag = 0
+        AND parent_id=#{0}
+        ORDER BY order_no ASC
+    </select>
+	
+</mapper>

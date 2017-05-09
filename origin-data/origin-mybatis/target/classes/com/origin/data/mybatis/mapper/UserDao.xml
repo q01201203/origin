@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.origin.data.mybatis.dao.UserDao">
+	<sql id="selectPart">
+		SELECT
+		id,audit_flag auditFlag,create_date createDate,delete_flag deleteFlag,update_date updateDate,real_name realName,email,mobile,`password`,`status`,username,`type`,current_skin currentSkin
+		FROM ogn_user
+		where 1=1
+	</sql>
+	<sql id="queryParams">
+		<if test="auditFlag != null">AND audit_flag=#{auditFlag}</if>
+		<if test="createDate != null">AND create_date=#{createDate}</if>
+		<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
+		<if test="updateDate != null">AND update_date=#{updateDate}</if>
+		<if test="realName != null and realName != '' ">AND real_name=#{realName}</if>
+		<if test="email != null and email != '' ">AND email=#{email}</if>
+		<if test="mobile != null and mobile != '' ">AND mobile=#{mobile}</if>
+		<if test="password != null and password != '' ">AND password=#{password}</if>
+		<if test="status != null ">AND status=#{status}</if>
+		<if test="username != null and username != '' ">AND username=#{username}</if>
+		<if test="type != null ">AND type=#{type}</if>
+		<if test="currentSkin != null and currentSkin != '' ">AND current_skin=#{currentSkin}</if>
+	</sql>
+	<select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.User">
+		<include refid="selectPart"/>
+		AND id=#{0}
+	</select>
+	<select id="findFirst" parameterType="com.origin.data.mybatis.entity.User" resultType="com.origin.data.mybatis.entity.User">
+		<include refid="selectPart"/>
+		<include refid="queryParams"/>
+	</select>
+	<select id="find" parameterType="com.origin.data.mybatis.entity.User" resultType="com.origin.data.mybatis.entity.User">
+		<include refid="selectPart"/>
+		<include refid="queryParams"/>
+	</select>
+	<insert id="save" parameterType="com.origin.data.mybatis.entity.User">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">  
+            SELECT LAST_INSERT_ID()  
+        </selectKey> 
+        insert into ogn_user (
+			`username`,`password`
+	        <if test="auditFlag != null">,`audit_flag`</if>
+			<if test="createDate != null">,`create_date`</if>
+			<if test="deleteFlag != null">,`delete_flag`</if>
+			<if test="updateDate != null">,`update_date`</if>
+			<if test="realName != null and realName != '' ">,`real_name`</if>
+			<if test="email != null and email != '' ">,`email`</if>
+			<if test="mobile != null and mobile != '' ">,`mobile`</if>
+			<if test="status != null ">,`status`</if>
+			<if test="type != null ">,`type`</if>
+			<if test="currentSkin != null and currentSkin != '' ">,`current_skin`</if> 
+		) values (
+			#{username},#{password}
+           	<if test="auditFlag != null">,#{auditFlag}</if>
+			<if test="createDate != null">,#{createDate}</if>
+			<if test="deleteFlag != null">,#{deleteFlag}</if>
+			<if test="updateDate != null">,#{updateDate}</if>
+			<if test="realName != null and realName != '' ">,#{realName}</if>
+			<if test="email != null and email != '' ">,#{email}</if>
+			<if test="mobile != null and mobile != '' ">,#{mobile}</if>
+			<if test="status != null ">,#{status}</if>
+			<if test="type != null ">,#{type}</if>
+			<if test="currentSkin != null and currentSkin != '' ">,#{currentSkin}</if>
+       )
+    </insert>
+    
+    <update id="update" parameterType="com.origin.data.mybatis.entity.User" >
+        update ogn_user 
+        set id=id
+		<if test="auditFlag != null">,audit_flag=#{auditFlag}</if>
+		<if test="createDate != null">,create_date=#{createDate}</if>
+		<if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
+		<if test="updateDate != null">,update_date=#{updateDate}</if>
+		<if test="realName != null and realName != '' ">,real_name=#{realName}</if>
+		<if test="email != null and email != '' ">,email=#{email}</if>
+		<if test="mobile != null and mobile != '' ">,mobile=#{mobile}</if>
+		<if test="password != null and password != '' ">,password=#{password}</if>
+		<if test="status != null ">,status=#{status}</if>
+		<if test="username != null and username != '' ">,username=#{username}</if>
+		<if test="type != null ">,type=#{type}</if>
+		<if test="currentSkin != null and currentSkin != '' ">,current_skin=#{currentSkin}</if>
+        where id=#{id}
+    </update>
+    <update id="updateBatch" parameterType="list" >
+	    <foreach collection="list" item="item"  separator=";" >
+	        update ogn_user 
+	        set id=id
+			<if test="item.auditFlag != null">,audit_flag=#{item.auditFlag}</if>
+			<if test="item.createDate != null">,create_date=#{item.createDate}</if>
+			<if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
+			<if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
+			<if test="item.realName != null and item.realName != '' ">,real_name=#{item.realName}</if>
+			<if test="item.email != null and item.email != '' ">,email=#{item.email}</if>
+			<if test="item.mobile != null and item.mobile != '' ">,mobile=#{item.mobile}</if>
+			<if test="item.password != null and item.password != '' ">,password=#{item.password}</if>
+			<if test="item.status != null ">,status=#{item.status}</if>
+			<if test="item.username != null and item.username != '' ">,username=#{item.username}</if>
+			<if test="item.type != null ">,type=#{item.type}</if>
+			<if test="item.currentSkin != null and item.currentSkin != '' ">,current_skin=#{item.currentSkin}</if>
+	        where id=#{item.id}
+        </foreach>
+    </update>
+    <update id="updatePks">
+    	<foreach collection="#{0}" item="item" open="" separator="" close="">  
+            update ogn_user set status=#{1} where id=#{item};
+        </foreach>
+    </update>
+    
+    <delete id="delete" parameterType="int">
+        delete from ogn_user where id=#{id}
+    </delete>
+	
+	
+	
+	
+	<!-- 查询用户拥有的角色 -->
+    <select id="findRoles" resultType="com.origin.data.mybatis.entity.Role" parameterType="int">
+        SELECT id,audit_flag auditFlag,create_date createDate,delete_flag deleteFlag,update_date updateDate,role_name roleName,CODE,description,NAME,NO,STATUS,user_id userId
+        FROM ogn_user_role
+        LEFT JOIN ogn_role
+        ON ogn_user_role.role_id = ogn_role.id
+        WHERE ogn_user_role.user_id = #{0}
+    </select>
+	<!-- 通过用户id获得角色id集合-->
+    <select id="findRoleIds" resultType="int" parameterType="int">
+        SELECT ogn_role.id FROM ogn_user_role c_u_r
+        LEFT JOIN ogn_role ON c_u_r.role_id = ogn_role.id
+        WHERE  c_u_r.user_id = #{0}
+    </select>
+    <delete id="deleteRole" parameterType="com.origin.data.mybatis.entity.User">
+    	DELETE FROM ogn_user_role WHERE user_id=#{id}
+    </delete>
+    <update id="saveRole" parameterType="map">
+    	DELETE FROM ogn_user_role WHERE user_id= ;
+		INSERT INTO ogn_user_role (user_id,role_id)VALUES ()
+    </update>
+</mapper>

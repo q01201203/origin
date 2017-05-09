@@ -1,0 +1,43 @@
+[INFO]-[2017年-05月-05日 16:27:42.795]-[main]-[com.alibaba.druid.pool.DruidDataSource]-{{dataSource-1} inited}
+[DEBUG]-[2017年-05月-05日 16:27:42.803]-[main]-[org.apache.ibatis.logging.LogFactory]-{Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.}
+[DEBUG]-[2017年-05月-05日 16:27:42.851]-[main]-[org.apache.ibatis.io.VFS]-{Class not found: org.jboss.vfs.VFS}
+[DEBUG]-[2017年-05月-05日 16:27:42.851]-[main]-[org.apache.ibatis.io.JBoss6VFS]-{JBoss 6 VFS API is not available in this environment.}
+[DEBUG]-[2017年-05月-05日 16:27:42.852]-[main]-[org.apache.ibatis.io.VFS]-{Class not found: org.jboss.vfs.VirtualFile}
+[DEBUG]-[2017年-05月-05日 16:27:42.852]-[main]-[org.apache.ibatis.io.VFS]-{VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.}
+[DEBUG]-[2017年-05月-05日 16:27:42.853]-[main]-[org.apache.ibatis.io.VFS]-{Using VFS adapter org.apache.ibatis.io.DefaultVFS}
+[DEBUG]-[2017年-05月-05日 16:27:42.853]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Find JAR URL: jar:file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar!/com/origin/data/mybatis/entity}
+[DEBUG]-[2017年-05月-05日 16:27:42.853]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Inner URL: file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar!/com/origin/data/mybatis/entity}
+[DEBUG]-[2017年-05月-05日 16:27:42.853]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Extracted JAR URL: file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar}
+[DEBUG]-[2017年-05月-05日 16:27:42.854]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Found JAR: file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar}
+[DEBUG]-[2017年-05月-05日 16:27:42.854]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Listing jar:file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar!/com/origin/data/mybatis/entity}
+[DEBUG]-[2017年-05月-05日 16:27:42.856]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Found resource: /com/origin/data/mybatis/entity/Product.class}
+[DEBUG]-[2017年-05月-05日 16:27:42.856]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Found resource: /com/origin/data/mybatis/entity/Resource.class}
+[DEBUG]-[2017年-05月-05日 16:27:42.856]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Found resource: /com/origin/data/mybatis/entity/Role.class}
+[DEBUG]-[2017年-05月-05日 16:27:42.856]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Found resource: /com/origin/data/mybatis/entity/RoleResource.class}
+[DEBUG]-[2017年-05月-05日 16:27:42.856]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Found resource: /com/origin/data/mybatis/entity/User.class}
+[DEBUG]-[2017年-05月-05日 16:27:42.857]-[main]-[org.apache.ibatis.io.DefaultVFS]-{Found resource: /com/origin/data/mybatis/entity/UserRole.class}
+[DEBUG]-[2017年-05月-05日 16:27:42.857]-[main]-[org.apache.ibatis.io.ResolverUtil]-{Checking to see if class com.origin.data.mybatis.entity.Product matches criteria [is assignable to Object]}
+[DEBUG]-[2017年-05月-05日 16:27:42.858]-[main]-[org.apache.ibatis.io.ResolverUtil]-{Checking to see if class com.origin.data.mybatis.entity.Resource matches criteria [is assignable to Object]}
+[DEBUG]-[2017年-05月-05日 16:27:42.859]-[main]-[org.apache.ibatis.io.ResolverUtil]-{Checking to see if class com.origin.data.mybatis.entity.Role matches criteria [is assignable to Object]}
+[DEBUG]-[2017年-05月-05日 16:27:42.859]-[main]-[org.apache.ibatis.io.ResolverUtil]-{Checking to see if class com.origin.data.mybatis.entity.RoleResource matches criteria [is assignable to Object]}
+[DEBUG]-[2017年-05月-05日 16:27:42.860]-[main]-[org.apache.ibatis.io.ResolverUtil]-{Checking to see if class com.origin.data.mybatis.entity.User matches criteria [is assignable to Object]}
+[DEBUG]-[2017年-05月-05日 16:27:42.860]-[main]-[org.apache.ibatis.io.ResolverUtil]-{Checking to see if class com.origin.data.mybatis.entity.UserRole matches criteria [is assignable to Object]}
+[DEBUG]-[2017年-05月-05日 16:27:42.861]-[main]-[org.mybatis.spring.SqlSessionFactoryBean]-{Scanned package: 'com.origin.data.mybatis.entity' for aliases}
+[DEBUG]-[2017年-05月-05日 16:27:42.895]-[main]-[org.apache.ibatis.logging.LogFactory]-{Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.}
+[DEBUG]-[2017年-05月-05日 16:27:42.896]-[main]-[org.mybatis.spring.SqlSessionFactoryBean]-{Parsed configuration file: 'class path resource [mybatis.xml]'}
+[DEBUG]-[2017年-05月-05日 16:27:42.954]-[main]-[org.mybatis.spring.SqlSessionFactoryBean]-{Parsed mapper file: 'URL [jar:file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar!/com/origin/data/mybatis/mapper/ProductDao.xml]'}
+[DEBUG]-[2017年-05月-05日 16:27:42.974]-[main]-[org.mybatis.spring.SqlSessionFactoryBean]-{Parsed mapper file: 'URL [jar:file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar!/com/origin/data/mybatis/mapper/ResourceDao.xml]'}
+[DEBUG]-[2017年-05月-05日 16:27:43.006]-[main]-[org.mybatis.spring.SqlSessionFactoryBean]-{Parsed mapper file: 'URL [jar:file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar!/com/origin/data/mybatis/mapper/RoleDao.xml]'}
+[DEBUG]-[2017年-05月-05日 16:27:43.018]-[main]-[org.mybatis.spring.SqlSessionFactoryBean]-{Parsed mapper file: 'URL [jar:file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar!/com/origin/data/mybatis/mapper/RoleResourceDao.xml]'}
+[DEBUG]-[2017年-05月-05日 16:27:43.035]-[main]-[org.mybatis.spring.SqlSessionFactoryBean]-{Parsed mapper file: 'URL [jar:file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar!/com/origin/data/mybatis/mapper/UserDao.xml]'}
+[DEBUG]-[2017年-05月-05日 16:27:43.044]-[main]-[org.mybatis.spring.SqlSessionFactoryBean]-{Parsed mapper file: 'URL [jar:file:/D:/lc/origin/origin/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar!/com/origin/data/mybatis/mapper/UserRoleDao.xml]'}
+[DEBUG]-[2017年-05月-05日 16:27:43.109]-[main]-[org.mybatis.spring.SqlSessionUtils]-{Creating a new SqlSession}
+[DEBUG]-[2017年-05月-05日 16:27:43.124]-[main]-[org.mybatis.spring.SqlSessionUtils]-{SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@435fb7b5] was not registered for synchronization because synchronization is not active}
+[DEBUG]-[2017年-05月-05日 16:27:43.160]-[main]-[org.mybatis.spring.transaction.SpringManagedTransaction]-{JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@20a14b55] will not be managed by Spring}
+[DEBUG]-[2017年-05月-05日 16:27:43.201]-[main]-[com.alibaba.druid.pool.PreparedStatementPool]-{{conn-10005, pstmt-20000} enter cache}
+[DEBUG]-[2017年-05月-05日 16:27:43.201]-[main]-[org.mybatis.spring.SqlSessionUtils]-{Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@435fb7b5]}
+[DEBUG]-[2017年-05月-05日 16:27:43.209]-[main]-[org.mybatis.spring.SqlSessionUtils]-{Creating a new SqlSession}
+[DEBUG]-[2017年-05月-05日 16:27:43.210]-[main]-[org.mybatis.spring.SqlSessionUtils]-{SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@674658f7] was not registered for synchronization because synchronization is not active}
+[DEBUG]-[2017年-05月-05日 16:27:43.213]-[main]-[org.mybatis.spring.transaction.SpringManagedTransaction]-{JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@20a14b55] will not be managed by Spring}
+[DEBUG]-[2017年-05月-05日 16:27:43.215]-[main]-[com.alibaba.druid.pool.PreparedStatementPool]-{{conn-10005, pstmt-20001} enter cache}
+[DEBUG]-[2017年-05月-05日 16:27:43.215]-[main]-[org.mybatis.spring.SqlSessionUtils]-{Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@674658f7]}

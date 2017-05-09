@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="origin-common" />
+        <module name="origin-data-api" />
+        <module name="origin-module-core" />
+        <module name="origin-mybatis" />
+        <module name="origin-tool-mybatis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="origin" target="1.8" />
+      <module name="origin-common" target="1.8" />
+      <module name="origin-data" target="1.8" />
+      <module name="origin-data-api" target="1.8" />
+      <module name="origin-module-core" target="1.8" />
+      <module name="origin-modules" target="1.8" />
+      <module name="origin-mybatis" target="1.8" />
+      <module name="origin-tool" target="1.8" />
+      <module name="origin-tool-mybatis" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

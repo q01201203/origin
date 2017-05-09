@@ -1,0 +1,13 @@
+com\origin\data\mybatis\common\BaseEntity.class
+com\origin\data\mybatis\entity\Product.class
+com\origin\data\mybatis\dao\UserRoleDao.class
+com\origin\data\mybatis\entity\RoleResource.class
+com\origin\data\mybatis\dao\RoleResourceDao.class
+com\origin\data\mybatis\dao\UserDao.class
+com\origin\data\mybatis\entity\UserRole.class
+com\origin\data\mybatis\entity\User.class
+com\origin\data\mybatis\dao\ResourceDao.class
+com\origin\data\mybatis\entity\Resource.class
+com\origin\data\mybatis\dao\RoleDao.class
+com\origin\data\mybatis\entity\Role.class
+com\origin\data\mybatis\dao\ProductDao.class
