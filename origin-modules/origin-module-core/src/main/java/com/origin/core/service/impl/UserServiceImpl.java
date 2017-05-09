@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
 	}
 	@Override
 	public void save(IUser user) {
+		//lic
 		user.prePersist();
 		userDao.save(user);
 	}
