@@ -1,10 +1,8 @@
 com\origin\common\constants\ResultCode.class
 com\origin\common\util\DateUtils.class
 com\origin\common\util\ExcelUtils.class
-com\origin\common\model\mybatis\ResultCode.class
 com\origin\common\util\CommonUtils.class
 com\origin\common\plugin\QRCode4J.class
-com\origin\common\constants\Result.class
 com\origin\common\util\GenCodeUtil.class
 com\origin\common\exception\DaoException.class
 com\origin\common\model\mybatis\PaginationSupport.class

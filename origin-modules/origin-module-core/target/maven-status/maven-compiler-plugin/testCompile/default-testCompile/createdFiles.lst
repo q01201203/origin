@@ -1,2 +1,3 @@
 ServiceTest\UserServiceTest.class
+ServiceTest\AppUserServiceImplTest.class
 ServiceTest\UserRoleServiceTest.class

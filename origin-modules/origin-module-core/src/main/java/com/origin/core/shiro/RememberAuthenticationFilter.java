@@ -13,7 +13,7 @@ public class RememberAuthenticationFilter extends FormAuthenticationFilter {
 	 */
 	@Override
 	protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
-		
+		System.out.println("lic RememberAuthenticationFilter1111111111");
 		Subject subject = getSubject(request, response);
 		
 		return subject.isAuthenticated() || subject.isRemembered();

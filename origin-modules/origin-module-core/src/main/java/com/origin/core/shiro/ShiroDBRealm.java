@@ -3,20 +3,16 @@ package com.origin.core.shiro;
 
 
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.origin.core.service.ResourceService;
+import com.origin.core.service.RoleService;
+import com.origin.core.service.UserService;
+import com.origin.core.util.WebHelper;
+import com.origin.data.entity.IResource;
+import com.origin.data.entity.IRole;
+import com.origin.data.entity.IUser;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.LockedAccountException;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -25,13 +21,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.origin.core.service.ResourceService;
-import com.origin.core.service.RoleService;
-import com.origin.core.service.UserService;
-import com.origin.core.util.WebHelper;
-import com.origin.data.entity.IResource;
-import com.origin.data.entity.IRole;
-import com.origin.data.entity.IUser;
+import java.util.*;
 public class ShiroDBRealm extends AuthorizingRealm {
 	
 	@Autowired
@@ -48,7 +38,7 @@ public class ShiroDBRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		
+		System.out.println("lic ShiroDBRealm111111111111");
 		String userName = (String) principals.getPrimaryPrincipal();
 		IUser user = userService.findUserByName(userName);
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
@@ -79,6 +69,7 @@ public class ShiroDBRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
+		System.out.println("lic ShiroDBRealm2222222222222");
 		UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
         
         if(StringUtils.isEmpty(token.getUsername())){
