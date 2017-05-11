@@ -1,9 +1,8 @@
 package com.origin.core.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.origin.common.util.Md5Util;
+import com.origin.core.util.WebHelper;
+import com.origin.data.entity.IResource;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -14,9 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.origin.common.util.Md5Util;
-import com.origin.core.util.WebHelper;
-import com.origin.data.entity.IResource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class LoginController {
@@ -85,5 +83,4 @@ public class LoginController {
 		
 		return "redirect:/login";
 	}
-
 }

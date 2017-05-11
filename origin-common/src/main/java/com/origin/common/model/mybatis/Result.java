@@ -1,5 +1,7 @@
 package com.origin.common.model.mybatis;
 
+import com.origin.common.constants.ResultCode;
+
 /**
  * 返回结果
  * 

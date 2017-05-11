@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.origin.data.mybatis.dao.AppUserDao">
+	<sql id="selectPart">
+        SELECT
+        		    id,
+        		    mobile,
+                    pwd
+        FROM OGN_APP_USER
+        where 1=1
+	</sql>
+    <sql id="queryParams">
+			<if test="id != null">AND id=#{id}</if>
+			<if test="mobile != null">AND mobile=#{mobile}</if>
+			<if test="pwd != null">AND pwd=#{pwd}</if>
+    </sql>
+    <resultMap type="com.origin.data.mybatis.entity.AppUser" id="appUserMap">
+    	<id property="id" column="id" />
+    	<result property="id" column="id"/>
+    	<result property="mobile" column="mobile"/>
+    	<result property="pwd" column="pwd"/>
+    </resultMap>
+    <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppUser">
+        <include refid="selectPart"/>
+        AND id=#{0}
+    </select>
+    <select id="findFirst" parameterType="com.origin.data.mybatis.entity.AppUser" resultType="com.origin.data.mybatis.entity.AppUser">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <select id="find" parameterType="com.origin.data.mybatis.entity.AppUser" resultType="com.origin.data.mybatis.entity.AppUser">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <insert id="save" parameterType="com.origin.data.mybatis.entity.AppUser">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO OGN_APP_USER (
+                        <if test="mobile != null ">`mobile`,</if>
+                        <if test="pwd != null">`pwd`</if>
+		)
+		VALUES (
+
+                        <if test="mobile != null">#{mobile},</if>
+                        <if test="pwd != null">#{pwd}</if>
+
+		)
+    </insert>
+    <update id="update" parameterType="com.origin.data.mybatis.entity.AppUser" >
+        UPDATE OGN_APP_USER  SET
+         id=id
+                <if test="mobile != null">,mobile=#{mobile}</if>
+                <if test="pwd != null">,pwd=#{pwd}</if>
+        WHERE `id` = #{id}
+    </update>
+    <update id="updateBatch" parameterType="list" >
+        <foreach collection="list" item="item"  separator=";" >
+            update OGN_APP_USER
+            set id=id
+                    <if test="item.mobile != null">,mobile=#{mobile}</if>
+                    <if test="item.pwd != null">,pwd=#{pwd}</if>
+                where id=#{item.id}
+        </foreach>
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM OGN_APP_USER WHERE id=#{id}
+    </delete>
+</mapper>

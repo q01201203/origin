@@ -2,13 +2,12 @@ package com.origin.core.exception;
 
 
 
-import java.net.URL;
+import com.origin.core.util.XmlUtil;
+import org.jdom2.Element;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import com.origin.core.util.XmlUtil;
 
 public final class BusinessExceptionWapper
 {

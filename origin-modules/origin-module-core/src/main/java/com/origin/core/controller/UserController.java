@@ -212,6 +212,8 @@ public class UserController{
 				userService.update(user);
 			}else{
 				user.setType(0);
+				//lic
+				user.prePersist();
 				userService.save(user);
 			}
 			

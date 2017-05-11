@@ -1,16 +1,15 @@
 package com.origin.core.service.impl;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.dto.UserDTO;
 import com.origin.core.service.UserService;
 import com.origin.data.dao.IUserDao;
 import com.origin.data.entity.IUser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -33,8 +32,6 @@ public class UserServiceImpl implements UserService {
 	}
 	@Override
 	public void save(IUser user) {
-		//lic
-		user.prePersist();
 		userDao.save(user);
 	}
 	@Override
@@ -56,4 +53,5 @@ public class UserServiceImpl implements UserService {
 		}
 		userDao.updateBatch(updats);
 	}
+
 }
