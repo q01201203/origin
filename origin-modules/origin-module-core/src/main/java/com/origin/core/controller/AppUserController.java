@@ -1,9 +1,12 @@
 package com.origin.core.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
 import com.origin.core.dto.AppUserDTO;
 import com.origin.core.service.AppUserService;
+import com.origin.core.util.Constants;
+import com.origin.core.util.CustomToken;
 import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppUser;
 import org.slf4j.Logger;
@@ -21,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Joe
  */
 @Controller
-@RequestMapping("/appUser")
+@RequestMapping("/app")
 public class AppUserController {
 
 	Logger log = LoggerFactory.getLogger(AppUserController.class);
@@ -29,9 +32,21 @@ public class AppUserController {
 	private AppUserService appUserService;
 
 
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/user/login")
 	@ResponseBody
 	public String login(HttpServletRequest req) throws Exception {
+		int uid = (int) req.getAttribute("uid");
+		int authority = (int) req.getAttribute("authority");
+		System.out.println("lic uid = "+ uid +" authority = "+authority);
+		if (!CustomToken.check(authority, Constants.AHORITY_LOW)){
+			return JSON.toJSONString(Result.create(ResultCode.SSO_PERMISSION_ERROR));
+		}
+		if (req.getAttribute("uid")!=null && req.getAttribute("authority")!=null){
+
+		}else {
+			return JSON.toJSONString(Result.create(ResultCode.VALIDATE_ERROR));
+		}
+
 		String mobile = (String) req.getParameter("umobile");
 		String pwd = (String) req.getParameter("upwd");
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);

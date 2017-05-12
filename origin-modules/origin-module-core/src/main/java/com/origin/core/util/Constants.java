@@ -17,4 +17,9 @@ public class Constants {
 	public static final String MENU_UPDATE_PWD = "修改密码";
 	public static final String MENU_UPDATE_SKIN = "换肤管理";
 	public static final Integer DEFAULT_PAGESIZE = 10;
+
+	//lic
+	public static final Integer AHORITY_LOW = 100;
+	public static final Integer AHORITY_MEDIUM = 101;
+	public static final Integer AHORITY_HIGH = 102;
 }

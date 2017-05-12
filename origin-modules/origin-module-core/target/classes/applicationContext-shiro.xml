@@ -76,8 +76,7 @@
 	             /forget**/** = anon
 	             /wap/** = anon
 	             /**/wap/** = anon
-				 /app**/ = anon
-				 /app**/** = anon
+				 /app/** = anon
 	             /** = rememberAuthFilter
 	        </value>  
 	    </property>
