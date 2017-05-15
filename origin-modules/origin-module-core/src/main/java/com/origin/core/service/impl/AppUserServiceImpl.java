@@ -51,4 +51,10 @@ public List<IAppUser> find(IAppUser appUser) {
             return Result.createErrorResult();
         }
     }
+
+    @Override
+    public Result saveRegisterInfo(IAppUser appUser) {
+        save(appUser);
+        return Result.createSuccessResult();
+    }
 }

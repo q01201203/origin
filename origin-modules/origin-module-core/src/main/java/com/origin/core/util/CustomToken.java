@@ -1,6 +1,11 @@
 package com.origin.core.util;
 
+import com.alibaba.fastjson.JSON;
+import com.origin.common.constants.ResultCode;
+import com.origin.common.model.mybatis.Result;
 import com.origin.common.util.BASE64Util;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by lc on 2017/5/12.
@@ -30,5 +35,20 @@ public class CustomToken {
             return true;
         }
         return false;
+    }
+
+    public static String tokenValidate(HttpServletRequest request){
+        Integer uid = (Integer) request.getAttribute("uid");
+        Integer authority = (Integer) request.getAttribute("authority");
+        System.out.println("lic uid = "+ uid +" authority = "+authority);
+        if (uid!=null && authority!=null){
+            if (!check(authority, Constants.AHORITY_LOW)){
+                return JSON.toJSONString(Result.create(ResultCode.SSO_PERMISSION_ERROR));
+            }else {
+                return Constants.SUCCESS;
+            }
+        }else {
+            return JSON.toJSONString(Result.create(ResultCode.VALIDATE_ERROR));
+        }
     }
 }

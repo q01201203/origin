@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="utf-8" %>
+<%@ page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@ include file="../common/common.jsp" %>
@@ -52,6 +52,9 @@
                                 <span></span>
                             </td>
                             <td>
+                                <span></span>
+                            </td>
+                            <td>
                                 <span>操作</span>
                             </td>
                         </tr>
@@ -87,6 +90,11 @@
                                             </div>
                                         </td>
                                         <td>
+                                            <div class="t_text tc">
+                                                ${r.createDate  }
+                                            </div>
+                                        </td>
+                                        <td>
                                             <div class="t_link">
                                                 <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
                                                 <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>
@@ -97,7 +105,7 @@
                             </c:when>
                             <c:otherwise>
                                 <tr>
-                                    <td colspan="6">
+                                    <td colspan="7">
                                         <div class="J_null mt40">
                                             <img src="${ctx }/static/images/null.png">
                                             <p>暂无相关数据</p>
@@ -109,7 +117,6 @@
                         </tbody>
                     </table>
                 </div>
-                <%@ include file="../common/pager.jsp"%>
             </div>
         </form>
     </div>

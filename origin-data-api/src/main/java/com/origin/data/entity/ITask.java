@@ -1,5 +1,6 @@
 package com.origin.data.entity;
 
+import java.util.Date;
 import java.io.Serializable;
 
 /**
@@ -29,5 +30,9 @@ public final static Integer STATUS_NO = 0; //不可用
  Integer getState();
 
   void setState(Integer state);
+
+ Date getCreateDate();
+
+  void setCreateDate(Date createDate);
 
 }

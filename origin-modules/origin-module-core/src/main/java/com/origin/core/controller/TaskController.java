@@ -1,7 +1,6 @@
 package com.origin.core.controller;
 
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.origin.common.dto.AjaxResult;
 import com.origin.core.dto.TaskDTO;
 import com.origin.core.service.TaskService;
@@ -17,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -38,6 +39,7 @@ public class TaskController {
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
 		String state = request.getParameter("state");
+		String createDate = request.getParameter("createDate");
 		String currentPageStr = request.getParameter("currentPage");
 		String pageSizeStr = request.getParameter("pageSize");
 
@@ -62,11 +64,15 @@ public class TaskController {
 		if(StringUtils.isNotBlank(state)){
 			params.setState( Integer.parseInt(state));
 		}
+		if(StringUtils.isNotBlank(createDate)){
+			try {
+				params.setCreateDate(new SimpleDateFormat().parse(createDate));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		}
 		PageHelper.startPage(currentPage, pageSize);
 		List<ITask> tasks = taskService.find(params);
-		//lic
-		PageInfo<ITask> page = new PageInfo(tasks);
-		model.addAttribute("page", page);
     	model.addAttribute("tasks", tasks);
     	model.addAttribute("queryDTO", params);
     	model.addAttribute(Constants.MENU_NAME, "task列表");
@@ -94,6 +100,7 @@ public class TaskController {
     		String name = request.getParameter("name");
     		String type = request.getParameter("type");
     		String state = request.getParameter("state");
+    		String createDate = request.getParameter("createDate");
     		ITask task = new TaskDTO();
     		if(StringUtils.isNotBlank(id)){
 				task = taskService.findById(Integer.parseInt(id));
@@ -103,6 +110,7 @@ public class TaskController {
 			task.setName(name);
 			task.setType( Integer.parseInt(type));
 			task.setState( Integer.parseInt(state));
+			task.setCreateDate(new SimpleDateFormat().parse(createDate));
     		if(StringUtils.isNotBlank(id)){
 				taskService.update(task);
     		}else{

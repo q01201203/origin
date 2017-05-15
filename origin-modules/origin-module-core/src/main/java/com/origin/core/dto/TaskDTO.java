@@ -1,5 +1,6 @@
 package com.origin.core.dto;
 
+import java.util.Date;
 
 import com.origin.data.entity.ITask;
 
@@ -17,6 +18,8 @@ private String name;//;
 private Integer type;//;
     /**  */
 private Integer state;//;
+    /**  */
+private Date createDate;//;
 public TaskDTO(){
 }
 
@@ -57,6 +60,14 @@ public void setState(Integer state) {
 this.state = state;
 }
 
+public Date getCreateDate() {
+return this.createDate;
+}
+
+public void setCreateDate(Date createDate) {
+this.createDate = createDate;
+}
+
 	public boolean equals(Object object) {
 		if (object == null) {
 			return false;
@@ -81,6 +92,7 @@ this.state = state;
 		+",name="+this.getName()
 		+",type="+this.getType()
 		+",state="+this.getState()
+		+",createDate="+this.getCreateDate()
 		+"]";
 	}
 }

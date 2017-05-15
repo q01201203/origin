@@ -13,4 +13,5 @@ public interface AppUserService {
     IAppUser findById(Integer id);
     List<IAppUser> find(IAppUser appUser);
     Result login(IAppUser appUser);
+    Result saveRegisterInfo(IAppUser appUser);
 }

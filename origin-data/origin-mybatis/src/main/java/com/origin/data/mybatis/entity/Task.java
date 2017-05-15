@@ -1,14 +1,15 @@
 package com.origin.data.mybatis.entity;
 
-
 import com.origin.data.entity.ITask;
+
+import java.util.Date;
 
 /**
  * 
  */
 public class Task implements ITask {
 
-	private static final long serialVersionUID = 59272846677378401L;
+	private static final long serialVersionUID = 10151979602061590L;
 	
 	/**  */
 	private Integer id;//;
@@ -18,6 +19,8 @@ public class Task implements ITask {
 	private Integer type;//;
 	/**  */
 	private Integer state;//;
+	/**  */
+	private Date createDate;//;
 	
 	
 	public Integer getId() {
@@ -52,6 +55,14 @@ public class Task implements ITask {
 		this.state = state;
 	}
 	
+	public Date getCreateDate() {
+		return this.createDate;
+	}
+	
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	
 	public boolean equals(Object object) {
 		if (object == null) {
 			return false;
@@ -76,6 +87,7 @@ public class Task implements ITask {
 		+",name="+this.getName()
 		+",type="+this.getType()
 		+",state="+this.getState()
+		+",createDate="+this.getCreateDate()
 		+"]";
 	}
 }

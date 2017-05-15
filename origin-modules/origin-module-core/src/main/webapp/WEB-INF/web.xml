@@ -51,7 +51,7 @@
 		<filter-class>com.origin.core.filter.AppTokenFilter</filter-class>
 		<init-param>
 			<param-name>excludedPaths</param-name>
-			<param-value>/app/user/login</param-value>
+			<param-value>/app/user/login,/app/user/register</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>

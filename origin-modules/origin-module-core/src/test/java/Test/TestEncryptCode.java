@@ -30,6 +30,5 @@ public class TestEncryptCode {
 
         String s = "ssdf";
         String[] strs = s.split(",");
-
     }
 }

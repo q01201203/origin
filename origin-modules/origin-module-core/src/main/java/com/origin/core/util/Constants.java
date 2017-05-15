@@ -22,4 +22,5 @@ public class Constants {
 	public static final Integer AHORITY_LOW = 100;
 	public static final Integer AHORITY_MEDIUM = 101;
 	public static final Integer AHORITY_HIGH = 102;
+	public static final String SUCCESS = "success";
 }

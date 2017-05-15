@@ -13,7 +13,8 @@
             fields : {
 									name : ':required;length[~20]',
 					type : ':required;length[~20]',
-					state : ':required;length[~20]'
+					state : ':required;length[~20]',
+					createDate : ':required;length[~20]'
             },
             valid : function(form){
                 var laodIdx = layer.load();
@@ -80,6 +81,16 @@
                             <div class="J_toolsBar fl">
                                 <div class="t_text w200 ml10">
                                     <input type="text" name="state" value="${task.state }" maxlength="20"/>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="l_title w200"> </td>
+                        <td>
+                            <div class="J_toolsBar fl">
+                                <div class="t_text w200 ml10">
+                                    <input type="text" name="createDate" value="${task.createDate }" maxlength="20"/>
                                 </div>
                             </div>
                         </td>
