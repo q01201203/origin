@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.origin.data.mybatis.dao.AppValidcodeDao">
+	<sql id="selectPart">
+        SELECT
+        		    id,
+        		    mobile,
+        		    validcode,
+        		    type,
+        		    create_date,
+                    status
+        FROM OGN_APP_VALIDCODE
+        where 1=1
+	</sql>
+    <sql id="queryParams">
+			<if test="id != null">AND id=#{id}</if>
+			<if test="mobile != null">AND mobile=#{mobile}</if>
+			<if test="validcode != null">AND validcode=#{validcode}</if>
+			<if test="type != null">AND type=#{type}</if>
+			<if test="createDate != null">AND create_date=#{createDate}</if>
+			<if test="status != null">AND status=#{status}</if>
+    </sql>
+    <resultMap type="com.origin.data.mybatis.entity.AppValidcode" id="appValidcodeMap">
+    	<id property="id" column="id" />
+    	<result property="id" column="id"/>
+    	<result property="mobile" column="mobile"/>
+    	<result property="validcode" column="validcode"/>
+    	<result property="type" column="type"/>
+    	<result property="createDate" column="create_date"/>
+    	<result property="status" column="status"/>
+    </resultMap>
+    <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppValidcode">
+        <include refid="selectPart"/>
+        AND id=#{0}
+    </select>
+    <select id="findFirst" parameterType="com.origin.data.mybatis.entity.AppValidcode" resultType="com.origin.data.mybatis.entity.AppValidcode">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <select id="find" parameterType="com.origin.data.mybatis.entity.AppValidcode" resultType="com.origin.data.mybatis.entity.AppValidcode">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <insert id="save" parameterType="com.origin.data.mybatis.entity.AppValidcode">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO OGN_APP_VALIDCODE (
+                        <if test="mobile != null ">`mobile`</if>
+                        <if test="validcode != null ">,`validcode`</if>
+                        <if test="type != null ">,`type`</if>
+                        <if test="createDate != null ">,`create_date`</if>
+                        <if test="status != null">,`status`</if>
+		)
+		VALUES (
+
+                        <if test="mobile != null">#{mobile}</if>
+                        <if test="validcode != null">,#{validcode}</if>
+                        <if test="type != null">,#{type}</if>
+                        <if test="createDate != null">,#{createDate}</if>
+                        <if test="status != null">,#{status}</if>
+
+		)
+    </insert>
+    <update id="update" parameterType="com.origin.data.mybatis.entity.AppValidcode" >
+        UPDATE OGN_APP_VALIDCODE  SET
+         id=id
+                <if test="mobile != null">,mobile=#{mobile}</if>
+                <if test="validcode != null">,validcode=#{validcode}</if>
+                <if test="type != null">,type=#{type}</if>
+                <if test="createDate != null">,create_date=#{createDate}</if>
+                <if test="status != null">,status=#{status}</if>
+        WHERE `id` = #{id}
+    </update>
+    <update id="updateBatch" parameterType="list" >
+        <foreach collection="list" item="item"  separator=";" >
+            update OGN_APP_VALIDCODE
+            set id=id
+                    <if test="item.mobile != null">,mobile=#{mobile}</if>
+                    <if test="item.validcode != null">,validcode=#{validcode}</if>
+                    <if test="item.type != null">,type=#{type}</if>
+                    <if test="item.createDate != null">,create_date=#{createDate}</if>
+                    <if test="item.status != null">,status=#{status}</if>
+                where id=#{item.id}
+        </foreach>
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM OGN_APP_VALIDCODE WHERE id=#{id}
+    </delete>
+</mapper>

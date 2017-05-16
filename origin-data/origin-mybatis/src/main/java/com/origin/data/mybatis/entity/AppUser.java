@@ -9,7 +9,7 @@ import com.origin.data.entity.IAppUser;
  */
 public class AppUser implements IAppUser {
 
-	private static final long serialVersionUID = 7025793322428016L;
+	private static final long serialVersionUID = 11483885360561668L;
 	
 	/**  */
 	private Integer id;//;
@@ -44,7 +44,7 @@ public class AppUser implements IAppUser {
 	/**  */
 	private String imgPortrait;//;
 	/**  */
-	private Integer group;//;
+	private Integer category;//;
 	
 	
 	public Integer getId() {
@@ -175,12 +175,12 @@ public class AppUser implements IAppUser {
 		this.imgPortrait = imgPortrait;
 	}
 	
-	public Integer getGroup() {
-		return this.group;
+	public Integer getCategory() {
+		return this.category;
 	}
 	
-	public void setGroup(Integer group) {
-		this.group = group;
+	public void setCategory(Integer category) {
+		this.category = category;
 	}
 	
 	public boolean equals(Object object) {
@@ -219,7 +219,7 @@ public class AppUser implements IAppUser {
 		+",userIdName="+this.getUserIdName()
 		+",userIdNumber="+this.getUserIdNumber()
 		+",imgPortrait="+this.getImgPortrait()
-		+",group="+this.getGroup()
+		+",category="+this.getCategory()
 		+"]";
 	}
 }

@@ -1,6 +1,5 @@
 package com.origin.core.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
 import com.origin.common.util.Md5Util;
@@ -32,35 +31,35 @@ public class AppUserController {
 
 	@RequestMapping(value = "/user/login")
 	@ResponseBody
-	public String login(HttpServletRequest request) throws Exception {
+	public Object login(HttpServletRequest request) throws Exception {
 		String mobile = (String) request.getParameter("mobile");
 		String pwd = (String) request.getParameter("pwd");
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
-			return JSON.toJSONString(Result.create(ResultCode.VALIDATE_ERROR));
+			return Result.create(ResultCode.VALIDATE_ERROR);
 		}
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
 		appUser.setPwd(Md5Util.generatePassword(pwd));
 		if (appUserService.findOne(appUser)){
-			return JSON.toJSONString(Result.createSuccessResult());
+			return Result.createSuccessResult();
 		}
-		return JSON.toJSONString(Result.createErrorResult());
+		return Result.createErrorResult().setMessage("用户名密码错误");
 	}
 
 	@RequestMapping(value = "/user/register")
 	@ResponseBody
-	public String register(HttpServletRequest request) throws Exception {
+	public Object register(HttpServletRequest request) throws Exception {
 		String mobile = (String) request.getParameter("mobile");
 		String pwd = (String) request.getParameter("pwd");
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
-			return JSON.toJSONString(Result.create(ResultCode.VALIDATE_ERROR));
+			return Result.create(ResultCode.VALIDATE_ERROR);
 		}
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
 		appUser.setPwd(Md5Util.generatePassword(pwd));
 		appUserService.save(appUser);
-		return JSON.toJSONString(Result.createSuccessResult());
+		return Result.createSuccessResult();
 	}
 }

@@ -1,8 +1,8 @@
 package com.origin.core.dto;
 
-import com.origin.data.entity.IAppUser;
-
 import java.util.Date;
+
+import com.origin.data.entity.IAppUser;
 
 /**
 * 
@@ -43,7 +43,7 @@ private String userIdNumber;//;
     /**  */
 private String imgPortrait;//;
     /**  */
-private Integer group;//;
+private Integer category;//;
 public AppUserDTO(){
 }
 
@@ -180,12 +180,12 @@ public void setImgPortrait(String imgPortrait) {
 this.imgPortrait = imgPortrait;
 }
 
-public Integer getGroup() {
-return this.group;
+public Integer getCategory() {
+return this.category;
 }
 
-public void setGroup(Integer group) {
-this.group = group;
+public void setCategory(Integer category) {
+this.category = category;
 }
 
 	public boolean equals(Object object) {
@@ -224,7 +224,7 @@ this.group = group;
 		+",userIdName="+this.getUserIdName()
 		+",userIdNumber="+this.getUserIdNumber()
 		+",imgPortrait="+this.getImgPortrait()
-		+",group="+this.getGroup()
+		+",category="+this.getCategory()
 		+"]";
 	}
 }

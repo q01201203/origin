@@ -19,7 +19,7 @@
         		    user_id_name,
         		    user_id_number,
         		    img_portrait,
-                    group
+                    category
         FROM OGN_APP_USER
         where 1=1
 	</sql>
@@ -40,7 +40,7 @@
 			<if test="userIdName != null">AND user_id_name=#{userIdName}</if>
 			<if test="userIdNumber != null">AND user_id_number=#{userIdNumber}</if>
 			<if test="imgPortrait != null">AND img_portrait=#{imgPortrait}</if>
-			<if test="group != null">AND group=#{group}</if>
+			<if test="category != null">AND category=#{category}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppUser" id="appUserMap">
     	<id property="id" column="id" />
@@ -60,7 +60,7 @@
     	<result property="userIdName" column="user_id_name"/>
     	<result property="userIdNumber" column="user_id_number"/>
     	<result property="imgPortrait" column="img_portrait"/>
-    	<result property="group" column="group"/>
+    	<result property="category" column="category"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppUser">
         <include refid="selectPart"/>
@@ -94,7 +94,7 @@
                         <if test="userIdName != null ">,`user_id_name`</if>
                         <if test="userIdNumber != null ">,`user_id_number`</if>
                         <if test="imgPortrait != null ">,`img_portrait`</if>
-                        <if test="group != null ">,`group`</if>
+                        <if test="category != null ">,`category`</if>
 		)
 		VALUES (
 
@@ -113,7 +113,7 @@
                         <if test="userIdName != null">,#{userIdName}</if>
                         <if test="userIdNumber != null">,#{userIdNumber}</if>
                         <if test="imgPortrait != null">,#{imgPortrait}</if>
-                        <if test="group != null">,#{group}</if>
+                        <if test="category != null">,#{category}</if>
 
 		)
     </insert>
@@ -135,7 +135,7 @@
                 <if test="userIdName != null">,user_id_name=#{userIdName}</if>
                 <if test="userIdNumber != null">,user_id_number=#{userIdNumber}</if>
                 <if test="imgPortrait != null">,img_portrait=#{imgPortrait}</if>
-                <if test="group != null">,group=#{group}</if>
+                <if test="category != null">,category=#{category}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
@@ -157,7 +157,7 @@
                     <if test="item.userIdName != null">,user_id_name=#{item.userIdName}</if>
                     <if test="item.userIdNumber != null">,user_id_number=#{item.userIdNumber}</if>
                     <if test="item.imgPortrait != null">,img_portrait=#{item.imgPortrait}</if>
-                    <if test="item.group != null">,group=#{item.group}</if>
+                    <if test="item.category != null">,category=#{item.category}</if>
                 where id=#{item.id}
         </foreach>
     </update>

@@ -79,8 +79,8 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setImgPortrait(String imgPortrait);
 
- Integer getGroup();
+ Integer getCategory();
 
-  void setGroup(Integer group);
+  void setCategory(Integer category);
 
 }
