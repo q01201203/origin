@@ -23,4 +23,6 @@ public class Constants {
 	public static final Integer AHORITY_MEDIUM = 101;
 	public static final Integer AHORITY_HIGH = 102;
 	public static final String SUCCESS = "success";
+	public static final Integer STATUS_OK = 1;
+	public static final Integer STATUS_NOT_OK = 0;
 }

@@ -1,6 +1,5 @@
 package com.origin.core.service;
 
-import com.origin.common.model.mybatis.Result;
 import com.origin.data.entity.IAppUser;
 
 import java.util.List;
@@ -11,7 +10,7 @@ public interface AppUserService {
     void delete(Integer id);
     void update(IAppUser appUser);
     IAppUser findById(Integer id);
+    IAppUser findFirst(IAppUser appUser);
+    boolean findOne(IAppUser appUser);
     List<IAppUser> find(IAppUser appUser);
-    Result login(IAppUser appUser);
-    Result saveRegisterInfo(IAppUser appUser);
 }

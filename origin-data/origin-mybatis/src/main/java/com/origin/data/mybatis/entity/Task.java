@@ -1,15 +1,15 @@
 package com.origin.data.mybatis.entity;
 
-import com.origin.data.entity.ITask;
-
 import java.util.Date;
+
+import com.origin.data.entity.ITask;
 
 /**
  * 
  */
 public class Task implements ITask {
 
-	private static final long serialVersionUID = 10151979602061590L;
+	private static final long serialVersionUID = 78386809918447879L;
 	
 	/**  */
 	private Integer id;//;

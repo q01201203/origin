@@ -1,25 +1,31 @@
 package com.origin.core.exception;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.origin.common.dto.AjaxResult;
+import com.origin.core.util.JsonUtil;
+import com.origin.core.util.WebUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
-import com.origin.common.dto.AjaxResult;
-import com.origin.core.util.JsonUtil;
-import com.origin.core.util.WebUtils;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Spring 全局异常处理 .自定义SimpleMappingExceptionResolver覆盖spring的SimpleMappingExceptionResolver.复写其doResolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)方法，通过修改该方法实现普通异常和ajax异常的处理
  */
 public class CustomSimpleMappingExceptionHandler extends SimpleMappingExceptionResolver {
 
+    //lic
+    Logger log = LoggerFactory.getLogger(CustomSimpleMappingExceptionHandler.class);
+
     @Override
     protected ModelAndView doResolveException(final HttpServletRequest request, final HttpServletResponse response, final Object handler, final Exception ex) {
+        //lic
+        System.out.println("lic CustomSimpleMappingExceptionHandler");
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         ResponseBody body = handlerMethod.getMethodAnnotation(ResponseBody.class);
         // 判断有没有@ResponseBody的注解没有的话调用父方法
@@ -41,6 +47,8 @@ public class CustomSimpleMappingExceptionHandler extends SimpleMappingExceptionR
             // 没有封装过的异常
             //WebUtils.writeToBrowser(JsonUtil.object2Json(new JsonResultBean(JsonResultBean.FAULT, "系统错误，请联系管理员！")), response);
         }
+        //lic
+        log.debug(ex.getMessage(),ex);
         WebUtils.writeToBrowser(JsonUtil.object2Json(ajaxResult), response);
         return mv;
     }

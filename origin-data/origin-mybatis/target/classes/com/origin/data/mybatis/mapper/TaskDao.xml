@@ -6,7 +6,8 @@
         		    id,
         		    name,
         		    type,
-                    state
+        		    state,
+                    create_date
         FROM OGN_TASK
         where 1=1
 	</sql>
@@ -15,6 +16,7 @@
 			<if test="name != null">AND name=#{name}</if>
 			<if test="type != null">AND type=#{type}</if>
 			<if test="state != null">AND state=#{state}</if>
+			<if test="createDate != null">AND create_date=#{createDate}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.Task" id="taskMap">
     	<id property="id" column="id" />
@@ -22,6 +24,7 @@
     	<result property="name" column="name"/>
     	<result property="type" column="type"/>
     	<result property="state" column="state"/>
+    	<result property="createDate" column="create_date"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.Task">
         <include refid="selectPart"/>
@@ -42,13 +45,15 @@
         INSERT INTO OGN_TASK (
                         <if test="name != null ">`name`,</if>
                         <if test="type != null ">`type`,</if>
-                        <if test="state != null">`state`</if>
+                        <if test="state != null ">`state`,</if>
+                        <if test="createDate != null">`create_date`</if>
 		)
 		VALUES (
 
                         <if test="name != null">#{name},</if>
                         <if test="type != null">#{type},</if>
-                        <if test="state != null">#{state}</if>
+                        <if test="state != null">#{state},</if>
+                        <if test="createDate != null">#{createDate}</if>
 
 		)
     </insert>
@@ -58,6 +63,7 @@
                 <if test="name != null">,name=#{name}</if>
                 <if test="type != null">,type=#{type}</if>
                 <if test="state != null">,state=#{state}</if>
+                <if test="createDate != null">,create_date=#{createDate}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
@@ -67,6 +73,7 @@
                     <if test="item.name != null">,name=#{name}</if>
                     <if test="item.type != null">,type=#{type}</if>
                     <if test="item.state != null">,state=#{state}</if>
+                    <if test="item.createDate != null">,create_date=#{createDate}</if>
                 where id=#{item.id}
         </foreach>
     </update>

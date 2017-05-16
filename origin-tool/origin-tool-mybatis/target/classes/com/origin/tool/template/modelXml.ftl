@@ -43,10 +43,10 @@
         INSERT INTO ${tableName} (
 			<#list fieldList as field>
                 <#if field.fieldName != "id">
-                    <#if field_has_next>
-                        <if test="${field.fieldName} != null ">`${field.columnName}`,</if>
-                    <#else>
+                    <#if field_index == 1>
                         <if test="${field.fieldName} != null">`${field.columnName}`</if>
+                    <#else >
+                        <if test="${field.fieldName} != null ">,`${field.columnName}`</if>
                     </#if>
                 </#if>
 			</#list>
@@ -55,10 +55,10 @@
 
 			<#list fieldList as field  >
                 <#if field.fieldName != "id">
-                    <#if field_has_next>
-                        <if test="${field.fieldName} != null">&{${field.fieldName}},</if>
-                    <#else>
+                    <#if field_index == 1>
                         <if test="${field.fieldName} != null">&{${field.fieldName}}</if>
+                    <#else>
+                        <if test="${field.fieldName} != null">,&{${field.fieldName}}</if>
                     </#if>
                 </#if>
 			</#list>
@@ -81,7 +81,7 @@
             set id=id
             <#list fieldList as field>
                 <#if field.fieldName != "id">
-                    <if test="item.${field.fieldName} != null">,${field.columnName}=&{${field.fieldName}}</if>
+                    <if test="item.${field.fieldName} != null">,${field.columnName}=&{item.${field.fieldName}}</if>
                 </#if>
             </#list>
                 where id=&{item.id}

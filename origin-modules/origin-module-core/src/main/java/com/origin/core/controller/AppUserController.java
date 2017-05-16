@@ -32,9 +32,9 @@ public class AppUserController {
 
 	@RequestMapping(value = "/user/login")
 	@ResponseBody
-	public String login(HttpServletRequest req) throws Exception {
-		String mobile = (String) req.getParameter("umobile");
-		String pwd = (String) req.getParameter("upwd");
+	public String login(HttpServletRequest request) throws Exception {
+		String mobile = (String) request.getParameter("mobile");
+		String pwd = (String) request.getParameter("pwd");
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return JSON.toJSONString(Result.create(ResultCode.VALIDATE_ERROR));
@@ -42,15 +42,17 @@ public class AppUserController {
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
 		appUser.setPwd(Md5Util.generatePassword(pwd));
-		Result loginResult = appUserService.login(appUser);
-		return JSON.toJSONString(loginResult);
+		if (appUserService.findOne(appUser)){
+			return JSON.toJSONString(Result.createSuccessResult());
+		}
+		return JSON.toJSONString(Result.createErrorResult());
 	}
 
 	@RequestMapping(value = "/user/register")
 	@ResponseBody
-	public String register(HttpServletRequest req) throws Exception {
-		String mobile = (String) req.getParameter("umobile");
-		String pwd = (String) req.getParameter("upwd");
+	public String register(HttpServletRequest request) throws Exception {
+		String mobile = (String) request.getParameter("mobile");
+		String pwd = (String) request.getParameter("pwd");
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return JSON.toJSONString(Result.create(ResultCode.VALIDATE_ERROR));
@@ -58,7 +60,7 @@ public class AppUserController {
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
 		appUser.setPwd(Md5Util.generatePassword(pwd));
-		Result loginResult = appUserService.saveRegisterInfo(appUser);
-		return JSON.toJSONString(loginResult);
+		appUserService.save(appUser);
+		return JSON.toJSONString(Result.createSuccessResult());
 	}
 }

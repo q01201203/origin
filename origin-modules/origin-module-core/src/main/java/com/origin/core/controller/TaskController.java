@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -65,11 +64,7 @@ public class TaskController {
 			params.setState( Integer.parseInt(state));
 		}
 		if(StringUtils.isNotBlank(createDate)){
-			try {
-				params.setCreateDate(new SimpleDateFormat().parse(createDate));
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+			params.setCreateDate(new Date());
 		}
 		PageHelper.startPage(currentPage, pageSize);
 		List<ITask> tasks = taskService.find(params);
@@ -110,7 +105,7 @@ public class TaskController {
 			task.setName(name);
 			task.setType( Integer.parseInt(type));
 			task.setState( Integer.parseInt(state));
-			task.setCreateDate(new SimpleDateFormat().parse(createDate));
+			task.setCreateDate(new Date());
     		if(StringUtils.isNotBlank(id)){
 				taskService.update(task);
     		}else{
