@@ -46,22 +46,36 @@ public class AppValidcodeController {
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
 		switch (type){
-			case "1":
-				if (!appUserService.findOne(appUser)){
-					IAppValidcode appValidcode = new AppValidcodeDTO();
-					appValidcode.setMobile(mobile);
-					String validcode = "123456";
-					appValidcode.setValidcode(validcode);
-					appValidcode.setType(Integer.parseInt(type));
-					appValidcode.setCreateDate(new Date());
-					appValidcodeService.save(appValidcode);
-					System.out.println("lic i = "+appValidcode.getId());
-					return Result.createSuccessResult(validcode,"获取验证码成功");
+			case IAppValidcode.TYPE_REGISTER:
+				appUser = appUserService.findFirst(appUser);
+				if (appUser!=null){
+					String validcode = saveValidcode(mobile, type);
+					return Result.createSuccessResult(validcode,"发送验证码成功");
 				}else {
 					return Result.createErrorResult().setMessage("用户已存在");
 				}
+			case IAppValidcode.TYPE_RESETPWD:
+				appUser = appUserService.findFirst(appUser);
+				if (appUser!=null){
+					String validcode = saveValidcode(mobile, type);
+					return Result.createSuccessResult(validcode,"发送验证码成功");
+				}else {
+					return Result.createErrorResult().setMessage("用户不存在");
+				}
 		}
 		return Result.createErrorResult();
+	}
+
+	private String saveValidcode(String mobile, String type) {
+		IAppValidcode appValidcode = new AppValidcodeDTO();
+		appValidcode.setMobile(mobile);
+		String validcode = "123456";
+		appValidcode.setValidcode(validcode);
+		appValidcode.setType(Integer.parseInt(type));
+		appValidcode.setCreateDate(new Date());
+		appValidcodeService.save(appValidcode);
+		System.out.println("lic i = "+appValidcode.getId());
+		return validcode;
 	}
 
 	@RequestMapping(value = "/validcode/validate")

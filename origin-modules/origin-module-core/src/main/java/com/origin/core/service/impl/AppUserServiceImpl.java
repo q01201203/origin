@@ -40,16 +40,6 @@ return appUserDao.findByPK(id);
         return appUserDao.findFirst(appUser);
     }
 
-    public boolean findOne(IAppUser appUser){
-        IAppUser appUserResult = findFirst(appUser);
-        if (appUserResult!=null){
-            System.out.println("id = "+appUserResult.getId());
-            return true;
-        }
-        System.out.println("appUserResult = null");
-        return false;
-    }
-
     @Override
 public List<IAppUser> find(IAppUser appUser) {
     return appUserDao.find(appUser);

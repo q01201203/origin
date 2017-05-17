@@ -8,33 +8,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="add fastjson converters">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppValidcodeDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppValidcode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/dao/AppValidcodeDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppValidcode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppValidcodeDao.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppValidcodeDTO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppValidcodeService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppValidcodeServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appValidcode/appValidcode_list.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appValidcode/dialog/appValidcode_edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-common/target/classes/com/origin/common/model/mybatis/Result.class" afterPath="$PROJECT_DIR$/origin-common/target/classes/com/origin/common/model/mybatis/Result.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-common-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-common-1.0-SNAPSHOT.jar" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appValidcode/appValidcode_list.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appValidcode/dialog/appValidcode_edit.jsp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/model/mybatis/Result.java" afterPath="$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/model/mybatis/Result.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUser.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUser.java" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppValidcode.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppValidcode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppValidcodeDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppValidcodeDao.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserDTO.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/springmvc-servlet.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/springmvc-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/classes/springmvc-servlet.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/classes/springmvc-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/classes/springmvc-servlet.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/classes/springmvc-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppValidcodeService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppValidcodeService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppValidcodeServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppValidcodeServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/SimpleToken.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/SimpleToken.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/config.properties" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/config.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/origin-modules/origin-module-core/target/" />
     <ignored path="$PROJECT_DIR$/origin-tool/target/" />
@@ -73,58 +65,91 @@
       <file leaf-file-name="AppUserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="42" column="54" lean-forward="true" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+            <state relative-caret-position="-1615">
+              <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="130" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/TaskController.java">
+      <file leaf-file-name="AppMoneyDetailController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="107" column="40" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
+            <state relative-caret-position="585">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppPersonDetailController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppPersonDetailController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-75">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppValidcodeController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java">
+      <file leaf-file-name="IUserDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IUserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="985">
-              <caret line="71" column="58" lean-forward="false" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="58" />
+            <state relative-caret-position="100">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Result.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/model/mybatis/Result.java">
+      <file leaf-file-name="UserDao.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/UserDao.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="61" column="49" lean-forward="false" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
+            <state relative-caret-position="350">
+              <caret line="116" column="74" lean-forward="false" selection-start-line="116" selection-start-column="70" selection-end-line="116" selection-end-column="74" />
+              <folding>
+                <marker date="1494380435477" expanded="true" signature="231:453" ph="SELECT id,au... ogn_user" />
+                <marker date="1494380435477" expanded="true" signature="3460:4324" ph="update ogn_u... " />
+                <marker date="1494380435477" expanded="true" signature="4461:5494" ph="update ogn_u... " />
+                <marker date="1494380435477" expanded="true" signature="5645:5693" ph="update ogn_u... " />
+                <marker date="1494380435477" expanded="true" signature="5786:5821" ph="delete from " />
+                <marker date="1494380435477" expanded="true" signature="5969:6278" ph="SELECT id,au... " />
+                <marker date="1494380435477" expanded="true" signature="6392:6529" ph="SELECT ogn_r... ogn_user_role" />
+                <marker date="1494380435477" expanded="true" signature="6630:6675" ph="DELETE FROM " />
+                <marker date="1494380435477" expanded="true" signature="6742:6782" ph="DELETE FROM " />
+                <marker date="1494380435477" expanded="true" signature="6787:6839" ph="INSERT INTO ogn_user_role... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="springmvc-servlet.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/springmvc-servlet.xml">
+      <file leaf-file-name="FileUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/system/FileUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="58" column="2" lean-forward="true" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+            <state relative-caret-position="488">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext.xml">
+      <file leaf-file-name="CustomToken.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+            <state relative-caret-position="513">
+              <caret line="46" column="52" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -133,35 +158,19 @@
       <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1925">
-              <caret line="77" column="31" lean-forward="false" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="31" />
+            <state relative-caret-position="622">
+              <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResultCode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/constants/ResultCode.java">
+      <file leaf-file-name="AppValidcodeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+            <state relative-caret-position="160">
+              <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppUserDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-              <folding>
-                <marker date="1494924066854" expanded="true" signature="240:682" ph="SELECT id, m... " />
-                <marker date="1494924066854" expanded="true" signature="3749:6186" ph="SELECT LAST_... " />
-                <marker date="1494924066854" expanded="true" signature="6290:7571" ph="UPDATE OGN_A... " />
-                <marker date="1494924066854" expanded="true" signature="9188:9230" ph="update OGN_A... " />
-                <marker date="1494924066854" expanded="true" signature="9317:9356" ph="DELETE FROM " />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -177,9 +186,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>p</find>
-      <find>pro</find>
-      <find>prod</find>
       <find>produ</find>
       <find>produc</find>
       <find>product</find>
@@ -207,6 +213,9 @@
       <find>spring</find>
       <find>conv</find>
       <find>mes</find>
+      <find>appValidcodeMap</find>
+      <find>resultm</find>
+      <find>Integer authority = ((SimpleToken) tokenValidResult).getAuthority();</find>
     </findStrings>
     <replaceStrings>
       <replace>result</replace>
@@ -221,7 +230,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response63.json" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response39.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -239,36 +248,39 @@
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/shiro/RememberAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext-shiro.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/SimpleToken.java" />
-        <option value="$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/util/BASE64Util.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/exception/AuthorityException.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/JudgeAuthority.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/filter/AppTokenFilter.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/log4j2.xml" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/TestEncryptCode.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/Task.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/Constants.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/BasePermission.java" />
-        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppValidcodeDao.xml" />
         <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IBaseDao.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppValidcodeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppValidcodeService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/exception/CustomSimpleMappingExceptionHandler.java" />
         <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/modelXml.ftl" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserDTO.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/TaskController.java" />
-        <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/constants/ResultCode.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext.xml" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/springmvc-servlet.xml" />
         <option value="$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/model/mybatis/Result.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppValidcodeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppValidcodeService.java" />
+        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppValidcodeDao.xml" />
+        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppValidcode.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/SimpleToken.java" />
+        <option value="$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/util/BASE64Util.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
+        <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppPersonDetailController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java" />
       </list>
     </option>
   </component>
@@ -713,6 +725,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2041,9 +2055,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2054,6 +2066,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -2063,6 +2076,813 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/userInfo" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Authorization" />
+                <option name="value" value="My4xMDA=" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUsername" />
+                <option name="value" value="2312331" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUseraccout" />
+                <option name="value" value="5412012@qq.com" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="face" />
+                <option name="value" value="skdhfkshfdk" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idFrontImg" />
+                <option name="value" value="sdkfhsk" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idBackImg" />
+                <option name="value" value="sdfdeww" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idName" />
+                <option name="value" value="王小二" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idNumber" />
+                <option name="value" value="5112011202032020" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/addIdInfo" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Authorization" />
+                <option name="value" value="My4xMDA=" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUsername" />
+                <option name="value" value="2312331" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUseraccout" />
+                <option name="value" value="5412012@qq.com" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="face" />
+                <option name="value" value="skdhfkshfdk" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idFrontImg" />
+                <option name="value" value="sdkfhsk" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idBackImg" />
+                <option name="value" value="sdfdeww" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idName" />
+                <option name="value" value="王小二" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idNumber" />
+                <option name="value" value="5112011202032020" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="category" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/addIdInfo" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Authorization" />
+                <option name="value" value="My4xMDA=" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUsername" />
+                <option name="value" value="2312331" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUseraccout" />
+                <option name="value" value="5412012@qq.com" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="face" />
+                <option name="value" value="skdhfkshfdk" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idFrontImg" />
+                <option name="value" value="sdkfhsk" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idBackImg" />
+                <option name="value" value="sdfdeww" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idName" />
+                <option name="value" value="王小二" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="idNumber" />
+                <option name="value" value="5112011202032020" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/addFace" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Authorization" />
+                <option name="value" value="My4xMDA=" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUsername" />
+                <option name="value" value="2312331" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUseraccout" />
+                <option name="value" value="5412012@qq.com" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="face" />
+                <option name="value" value="skdhfkshfdk" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/addAlipayAccount" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Authorization" />
+                <option name="value" value="My4xMDA=" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUsername" />
+                <option name="value" value="2312331" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="alipayUseraccout" />
+                <option name="value" value="5412012@qq.com" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/updatemaxmoney" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Authorization" />
+                <option name="value" value="My4xMDA=" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Authorization" />
+                <option name="value" value="My4xMDA=\r\n" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/updatemaxmoney" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Authorization" />
+                <option name="value" value="My4xMDA=\r\n" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/login" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/updatemaxmoney" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/user/resetpwd" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114444" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="654321" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/validcode/validate" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114445" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="JSESSIONID" />
+                <option name="path" value="/origin" />
+                <option name="value" value="D08D5B95EF2300B2D7C8641AA3F400B4" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="origin/app/validcode/send" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="mobile" />
+                <option name="value" value="13611114445" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pwd" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="type" />
+                <option name="value" value="1" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="validcode" />
+                <option name="value" value="123456" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="biscuits">
             <list>
@@ -3711,6 +4531,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="" />
@@ -3723,7 +4546,8 @@
       <workItem from="1494495008615" duration="1943000" />
       <workItem from="1494552031431" duration="22221000" />
       <workItem from="1494816342415" duration="12017000" />
-      <workItem from="1494896672787" duration="24782000" />
+      <workItem from="1494896672787" duration="24868000" />
+      <workItem from="1494982015891" duration="22669000" />
     </task>
     <task id="LOCAL-00001" summary="delete product">
       <created>1494493589166</created>
@@ -3760,11 +4584,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494922655843</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add fastjson converters">
+      <created>1494928905505</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1494928905505</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83051000" />
+    <option name="totallyTimeSpent" value="105806000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -3787,6 +4618,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3802,9 +4634,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54121476" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23134328" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23400854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3812,6 +4643,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -3866,117 +4698,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="59" lean-forward="false" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext-tx.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="46" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/resources/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-275">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/exception/BusinessException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/exception/SystemException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext-exception.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="73" lean-forward="false" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/exception/BusinessExceptionWapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="26" column="49" lean-forward="true" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/BasePermission.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/UserRole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/RoleResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/Resource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-900">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3984,7 +4709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-700">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3992,7 +4716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4006,32 +4729,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/UserDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-850">
-          <caret line="5" column="54" lean-forward="false" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="54" />
-          <folding>
-            <marker date="1494380435477" expanded="true" signature="231:453" ph="SELECT id,au... ogn_user" />
-            <marker date="1494380435477" expanded="true" signature="3460:4324" ph="update ogn_u... " />
-            <marker date="1494380435477" expanded="true" signature="4461:5494" ph="update ogn_u... " />
-            <marker date="1494380435477" expanded="true" signature="5645:5693" ph="update ogn_u... " />
-            <marker date="1494380435477" expanded="true" signature="5786:5821" ph="delete from " />
-            <marker date="1494380435477" expanded="true" signature="5969:6278" ph="SELECT id,au... " />
-            <marker date="1494380435477" expanded="true" signature="6392:6529" ph="SELECT ogn_r... ogn_user_role" />
-            <marker date="1494380435477" expanded="true" signature="6630:6675" ph="DELETE FROM " />
-            <marker date="1494380435477" expanded="true" signature="6742:6782" ph="DELETE FROM " />
-            <marker date="1494380435477" expanded="true" signature="6787:6839" ph="INSERT INTO ogn_user_role... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/dao/TaskDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4043,35 +4744,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="48" column="49" lean-forward="false" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppUserDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IBaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4079,7 +4755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
           <caret line="49" column="13" lean-forward="false" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4087,7 +4762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-862">
           <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4095,7 +4769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="474">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4116,7 +4789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="499">
           <caret line="57" column="42" lean-forward="false" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4124,7 +4796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="74" lean-forward="true" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4132,35 +4803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppValidcodeDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1600">
-          <caret line="64" column="22" lean-forward="false" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="22" />
-          <folding>
-            <marker date="1494911554774" expanded="true" signature="245:439" ph="SELECT id, m... OGN_APP_VALIDCODE" />
-            <marker date="1494911554774" expanded="true" signature="2972:3384" ph="UPDATE OGN_A... " />
-            <marker date="1494911554774" expanded="true" signature="3527:3995" ph="update OGN_A... " />
-            <marker date="1494911554774" expanded="true" signature="4082:4126" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppValidcodeDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="75" lean-forward="false" selection-start-line="4" selection-start-column="75" selection-end-line="4" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppValidcode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -4173,109 +4815,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppValidcodeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-          <folding>
-            <element signature="e#530#531#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="33" lean-forward="true" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppValidcodeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#968#969#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1012#1013#0" expanded="true" />
-            <element signature="e#1030#1031#0" expanded="true" />
-            <element signature="e#1063#1064#0" expanded="true" />
-            <element signature="e#1079#1080#0" expanded="true" />
-            <element signature="e#1108#1109#0" expanded="true" />
-            <element signature="e#1130#1131#0" expanded="true" />
-            <element signature="e#1170#1171#0" expanded="true" />
-            <element signature="e#1194#1195#0" expanded="true" />
-            <element signature="e#1220#1221#0" expanded="true" />
-            <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1273#1274#0" expanded="true" />
-            <element signature="e#1291#1292#0" expanded="true" />
-            <element signature="e#1320#1321#0" expanded="true" />
-            <element signature="e#1342#1343#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1406#1407#0" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
-            <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#1509#1510#0" expanded="true" />
-            <element signature="e#1541#1542#0" expanded="true" />
-            <element signature="e#1572#1573#0" expanded="true" />
-            <element signature="e#1598#1599#0" expanded="true" />
-            <element signature="e#1644#1645#0" expanded="true" />
-            <element signature="e#1676#1677#0" expanded="true" />
-            <element signature="e#1709#1710#0" expanded="true" />
-            <element signature="e#1734#1735#0" expanded="true" />
-            <element signature="e#1781#1782#0" expanded="true" />
-            <element signature="e#1811#1812#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1867#1868#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
-            <element signature="e#1940#1941#0" expanded="true" />
-            <element signature="e#1977#1978#0" expanded="true" />
-            <element signature="e#2007#2008#0" expanded="true" />
-            <element signature="e#2063#2064#0" expanded="true" />
-            <element signature="e#2103#2104#0" expanded="true" />
-            <element signature="e#2142#2143#0" expanded="true" />
-            <element signature="e#2174#2175#0" expanded="true" />
-            <element signature="e#2234#2235#0" expanded="true" />
-            <element signature="e#2278#2279#0" expanded="true" />
-            <element signature="e#2308#2309#0" expanded="true" />
-            <element signature="e#2331#2332#0" expanded="true" />
-            <element signature="e#2373#2374#0" expanded="true" />
-            <element signature="e#2399#2400#0" expanded="true" />
-            <element signature="e#2432#2433#0" expanded="true" />
-            <element signature="e#2458#2459#0" expanded="true" />
-            <element signature="e#2506#2507#0" expanded="true" />
-            <element signature="e#2538#2539#0" expanded="true" />
-            <element signature="e#2570#2571#0" expanded="true" />
-            <element signature="e#2595#2596#0" expanded="true" />
-            <element signature="e#2641#2642#0" expanded="true" />
-            <element signature="e#2671#2672#0" expanded="true" />
-            <element signature="e#2704#2705#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-            <element signature="e#2778#2779#0" expanded="true" />
-            <element signature="e#2810#2811#0" expanded="true" />
-            <element signature="e#2845#2846#0" expanded="true" />
-            <element signature="e#2873#2874#0" expanded="true" />
-            <element signature="e#2925#2926#0" expanded="true" />
-            <element signature="e#2961#2962#0" expanded="true" />
-            <element signature="e#2995#2996#0" expanded="true" />
-            <element signature="e#3022#3023#0" expanded="true" />
-            <element signature="e#3072#3073#0" expanded="true" />
-            <element signature="e#3106#3107#0" expanded="true" />
-            <element signature="e#3138#3139#0" expanded="true" />
-            <element signature="e#3162#3163#0" expanded="true" />
-            <element signature="e#3207#3208#0" expanded="true" />
-            <element signature="e#3235#3236#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#968#969#0" expanded="false" />
+            <element signature="e#985#986#0" expanded="false" />
+            <element signature="e#1012#1013#0" expanded="false" />
+            <element signature="e#1030#1031#0" expanded="false" />
+            <element signature="e#1063#1064#0" expanded="false" />
+            <element signature="e#1079#1080#0" expanded="false" />
+            <element signature="e#1108#1109#0" expanded="false" />
+            <element signature="e#1130#1131#0" expanded="false" />
+            <element signature="e#1170#1171#0" expanded="false" />
+            <element signature="e#1194#1195#0" expanded="false" />
+            <element signature="e#1220#1221#0" expanded="false" />
+            <element signature="e#1239#1240#0" expanded="false" />
+            <element signature="e#1273#1274#0" expanded="false" />
+            <element signature="e#1291#1292#0" expanded="false" />
+            <element signature="e#1320#1321#0" expanded="false" />
+            <element signature="e#1342#1343#0" expanded="false" />
+            <element signature="e#1382#1383#0" expanded="false" />
+            <element signature="e#1406#1407#0" expanded="false" />
+            <element signature="e#1437#1438#0" expanded="false" />
+            <element signature="e#1463#1464#0" expanded="false" />
+            <element signature="e#1509#1510#0" expanded="false" />
+            <element signature="e#1541#1542#0" expanded="false" />
+            <element signature="e#1572#1573#0" expanded="false" />
+            <element signature="e#1598#1599#0" expanded="false" />
+            <element signature="e#1644#1645#0" expanded="false" />
+            <element signature="e#1676#1677#0" expanded="false" />
+            <element signature="e#1709#1710#0" expanded="false" />
+            <element signature="e#1734#1735#0" expanded="false" />
+            <element signature="e#1781#1782#0" expanded="false" />
+            <element signature="e#1811#1812#0" expanded="false" />
+            <element signature="e#1843#1844#0" expanded="false" />
+            <element signature="e#1867#1868#0" expanded="false" />
+            <element signature="e#1912#1913#0" expanded="false" />
+            <element signature="e#1940#1941#0" expanded="false" />
+            <element signature="e#1977#1978#0" expanded="false" />
+            <element signature="e#2007#2008#0" expanded="false" />
+            <element signature="e#2063#2064#0" expanded="false" />
+            <element signature="e#2103#2104#0" expanded="false" />
+            <element signature="e#2142#2143#0" expanded="false" />
+            <element signature="e#2174#2175#0" expanded="false" />
+            <element signature="e#2234#2235#0" expanded="false" />
+            <element signature="e#2278#2279#0" expanded="false" />
+            <element signature="e#2308#2309#0" expanded="false" />
+            <element signature="e#2331#2332#0" expanded="false" />
+            <element signature="e#2373#2374#0" expanded="false" />
+            <element signature="e#2399#2400#0" expanded="false" />
+            <element signature="e#2432#2433#0" expanded="false" />
+            <element signature="e#2458#2459#0" expanded="false" />
+            <element signature="e#2506#2507#0" expanded="false" />
+            <element signature="e#2538#2539#0" expanded="false" />
+            <element signature="e#2570#2571#0" expanded="false" />
+            <element signature="e#2595#2596#0" expanded="false" />
+            <element signature="e#2641#2642#0" expanded="false" />
+            <element signature="e#2671#2672#0" expanded="false" />
+            <element signature="e#2704#2705#0" expanded="false" />
+            <element signature="e#2730#2731#0" expanded="false" />
+            <element signature="e#2778#2779#0" expanded="false" />
+            <element signature="e#2810#2811#0" expanded="false" />
+            <element signature="e#2845#2846#0" expanded="false" />
+            <element signature="e#2873#2874#0" expanded="false" />
+            <element signature="e#2925#2926#0" expanded="false" />
+            <element signature="e#2961#2962#0" expanded="false" />
+            <element signature="e#2995#2996#0" expanded="false" />
+            <element signature="e#3022#3023#0" expanded="false" />
+            <element signature="e#3072#3073#0" expanded="false" />
+            <element signature="e#3106#3107#0" expanded="false" />
+            <element signature="e#3138#3139#0" expanded="false" />
+            <element signature="e#3162#3163#0" expanded="false" />
+            <element signature="e#3207#3208#0" expanded="false" />
+            <element signature="e#3235#3236#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4284,15 +4899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/constants/ResultCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4302,34 +4908,14 @@
           <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
           <folding>
             <marker date="1494924066854" expanded="true" signature="240:682" ph="SELECT id, m... " />
-            <marker date="1494924066854" expanded="true" signature="3749:6186" ph="SELECT LAST_... " />
-            <marker date="1494924066854" expanded="true" signature="6290:7571" ph="UPDATE OGN_A... " />
-            <marker date="1494924066854" expanded="true" signature="9188:9230" ph="update OGN_A... " />
-            <marker date="1494924066854" expanded="true" signature="9317:9356" ph="DELETE FROM " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/TaskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="107" column="40" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1925">
-          <caret line="77" column="31" lean-forward="false" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        <state relative-caret-position="450">
+          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -4346,39 +4932,270 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
           <caret line="86" column="90" lean-forward="false" selection-start-line="86" selection-start-column="87" selection-end-line="86" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/springmvc-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="58" column="2" lean-forward="false" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/JUnitLifecycle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-575">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IBaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppValidcodeDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding>
+            <marker date="1494987386909" expanded="true" signature="245:439" ph="SELECT id, m... OGN_APP_VALIDCODE" />
+            <marker date="1494987386909" expanded="true" signature="3073:3485" ph="UPDATE OGN_A... " />
+            <marker date="1494987386909" expanded="true" signature="3628:4096" ph="update OGN_A... " />
+            <marker date="1494987386909" expanded="true" signature="4183:4227" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppValidcodeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppValidcodeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="75" lean-forward="false" selection-start-line="4" selection-start-column="75" selection-end-line="4" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppValidcodeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="38" column="34" lean-forward="false" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="34" />
+          <folding>
+            <element signature="e#530#531#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppValidcode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-951">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/TaskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="103" column="13" lean-forward="true" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="30" column="59" lean-forward="false" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/filter/AppTokenFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="35" column="56" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/model/mybatis/Result.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="61" column="49" lean-forward="false" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
+        <state relative-caret-position="665">
+          <caret line="60" column="72" lean-forward="false" selection-start-line="60" selection-start-column="65" selection-end-line="60" selection-end-column="72" />
+          <folding>
+            <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/constants/ResultCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/SimpleToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/util/BASE64Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="29" column="63" lean-forward="false" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="46" column="52" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/system/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppPersonDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="51" column="7" lean-forward="false" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="985">
-          <caret line="71" column="58" lean-forward="false" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="58" />
+        <state relative-caret-position="160">
+          <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="42" column="54" lean-forward="true" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+        <state relative-caret-position="-1615">
+          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="130" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/springmvc-servlet.xml">
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppPersonDetailController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="58" column="2" lean-forward="true" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+        <state relative-caret-position="-75">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/UserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="116" column="74" lean-forward="false" selection-start-line="116" selection-start-column="70" selection-end-line="116" selection-end-column="74" />
+          <folding>
+            <marker date="1494380435477" expanded="true" signature="231:453" ph="SELECT id,au... ogn_user" />
+            <marker date="1494380435477" expanded="true" signature="3460:4324" ph="update ogn_u... " />
+            <marker date="1494380435477" expanded="true" signature="4461:5494" ph="update ogn_u... " />
+            <marker date="1494380435477" expanded="true" signature="5645:5693" ph="update ogn_u... " />
+            <marker date="1494380435477" expanded="true" signature="5786:5821" ph="delete from " />
+            <marker date="1494380435477" expanded="true" signature="5969:6278" ph="SELECT id,au... " />
+            <marker date="1494380435477" expanded="true" signature="6392:6529" ph="SELECT ogn_r... ogn_user_role" />
+            <marker date="1494380435477" expanded="true" signature="6630:6675" ph="DELETE FROM " />
+            <marker date="1494380435477" expanded="true" signature="6742:6782" ph="DELETE FROM " />
+            <marker date="1494380435477" expanded="true" signature="6787:6839" ph="INSERT INTO ogn_user_role... " />
+          </folding>
         </state>
       </provider>
     </entry>

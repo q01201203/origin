@@ -6,38 +6,45 @@ import java.io.Serializable;
 /**
 * 
 */
-public interface IAppValidcode extends Serializable {
+public interface IAppMoneyDetail extends Serializable {
 
 public final static Integer STATUS_YES = 1; //可用
 
 public final static Integer STATUS_NO = 0; //不可用
 
-public final static String TYPE_REGISTER = "1"; //注册
-public final static String TYPE_RESETPWD = "2"; //注册
+
 
 
  Integer getId();
 
   void setId(Integer id);
 
- String getMobile();
+ Date getCreateDate();
 
-  void setMobile(String mobile);
+  void setCreateDate(Date createDate);
 
- String getValidcode();
+ Integer getMoney();
 
-  void setValidcode(String validcode);
+  void setMoney(Integer money);
 
  Integer getType();
 
   void setType(Integer type);
 
- Date getCreateDate();
-
-  void setCreateDate(Date createDate);
-
  Integer getStatus();
 
   void setStatus(Integer status);
+
+ Integer getPayWay();
+
+  void setPayWay(Integer payWay);
+
+ Integer getPayTime();
+
+  void setPayTime(Integer payTime);
+
+ Integer getUid();
+
+  void setUid(Integer uid);
 
 }

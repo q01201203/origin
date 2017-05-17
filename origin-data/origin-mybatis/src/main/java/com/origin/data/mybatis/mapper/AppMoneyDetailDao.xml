@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.origin.data.mybatis.dao.AppMoneyDetailDao">
+	<sql id="selectPart">
+        SELECT
+        		    id,
+        		    create_date,
+        		    money,
+        		    type,
+        		    status,
+        		    pay_way,
+        		    pay_time,
+                    uid
+        FROM OGN_APP_MONEY_DETAIL
+        where 1=1
+	</sql>
+    <sql id="queryParams">
+			<if test="id != null">AND id=#{id}</if>
+			<if test="createDate != null">AND create_date=#{createDate}</if>
+			<if test="money != null">AND money=#{money}</if>
+			<if test="type != null">AND type=#{type}</if>
+			<if test="status != null">AND status=#{status}</if>
+			<if test="payWay != null">AND pay_way=#{payWay}</if>
+			<if test="payTime != null">AND pay_time=#{payTime}</if>
+			<if test="uid != null">AND uid=#{uid}</if>
+    </sql>
+    <resultMap type="com.origin.data.mybatis.entity.AppMoneyDetail" id="appMoneyDetailMap">
+    	<id property="id" column="id" />
+    	<result property="id" column="id"/>
+    	<result property="createDate" column="create_date"/>
+    	<result property="money" column="money"/>
+    	<result property="type" column="type"/>
+    	<result property="status" column="status"/>
+    	<result property="payWay" column="pay_way"/>
+    	<result property="payTime" column="pay_time"/>
+    	<result property="uid" column="uid"/>
+    </resultMap>
+    <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppMoneyDetail">
+        <include refid="selectPart"/>
+        AND id=#{0}
+    </select>
+    <select id="findFirst" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultType="com.origin.data.mybatis.entity.AppMoneyDetail">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <select id="find" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultType="com.origin.data.mybatis.entity.AppMoneyDetail">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <insert id="save" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO OGN_APP_MONEY_DETAIL (
+                        <if test="createDate != null">`create_date`</if>
+                        <if test="money != null ">,`money`</if>
+                        <if test="type != null ">,`type`</if>
+                        <if test="status != null ">,`status`</if>
+                        <if test="payWay != null ">,`pay_way`</if>
+                        <if test="payTime != null ">,`pay_time`</if>
+                        <if test="uid != null ">,`uid`</if>
+		)
+		VALUES (
+
+                        <if test="createDate != null">#{createDate}</if>
+                        <if test="money != null">,#{money}</if>
+                        <if test="type != null">,#{type}</if>
+                        <if test="status != null">,#{status}</if>
+                        <if test="payWay != null">,#{payWay}</if>
+                        <if test="payTime != null">,#{payTime}</if>
+                        <if test="uid != null">,#{uid}</if>
+
+		)
+    </insert>
+    <update id="update" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" >
+        UPDATE OGN_APP_MONEY_DETAIL  SET
+         id=id
+                <if test="createDate != null">,create_date=#{createDate}</if>
+                <if test="money != null">,money=#{money}</if>
+                <if test="type != null">,type=#{type}</if>
+                <if test="status != null">,status=#{status}</if>
+                <if test="payWay != null">,pay_way=#{payWay}</if>
+                <if test="payTime != null">,pay_time=#{payTime}</if>
+                <if test="uid != null">,uid=#{uid}</if>
+        WHERE `id` = #{id}
+    </update>
+    <update id="updateBatch" parameterType="list" >
+        <foreach collection="list" item="item"  separator=";" >
+            update OGN_APP_MONEY_DETAIL
+            set id=id
+                    <if test="item.createDate != null">,create_date=#{item.createDate}</if>
+                    <if test="item.money != null">,money=#{item.money}</if>
+                    <if test="item.type != null">,type=#{item.type}</if>
+                    <if test="item.status != null">,status=#{item.status}</if>
+                    <if test="item.payWay != null">,pay_way=#{item.payWay}</if>
+                    <if test="item.payTime != null">,pay_time=#{item.payTime}</if>
+                    <if test="item.uid != null">,uid=#{item.uid}</if>
+                where id=#{item.id}
+        </foreach>
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM OGN_APP_MONEY_DETAIL WHERE id=#{id}
+    </delete>
+</mapper>

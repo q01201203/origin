@@ -28,7 +28,7 @@ public class AppUserServiceImplTest {
         IAppUser appUser = new AppUserDTO();
         appUser.setMobile("13611112222");
         appUser.setPwd("123456");
-        assert appUserService.findOne(appUser)==true;
+        assert appUserService.findFirst(appUser).getId()==1;
     }
 
 }

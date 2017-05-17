@@ -11,6 +11,5 @@ public interface AppUserService {
     void update(IAppUser appUser);
     IAppUser findById(Integer id);
     IAppUser findFirst(IAppUser appUser);
-    boolean findOne(IAppUser appUser);
     List<IAppUser> find(IAppUser appUser);
 }

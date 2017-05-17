@@ -33,9 +33,11 @@
         <include refid="selectPart"/>
         AND id=#{0}
     </select>
+    <!--add lic 170517-->
     <select id="findFirst" parameterType="com.origin.data.mybatis.entity.AppValidcode" resultType="com.origin.data.mybatis.entity.AppValidcode">
         <include refid="selectPart"/>
         <include refid="queryParams"/>
+        AND create_date = (SELECT MAX(create_date) FROM ogn_app_validcode)
     </select>
     <select id="find" parameterType="com.origin.data.mybatis.entity.AppValidcode" resultType="com.origin.data.mybatis.entity.AppValidcode">
         <include refid="selectPart"/>

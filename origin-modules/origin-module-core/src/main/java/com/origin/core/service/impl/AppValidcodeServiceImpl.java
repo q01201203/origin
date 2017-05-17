@@ -40,14 +40,6 @@ return appValidcodeDao.findByPK(id);
         return appValidcodeDao.findFirst(appValidcode);
     }
 
-    public boolean findOne(IAppValidcode appValidcode){
-        IAppValidcode validcode = findFirst(appValidcode);
-        System.out.println("id = "+validcode.getId());
-        if (validcode!=null){
-            return true;
-        }
-        return false;
-    }
 @Override
 public List<IAppValidcode> find(IAppValidcode appValidcode) {
     return appValidcodeDao.find(appValidcode);

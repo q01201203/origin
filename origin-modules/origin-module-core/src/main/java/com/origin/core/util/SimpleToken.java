@@ -8,6 +8,14 @@ public class SimpleToken {
     private int id;
     private int authority;
 
+    public SimpleToken() {
+    }
+
+    public SimpleToken(int id, int authority) {
+        this.id = id;
+        this.authority = authority;
+    }
+
     public int getId() {
         return id;
     }

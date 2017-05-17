@@ -1,6 +1,5 @@
 package com.origin.core.util;
 
-import com.alibaba.fastjson.JSON;
 import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
 import com.origin.common.util.BASE64Util;
@@ -14,7 +13,7 @@ public class CustomToken {
 
     public static String generate(SimpleToken simpleToken) throws Exception {
         String str = simpleToken.getId()+"."+simpleToken.getAuthority();
-        return BASE64Util.encryptBASE64(str);
+        return BASE64Util.encryptBASE64(str).replaceAll("\r|\n", "");
     }
 
     public static SimpleToken parse(String str) throws Exception {
@@ -30,25 +29,25 @@ public class CustomToken {
         return simpleToken;
     }
 
-    public static boolean check(int uAhority,int needAhority){
-        if (uAhority>=needAhority){
+    public static boolean check(int uAhority,int needAthority){
+        if (uAhority>=needAthority){
             return true;
         }
         return false;
     }
 
-    public static String tokenValidate(HttpServletRequest request){
+    public static Object tokenValidate(HttpServletRequest request,int needAthority){
         Integer uid = (Integer) request.getAttribute("uid");
         Integer authority = (Integer) request.getAttribute("authority");
         System.out.println("lic uid = "+ uid +" authority = "+authority);
         if (uid!=null && authority!=null){
-            if (!check(authority, Constants.AHORITY_LOW)){
-                return JSON.toJSONString(Result.create(ResultCode.SSO_PERMISSION_ERROR));
+            if (!check(authority, needAthority)){
+                return Result.create(ResultCode.SSO_PERMISSION_ERROR);
             }else {
-                return Constants.SUCCESS;
+                return new SimpleToken(uid,authority);
             }
         }else {
-            return JSON.toJSONString(Result.create(ResultCode.VALIDATE_ERROR));
+            return Result.create(ResultCode.VALIDATE_ERROR);
         }
     }
 }

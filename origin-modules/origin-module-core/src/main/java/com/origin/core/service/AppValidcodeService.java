@@ -11,6 +11,5 @@ public interface AppValidcodeService {
     void update(IAppValidcode appValidcode);
     IAppValidcode findById(Integer id);
     IAppValidcode findFirst(IAppValidcode appValidcode);
-    boolean findOne(IAppValidcode appValidcode);
     List<IAppValidcode> find(IAppValidcode appValidcode);
 }
