@@ -9,22 +9,24 @@ import com.origin.data.entity.IAppMoneyDetail;
  */
 public class AppMoneyDetail implements IAppMoneyDetail {
 
-	private static final long serialVersionUID = 8761762141318296L;
+	private static final long serialVersionUID = 9328559145576475L;
 	
 	/**  */
 	private Integer id;//;
 	/**  */
 	private Date createDate;//;
 	/**  */
+	private Date updateDate;//;
+	/**  */
 	private Integer money;//;
 	/**  */
 	private Integer type;//;
 	/**  */
-	private Integer status;//;
+	private Integer status;// = Integer.valueOf(1);
 	/**  */
-	private Integer payWay;//;
+	private Integer repayWay;//;
 	/**  */
-	private Integer payTime;//;
+	private Integer repayTime;//;
 	/**  */
 	private Integer uid;//;
 	
@@ -43,6 +45,14 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 	
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+	
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
+	
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
 	
 	public Integer getMoney() {
@@ -69,20 +79,20 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 		this.status = status;
 	}
 	
-	public Integer getPayWay() {
-		return this.payWay;
+	public Integer getRepayWay() {
+		return this.repayWay;
 	}
 	
-	public void setPayWay(Integer payWay) {
-		this.payWay = payWay;
+	public void setRepayWay(Integer repayWay) {
+		this.repayWay = repayWay;
 	}
 	
-	public Integer getPayTime() {
-		return this.payTime;
+	public Integer getRepayTime() {
+		return this.repayTime;
 	}
 	
-	public void setPayTime(Integer payTime) {
-		this.payTime = payTime;
+	public void setRepayTime(Integer repayTime) {
+		this.repayTime = repayTime;
 	}
 	
 	public Integer getUid() {
@@ -115,11 +125,12 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 		return this.getClass().getName() + "["
 		+",id="+this.getId()
 		+",createDate="+this.getCreateDate()
+		+",updateDate="+this.getUpdateDate()
 		+",money="+this.getMoney()
 		+",type="+this.getType()
 		+",status="+this.getStatus()
-		+",payWay="+this.getPayWay()
-		+",payTime="+this.getPayTime()
+		+",repayWay="+this.getRepayWay()
+		+",repayTime="+this.getRepayTime()
 		+",uid="+this.getUid()
 		+"]";
 	}

@@ -5,11 +5,12 @@
         SELECT
         		    id,
         		    create_date,
+        		    update_date,
         		    money,
         		    type,
         		    status,
-        		    pay_way,
-        		    pay_time,
+        		    repay_way,
+        		    repay_time,
                     uid
         FROM OGN_APP_MONEY_DETAIL
         where 1=1
@@ -17,22 +18,24 @@
     <sql id="queryParams">
 			<if test="id != null">AND id=#{id}</if>
 			<if test="createDate != null">AND create_date=#{createDate}</if>
+			<if test="updateDate != null">AND update_date=#{updateDate}</if>
 			<if test="money != null">AND money=#{money}</if>
 			<if test="type != null">AND type=#{type}</if>
 			<if test="status != null">AND status=#{status}</if>
-			<if test="payWay != null">AND pay_way=#{payWay}</if>
-			<if test="payTime != null">AND pay_time=#{payTime}</if>
+			<if test="repayWay != null">AND repay_way=#{repayWay}</if>
+			<if test="repayTime != null">AND repay_time=#{repayTime}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppMoneyDetail" id="appMoneyDetailMap">
     	<id property="id" column="id" />
     	<result property="id" column="id"/>
     	<result property="createDate" column="create_date"/>
+    	<result property="updateDate" column="update_date"/>
     	<result property="money" column="money"/>
     	<result property="type" column="type"/>
     	<result property="status" column="status"/>
-    	<result property="payWay" column="pay_way"/>
-    	<result property="payTime" column="pay_time"/>
+    	<result property="repayWay" column="repay_way"/>
+    	<result property="repayTime" column="repay_time"/>
     	<result property="uid" column="uid"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppMoneyDetail">
@@ -53,21 +56,23 @@
         </selectKey>
         INSERT INTO OGN_APP_MONEY_DETAIL (
                         <if test="createDate != null">`create_date`</if>
+                        <if test="updateDate != null ">,`update_date`</if>
                         <if test="money != null ">,`money`</if>
                         <if test="type != null ">,`type`</if>
                         <if test="status != null ">,`status`</if>
-                        <if test="payWay != null ">,`pay_way`</if>
-                        <if test="payTime != null ">,`pay_time`</if>
+                        <if test="repayWay != null ">,`repay_way`</if>
+                        <if test="repayTime != null ">,`repay_time`</if>
                         <if test="uid != null ">,`uid`</if>
 		)
 		VALUES (
 
                         <if test="createDate != null">#{createDate}</if>
+                        <if test="updateDate != null">,#{updateDate}</if>
                         <if test="money != null">,#{money}</if>
                         <if test="type != null">,#{type}</if>
                         <if test="status != null">,#{status}</if>
-                        <if test="payWay != null">,#{payWay}</if>
-                        <if test="payTime != null">,#{payTime}</if>
+                        <if test="repayWay != null">,#{repayWay}</if>
+                        <if test="repayTime != null">,#{repayTime}</if>
                         <if test="uid != null">,#{uid}</if>
 
 		)
@@ -76,11 +81,12 @@
         UPDATE OGN_APP_MONEY_DETAIL  SET
          id=id
                 <if test="createDate != null">,create_date=#{createDate}</if>
+                <if test="updateDate != null">,update_date=#{updateDate}</if>
                 <if test="money != null">,money=#{money}</if>
                 <if test="type != null">,type=#{type}</if>
                 <if test="status != null">,status=#{status}</if>
-                <if test="payWay != null">,pay_way=#{payWay}</if>
-                <if test="payTime != null">,pay_time=#{payTime}</if>
+                <if test="repayWay != null">,repay_way=#{repayWay}</if>
+                <if test="repayTime != null">,repay_time=#{repayTime}</if>
                 <if test="uid != null">,uid=#{uid}</if>
         WHERE `id` = #{id}
     </update>
@@ -89,11 +95,12 @@
             update OGN_APP_MONEY_DETAIL
             set id=id
                     <if test="item.createDate != null">,create_date=#{item.createDate}</if>
+                    <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
                     <if test="item.money != null">,money=#{item.money}</if>
                     <if test="item.type != null">,type=#{item.type}</if>
                     <if test="item.status != null">,status=#{item.status}</if>
-                    <if test="item.payWay != null">,pay_way=#{item.payWay}</if>
-                    <if test="item.payTime != null">,pay_time=#{item.payTime}</if>
+                    <if test="item.repayWay != null">,repay_way=#{item.repayWay}</if>
+                    <if test="item.repayTime != null">,repay_time=#{item.repayTime}</if>
                     <if test="item.uid != null">,uid=#{item.uid}</if>
                 where id=#{item.id}
         </foreach>

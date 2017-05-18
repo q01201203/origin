@@ -12,7 +12,9 @@ public final static Integer STATUS_YES = 1; //可用
 
 public final static Integer STATUS_NO = 0; //不可用
 
+ public final static Integer TYPE_BORROW = 1; //借款
 
+ public final static Integer TYPE_REPAY = 2; //还款
 
 
  Integer getId();
@@ -22,6 +24,10 @@ public final static Integer STATUS_NO = 0; //不可用
  Date getCreateDate();
 
   void setCreateDate(Date createDate);
+
+ Date getUpdateDate();
+
+  void setUpdateDate(Date updateDate);
 
  Integer getMoney();
 
@@ -35,13 +41,13 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setStatus(Integer status);
 
- Integer getPayWay();
+ Integer getRepayWay();
 
-  void setPayWay(Integer payWay);
+  void setRepayWay(Integer repayWay);
 
- Integer getPayTime();
+ Integer getRepayTime();
 
-  void setPayTime(Integer payTime);
+  void setRepayTime(Integer repayTime);
 
  Integer getUid();
 

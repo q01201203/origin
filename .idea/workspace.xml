@@ -7,26 +7,16 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="add fastjson converters">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appValidcode/appValidcode_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appValidcode/dialog/appValidcode_edit.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" />
+    <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="add saveinfo api">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppValidcode.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppValidcode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppValidcodeDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppValidcodeDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppValidcodeService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppValidcodeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppValidcodeServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppValidcodeServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/SimpleToken.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/SimpleToken.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/TestEncryptCode.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/TestEncryptCode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/config.properties" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/config.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/origin-modules/origin-module-core/target/" />
     <ignored path="$PROJECT_DIR$/origin-tool/target/" />
@@ -62,11 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AppUserController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AppUserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1615">
-              <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="130" selection-end-column="9" />
+            <state relative-caret-position="134">
+              <caret line="216" column="44" lean-forward="false" selection-start-line="216" selection-start-column="35" selection-end-line="216" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -75,8 +65,8 @@
       <file leaf-file-name="AppMoneyDetailController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="1170">
+              <caret line="101" column="39" lean-forward="true" selection-start-line="101" selection-start-column="39" selection-end-line="109" selection-end-column="96" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,11 +74,41 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="IAppMoneyDetail.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="16" column="49" lean-forward="false" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AppPersonDetailController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppPersonDetailController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="863">
+              <caret line="176" column="68" lean-forward="true" selection-start-line="176" selection-start-column="8" selection-end-line="176" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/IndexController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -99,12 +119,14 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
               <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDao.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserDao.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/UserDao.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="350">
@@ -121,56 +143,6 @@
                 <marker date="1494380435477" expanded="true" signature="6742:6782" ph="DELETE FROM " />
                 <marker date="1494380435477" expanded="true" signature="6787:6839" ph="INSERT INTO ogn_user_role... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/system/FileUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomToken.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="46" column="52" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppValidcodeController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -229,9 +201,6 @@
       <projects_view />
     </option>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response39.json" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -252,7 +221,6 @@
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/JudgeAuthority.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/filter/AppTokenFilter.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/log4j2.xml" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/TestEncryptCode.java" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/Task.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/Constants.java" />
         <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/BasePermission.java" />
@@ -277,10 +245,12 @@
         <option value="$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/util/BASE64Util.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
         <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppPersonDetailController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/TestEncryptCode.java" />
+        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
       </list>
     </option>
   </component>
@@ -725,7 +695,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -2055,7 +2025,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4547,7 +4517,8 @@
       <workItem from="1494552031431" duration="22221000" />
       <workItem from="1494816342415" duration="12017000" />
       <workItem from="1494896672787" duration="24868000" />
-      <workItem from="1494982015891" duration="22669000" />
+      <workItem from="1494982015891" duration="23358000" />
+      <workItem from="1495070505369" duration="5142000" />
     </task>
     <task id="LOCAL-00001" summary="delete product">
       <created>1494493589166</created>
@@ -4591,11 +4562,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494928905505</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add saveinfo api">
+      <created>1495014975496</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1495014975496</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105806000" />
+    <option name="totallyTimeSpent" value="111637000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -4613,12 +4591,11 @@
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54121476" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275488" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18869936" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2899263" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -4629,12 +4606,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.324295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54121476" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5390456" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23400854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19402985" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -4642,7 +4618,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -4685,11 +4663,12 @@
     <MESSAGE value="add register function" />
     <MESSAGE value="add validcode and modify modelXml.ftl" />
     <MESSAGE value="add fastjson converters" />
-    <option name="LAST_COMMIT_MESSAGE" value="add fastjson converters" />
+    <MESSAGE value="add saveinfo api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add saveinfo api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -4698,37 +4677,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/Resource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-900">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-700">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/RoleResourceDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1494380435476" expanded="true" signature="296:382" ph="INSERT INTO ogn_role_resource... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/dao/TaskDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -4803,7 +4751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4811,7 +4758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-937">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4819,79 +4765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#968#969#0" expanded="false" />
-            <element signature="e#985#986#0" expanded="false" />
-            <element signature="e#1012#1013#0" expanded="false" />
-            <element signature="e#1030#1031#0" expanded="false" />
-            <element signature="e#1063#1064#0" expanded="false" />
-            <element signature="e#1079#1080#0" expanded="false" />
-            <element signature="e#1108#1109#0" expanded="false" />
-            <element signature="e#1130#1131#0" expanded="false" />
-            <element signature="e#1170#1171#0" expanded="false" />
-            <element signature="e#1194#1195#0" expanded="false" />
-            <element signature="e#1220#1221#0" expanded="false" />
-            <element signature="e#1239#1240#0" expanded="false" />
-            <element signature="e#1273#1274#0" expanded="false" />
-            <element signature="e#1291#1292#0" expanded="false" />
-            <element signature="e#1320#1321#0" expanded="false" />
-            <element signature="e#1342#1343#0" expanded="false" />
-            <element signature="e#1382#1383#0" expanded="false" />
-            <element signature="e#1406#1407#0" expanded="false" />
-            <element signature="e#1437#1438#0" expanded="false" />
-            <element signature="e#1463#1464#0" expanded="false" />
-            <element signature="e#1509#1510#0" expanded="false" />
-            <element signature="e#1541#1542#0" expanded="false" />
-            <element signature="e#1572#1573#0" expanded="false" />
-            <element signature="e#1598#1599#0" expanded="false" />
-            <element signature="e#1644#1645#0" expanded="false" />
-            <element signature="e#1676#1677#0" expanded="false" />
-            <element signature="e#1709#1710#0" expanded="false" />
-            <element signature="e#1734#1735#0" expanded="false" />
-            <element signature="e#1781#1782#0" expanded="false" />
-            <element signature="e#1811#1812#0" expanded="false" />
-            <element signature="e#1843#1844#0" expanded="false" />
-            <element signature="e#1867#1868#0" expanded="false" />
-            <element signature="e#1912#1913#0" expanded="false" />
-            <element signature="e#1940#1941#0" expanded="false" />
-            <element signature="e#1977#1978#0" expanded="false" />
-            <element signature="e#2007#2008#0" expanded="false" />
-            <element signature="e#2063#2064#0" expanded="false" />
-            <element signature="e#2103#2104#0" expanded="false" />
-            <element signature="e#2142#2143#0" expanded="false" />
-            <element signature="e#2174#2175#0" expanded="false" />
-            <element signature="e#2234#2235#0" expanded="false" />
-            <element signature="e#2278#2279#0" expanded="false" />
-            <element signature="e#2308#2309#0" expanded="false" />
-            <element signature="e#2331#2332#0" expanded="false" />
-            <element signature="e#2373#2374#0" expanded="false" />
-            <element signature="e#2399#2400#0" expanded="false" />
-            <element signature="e#2432#2433#0" expanded="false" />
-            <element signature="e#2458#2459#0" expanded="false" />
-            <element signature="e#2506#2507#0" expanded="false" />
-            <element signature="e#2538#2539#0" expanded="false" />
-            <element signature="e#2570#2571#0" expanded="false" />
-            <element signature="e#2595#2596#0" expanded="false" />
-            <element signature="e#2641#2642#0" expanded="false" />
-            <element signature="e#2671#2672#0" expanded="false" />
-            <element signature="e#2704#2705#0" expanded="false" />
-            <element signature="e#2730#2731#0" expanded="false" />
-            <element signature="e#2778#2779#0" expanded="false" />
-            <element signature="e#2810#2811#0" expanded="false" />
-            <element signature="e#2845#2846#0" expanded="false" />
-            <element signature="e#2873#2874#0" expanded="false" />
-            <element signature="e#2925#2926#0" expanded="false" />
-            <element signature="e#2961#2962#0" expanded="false" />
-            <element signature="e#2995#2996#0" expanded="false" />
-            <element signature="e#3022#3023#0" expanded="false" />
-            <element signature="e#3072#3073#0" expanded="false" />
-            <element signature="e#3106#3107#0" expanded="false" />
-            <element signature="e#3138#3139#0" expanded="false" />
-            <element signature="e#3162#3163#0" expanded="false" />
-            <element signature="e#3207#3208#0" expanded="false" />
-            <element signature="e#3235#3236#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4947,7 +4820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-575">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4955,7 +4827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4984,7 +4855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="75" lean-forward="false" selection-start-line="4" selection-start-column="75" selection-end-line="4" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4992,10 +4862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
           <caret line="38" column="34" lean-forward="false" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="34" />
-          <folding>
-            <element signature="e#530#531#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5011,7 +4877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
           <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5019,14 +4884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-951">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -5086,13 +4943,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
           <caret line="29" column="63" lean-forward="false" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
+        <state relative-caret-position="1350">
           <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
           <folding />
         </state>
@@ -5100,7 +4956,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
+        <state relative-caret-position="1050">
           <caret line="46" column="52" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="52" />
           <folding />
         </state>
@@ -5116,9 +4972,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/system/FileUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
+        <state relative-caret-position="925">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -5138,37 +4996,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="1025">
           <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1615">
-          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="130" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppPersonDetailController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -5176,7 +5010,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -5196,6 +5032,72 @@
             <marker date="1494380435477" expanded="true" signature="6742:6782" ph="DELETE FROM " />
             <marker date="1494380435477" expanded="true" signature="6787:6839" ph="INSERT INTO ogn_user_role... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppPersonDetailController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="176" column="68" lean-forward="true" selection-start-line="176" selection-start-column="8" selection-end-line="176" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/TestEncryptCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="16" column="49" lean-forward="false" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="101" column="39" lean-forward="true" selection-start-line="101" selection-start-column="39" selection-end-line="109" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="216" column="44" lean-forward="false" selection-start-line="216" selection-start-column="35" selection-end-line="216" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>

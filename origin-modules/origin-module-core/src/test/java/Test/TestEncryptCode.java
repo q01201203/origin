@@ -30,5 +30,13 @@ public class TestEncryptCode {
 
         String s = "ssdf";
         String[] strs = s.split(",");
+
+        String s1 = "1";
+        Integer i1 = 1;
+        if (i1.equals(Integer.parseInt(s1))){
+            System.out.println("1");
+        }else{
+            System.out.println("2");
+        }
     }
 }

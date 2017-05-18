@@ -213,4 +213,27 @@ public class AppUserController {
 		IAppUser appUser = appUserService.findById(uId);
 		return Result.createSuccessResult(appUser,"返回信息成功");
 	}
+
+	@RequestMapping(value = "/user/addPayPwd")
+	@ResponseBody
+	public Object addPayPwd(HttpServletRequest request) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(request,Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		String payPwd = request.getParameter("payPwd");
+		System.out.println("请求的face为" + payPwd);
+		if (StringUtil.isNullOrBlank(payPwd)){
+			return Result.create(ResultCode.VALIDATE_ERROR);
+		}
+
+		IAppUser appUser = new AppUserDTO();
+		appUser.setId(uId);
+		appUser.setPayPwd(payPwd);
+		appUser.setUpdateDate(new Date());
+		appUserService.update(appUser);
+		return Result.createSuccessResult();
+	}
 }
