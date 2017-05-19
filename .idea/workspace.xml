@@ -8,50 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/origin-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-common-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-common-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/origin_module_core_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/origin_module_core_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-common/origin-common.iml" afterPath="$PROJECT_DIR$/origin-common/origin-common.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-common/pom.xml" afterPath="$PROJECT_DIR$/origin-common/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/model/mybatis/Result.java" afterPath="$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/model/mybatis/Result.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/origin-mybatis.iml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/origin-mybatis.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/origin-module-core.iml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/origin-module-core.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppMoneyDetailController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppPersonDetailController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppPersonDetailController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppValidcodeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/IndexController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/IndexController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/LoginController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/TaskController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/TaskController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/UserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/filter/AppTokenFilter.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/filter/AppTokenFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/CustomToken.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext-shiro.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext-shiro.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/springmvc-servlet.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/springmvc-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/classes/applicationContext-shiro.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/classes/applicationContext-shiro.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/classes/springmvc-servlet.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/classes/springmvc-servlet.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/classes/applicationContext-shiro.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/classes/applicationContext-shiro.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/classes/springmvc-servlet.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/classes/springmvc-servlet.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/controller.ftl" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/controller.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/origin-modules/origin-module-core/target/" />
     <ignored path="$PROJECT_DIR$/origin-tool/target/" />
@@ -5455,7 +5421,7 @@
       <workItem from="1494896672787" duration="24868000" />
       <workItem from="1494982015891" duration="23358000" />
       <workItem from="1495070505369" duration="21429000" />
-      <workItem from="1495174041597" duration="11906000" />
+      <workItem from="1495174041597" duration="11958000" />
     </task>
     <task id="LOCAL-00001" summary="delete product">
       <created>1494493589166</created>
@@ -5513,11 +5479,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495076225769</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add swagger">
+      <created>1495186391973</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1495186391973</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139830000" />
+    <option name="totallyTimeSpent" value="139882000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -5609,7 +5582,8 @@
     <MESSAGE value="add fastjson converters" />
     <MESSAGE value="add saveinfo api" />
     <MESSAGE value="add money api" />
-    <option name="LAST_COMMIT_MESSAGE" value="add money api" />
+    <MESSAGE value="add swagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="add swagger" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
