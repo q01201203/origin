@@ -38,8 +38,7 @@ public class AppTokenFilter implements Filter{
             String token = request.getHeader("Authorization");
             try {
                 SimpleToken simpleToken = CustomToken.parse(token);
-                request.setAttribute("uid",simpleToken.getId());
-                request.setAttribute("authority",simpleToken.getAuthority());
+                request.setAttribute("token",simpleToken);
                 filterChain.doFilter(request,servletResponse);
             } catch (Exception e) {
                 e.printStackTrace();

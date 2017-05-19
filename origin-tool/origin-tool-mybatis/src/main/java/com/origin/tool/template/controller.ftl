@@ -23,7 +23,7 @@ import com.origin.data.entity.I${model};
 /**
  * ${tableComment}Controller
  * 
- * @author Joe
+ * @author lc
  */
 @Controller
 @RequestMapping("/${_model}")

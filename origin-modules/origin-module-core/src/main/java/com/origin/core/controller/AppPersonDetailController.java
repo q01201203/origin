@@ -28,7 +28,7 @@ import java.util.Date;
 /**
  * Controller
  * 
- * @author Joe
+ * @author lc
  */
 @Controller
 @RequestMapping("/app")

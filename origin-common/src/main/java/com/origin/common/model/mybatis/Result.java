@@ -1,27 +1,33 @@
 package com.origin.common.model.mybatis;
 
 import com.origin.common.constants.ResultCode;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 返回结果
  * 
  * @author Joe
  */
+@ApiModel
 public class Result {
 
 	/**
 	 * 结果体
 	 */
+	@ApiModelProperty(value = "结果体")
 	protected Object data;
 
 	/**
 	 * 状态码
 	 */
+	@ApiModelProperty(value = "状态码")
 	protected Integer code;
 
 	/**
 	 * 信息
 	 */
+	@ApiModelProperty(value = "信息")
 	protected String message;
 
 	private Result() {

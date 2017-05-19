@@ -10,34 +10,35 @@ import com.origin.core.util.CustomToken;
 import com.origin.core.util.SimpleToken;
 import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppUser;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
  * Controller
  * 
- * @author Joe
+ * @author lc
  */
 @Controller
 @RequestMapping("/app")
+@Api(value = "/app" ,description = "app用户操作API")
 public class AppUserController {
 
 	Logger log = LoggerFactory.getLogger(AppUserController.class);
 	@Autowired
 	private AppUserService appUserService;
 
-	@RequestMapping(value = "/user/login")
+	@RequestMapping(value = "/user/login" , method = RequestMethod.POST)
 	@ResponseBody
-	public Object login(HttpServletRequest request) throws Exception {
-		String mobile = request.getParameter("mobile");
-		String pwd = request.getParameter("pwd");
+	@ApiOperation(value = "app用户登录", httpMethod = "POST", response = Result.class, notes = "login")
+	public Object login(@RequestParam(value = "mobile",required = true) String mobile ,
+						@RequestParam(value = "pwd",required = true) String pwd) throws Exception {
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR);
@@ -55,9 +56,9 @@ public class AppUserController {
 
 	@RequestMapping(value = "/user/register")
 	@ResponseBody
-	public Object register(HttpServletRequest request) throws Exception {
-		String mobile = request.getParameter("mobile");
-		String pwd = request.getParameter("pwd");
+	@ApiOperation(value = "app用户注册", httpMethod = "POST", response = Result.class, notes = "register")
+	public Object register(@RequestParam(value = "mobile",required = true) String mobile ,
+						   @RequestParam(value = "pwd",required = true) String pwd) throws Exception {
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR);
@@ -66,14 +67,14 @@ public class AppUserController {
 		appUser.setMobile(mobile);
 		appUser.setPwd(Md5Util.generatePassword(pwd));
 		appUserService.save(appUser);
-		return Result.createSuccessResult();
+		return Result.createSuccessResult().setMessage("注册成功");
 	}
 
 	@RequestMapping(value = "/user/resetPwd")
 	@ResponseBody
-	public Object resetPwd(HttpServletRequest request) throws Exception {
-		String mobile = request.getParameter("mobile");
-		String pwd = request.getParameter("pwd");
+	@ApiOperation(value = "app用户重置密码", httpMethod = "POST", response = Result.class, notes = "resetPwd")
+	public Object resetPwd(@RequestParam(value = "mobile",required = true) String mobile ,
+						   @RequestParam(value = "pwd",required = true) String pwd) throws Exception {
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR);
@@ -85,10 +86,10 @@ public class AppUserController {
 		appUser.setPwd(Md5Util.generatePassword(pwd));
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
-		return Result.createSuccessResult();
+		return Result.createSuccessResult().setMessage("重置密码成功");
 	}
 
-	@RequestMapping(value = "/user/updateMaxMoney")
+	/*@RequestMapping(value = "/user/updateMaxMoney")
 	@ResponseBody
 	public Object updateMaxMoney(HttpServletRequest request) throws Exception {
 		Object tokenValidResult = CustomToken.tokenValidate(request,Constants.AHORITY_LOW);
@@ -111,19 +112,20 @@ public class AppUserController {
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
 		return Result.createSuccessResult();
-	}
+	}*/
 
-	@RequestMapping(value = "/user/addAlipayAccount")
+	@RequestMapping(value = "/user/addAlipayAccount" ,method = RequestMethod.GET)
 	@ResponseBody
-	public Object addAlipayAccout(HttpServletRequest request) throws Exception{
-		Object tokenValidResult = CustomToken.tokenValidate(request,Constants.AHORITY_LOW);
+	@ApiOperation(value = "app用户添加支付宝账号", httpMethod = "GET", response = Result.class, notes = "addAlipayAccout")
+	public Object addAlipayAccout(@RequestHeader(value = "Authorization" ,required = true) String token,
+								  @RequestParam(value = "alipayUsername",required = true) String alipayUsername ,
+								  @RequestParam(value = "alipayUseraccout",required = true) String alipayUseraccout) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		String alipayUsername = request.getParameter("alipayUsername");
-		String alipayUseraccout = request.getParameter("alipayUseraccout");
 		System.out.println("请求的alipayusername为" + alipayUsername + "\n请求的alipayuseraccout为" +
 				alipayUseraccout);
 		if (StringUtil.isNullOrBlank(alipayUsername)||StringUtil.isNullOrBlank(alipayUseraccout)){
@@ -136,19 +138,20 @@ public class AppUserController {
 		appUser.setAlipayUseraccout(alipayUseraccout);
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
-		return Result.createSuccessResult();
+		return Result.createSuccessResult().setMessage("添加成功");
 	}
 
-	@RequestMapping(value = "/user/addFace")
+	@RequestMapping(value = "/user/addFace" ,method = RequestMethod.GET)
 	@ResponseBody
-	public Object addFace(HttpServletRequest request) throws Exception{
-		Object tokenValidResult = CustomToken.tokenValidate(request,Constants.AHORITY_LOW);
+	@ApiOperation(value = "app用户添加人脸图片", httpMethod = "GET", response = Result.class, notes = "addFace")
+	public Object addFace(@RequestHeader(value = "Authorization" ,required = true) String token,
+						  @RequestParam(value = "face",required = true) String face) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		String face = request.getParameter("face");
 		System.out.println("请求的face为" + face);
 		if (StringUtil.isNullOrBlank(face)){
 			return Result.create(ResultCode.VALIDATE_ERROR);
@@ -159,28 +162,27 @@ public class AppUserController {
 		appUser.setImgFace(face);
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
-		return Result.createSuccessResult();
+		return Result.createSuccessResult().setMessage("添加成功");
 	}
 
-	@RequestMapping(value = "/user/addIdInfo")
+	@RequestMapping(value = "/user/addIdInfo" ,method = RequestMethod.GET)
 	@ResponseBody
-	public Object addIdInfo(HttpServletRequest request) throws Exception{
-		Object tokenValidResult = CustomToken.tokenValidate(request,Constants.AHORITY_LOW);
+	@ApiOperation(value = "app用户添加身份证信息", httpMethod = "GET", response = Result.class, notes = "addIdInfo")
+	public Object addIdInfo(@RequestHeader(value = "Authorization" ,required = true) String token,
+							@RequestParam(value = "idFrontImg",required = true) String idFrontImg,
+							@RequestParam(value = "idBackImg",required = true) String idBackImg,
+							@RequestParam(value = "idName",required = true) String idName,
+							@RequestParam(value = "idNumber",required = true) String idNumber,
+							@RequestParam(value = "category",required = true) String category) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		String idFrontImg = request.getParameter("idFrontImg");
-		String idBackImg = request.getParameter("idBackImg");
-		String idName = request.getParameter("idName");
-		String idNumber = request.getParameter("idNumber");
-		String category = request.getParameter("category");
 		System.out.println("请求的idFrontImg为" + idFrontImg + "\n请求的idBackImg为" +
-				idBackImg+ "\n请求的idName为" +
-				idName+ "\n请求的idNumber为" +
-				idNumber+ "\n请求的category为" +
-				category);
+				idBackImg+ "\n请求的idName为" + idName+ "\n请求的idNumber为" +
+				idNumber+ "\n请求的category为" + category);
 		if (StringUtil.isNullOrBlank(idFrontImg)||StringUtil.isNullOrBlank(idBackImg)
 				||StringUtil.isNullOrBlank(idName)||StringUtil.isNullOrBlank(idNumber)
 				||StringUtil.isNullOrBlank(category)){
@@ -201,30 +203,32 @@ public class AppUserController {
 				Constants.AHORITY_MEDIUM)),"认证成功");
 	}
 
-	@RequestMapping(value = "/user/userInfo")
+	@RequestMapping(value = "/user/userInfo" ,method = RequestMethod.GET)
 	@ResponseBody
-	public Object userInfo(HttpServletRequest request) throws Exception{
-		Object tokenValidResult = CustomToken.tokenValidate(request,Constants.AHORITY_LOW);
+	@ApiOperation(value = "获取app用户信息", httpMethod = "GET", response = Result.class, notes = "userInfo")
+	public Object userInfo(@RequestHeader(value = "Authorization" ,required = true) String token) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
 		IAppUser appUser = appUserService.findById(uId);
-		return Result.createSuccessResult(appUser,"返回信息成功");
+		return Result.createSuccessResult(appUser,"获取信息成功");
 	}
 
-	@RequestMapping(value = "/user/addPayPwd")
+	@RequestMapping(value = "/user/addPayPwd" ,method = RequestMethod.POST)
 	@ResponseBody
-	public Object addPayPwd(HttpServletRequest request) throws Exception{
-		Object tokenValidResult = CustomToken.tokenValidate(request,Constants.AHORITY_LOW);
+	@ApiOperation(value = "app用户添加支付密码", httpMethod = "POST", response = Result.class, notes = "addPayPwd")
+	public Object addPayPwd(@RequestHeader(value = "Authorization" ,required = true) String token,
+							@RequestParam(value = "payPwd",required = true) String payPwd) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		String payPwd = request.getParameter("payPwd");
-		System.out.println("请求的face为" + payPwd);
+		System.out.println("请求的payPwd为" + payPwd);
 		if (StringUtil.isNullOrBlank(payPwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR);
 		}
@@ -234,6 +238,6 @@ public class AppUserController {
 		appUser.setPayPwd(payPwd);
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
-		return Result.createSuccessResult();
+		return Result.createSuccessResult().setMessage("添加支付密码成功");
 	}
 }

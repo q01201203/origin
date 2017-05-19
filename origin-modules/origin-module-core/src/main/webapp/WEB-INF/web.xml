@@ -42,7 +42,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>shiroFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/sdfj</url-pattern>
 	</filter-mapping>
 
 	<!--lic-->

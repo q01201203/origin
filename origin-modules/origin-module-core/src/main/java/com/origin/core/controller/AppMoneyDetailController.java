@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Controller
  * 
- * @author Joe
+ * @author lc
  */
 @Controller
 @RequestMapping("/app")
