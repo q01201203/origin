@@ -4,11 +4,11 @@
 	<sql id="selectPart">
         SELECT
         		    id,
+        		    create_date,
+        		    update_date,
         		    mobile,
         		    pwd,
         		    pay_pwd,
-        		    create_date,
-        		    update_date,
         		    authority,
         		    money_max,
         		    alipay_username,
@@ -19,17 +19,19 @@
         		    user_id_name,
         		    user_id_number,
         		    img_portrait,
-                    category
+        		    nickname,
+        		    category,
+                    delete_flag
         FROM OGN_APP_USER
         where 1=1
 	</sql>
     <sql id="queryParams">
 			<if test="id != null">AND id=#{id}</if>
+			<if test="createDate != null">AND create_date=#{createDate}</if>
+			<if test="updateDate != null">AND update_date=#{updateDate}</if>
 			<if test="mobile != null">AND mobile=#{mobile}</if>
 			<if test="pwd != null">AND pwd=#{pwd}</if>
 			<if test="payPwd != null">AND pay_pwd=#{payPwd}</if>
-			<if test="createDate != null">AND create_date=#{createDate}</if>
-			<if test="updateDate != null">AND update_date=#{updateDate}</if>
 			<if test="authority != null">AND authority=#{authority}</if>
 			<if test="moneyMax != null">AND money_max=#{moneyMax}</if>
 			<if test="alipayUsername != null">AND alipay_username=#{alipayUsername}</if>
@@ -40,16 +42,18 @@
 			<if test="userIdName != null">AND user_id_name=#{userIdName}</if>
 			<if test="userIdNumber != null">AND user_id_number=#{userIdNumber}</if>
 			<if test="imgPortrait != null">AND img_portrait=#{imgPortrait}</if>
+			<if test="nickname != null">AND nickname=#{nickname}</if>
 			<if test="category != null">AND category=#{category}</if>
+			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppUser" id="appUserMap">
     	<id property="id" column="id" />
     	<result property="id" column="id"/>
+    	<result property="createDate" column="create_date"/>
+    	<result property="updateDate" column="update_date"/>
     	<result property="mobile" column="mobile"/>
     	<result property="pwd" column="pwd"/>
     	<result property="payPwd" column="pay_pwd"/>
-    	<result property="createDate" column="create_date"/>
-    	<result property="updateDate" column="update_date"/>
     	<result property="authority" column="authority"/>
     	<result property="moneyMax" column="money_max"/>
     	<result property="alipayUsername" column="alipay_username"/>
@@ -60,7 +64,9 @@
     	<result property="userIdName" column="user_id_name"/>
     	<result property="userIdNumber" column="user_id_number"/>
     	<result property="imgPortrait" column="img_portrait"/>
+    	<result property="nickname" column="nickname"/>
     	<result property="category" column="category"/>
+    	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppUser">
         <include refid="selectPart"/>
@@ -79,52 +85,58 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO OGN_APP_USER (
-                        <if test="mobile != null">`mobile`</if>
-                        <if test="pwd != null ">,`pwd`</if>
-                        <if test="payPwd != null ">,`pay_pwd`</if>
-                        <if test="createDate != null ">,`create_date`</if>
-                        <if test="updateDate != null ">,`update_date`</if>
-                        <if test="authority != null ">,`authority`</if>
-                        <if test="moneyMax != null ">,`money_max`</if>
-                        <if test="alipayUsername != null ">,`alipay_username`</if>
-                        <if test="alipayUseraccout != null ">,`alipay_useraccout`</if>
-                        <if test="imgFace != null ">,`img_face`</if>
-                        <if test="imgIdFront != null ">,`img_id_front`</if>
-                        <if test="imgIdBack != null ">,`img_id_back`</if>
-                        <if test="userIdName != null ">,`user_id_name`</if>
-                        <if test="userIdNumber != null ">,`user_id_number`</if>
-                        <if test="imgPortrait != null ">,`img_portrait`</if>
-                        <if test="category != null ">,`category`</if>
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">`create_date`,</if>
+                        <if test="updateDate != null">`update_date`,</if>
+                        <if test="mobile != null">`mobile`,</if>
+                        <if test="pwd != null">`pwd`,</if>
+                        <if test="payPwd != null">`pay_pwd`,</if>
+                        <if test="authority != null">`authority`,</if>
+                        <if test="moneyMax != null">`money_max`,</if>
+                        <if test="alipayUsername != null">`alipay_username`,</if>
+                        <if test="alipayUseraccout != null">`alipay_useraccout`,</if>
+                        <if test="imgFace != null">`img_face`,</if>
+                        <if test="imgIdFront != null">`img_id_front`,</if>
+                        <if test="imgIdBack != null">`img_id_back`,</if>
+                        <if test="userIdName != null">`user_id_name`,</if>
+                        <if test="userIdNumber != null">`user_id_number`,</if>
+                        <if test="imgPortrait != null">`img_portrait`,</if>
+                        <if test="nickname != null">`nickname`,</if>
+                        <if test="category != null">`category`,</if>
+                        <if test="deleteFlag != null ">`delete_flag`</if>
+            </trim>
 		)
 		VALUES (
-
-                        <if test="mobile != null">#{mobile}</if>
-                        <if test="pwd != null">,#{pwd}</if>
-                        <if test="payPwd != null">,#{payPwd}</if>
-                        <if test="createDate != null">,#{createDate}</if>
-                        <if test="updateDate != null">,#{updateDate}</if>
-                        <if test="authority != null">,#{authority}</if>
-                        <if test="moneyMax != null">,#{moneyMax}</if>
-                        <if test="alipayUsername != null">,#{alipayUsername}</if>
-                        <if test="alipayUseraccout != null">,#{alipayUseraccout}</if>
-                        <if test="imgFace != null">,#{imgFace}</if>
-                        <if test="imgIdFront != null">,#{imgIdFront}</if>
-                        <if test="imgIdBack != null">,#{imgIdBack}</if>
-                        <if test="userIdName != null">,#{userIdName}</if>
-                        <if test="userIdNumber != null">,#{userIdNumber}</if>
-                        <if test="imgPortrait != null">,#{imgPortrait}</if>
-                        <if test="category != null">,#{category}</if>
-
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">#{createDate},</if>
+                        <if test="updateDate != null">#{updateDate},</if>
+                        <if test="mobile != null">#{mobile},</if>
+                        <if test="pwd != null">#{pwd},</if>
+                        <if test="payPwd != null">#{payPwd},</if>
+                        <if test="authority != null">#{authority},</if>
+                        <if test="moneyMax != null">#{moneyMax},</if>
+                        <if test="alipayUsername != null">#{alipayUsername},</if>
+                        <if test="alipayUseraccout != null">#{alipayUseraccout},</if>
+                        <if test="imgFace != null">#{imgFace},</if>
+                        <if test="imgIdFront != null">#{imgIdFront},</if>
+                        <if test="imgIdBack != null">#{imgIdBack},</if>
+                        <if test="userIdName != null">#{userIdName},</if>
+                        <if test="userIdNumber != null">#{userIdNumber},</if>
+                        <if test="imgPortrait != null">#{imgPortrait},</if>
+                        <if test="nickname != null">#{nickname},</if>
+                        <if test="category != null">#{category},</if>
+                        <if test="deleteFlag != null">#{deleteFlag}</if>
+            </trim>
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppUser" >
         UPDATE OGN_APP_USER  SET
          id=id
+                <if test="createDate != null">,create_date=#{createDate}</if>
+                <if test="updateDate != null">,update_date=#{updateDate}</if>
                 <if test="mobile != null">,mobile=#{mobile}</if>
                 <if test="pwd != null">,pwd=#{pwd}</if>
                 <if test="payPwd != null">,pay_pwd=#{payPwd}</if>
-                <if test="createDate != null">,create_date=#{createDate}</if>
-                <if test="updateDate != null">,update_date=#{updateDate}</if>
                 <if test="authority != null">,authority=#{authority}</if>
                 <if test="moneyMax != null">,money_max=#{moneyMax}</if>
                 <if test="alipayUsername != null">,alipay_username=#{alipayUsername}</if>
@@ -135,18 +147,20 @@
                 <if test="userIdName != null">,user_id_name=#{userIdName}</if>
                 <if test="userIdNumber != null">,user_id_number=#{userIdNumber}</if>
                 <if test="imgPortrait != null">,img_portrait=#{imgPortrait}</if>
+                <if test="nickname != null">,nickname=#{nickname}</if>
                 <if test="category != null">,category=#{category}</if>
+                <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
         <foreach collection="list" item="item"  separator=";" >
             update OGN_APP_USER
             set id=id
+                    <if test="item.createDate != null">,create_date=#{item.createDate}</if>
+                    <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
                     <if test="item.mobile != null">,mobile=#{item.mobile}</if>
                     <if test="item.pwd != null">,pwd=#{item.pwd}</if>
                     <if test="item.payPwd != null">,pay_pwd=#{item.payPwd}</if>
-                    <if test="item.createDate != null">,create_date=#{item.createDate}</if>
-                    <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
                     <if test="item.authority != null">,authority=#{item.authority}</if>
                     <if test="item.moneyMax != null">,money_max=#{item.moneyMax}</if>
                     <if test="item.alipayUsername != null">,alipay_username=#{item.alipayUsername}</if>
@@ -157,7 +171,9 @@
                     <if test="item.userIdName != null">,user_id_name=#{item.userIdName}</if>
                     <if test="item.userIdNumber != null">,user_id_number=#{item.userIdNumber}</if>
                     <if test="item.imgPortrait != null">,img_portrait=#{item.imgPortrait}</if>
+                    <if test="item.nickname != null">,nickname=#{item.nickname}</if>
                     <if test="item.category != null">,category=#{item.category}</if>
+                    <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}
         </foreach>
     </update>

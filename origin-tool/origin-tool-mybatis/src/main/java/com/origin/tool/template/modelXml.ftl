@@ -41,28 +41,30 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO ${tableName} (
-			<#list fieldList as field>
+            <trim suffix="" suffixOverrides=",">
+            <#list fieldList as field>
                 <#if field.fieldName != "id">
-                    <#if field_index == 1>
-                        <if test="${field.fieldName} != null">`${field.columnName}`</if>
+                    <#if field_has_next>
+                        <if test="${field.fieldName} != null">`${field.columnName}`,</if>
                     <#else >
-                        <if test="${field.fieldName} != null ">,`${field.columnName}`</if>
+                        <if test="${field.fieldName} != null ">`${field.columnName}`</if>
                     </#if>
                 </#if>
-			</#list>
+            </#list>
+            </trim>
 		)
 		VALUES (
-
+            <trim suffix="" suffixOverrides=",">
 			<#list fieldList as field  >
                 <#if field.fieldName != "id">
-                    <#if field_index == 1>
-                        <if test="${field.fieldName} != null">&{${field.fieldName}}</if>
+                    <#if field_has_next>
+                        <if test="${field.fieldName} != null">&{${field.fieldName}},</if>
                     <#else>
-                        <if test="${field.fieldName} != null">,&{${field.fieldName}}</if>
+                        <if test="${field.fieldName} != null">&{${field.fieldName}}</if>
                     </#if>
                 </#if>
 			</#list>
-
+            </trim>
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.${model}" >

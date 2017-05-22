@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.origin.data.mybatis.dao.AppTaskDao">
+	<sql id="selectPart">
+        SELECT
+        		    id,
+        		    create_date,
+        		    update_date,
+        		    task_name,
+        		    task_number,
+        		    task_type,
+        		    task_money,
+        		    task_img,
+        		    task_hot,
+                    delete_flag
+        FROM OGN_APP_TASK
+        where 1=1
+	</sql>
+    <sql id="queryParams">
+			<if test="id != null">AND id=#{id}</if>
+			<if test="createDate != null">AND create_date=#{createDate}</if>
+			<if test="updateDate != null">AND update_date=#{updateDate}</if>
+			<if test="taskName != null">AND task_name=#{taskName}</if>
+			<if test="taskNumber != null">AND task_number=#{taskNumber}</if>
+			<if test="taskType != null">AND task_type=#{taskType}</if>
+			<if test="taskMoney != null">AND task_money=#{taskMoney}</if>
+			<if test="taskImg != null">AND task_img=#{taskImg}</if>
+			<if test="taskHot != null">AND task_hot=#{taskHot}</if>
+			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
+    </sql>
+    <resultMap type="com.origin.data.mybatis.entity.AppTask" id="appTaskMap">
+    	<id property="id" column="id" />
+    	<result property="id" column="id"/>
+    	<result property="createDate" column="create_date"/>
+    	<result property="updateDate" column="update_date"/>
+    	<result property="taskName" column="task_name"/>
+    	<result property="taskNumber" column="task_number"/>
+    	<result property="taskType" column="task_type"/>
+    	<result property="taskMoney" column="task_money"/>
+    	<result property="taskImg" column="task_img"/>
+    	<result property="taskHot" column="task_hot"/>
+    	<result property="deleteFlag" column="delete_flag"/>
+    </resultMap>
+    <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppTask">
+        <include refid="selectPart"/>
+        AND id=#{0}
+    </select>
+    <select id="findFirst" parameterType="com.origin.data.mybatis.entity.AppTask" resultType="com.origin.data.mybatis.entity.AppTask">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <select id="find" parameterType="com.origin.data.mybatis.entity.AppTask" resultType="com.origin.data.mybatis.entity.AppTask">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <insert id="save" parameterType="com.origin.data.mybatis.entity.AppTask">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO OGN_APP_TASK (
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">`create_date`,</if>
+                        <if test="updateDate != null">`update_date`,</if>
+                        <if test="taskName != null">`task_name`,</if>
+                        <if test="taskNumber != null">`task_number`,</if>
+                        <if test="taskType != null">`task_type`,</if>
+                        <if test="taskMoney != null">`task_money`,</if>
+                        <if test="taskImg != null">`task_img`,</if>
+                        <if test="taskHot != null">`task_hot`,</if>
+                        <if test="deleteFlag != null ">`delete_flag`</if>
+            </trim>
+		)
+		VALUES (
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">#{createDate},</if>
+                        <if test="updateDate != null">#{updateDate},</if>
+                        <if test="taskName != null">#{taskName},</if>
+                        <if test="taskNumber != null">#{taskNumber},</if>
+                        <if test="taskType != null">#{taskType},</if>
+                        <if test="taskMoney != null">#{taskMoney},</if>
+                        <if test="taskImg != null">#{taskImg},</if>
+                        <if test="taskHot != null">#{taskHot},</if>
+                        <if test="deleteFlag != null">#{deleteFlag}</if>
+            </trim>
+		)
+    </insert>
+    <update id="update" parameterType="com.origin.data.mybatis.entity.AppTask" >
+        UPDATE OGN_APP_TASK  SET
+         id=id
+                <if test="createDate != null">,create_date=#{createDate}</if>
+                <if test="updateDate != null">,update_date=#{updateDate}</if>
+                <if test="taskName != null">,task_name=#{taskName}</if>
+                <if test="taskNumber != null">,task_number=#{taskNumber}</if>
+                <if test="taskType != null">,task_type=#{taskType}</if>
+                <if test="taskMoney != null">,task_money=#{taskMoney}</if>
+                <if test="taskImg != null">,task_img=#{taskImg}</if>
+                <if test="taskHot != null">,task_hot=#{taskHot}</if>
+                <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
+        WHERE `id` = #{id}
+    </update>
+    <update id="updateBatch" parameterType="list" >
+        <foreach collection="list" item="item"  separator=";" >
+            update OGN_APP_TASK
+            set id=id
+                    <if test="item.createDate != null">,create_date=#{item.createDate}</if>
+                    <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
+                    <if test="item.taskName != null">,task_name=#{item.taskName}</if>
+                    <if test="item.taskNumber != null">,task_number=#{item.taskNumber}</if>
+                    <if test="item.taskType != null">,task_type=#{item.taskType}</if>
+                    <if test="item.taskMoney != null">,task_money=#{item.taskMoney}</if>
+                    <if test="item.taskImg != null">,task_img=#{item.taskImg}</if>
+                    <if test="item.taskHot != null">,task_hot=#{item.taskHot}</if>
+                    <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
+                where id=#{item.id}
+        </foreach>
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM OGN_APP_TASK WHERE id=#{id}
+    </delete>
+</mapper>

@@ -1,8 +1,8 @@
 package com.origin.core.dto;
 
-import java.util.Date;
-
 import com.origin.data.entity.IAppUser;
+
+import java.util.Date;
 
 /**
 * 
@@ -13,15 +13,15 @@ public class AppUserDTO implements IAppUser {
     /**  */
 private Integer id;//;
     /**  */
+private Date createDate;// = CURRENT_TIMESTAMP;
+    /**  */
+private Date updateDate;//;
+    /**  */
 private String mobile;//;
     /**  */
 private String pwd;//;
     /**  */
 private String payPwd;//;
-    /**  */
-private Date createDate;// = CURRENT_TIMESTAMP;
-    /**  */
-private Date updateDate;//;
     /**  */
 private Integer authority;// = Integer.valueOf(100);
     /**  */
@@ -43,7 +43,11 @@ private String userIdNumber;//;
     /**  */
 private String imgPortrait;//;
     /**  */
+private String nickname;//;
+    /**  */
 private Integer category;//;
+    /**  */
+private Integer deleteFlag;// = Integer.valueOf(0);
 public AppUserDTO(){
 }
 
@@ -58,6 +62,22 @@ return this.id;
 
 public void setId(Integer id) {
 this.id = id;
+}
+
+public Date getCreateDate() {
+return this.createDate;
+}
+
+public void setCreateDate(Date createDate) {
+this.createDate = createDate;
+}
+
+public Date getUpdateDate() {
+return this.updateDate;
+}
+
+public void setUpdateDate(Date updateDate) {
+this.updateDate = updateDate;
 }
 
 public String getMobile() {
@@ -82,22 +102,6 @@ return this.payPwd;
 
 public void setPayPwd(String payPwd) {
 this.payPwd = payPwd;
-}
-
-public Date getCreateDate() {
-return this.createDate;
-}
-
-public void setCreateDate(Date createDate) {
-this.createDate = createDate;
-}
-
-public Date getUpdateDate() {
-return this.updateDate;
-}
-
-public void setUpdateDate(Date updateDate) {
-this.updateDate = updateDate;
 }
 
 public Integer getAuthority() {
@@ -180,12 +184,28 @@ public void setImgPortrait(String imgPortrait) {
 this.imgPortrait = imgPortrait;
 }
 
+public String getNickname() {
+return this.nickname;
+}
+
+public void setNickname(String nickname) {
+this.nickname = nickname;
+}
+
 public Integer getCategory() {
 return this.category;
 }
 
 public void setCategory(Integer category) {
 this.category = category;
+}
+
+public Integer getDeleteFlag() {
+return this.deleteFlag;
+}
+
+public void setDeleteFlag(Integer deleteFlag) {
+this.deleteFlag = deleteFlag;
 }
 
 	public boolean equals(Object object) {
@@ -209,11 +229,11 @@ this.category = category;
 	public String toString() {
 		return this.getClass().getName() + "["
 		+",id="+this.getId()
+		+",createDate="+this.getCreateDate()
+		+",updateDate="+this.getUpdateDate()
 		+",mobile="+this.getMobile()
 		+",pwd="+this.getPwd()
 		+",payPwd="+this.getPayPwd()
-		+",createDate="+this.getCreateDate()
-		+",updateDate="+this.getUpdateDate()
 		+",authority="+this.getAuthority()
 		+",moneyMax="+this.getMoneyMax()
 		+",alipayUsername="+this.getAlipayUsername()
@@ -224,7 +244,9 @@ this.category = category;
 		+",userIdName="+this.getUserIdName()
 		+",userIdNumber="+this.getUserIdNumber()
 		+",imgPortrait="+this.getImgPortrait()
+		+",nickname="+this.getNickname()
 		+",category="+this.getCategory()
+		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}
 }

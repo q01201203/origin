@@ -9,14 +9,17 @@ import com.origin.core.service.AppValidcodeService;
 import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppValidcode;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
@@ -26,6 +29,7 @@ import java.util.Date;
  */
 @Controller
 @RequestMapping("/app")
+@Api(value = "/app" ,description = "验证码API")
 public class AppValidcodeController {
 
 	Logger log = LoggerFactory.getLogger(AppValidcodeController.class);
@@ -35,13 +39,14 @@ public class AppValidcodeController {
 	@Autowired
 	private AppUserService appUserService;
 
-	@RequestMapping(value = "/validcode/send")
+	@RequestMapping(value = "/validcode/send" ,method = RequestMethod.GET)
 	@ResponseBody
-	public Object send(HttpServletRequest request) throws Exception{
-		String mobile = request.getParameter("mobile");
-		String type = request.getParameter("type");
+	@ApiOperation(value = "app用户发送验证码", httpMethod = "GET", response = Result.class,
+			notes = "return validcode")
+	public Object send(@RequestParam(value = "mobile") String mobile ,
+					   @RequestParam(value = "type") String type) throws Exception{
 		if (StringUtil.isNullOrBlank(mobile) || StringUtil.isNullOrBlank(type)){
-			return Result.create(ResultCode.VALIDATE_ERROR);
+			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
@@ -63,13 +68,13 @@ public class AppValidcodeController {
 					return Result.createErrorResult().setMessage("用户不存在");
 				}
 		}
-		return Result.createErrorResult();
+		return Result.createErrorResult().setMessage("type类型不存在");
 	}
 
 	private String saveValidcode(String mobile, String type) {
 		IAppValidcode appValidcode = new AppValidcodeDTO();
 		appValidcode.setMobile(mobile);
-		String validcode = "123456";
+		String validcode = "110110";
 		appValidcode.setValidcode(validcode);
 		appValidcode.setType(Integer.parseInt(type));
 		appValidcode.setCreateDate(new Date());
@@ -78,14 +83,14 @@ public class AppValidcodeController {
 		return validcode;
 	}
 
-	@RequestMapping(value = "/validcode/validate")
+	@RequestMapping(value = "/validcode/validate",method = RequestMethod.GET)
 	@ResponseBody
-	public Object validate(HttpServletRequest request) throws Exception{
-		String mobile = request.getParameter("mobile");
-		String type = request.getParameter("type");
-		String validcode = request.getParameter("validcode");
+	@ApiOperation(value = "app用户验证验证码", httpMethod = "GET", response = Result.class, notes = "validate")
+	public Object validate(@RequestParam(value = "mobile") String mobile ,
+						   @RequestParam(value = "type") String type ,
+						   @RequestParam(value = "validcode") String validcode) throws Exception{
 		if (StringUtil.isNullOrBlank(mobile) || StringUtil.isNullOrBlank(type) || StringUtil.isNullOrBlank(validcode)){
-			return Result.create(ResultCode.VALIDATE_ERROR);
+			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 		IAppValidcode appValidcode = new AppValidcodeDTO();
 		appValidcode.setMobile(mobile);
@@ -98,7 +103,7 @@ public class AppValidcodeController {
 			appValidcode1.setId(appValidcodeResult.getId());
 			appValidcode1.setStatus(IAppValidcode.STATUS_NO);
 			appValidcodeService.update(appValidcode1);
-			return Result.createSuccessResult();
+			return Result.createSuccessResult().setMessage("验证码验证成功");
 		}else {
 			return Result.createErrorResult().setMessage("验证码错误");
 		}

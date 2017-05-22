@@ -1,35 +1,39 @@
 package com.origin.core.dto;
 
-import com.origin.data.entity.IAppUserBank;
-
 import java.util.Date;
+
+import com.origin.data.entity.IAppTask;
 
 /**
 * 
 */
-public class AppUserBankDTO implements IAppUserBank {
+public class AppTaskDTO implements IAppTask {
 
 
     /**  */
 private Integer id;//;
     /**  */
-private Date createDate;//;
+private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
 private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
-private String bankName;//;
+private String taskName;//;
     /**  */
-private Integer bankNumber;//;
+private Integer taskNumber;//;
     /**  */
-private String bankMobile;//;
+private Integer taskType;//;
     /**  */
-private Integer uid;//;
+private Integer taskMoney;//;
+    /**  */
+private String taskImg;//;
+    /**  */
+private Integer taskHot;// = Integer.valueOf(0);
     /**  */
 private Integer deleteFlag;// = Integer.valueOf(0);
-public AppUserBankDTO(){
+public AppTaskDTO(){
 }
 
-public AppUserBankDTO(Integer id){
+public AppTaskDTO(Integer id){
 	this.id = id;
 }
 
@@ -58,36 +62,52 @@ public void setUpdateDate(Date updateDate) {
 this.updateDate = updateDate;
 }
 
-public String getBankName() {
-return this.bankName;
+public String getTaskName() {
+return this.taskName;
 }
 
-public void setBankName(String bankName) {
-this.bankName = bankName;
+public void setTaskName(String taskName) {
+this.taskName = taskName;
 }
 
-public Integer getBankNumber() {
-return this.bankNumber;
+public Integer getTaskNumber() {
+return this.taskNumber;
 }
 
-public void setBankNumber(Integer bankNumber) {
-this.bankNumber = bankNumber;
+public void setTaskNumber(Integer taskNumber) {
+this.taskNumber = taskNumber;
 }
 
-public String getBankMobile() {
-return this.bankMobile;
+public Integer getTaskType() {
+return this.taskType;
 }
 
-public void setBankMobile(String bankMobile) {
-this.bankMobile = bankMobile;
+public void setTaskType(Integer taskType) {
+this.taskType = taskType;
 }
 
-public Integer getUid() {
-return this.uid;
+public Integer getTaskMoney() {
+return this.taskMoney;
 }
 
-public void setUid(Integer uid) {
-this.uid = uid;
+public void setTaskMoney(Integer taskMoney) {
+this.taskMoney = taskMoney;
+}
+
+public String getTaskImg() {
+return this.taskImg;
+}
+
+public void setTaskImg(String taskImg) {
+this.taskImg = taskImg;
+}
+
+public Integer getTaskHot() {
+return this.taskHot;
+}
+
+public void setTaskHot(Integer taskHot) {
+this.taskHot = taskHot;
 }
 
 public Integer getDeleteFlag() {
@@ -102,8 +122,8 @@ this.deleteFlag = deleteFlag;
 		if (object == null) {
 			return false;
 		}
-		if (object instanceof IAppUserBank) {
-			IAppUserBank baseEntity = (IAppUserBank) object;
+		if (object instanceof IAppTask) {
+			IAppTask baseEntity = (IAppTask) object;
 			if (this.getId() == null || baseEntity.getId() == null) {
 				return false;
 			} else {
@@ -121,10 +141,12 @@ this.deleteFlag = deleteFlag;
 		+",id="+this.getId()
 		+",createDate="+this.getCreateDate()
 		+",updateDate="+this.getUpdateDate()
-		+",bankName="+this.getBankName()
-		+",bankNumber="+this.getBankNumber()
-		+",bankMobile="+this.getBankMobile()
-		+",uid="+this.getUid()
+		+",taskName="+this.getTaskName()
+		+",taskNumber="+this.getTaskNumber()
+		+",taskType="+this.getTaskType()
+		+",taskMoney="+this.getTaskMoney()
+		+",taskImg="+this.getTaskImg()
+		+",taskHot="+this.getTaskHot()
 		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}

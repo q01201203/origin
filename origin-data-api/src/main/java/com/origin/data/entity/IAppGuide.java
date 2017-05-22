@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
 * 
 */
-public interface IAppUserBank extends Serializable {
+public interface IAppGuide extends Serializable {
 
 public final static Integer STATUS_YES = 1; //可用
 
@@ -27,21 +27,17 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setUpdateDate(Date updateDate);
 
- String getBankName();
+ String getGuideName();
 
-  void setBankName(String bankName);
+  void setGuideName(String guideName);
 
- Integer getBankNumber();
+ String getGuideContent();
 
-  void setBankNumber(Integer bankNumber);
+  void setGuideContent(String guideContent);
 
- String getBankMobile();
+ Integer getGuideType();
 
-  void setBankMobile(String bankMobile);
-
- Integer getUid();
-
-  void setUid(Integer uid);
+  void setGuideType(Integer guideType);
 
  Integer getDeleteFlag();
 

@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
 * 
 */
-public interface IAppUserBank extends Serializable {
+public interface IAppFeedback extends Serializable {
 
 public final static Integer STATUS_YES = 1; //可用
 
@@ -27,17 +27,9 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setUpdateDate(Date updateDate);
 
- String getBankName();
+ String getContent();
 
-  void setBankName(String bankName);
-
- Integer getBankNumber();
-
-  void setBankNumber(Integer bankNumber);
-
- String getBankMobile();
-
-  void setBankMobile(String bankMobile);
+  void setContent(String content);
 
  Integer getUid();
 

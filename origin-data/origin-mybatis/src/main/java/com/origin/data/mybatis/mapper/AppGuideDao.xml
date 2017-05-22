@@ -1,64 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.origin.data.mybatis.dao.AppUserBankDao">
+<mapper namespace="com.origin.data.mybatis.dao.AppGuideDao">
 	<sql id="selectPart">
         SELECT
         		    id,
         		    create_date,
         		    update_date,
-        		    bank_name,
-        		    bank_number,
-        		    bank_mobile,
-        		    uid,
+        		    guide_name,
+        		    guide_content,
+        		    guide_type,
                     delete_flag
-        FROM OGN_APP_USER_BANK
+        FROM OGN_APP_GUIDE
         where 1=1
 	</sql>
     <sql id="queryParams">
 			<if test="id != null">AND id=#{id}</if>
 			<if test="createDate != null">AND create_date=#{createDate}</if>
 			<if test="updateDate != null">AND update_date=#{updateDate}</if>
-			<if test="bankName != null">AND bank_name=#{bankName}</if>
-			<if test="bankNumber != null">AND bank_number=#{bankNumber}</if>
-			<if test="bankMobile != null">AND bank_mobile=#{bankMobile}</if>
-			<if test="uid != null">AND uid=#{uid}</if>
+			<if test="guideName != null">AND guide_name=#{guideName}</if>
+			<if test="guideContent != null">AND guide_content=#{guideContent}</if>
+			<if test="guideType != null">AND guide_type=#{guideType}</if>
 			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
-    <resultMap type="com.origin.data.mybatis.entity.AppUserBank" id="appUserBankMap">
+    <resultMap type="com.origin.data.mybatis.entity.AppGuide" id="appGuideMap">
     	<id property="id" column="id" />
     	<result property="id" column="id"/>
     	<result property="createDate" column="create_date"/>
     	<result property="updateDate" column="update_date"/>
-    	<result property="bankName" column="bank_name"/>
-    	<result property="bankNumber" column="bank_number"/>
-    	<result property="bankMobile" column="bank_mobile"/>
-    	<result property="uid" column="uid"/>
+    	<result property="guideName" column="guide_name"/>
+    	<result property="guideContent" column="guide_content"/>
+    	<result property="guideType" column="guide_type"/>
     	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
-    <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppUserBank">
+    <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppGuide">
         <include refid="selectPart"/>
         AND id=#{0}
     </select>
-    <select id="findFirst" parameterType="com.origin.data.mybatis.entity.AppUserBank" resultType="com.origin.data.mybatis.entity.AppUserBank">
+    <select id="findFirst" parameterType="com.origin.data.mybatis.entity.AppGuide" resultType="com.origin.data.mybatis.entity.AppGuide">
         <include refid="selectPart"/>
         <include refid="queryParams"/>
     </select>
-    <select id="find" parameterType="com.origin.data.mybatis.entity.AppUserBank" resultType="com.origin.data.mybatis.entity.AppUserBank">
+    <select id="find" parameterType="com.origin.data.mybatis.entity.AppGuide" resultType="com.origin.data.mybatis.entity.AppGuide">
         <include refid="selectPart"/>
         <include refid="queryParams"/>
     </select>
-    <insert id="save" parameterType="com.origin.data.mybatis.entity.AppUserBank">
+    <insert id="save" parameterType="com.origin.data.mybatis.entity.AppGuide">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO OGN_APP_USER_BANK (
+        INSERT INTO OGN_APP_GUIDE (
             <trim suffix="" suffixOverrides=",">
                         <if test="createDate != null">`create_date`,</if>
                         <if test="updateDate != null">`update_date`,</if>
-                        <if test="bankName != null">`bank_name`,</if>
-                        <if test="bankNumber != null">`bank_number`,</if>
-                        <if test="bankMobile != null">`bank_mobile`,</if>
-                        <if test="uid != null">`uid`,</if>
+                        <if test="guideName != null">`guide_name`,</if>
+                        <if test="guideContent != null">`guide_content`,</if>
+                        <if test="guideType != null">`guide_type`,</if>
                         <if test="deleteFlag != null ">`delete_flag`</if>
             </trim>
 		)
@@ -66,41 +62,38 @@
             <trim suffix="" suffixOverrides=",">
                         <if test="createDate != null">#{createDate},</if>
                         <if test="updateDate != null">#{updateDate},</if>
-                        <if test="bankName != null">#{bankName},</if>
-                        <if test="bankNumber != null">#{bankNumber},</if>
-                        <if test="bankMobile != null">#{bankMobile},</if>
-                        <if test="uid != null">#{uid},</if>
+                        <if test="guideName != null">#{guideName},</if>
+                        <if test="guideContent != null">#{guideContent},</if>
+                        <if test="guideType != null">#{guideType},</if>
                         <if test="deleteFlag != null">#{deleteFlag}</if>
             </trim>
 		)
     </insert>
-    <update id="update" parameterType="com.origin.data.mybatis.entity.AppUserBank" >
-        UPDATE OGN_APP_USER_BANK  SET
+    <update id="update" parameterType="com.origin.data.mybatis.entity.AppGuide" >
+        UPDATE OGN_APP_GUIDE  SET
          id=id
                 <if test="createDate != null">,create_date=#{createDate}</if>
                 <if test="updateDate != null">,update_date=#{updateDate}</if>
-                <if test="bankName != null">,bank_name=#{bankName}</if>
-                <if test="bankNumber != null">,bank_number=#{bankNumber}</if>
-                <if test="bankMobile != null">,bank_mobile=#{bankMobile}</if>
-                <if test="uid != null">,uid=#{uid}</if>
+                <if test="guideName != null">,guide_name=#{guideName}</if>
+                <if test="guideContent != null">,guide_content=#{guideContent}</if>
+                <if test="guideType != null">,guide_type=#{guideType}</if>
                 <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
         <foreach collection="list" item="item"  separator=";" >
-            update OGN_APP_USER_BANK
+            update OGN_APP_GUIDE
             set id=id
                     <if test="item.createDate != null">,create_date=#{item.createDate}</if>
                     <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
-                    <if test="item.bankName != null">,bank_name=#{item.bankName}</if>
-                    <if test="item.bankNumber != null">,bank_number=#{item.bankNumber}</if>
-                    <if test="item.bankMobile != null">,bank_mobile=#{item.bankMobile}</if>
-                    <if test="item.uid != null">,uid=#{item.uid}</if>
+                    <if test="item.guideName != null">,guide_name=#{item.guideName}</if>
+                    <if test="item.guideContent != null">,guide_content=#{item.guideContent}</if>
+                    <if test="item.guideType != null">,guide_type=#{item.guideType}</if>
                     <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}
         </foreach>
     </update>
     <delete id="delete" parameterType="int">
-        DELETE FROM OGN_APP_USER_BANK WHERE id=#{id}
+        DELETE FROM OGN_APP_GUIDE WHERE id=#{id}
     </delete>
 </mapper>

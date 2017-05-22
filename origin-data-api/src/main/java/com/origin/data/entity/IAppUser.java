@@ -19,6 +19,14 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setId(Integer id);
 
+ Date getCreateDate();
+
+  void setCreateDate(Date createDate);
+
+ Date getUpdateDate();
+
+  void setUpdateDate(Date updateDate);
+
  String getMobile();
 
   void setMobile(String mobile);
@@ -30,14 +38,6 @@ public final static Integer STATUS_NO = 0; //不可用
  String getPayPwd();
 
   void setPayPwd(String payPwd);
-
- Date getCreateDate();
-
-  void setCreateDate(Date createDate);
-
- Date getUpdateDate();
-
-  void setUpdateDate(Date updateDate);
 
  Integer getAuthority();
 
@@ -79,8 +79,16 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setImgPortrait(String imgPortrait);
 
+ String getNickname();
+
+  void setNickname(String nickname);
+
  Integer getCategory();
 
   void setCategory(Integer category);
+
+ Integer getDeleteFlag();
+
+  void setDeleteFlag(Integer deleteFlag);
 
 }

@@ -48,7 +48,7 @@ public class CustomToken {
                 return simpleToken;
             }
         }else {
-            return Result.create(ResultCode.VALIDATE_ERROR);
+            return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
         }
     }
 
@@ -63,7 +63,7 @@ public class CustomToken {
                 return simpleToken;
             }
         }else {
-            return Result.create(ResultCode.VALIDATE_ERROR);
+            return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
         }
     }
 }

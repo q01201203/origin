@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
 * 
 */
-public interface IAppUserBank extends Serializable {
+public interface IAppTask extends Serializable {
 
 public final static Integer STATUS_YES = 1; //可用
 
@@ -27,21 +27,29 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setUpdateDate(Date updateDate);
 
- String getBankName();
+ String getTaskName();
 
-  void setBankName(String bankName);
+  void setTaskName(String taskName);
 
- Integer getBankNumber();
+ Integer getTaskNumber();
 
-  void setBankNumber(Integer bankNumber);
+  void setTaskNumber(Integer taskNumber);
 
- String getBankMobile();
+ Integer getTaskType();
 
-  void setBankMobile(String bankMobile);
+  void setTaskType(Integer taskType);
 
- Integer getUid();
+ Integer getTaskMoney();
 
-  void setUid(Integer uid);
+  void setTaskMoney(Integer taskMoney);
+
+ String getTaskImg();
+
+  void setTaskImg(String taskImg);
+
+ Integer getTaskHot();
+
+  void setTaskHot(Integer taskHot);
 
  Integer getDeleteFlag();
 

@@ -1,28 +1,28 @@
 package com.origin.data.mybatis.entity;
 
-import java.util.Date;
-
 import com.origin.data.entity.IAppUser;
+
+import java.util.Date;
 
 /**
  * 
  */
 public class AppUser implements IAppUser {
 
-	private static final long serialVersionUID = 11483885360561668L;
+	private static final long serialVersionUID = 5095144307529406L;
 	
 	/**  */
 	private Integer id;//;
+	/**  */
+	private Date createDate;// = CURRENT_TIMESTAMP;
+	/**  */
+	private Date updateDate;//;
 	/**  */
 	private String mobile;//;
 	/**  */
 	private String pwd;//;
 	/**  */
 	private String payPwd;//;
-	/**  */
-	private Date createDate;// = CURRENT_TIMESTAMP;
-	/**  */
-	private Date updateDate;//;
 	/**  */
 	private Integer authority;// = Integer.valueOf(100);
 	/**  */
@@ -44,7 +44,11 @@ public class AppUser implements IAppUser {
 	/**  */
 	private String imgPortrait;//;
 	/**  */
+	private String nickname;//;
+	/**  */
 	private Integer category;//;
+	/**  */
+	private Integer deleteFlag;// = Integer.valueOf(0);
 	
 	
 	public Integer getId() {
@@ -53,6 +57,22 @@ public class AppUser implements IAppUser {
 	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public Date getCreateDate() {
+		return this.createDate;
+	}
+	
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
+	
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
 	
 	public String getMobile() {
@@ -77,22 +97,6 @@ public class AppUser implements IAppUser {
 	
 	public void setPayPwd(String payPwd) {
 		this.payPwd = payPwd;
-	}
-	
-	public Date getCreateDate() {
-		return this.createDate;
-	}
-	
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-	
-	public Date getUpdateDate() {
-		return this.updateDate;
-	}
-	
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
 	}
 	
 	public Integer getAuthority() {
@@ -175,12 +179,28 @@ public class AppUser implements IAppUser {
 		this.imgPortrait = imgPortrait;
 	}
 	
+	public String getNickname() {
+		return this.nickname;
+	}
+	
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	
 	public Integer getCategory() {
 		return this.category;
 	}
 	
 	public void setCategory(Integer category) {
 		this.category = category;
+	}
+	
+	public Integer getDeleteFlag() {
+		return this.deleteFlag;
+	}
+	
+	public void setDeleteFlag(Integer deleteFlag) {
+		this.deleteFlag = deleteFlag;
 	}
 	
 	public boolean equals(Object object) {
@@ -204,11 +224,11 @@ public class AppUser implements IAppUser {
 	public String toString() {
 		return this.getClass().getName() + "["
 		+",id="+this.getId()
+		+",createDate="+this.getCreateDate()
+		+",updateDate="+this.getUpdateDate()
 		+",mobile="+this.getMobile()
 		+",pwd="+this.getPwd()
 		+",payPwd="+this.getPayPwd()
-		+",createDate="+this.getCreateDate()
-		+",updateDate="+this.getUpdateDate()
 		+",authority="+this.getAuthority()
 		+",moneyMax="+this.getMoneyMax()
 		+",alipayUsername="+this.getAlipayUsername()
@@ -219,7 +239,9 @@ public class AppUser implements IAppUser {
 		+",userIdName="+this.getUserIdName()
 		+",userIdNumber="+this.getUserIdNumber()
 		+",imgPortrait="+this.getImgPortrait()
+		+",nickname="+this.getNickname()
 		+",category="+this.getCategory()
+		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}
 }

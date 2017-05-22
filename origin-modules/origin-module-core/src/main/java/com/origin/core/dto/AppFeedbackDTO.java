@@ -1,35 +1,31 @@
 package com.origin.core.dto;
 
-import com.origin.data.entity.IAppUserBank;
-
 import java.util.Date;
+
+import com.origin.data.entity.IAppFeedback;
 
 /**
 * 
 */
-public class AppUserBankDTO implements IAppUserBank {
+public class AppFeedbackDTO implements IAppFeedback {
 
 
     /**  */
 private Integer id;//;
     /**  */
-private Date createDate;//;
+private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
 private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
-private String bankName;//;
-    /**  */
-private Integer bankNumber;//;
-    /**  */
-private String bankMobile;//;
+private String content;//;
     /**  */
 private Integer uid;//;
     /**  */
 private Integer deleteFlag;// = Integer.valueOf(0);
-public AppUserBankDTO(){
+public AppFeedbackDTO(){
 }
 
-public AppUserBankDTO(Integer id){
+public AppFeedbackDTO(Integer id){
 	this.id = id;
 }
 
@@ -58,28 +54,12 @@ public void setUpdateDate(Date updateDate) {
 this.updateDate = updateDate;
 }
 
-public String getBankName() {
-return this.bankName;
+public String getContent() {
+return this.content;
 }
 
-public void setBankName(String bankName) {
-this.bankName = bankName;
-}
-
-public Integer getBankNumber() {
-return this.bankNumber;
-}
-
-public void setBankNumber(Integer bankNumber) {
-this.bankNumber = bankNumber;
-}
-
-public String getBankMobile() {
-return this.bankMobile;
-}
-
-public void setBankMobile(String bankMobile) {
-this.bankMobile = bankMobile;
+public void setContent(String content) {
+this.content = content;
 }
 
 public Integer getUid() {
@@ -102,8 +82,8 @@ this.deleteFlag = deleteFlag;
 		if (object == null) {
 			return false;
 		}
-		if (object instanceof IAppUserBank) {
-			IAppUserBank baseEntity = (IAppUserBank) object;
+		if (object instanceof IAppFeedback) {
+			IAppFeedback baseEntity = (IAppFeedback) object;
 			if (this.getId() == null || baseEntity.getId() == null) {
 				return false;
 			} else {
@@ -121,9 +101,7 @@ this.deleteFlag = deleteFlag;
 		+",id="+this.getId()
 		+",createDate="+this.getCreateDate()
 		+",updateDate="+this.getUpdateDate()
-		+",bankName="+this.getBankName()
-		+",bankNumber="+this.getBankNumber()
-		+",bankMobile="+this.getBankMobile()
+		+",content="+this.getContent()
 		+",uid="+this.getUid()
 		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
