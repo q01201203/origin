@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Date;
-
 /**
  * Controller
  * 
@@ -77,7 +75,6 @@ public class AppValidcodeController {
 		String validcode = "110110";
 		appValidcode.setValidcode(validcode);
 		appValidcode.setType(Integer.parseInt(type));
-		appValidcode.setCreateDate(new Date());
 		appValidcodeService.save(appValidcode);
 		System.out.println("lic i = "+appValidcode.getId());
 		return validcode;

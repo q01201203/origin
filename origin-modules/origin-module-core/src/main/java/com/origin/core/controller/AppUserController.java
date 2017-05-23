@@ -31,8 +31,8 @@ import java.util.List;
  * @author lc
  */
 @Controller
-@RequestMapping("/app")
-@Api(value = "/app" ,description = "app用户操作API")
+@RequestMapping("/app/user")
+@Api(value = "/app/user" ,description = "app用户操作API")
 public class AppUserController {
 
 	Logger log = LoggerFactory.getLogger(AppUserController.class);
@@ -61,7 +61,7 @@ public class AppUserController {
 	private AppFeedbackService appFeedbackService;
 
 	//query
-	@RequestMapping(value = "/user/login" , method = RequestMethod.POST)
+	@RequestMapping(value = "/login" , method = RequestMethod.POST)
 	@ResponseBody
 	@ApiOperation(value = "app用户登录", httpMethod = "POST", response = Result.class, notes = "login return a token")
 	public Object login(@RequestParam(value = "mobile") String mobile ,
@@ -83,24 +83,30 @@ public class AppUserController {
 
 
 	//insert
-	@RequestMapping(value = "/user/register")
+	@RequestMapping(value = "/register")
 	@ResponseBody
 	@ApiOperation(value = "app用户注册", httpMethod = "POST", response = Result.class, notes = "register")
 	public Object register(@RequestParam(value = "mobile") String mobile ,
-						   @RequestParam(value = "pwd") String pwd) throws Exception {
-		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
-		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
+						   @RequestParam(value = "pwd") String pwd,
+						   @RequestParam(value = "alipayUsername") String alipayUsername ,
+						   @RequestParam(value = "alipayUseraccout") String alipayUseraccout) throws Exception {
+		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd +"请求的alipayusername为"
+				+ alipayUsername + "\n请求的alipayuseraccout为" + alipayUseraccout);
+		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)||StringUtil.isNullOrBlank(alipayUsername)
+				||StringUtil.isNullOrBlank(alipayUseraccout)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
 		appUser.setPwd(Md5Util.generatePassword(pwd));
+		appUser.setAlipayUsername(alipayUsername);
+		appUser.setAlipayUseraccout(alipayUseraccout);
 		appUserService.save(appUser);
 		return Result.createSuccessResult().setMessage("注册成功");
 	}
 
 	//update
-	@RequestMapping(value = "/user/resetPwd")
+	@RequestMapping(value = "/resetPwd")
 	@ResponseBody
 	@ApiOperation(value = "app用户重置密码", httpMethod = "POST", response = Result.class, notes = "resetPwd")
 	public Object resetPwd(@RequestParam(value = "mobile") String mobile ,
@@ -119,7 +125,7 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("重置密码成功");
 	}
 
-	@RequestMapping(value = "/user/addPayPwd" ,method = RequestMethod.POST)
+	@RequestMapping(value = "/addPayPwd" ,method = RequestMethod.POST)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加支付密码", httpMethod = "POST", response = Result.class, notes = "addPayPwd")
 	public Object addPayPwd(@RequestHeader(value = "Authorization" ) String token,
@@ -168,7 +174,7 @@ public class AppUserController {
 		return Result.createSuccessResult();
 	}*/
 
-	@RequestMapping(value = "/user/addAlipayAccount" ,method = RequestMethod.GET)
+	/*@RequestMapping(value = "/addAlipayAccount" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加支付宝账号", httpMethod = "GET", response = Result.class, notes = "addAlipayAccout")
 	public Object addAlipayAccout(@RequestHeader(value = "Authorization" ) String token,
@@ -193,9 +199,9 @@ public class AppUserController {
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
 		return Result.createSuccessResult().setMessage("添加成功");
-	}
+	}*/
 
-	@RequestMapping(value = "/user/addFace" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/addFace" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加人脸图片", httpMethod = "GET", response = Result.class ,
 			notes = "addFace return a token")
@@ -221,7 +227,7 @@ public class AppUserController {
 				,"认证成功");
 	}
 
-	@RequestMapping(value = "/user/addIdInfo" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/addIdInfo" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加身份证信息", httpMethod = "GET", response = Result.class, notes = "addIdInfo")
 	public Object addIdInfo(@RequestHeader(value = "Authorization" ) String token,
@@ -258,7 +264,7 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("添加成功");
 	}
 
-	@RequestMapping(value = "/user/addPortrait" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/addPortrait" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加头像", httpMethod = "GET", response = Result.class, notes = "addPortrait")
 	public Object addPortrait(@RequestHeader(value = "Authorization" ) String token,
@@ -282,7 +288,7 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("添加头像成功");
 	}
 
-	@RequestMapping(value = "/user/addNickname" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/addNickname" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加用户昵称", httpMethod = "GET", response = Result.class, notes = "addNickname")
 	public Object addNickname(@RequestHeader(value = "Authorization" ) String token,
@@ -307,7 +313,7 @@ public class AppUserController {
 	}
 
 	//other operation
-	@RequestMapping(value = "/user/savePersonInfo" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/savePersonInfo" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存个人信息", httpMethod = "GET", response = Result.class,
 			notes = "addIdInfo category(1:学生(infoSchool,infoDepartment,infoClass,infoRoomNumber) " +
@@ -378,7 +384,6 @@ public class AppUserController {
 		}
 
 		IAppPersonDetail appPersonDetail = new AppPersonDetailDTO();
-		appPersonDetail.setCreateDate(new Date());
 		appPersonDetail.setInfoMobile(infoMobile);
 		appPersonDetail.setInfoCompanyAddress(infoCompanyAddress);
 		appPersonDetail.setInfoQq(infoQq);
@@ -418,7 +423,6 @@ public class AppUserController {
 		}
 
 		IAppStuDetail appStuDetail = new AppStuDetailDTO();
-		appStuDetail.setCreateDate(new Date());
 		appStuDetail.setInfoMobile(infoMobile);
 		appStuDetail.setInfoSchool(infoSchool);
 		appStuDetail.setInfoDepartment(infoDepartment);
@@ -433,7 +437,7 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("学生信息保存成功");
 	}
 
-	@RequestMapping(value = "/user/saveBankInfo" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/saveBankInfo" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存银行信息", httpMethod = "GET", response = Result.class, notes = "addBankInfo")
 	@ApiImplicitParams({@ApiImplicitParam(name = "bankName" ,value = "bankName",paramType = "query"
@@ -463,7 +467,7 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("银行卡信息保存成功");
 	}
 
-	@RequestMapping(value = "/user/saveMoney" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/saveMoney" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存钱信息", httpMethod = "GET", response = Result.class,
 			notes = "saveMoney type(1:借钱(repayTime) 2:还钱(repayWay))")
@@ -488,7 +492,6 @@ public class AppUserController {
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
 			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
-			appMoneyDetail.setCreateDate(new Date());
 			appMoneyDetail.setMoney(Integer.parseInt(money));
 			appMoneyDetail.setRepayTime(Integer.parseInt(repayTime));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
@@ -501,7 +504,6 @@ public class AppUserController {
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
 			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
-			appMoneyDetail.setCreateDate(new Date());
 			appMoneyDetail.setMoney(Integer.parseInt(money));
 			appMoneyDetail.setRepayWay(Integer.parseInt(repayWay));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
@@ -513,7 +515,7 @@ public class AppUserController {
 		}
 	}
 
-	@RequestMapping(value = "/user/getMoney" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/getMoney" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户获取钱信息", httpMethod = "GET", response = Result.class,
 			notes = "getMoney type(1:借钱 2:还钱)")
@@ -547,7 +549,7 @@ public class AppUserController {
 		}
 	}
 
-	@RequestMapping(value = "/user/submitTask" , method = RequestMethod.GET)
+	@RequestMapping(value = "/submitTask" , method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户完成任务", httpMethod = "GET", response = Result.class, notes = "submitTask")
 	public Object submitTask(@RequestHeader(value = "Authorization" ) String token,
@@ -575,7 +577,7 @@ public class AppUserController {
 		}
 	}
 
-	@RequestMapping(value = "/user/saveFeedback" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/saveFeedback" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存反馈信息", httpMethod = "GET", response = Result.class, notes = "saveFeedback")
 	public Object saveFeedback(@RequestHeader(value = "Authorization" ) String token,
@@ -596,5 +598,21 @@ public class AppUserController {
 		feedback.setUid(uId);
 		appFeedbackService.save(feedback);
 		return Result.createSuccessResult().setMessage("保存反馈信息成功");
+	}
+
+	@RequestMapping(value = "/getUserBank" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取app用户银行信息", httpMethod = "GET", response = Result.class, notes = "getUserBank")
+	public Object getUserBank(@RequestHeader(value = "Authorization" ) String token) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		IAppUserBank appUserBank = new AppUserBankDTO();
+		appUserBank.setUid(uId);
+		List<IAppUserBank> appUserBanks = appUserBankService.find(appUserBank);
+		return Result.createSuccessResult(appUserBanks,"获取用户银行卡信息成功");
 	}
 }

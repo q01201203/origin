@@ -129,14 +129,14 @@
                 <artifactId>ueditor</artifactId>
                 <version>1.1.2</version>
                 <scope>system</scope>
-                <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ueditor-1.1.2.jar</systemPath>
+                <systemPath>${basedir}/origin-modules/origin-module-core/src/main/webapp/WEB-INF/lib/ueditor-1.1.2.jar</systemPath>
             </dependency>
             <dependency>
                 <groupId>org.json</groupId>
                 <artifactId>json</artifactId>
                 <version>1.0</version>
                 <scope>system</scope>
-                <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/json.jar</systemPath>
+                <systemPath>${basedir}/origin-modules/origin-module-core/src/main/webapp/WEB-INF/lib/json.jar</systemPath>
             </dependency>
 
 

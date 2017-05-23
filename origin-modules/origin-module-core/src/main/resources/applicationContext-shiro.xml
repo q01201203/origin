@@ -77,7 +77,6 @@
 	             /wap/** = anon
 	             /**/wap/** = anon
 				 /app/** = anon
-				 /swagger/** = anon
 	             /** = rememberAuthFilter
 	        </value>  
 	    </property>
