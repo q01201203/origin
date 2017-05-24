@@ -26,8 +26,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author lc
  */
 @Controller
-@RequestMapping("/app")
-@Api(value = "/app" ,description = "验证码API")
+@RequestMapping("/app/validcode")
+@Api(value = "/app/validcode" ,description = "验证码API")
 public class AppValidcodeController {
 
 	Logger log = LoggerFactory.getLogger(AppValidcodeController.class);
@@ -37,10 +37,10 @@ public class AppValidcodeController {
 	@Autowired
 	private AppUserService appUserService;
 
-	@RequestMapping(value = "/validcode/send" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/send" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户发送验证码", httpMethod = "GET", response = Result.class,
-			notes = "return validcode")
+			notes = "type(1:注册 2:重置密码) return validcode")
 	public Object send(@RequestParam(value = "mobile") String mobile ,
 					   @RequestParam(value = "type") String type) throws Exception{
 		if (StringUtil.isNullOrBlank(mobile) || StringUtil.isNullOrBlank(type)){
@@ -51,7 +51,7 @@ public class AppValidcodeController {
 		switch (type){
 			case IAppValidcode.TYPE_REGISTER:
 				appUser = appUserService.findFirst(appUser);
-				if (appUser!=null){
+				if (appUser==null){
 					String validcode = saveValidcode(mobile, type);
 					return Result.createSuccessResult(validcode,"发送验证码成功");
 				}else {
@@ -80,7 +80,7 @@ public class AppValidcodeController {
 		return validcode;
 	}
 
-	@RequestMapping(value = "/validcode/validate",method = RequestMethod.GET)
+	@RequestMapping(value = "/validate",method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户验证验证码", httpMethod = "GET", response = Result.class, notes = "validate")
 	public Object validate(@RequestParam(value = "mobile") String mobile ,

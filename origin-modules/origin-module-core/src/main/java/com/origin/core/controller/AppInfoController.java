@@ -29,8 +29,8 @@ import java.util.List;
  * @author lc
  */
 @Controller
-@RequestMapping("/appTask")
-@Api(value = "/app" ,description = "app获取信息API")
+@RequestMapping("/app/info")
+@Api(value = "/app/info" ,description = "app获取信息API")
 public class AppInfoController {
 
 	Logger log = LoggerFactory.getLogger(AppInfoController.class);
@@ -43,7 +43,7 @@ public class AppInfoController {
 	@Autowired
 	private AppGuideService appGuideService;
 
-	@RequestMapping(value = "/info/getTask" , method = RequestMethod.GET)
+	@RequestMapping(value = "/getTask" , method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户获取任务", httpMethod = "GET", response = Result.class, notes = "getTask")
 	public Object getTask(@RequestHeader(value = "Authorization" ) String token,
@@ -68,7 +68,7 @@ public class AppInfoController {
 		return Result.createSuccessResult(appTasks,"获取任务成功");
 	}
 
-	@RequestMapping(value = "/info/getUserInfo" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/getUserInfo" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "获取app用户信息", httpMethod = "GET", response = Result.class, notes = "getUserInfo")
 	public Object getUserInfo(@RequestHeader(value = "Authorization" ) String token) throws Exception{
@@ -82,7 +82,7 @@ public class AppInfoController {
 		return Result.createSuccessResult(appUser,"获取信息成功");
 	}
 
-	@RequestMapping(value = "/info/getGuide" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/getGuide" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "获取app安全指南", httpMethod = "GET", response = Result.class, notes = "getGuide")
 	public Object getGuide(@RequestHeader(value = "Authorization" ) String token) throws Exception{

@@ -1,6 +1,6 @@
 package com.origin.core.exception;
 
-import com.origin.common.dto.AjaxResult;
+import com.origin.common.model.mybatis.Result;
 import com.origin.core.util.JsonUtil;
 import com.origin.core.util.WebUtils;
 import org.slf4j.Logger;
@@ -34,16 +34,20 @@ public class CustomSimpleMappingExceptionHandler extends SimpleMappingExceptionR
         }
         ModelAndView mv = new ModelAndView();
         response.setStatus(HttpStatus.OK.value()); // 设置状态码,注意这里不能设置成500，设成500JQuery不会出错误提示 并且不会有任何反应
-        AjaxResult ajaxResult = new AjaxResult();
-        ajaxResult.setSuccess(false);
+        //lic modify
+        Result ajaxResult = Result.createErrorResult();
+        /*AjaxResult ajaxResult = new AjaxResult();
+        ajaxResult.setSuccess(false);*/
         if (ex instanceof BusinessException) {
             BusinessException e = (BusinessException) ex;
             String msg = e.getType() + "：<br/>" + e.getDetailMsg() + "(" + e.getSuggestionMsg() + ")";
-            ajaxResult.setMsg(msg);
+            ajaxResult.setMessage(msg);
+            //ajaxResult.setMsg(msg);
             // 已经封装过的异常
 //            WebUtils.writeToBrowser(JsonUtil.object2Json(new JsonResultBean(JsonResultBean.FAULT, msg)), response);
         } else {
-        	ajaxResult.setMsg("Error!");
+            ajaxResult.setMessage("Error");
+        	//ajaxResult.setMsg("Error!");
             // 没有封装过的异常
             //WebUtils.writeToBrowser(JsonUtil.object2Json(new JsonResultBean(JsonResultBean.FAULT, "系统错误，请联系管理员！")), response);
         }

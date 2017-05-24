@@ -98,11 +98,18 @@ public class AppUserController {
 		}
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
-		appUser.setPwd(Md5Util.generatePassword(pwd));
-		appUser.setAlipayUsername(alipayUsername);
-		appUser.setAlipayUseraccout(alipayUseraccout);
-		appUserService.save(appUser);
-		return Result.createSuccessResult().setMessage("注册成功");
+		appUser = appUserService.findFirst(appUser);
+		if (appUser!=null){
+			return Result.createErrorResult().setMessage("用户已存在");
+		}else {
+			IAppUser appUser1 = new AppUserDTO();
+			appUser1.setMobile(mobile);
+			appUser1.setPwd(Md5Util.generatePassword(pwd));
+			appUser1.setAlipayUsername(alipayUsername);
+			appUser1.setAlipayUseraccout(alipayUseraccout);
+			appUserService.save(appUser1);
+			return Result.createSuccessResult().setMessage("注册成功");
+		}
 	}
 
 	//update
@@ -221,6 +228,7 @@ public class AppUserController {
 		IAppUser appUser = new AppUserDTO();
 		appUser.setId(uId);
 		appUser.setImgFace(face);
+		appUser.setAuthority(Constants.AHORITY_MEDIUM);
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
 		return Result.createSuccessResult(CustomToken.generate(new SimpleToken(uId, Constants.AHORITY_MEDIUM))
@@ -258,7 +266,6 @@ public class AppUserController {
 		appUser.setUserIdName(idName);
 		appUser.setUserIdNumber(idNumber);
 		appUser.setCategory(Integer.parseInt(category));
-		appUser.setAuthority(Constants.AHORITY_MEDIUM);
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
 		return Result.createSuccessResult().setMessage("添加成功");

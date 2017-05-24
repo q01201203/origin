@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.origin.data.mybatis.dao.TestDao">
+	<sql id="selectPart">
+        SELECT
+        		    id,
+        		    sss,
+        		    df,
+                    dfs
+        FROM OGN_TEST
+        where 1=1
+	</sql>
+    <sql id="queryParams">
+			<if test="id != null">AND id=#{id}</if>
+			<if test="sss != null">AND sss=#{sss}</if>
+			<if test="df != null">AND df=#{df}</if>
+			<if test="dfs != null">AND dfs=#{dfs}</if>
+    </sql>
+    <resultMap type="com.origin.data.mybatis.entity.Test" id="testMap">
+    	<id property="id" column="id" />
+    	<result property="id" column="id"/>
+    	<result property="sss" column="sss"/>
+    	<result property="df" column="df"/>
+    	<result property="dfs" column="dfs"/>
+    </resultMap>
+    <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.Test">
+        <include refid="selectPart"/>
+        AND id=#{0}
+    </select>
+    <select id="findFirst" parameterType="com.origin.data.mybatis.entity.Test" resultType="com.origin.data.mybatis.entity.Test">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <select id="find" parameterType="com.origin.data.mybatis.entity.Test" resultType="com.origin.data.mybatis.entity.Test">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+    <insert id="save" parameterType="com.origin.data.mybatis.entity.Test">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO OGN_TEST (
+            <trim suffix="" suffixOverrides=",">
+                        <if test="sss != null">`sss`,</if>
+                        <if test="df != null">`df`,</if>
+                        <if test="dfs != null ">`dfs`</if>
+            </trim>
+		)
+		VALUES (
+            <trim suffix="" suffixOverrides=",">
+                        <if test="sss != null">#{sss},</if>
+                        <if test="df != null">#{df},</if>
+                        <if test="dfs != null">#{dfs}</if>
+            </trim>
+		)
+    </insert>
+    <update id="update" parameterType="com.origin.data.mybatis.entity.Test" >
+        UPDATE OGN_TEST  SET
+         id=id
+                <if test="sss != null">,sss=#{sss}</if>
+                <if test="df != null">,df=#{df}</if>
+                <if test="dfs != null">,dfs=#{dfs}</if>
+        WHERE `id` = #{id}
+    </update>
+    <update id="updateBatch" parameterType="list" >
+        <foreach collection="list" item="item"  separator=";" >
+            update OGN_TEST
+            set id=id
+                    <if test="item.sss != null">,sss=#{item.sss}</if>
+                    <if test="item.df != null">,df=#{item.df}</if>
+                    <if test="item.dfs != null">,dfs=#{item.dfs}</if>
+                where id=#{item.id}
+        </foreach>
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM OGN_TEST WHERE id=#{id}
+    </delete>
+</mapper>
