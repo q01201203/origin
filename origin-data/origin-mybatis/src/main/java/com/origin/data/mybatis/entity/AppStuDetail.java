@@ -9,14 +9,14 @@ import com.origin.data.entity.IAppStuDetail;
  */
 public class AppStuDetail implements IAppStuDetail {
 
-	private static final long serialVersionUID = 29522566924183337L;
+	private static final long serialVersionUID = 68253569978724181L;
 	
 	/**  */
 	private Integer id;//;
 	/**  */
-	private Date createDate;//;
+	private Date createDate;// = CURRENT_TIMESTAMP;
 	/**  */
-	private Date updateDate;//;
+	private Date updateDate;// = CURRENT_TIMESTAMP;
 	/**  */
 	private String infoMobile;//;
 	/**  */
@@ -30,13 +30,15 @@ public class AppStuDetail implements IAppStuDetail {
 	/**  */
 	private Integer infoEmycontactRelation;//;
 	/**  */
-	private Integer infoEmycontactMobile;//;
+	private String infoEmycontactMobile;//;
 	/**  */
 	private Integer infoContactRelation;//;
 	/**  */
-	private Integer infoContactMobile;//;
+	private String infoContactMobile;//;
 	/**  */
 	private Integer uid;//;
+	/**  */
+	private Integer deleteFlag;// = Integer.valueOf(0);
 	
 	
 	public Integer getId() {
@@ -111,11 +113,11 @@ public class AppStuDetail implements IAppStuDetail {
 		this.infoEmycontactRelation = infoEmycontactRelation;
 	}
 	
-	public Integer getInfoEmycontactMobile() {
+	public String getInfoEmycontactMobile() {
 		return this.infoEmycontactMobile;
 	}
 	
-	public void setInfoEmycontactMobile(Integer infoEmycontactMobile) {
+	public void setInfoEmycontactMobile(String infoEmycontactMobile) {
 		this.infoEmycontactMobile = infoEmycontactMobile;
 	}
 	
@@ -127,11 +129,11 @@ public class AppStuDetail implements IAppStuDetail {
 		this.infoContactRelation = infoContactRelation;
 	}
 	
-	public Integer getInfoContactMobile() {
+	public String getInfoContactMobile() {
 		return this.infoContactMobile;
 	}
 	
-	public void setInfoContactMobile(Integer infoContactMobile) {
+	public void setInfoContactMobile(String infoContactMobile) {
 		this.infoContactMobile = infoContactMobile;
 	}
 	
@@ -141,6 +143,14 @@ public class AppStuDetail implements IAppStuDetail {
 	
 	public void setUid(Integer uid) {
 		this.uid = uid;
+	}
+	
+	public Integer getDeleteFlag() {
+		return this.deleteFlag;
+	}
+	
+	public void setDeleteFlag(Integer deleteFlag) {
+		this.deleteFlag = deleteFlag;
 	}
 	
 	public boolean equals(Object object) {
@@ -176,6 +186,7 @@ public class AppStuDetail implements IAppStuDetail {
 		+",infoContactRelation="+this.getInfoContactRelation()
 		+",infoContactMobile="+this.getInfoContactMobile()
 		+",uid="+this.getUid()
+		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}
 }

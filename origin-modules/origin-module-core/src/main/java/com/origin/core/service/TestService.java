@@ -9,5 +9,6 @@ public interface TestService {
     void delete(Integer id);
     void update(ITest test);
     ITest findById(Integer id);
+    ITest findFirst(ITest test);
     List<ITest> find(ITest test);
 }

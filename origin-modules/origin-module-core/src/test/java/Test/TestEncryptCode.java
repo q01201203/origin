@@ -1,10 +1,13 @@
 package Test;
 
 import com.origin.common.util.BASE64Util;
+import com.origin.core.util.JsonUtil;
+import com.origin.data.entity.IAppMoneyDetail;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by lc on 2017/5/12.
@@ -38,5 +41,9 @@ public class TestEncryptCode {
         }else{
             System.out.println("2");
         }
+
+        String string = "[{\"createDate\":\"2017-05-24 15:44:25\",\"id\":1,\"money\":100,\"status\":1,\"type\":1,\"uid\":3,\"updateDate\":\"2017-05-24 15:44:35\"},{\"createDate\":\"2017-05-24 15:49:08\",\"id\":2,\"money\":200,\"status\":2,\"type\":1,\"uid\":3,\"updateDate\":\"2017-05-24 15:49:10\"},{\"createDate\":\"2017-05-24 15:50:47\",\"id\":3,\"money\":500,\"status\":3,\"type\":1,\"uid\":3,\"updateDate\":\"2017-05-24 15:50:50\"}]";
+        List<IAppMoneyDetail> appMoneyDetails = JsonUtil.json2List(string, IAppMoneyDetail.class);
+        System.out.println("size = "+appMoneyDetails.size()+"data = "+appMoneyDetails.get(0).getCreateDate());
     }
 }

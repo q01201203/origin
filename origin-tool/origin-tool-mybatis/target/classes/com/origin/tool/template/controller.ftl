@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.origin.common.dto.AjaxResult;
 import com.origin.<#if module??>${module}.</#if>dto.${model}DTO;
 import com.origin.<#if module??>${module}.</#if>service.${model}Service;
@@ -57,6 +58,8 @@ public class ${model}Controller {
 		</#list>
 		PageHelper.startPage(currentPage, pageSize);
 		List<I${model}> ${_model}s = ${_model}Service.find(params);
+    	PageInfo<I${model}> page = new PageInfo(${_model}s);
+        model.addAttribute("page", page);
     	model.addAttribute("${_model}s", ${_model}s);
     	model.addAttribute("queryDTO", params);
     	model.addAttribute(Constants.MENU_NAME, "${_model}列表");

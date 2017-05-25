@@ -1,15 +1,16 @@
 package com.origin.data.mybatis.entity;
 
-import java.util.Date;
-
 import com.origin.data.entity.IAppTask;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * 
  */
 public class AppTask implements IAppTask {
 
-	private static final long serialVersionUID = 28237438362172067L;
+	private static final long serialVersionUID = 47215766668304218L;
 	
 	/**  */
 	private Integer id;//;
@@ -24,15 +25,25 @@ public class AppTask implements IAppTask {
 	/**  */
 	private Integer taskType;//;
 	/**  */
-	private Integer taskMoney;//;
+	private Double taskMoney;//;
 	/**  */
 	private String taskImg;//;
 	/**  */
 	private Integer taskHot;// = Integer.valueOf(0);
 	/**  */
 	private Integer deleteFlag;// = Integer.valueOf(0);
-	
-	
+
+	//add lic 170525
+	private List<AppUserTask> appUserTasks;
+
+	public List<AppUserTask> getAppUserTasks() {
+		return appUserTasks;
+	}
+
+	public void setAppUserTasks(List<AppUserTask> appUserTasks) {
+		this.appUserTasks = appUserTasks;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -81,11 +92,11 @@ public class AppTask implements IAppTask {
 		this.taskType = taskType;
 	}
 	
-	public Integer getTaskMoney() {
+	public Double getTaskMoney() {
 		return this.taskMoney;
 	}
 	
-	public void setTaskMoney(Integer taskMoney) {
+	public void setTaskMoney(Double taskMoney) {
 		this.taskMoney = taskMoney;
 	}
 	

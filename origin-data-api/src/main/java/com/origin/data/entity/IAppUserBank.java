@@ -35,6 +35,10 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setBankNumber(Integer bankNumber);
 
+ Integer getBankType();
+
+  void setBankType(Integer bankType);
+
  String getBankMobile();
 
   void setBankMobile(String bankMobile);

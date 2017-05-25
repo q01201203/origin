@@ -6,7 +6,6 @@
 	<div data-ui="header" class="J_header">
         <div class="h_left">
             <div class="l_txt">
-                <i class="icon">&#xe931;</i>
             	<c:choose>
             		<c:when test="${not empty head_name }">${head_name }</c:when>
             		<c:otherwise>${menu_name }</c:otherwise>

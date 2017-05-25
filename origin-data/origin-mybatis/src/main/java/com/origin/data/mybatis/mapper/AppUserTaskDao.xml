@@ -75,4 +75,40 @@
     <delete id="delete" parameterType="int">
         DELETE FROM OGN_APP_USER_TASK WHERE id=#{id}
     </delete>
+
+    <select id="findTaskUserByTaskId"  resultMap="appUserTaskMapAll">
+        SELECT *
+        FROM ogn_app_user_task
+        LEFT JOIN ogn_app_user
+        ON ogn_app_user_task.uid = ogn_app_user.id
+        WHERE ogn_app_user_task.tid = #{id}
+    </select>
+
+    <resultMap type="com.origin.data.mybatis.entity.AppUserTask" id="appUserTaskMapAll">
+        <id property="id" column="ogn_app_user_task.id" />
+        <result property="uid" column="uid"/>
+        <result property="tid" column="tid"/>
+        <result property="status" column="status"/>
+        <association property="appUser" column="ogn_app_user.id" javaType="com.origin.data.mybatis.entity.AppUser">
+            <id property="id" column="ogn_app_user.id" />
+            <result property="createDate" column="create_date"/>
+            <result property="updateDate" column="update_date"/>
+            <result property="mobile" column="mobile"/>
+            <result property="pwd" column="pwd"/>
+            <result property="payPwd" column="pay_pwd"/>
+            <result property="authority" column="authority"/>
+            <result property="moneyMax" column="money_max"/>
+            <result property="alipayUsername" column="alipay_username"/>
+            <result property="alipayUseraccout" column="alipay_useraccout"/>
+            <result property="imgFace" column="img_face"/>
+            <result property="imgIdFront" column="img_id_front"/>
+            <result property="imgIdBack" column="img_id_back"/>
+            <result property="userIdName" column="user_id_name"/>
+            <result property="userIdNumber" column="user_id_number"/>
+            <result property="imgPortrait" column="img_portrait"/>
+            <result property="nickname" column="nickname"/>
+            <result property="category" column="category"/>
+            <result property="deleteFlag" column="delete_flag"/>
+        </association>
+    </resultMap>
 </mapper>

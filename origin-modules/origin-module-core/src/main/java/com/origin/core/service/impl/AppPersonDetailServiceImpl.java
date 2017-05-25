@@ -1,14 +1,13 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.AppPersonDetailService;
 import com.origin.data.dao.IAppPersonDetailDao;
 import com.origin.data.entity.IAppPersonDetail;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AppPersonDetailServiceImpl  implements AppPersonDetailService {
@@ -39,5 +38,10 @@ return appPersonDetailDao.findByPK(id);
 @Override
 public List<IAppPersonDetail> find(IAppPersonDetail appPersonDetail) {
     return appPersonDetailDao.find(appPersonDetail);
+    }
+
+    @Override
+    public IAppPersonDetail findFirst(IAppPersonDetail appPersonDetail) {
+        return appPersonDetailDao.findFirst(appPersonDetail);
     }
 }

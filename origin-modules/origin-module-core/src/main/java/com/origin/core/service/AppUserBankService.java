@@ -9,5 +9,6 @@ public interface AppUserBankService {
     void delete(Integer id);
     void update(IAppUserBank appUserBank);
     IAppUserBank findById(Integer id);
+    IAppUserBank findFirst(IAppUserBank appUserBank);
     List<IAppUserBank> find(IAppUserBank appUserBank);
 }

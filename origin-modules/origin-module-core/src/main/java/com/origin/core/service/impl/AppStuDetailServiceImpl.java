@@ -1,14 +1,13 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.AppStuDetailService;
 import com.origin.data.dao.IAppStuDetailDao;
 import com.origin.data.entity.IAppStuDetail;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AppStuDetailServiceImpl  implements AppStuDetailService {
@@ -39,5 +38,10 @@ return appStuDetailDao.findByPK(id);
 @Override
 public List<IAppStuDetail> find(IAppStuDetail appStuDetail) {
     return appStuDetailDao.find(appStuDetail);
+    }
+
+    @Override
+    public IAppStuDetail findFirst(IAppStuDetail appStuDetail) {
+        return appStuDetailDao.findFirst(appStuDetail);
     }
 }

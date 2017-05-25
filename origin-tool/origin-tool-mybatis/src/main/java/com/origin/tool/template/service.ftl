@@ -9,5 +9,6 @@ public interface ${model}Service {
     void delete(Integer id);
     void update(I${model} ${_model});
     I${model} findById(Integer id);
+    I${model} findFirst(I${model} ${_model});
     List<I${model}> find(I${model} ${_model});
 }

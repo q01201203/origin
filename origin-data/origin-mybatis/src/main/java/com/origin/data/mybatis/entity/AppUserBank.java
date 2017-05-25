@@ -9,18 +9,20 @@ import com.origin.data.entity.IAppUserBank;
  */
 public class AppUserBank implements IAppUserBank {
 
-	private static final long serialVersionUID = 25620156382829184L;
+	private static final long serialVersionUID = 23930680313127543L;
 	
 	/**  */
 	private Integer id;//;
 	/**  */
-	private Date createDate;//;
+	private Date createDate;// = CURRENT_TIMESTAMP;
 	/**  */
 	private Date updateDate;// = CURRENT_TIMESTAMP;
 	/**  */
 	private String bankName;//;
 	/**  */
 	private Integer bankNumber;//;
+	/**  */
+	private Integer bankType;//;
 	/**  */
 	private String bankMobile;//;
 	/**  */
@@ -67,6 +69,14 @@ public class AppUserBank implements IAppUserBank {
 	
 	public void setBankNumber(Integer bankNumber) {
 		this.bankNumber = bankNumber;
+	}
+	
+	public Integer getBankType() {
+		return this.bankType;
+	}
+	
+	public void setBankType(Integer bankType) {
+		this.bankType = bankType;
 	}
 	
 	public String getBankMobile() {
@@ -118,6 +128,7 @@ public class AppUserBank implements IAppUserBank {
 		+",updateDate="+this.getUpdateDate()
 		+",bankName="+this.getBankName()
 		+",bankNumber="+this.getBankNumber()
+		+",bankType="+this.getBankType()
 		+",bankMobile="+this.getBankMobile()
 		+",uid="+this.getUid()
 		+",deleteFlag="+this.getDeleteFlag()

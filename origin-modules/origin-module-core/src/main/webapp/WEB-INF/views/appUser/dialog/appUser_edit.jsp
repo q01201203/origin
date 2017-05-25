@@ -63,7 +63,7 @@
 
 
 <div id="addForm" class="mgt40">
-    <form action="${ctx }/appUser/ajax/update" id="editForm" method="post">
+    <form action="${ctx }/admin/appUser/user/ajax/update" id="editForm" method="post">
         <input type="hidden" name="id" value="${appUser.id }"/>
         <div class="">
             <div class="J_formTable l_form_table">

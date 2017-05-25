@@ -1,5 +1,5 @@
 
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html;charset=utf-8"%>
 <%@ taglib uri="http://jsptags.com/tags/navigation/pager" prefix="pg"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>

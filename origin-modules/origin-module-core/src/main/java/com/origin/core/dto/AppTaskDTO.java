@@ -23,7 +23,7 @@ private Integer taskNumber;//;
     /**  */
 private Integer taskType;//;
     /**  */
-private Integer taskMoney;//;
+private Double taskMoney;//;
     /**  */
 private String taskImg;//;
     /**  */
@@ -86,11 +86,11 @@ public void setTaskType(Integer taskType) {
 this.taskType = taskType;
 }
 
-public Integer getTaskMoney() {
+public Double getTaskMoney() {
 return this.taskMoney;
 }
 
-public void setTaskMoney(Integer taskMoney) {
+public void setTaskMoney(Double taskMoney) {
 this.taskMoney = taskMoney;
 }
 

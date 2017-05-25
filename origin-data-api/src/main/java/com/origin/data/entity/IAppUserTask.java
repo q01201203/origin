@@ -30,4 +30,7 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setStatus(Integer status);
 
+ public IAppUser getAppUser();
+
+ public void setAppUser(IAppUser appUser) ;
 }

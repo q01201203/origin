@@ -1,8 +1,8 @@
 package com.origin.core.dto;
 
-import com.origin.data.entity.IAppUserBank;
-
 import java.util.Date;
+
+import com.origin.data.entity.IAppUserBank;
 
 /**
 * 
@@ -13,13 +13,15 @@ public class AppUserBankDTO implements IAppUserBank {
     /**  */
 private Integer id;//;
     /**  */
-private Date createDate;//;
+private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
 private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
 private String bankName;//;
     /**  */
 private Integer bankNumber;//;
+    /**  */
+private Integer bankType;//;
     /**  */
 private String bankMobile;//;
     /**  */
@@ -74,6 +76,14 @@ public void setBankNumber(Integer bankNumber) {
 this.bankNumber = bankNumber;
 }
 
+public Integer getBankType() {
+return this.bankType;
+}
+
+public void setBankType(Integer bankType) {
+this.bankType = bankType;
+}
+
 public String getBankMobile() {
 return this.bankMobile;
 }
@@ -123,6 +133,7 @@ this.deleteFlag = deleteFlag;
 		+",updateDate="+this.getUpdateDate()
 		+",bankName="+this.getBankName()
 		+",bankNumber="+this.getBankNumber()
+		+",bankType="+this.getBankType()
 		+",bankMobile="+this.getBankMobile()
 		+",uid="+this.getUid()
 		+",deleteFlag="+this.getDeleteFlag()

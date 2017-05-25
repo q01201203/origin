@@ -397,9 +397,9 @@ public class AppUserController {
 		appPersonDetail.setInfoWeixin(infoWeixin);
 		appPersonDetail.setInfoHome(infoHome);
 		appPersonDetail.setInfoEmycontactRelation(Integer.parseInt(infoEmycontactRelation));
-		appPersonDetail.setInfoEmycontactMobile(Integer.parseInt(infoEmycontactMobile));
+		appPersonDetail.setInfoEmycontactMobile(infoEmycontactMobile);
 		appPersonDetail.setInfoContactRelation(Integer.parseInt(infoContactRelation));
-		appPersonDetail.setInfoContactMobile(Integer.parseInt(infoContactMobile));
+		appPersonDetail.setInfoContactMobile(infoContactMobile);
 		appPersonDetail.setUid(uId);
 		appPersonDetailService.save(appPersonDetail);
 		return Result.createSuccessResult().setMessage("社会人群信息保存成功");
@@ -436,9 +436,9 @@ public class AppUserController {
 		appStuDetail.setInfoClass(infoClass);
 		appStuDetail.setInfoRoomnumber(infoRoomNumber);
 		appStuDetail.setInfoEmycontactRelation(Integer.parseInt(infoEmycontactRelation));
-		appStuDetail.setInfoEmycontactMobile(Integer.parseInt(infoEmycontactMobile));
+		appStuDetail.setInfoEmycontactMobile(infoEmycontactMobile);
 		appStuDetail.setInfoContactRelation(Integer.parseInt(infoContactRelation));
-		appStuDetail.setInfoContactMobile(Integer.parseInt(infoContactMobile));
+		appStuDetail.setInfoContactMobile(infoContactMobile);
 		appStuDetail.setUid(uId);
 		appStuDetailService.save(appStuDetail);
 		return Result.createSuccessResult().setMessage("学生信息保存成功");
@@ -449,6 +449,7 @@ public class AppUserController {
 	@ApiOperation(value = "app用户保存银行信息", httpMethod = "GET", response = Result.class, notes = "addBankInfo")
 	@ApiImplicitParams({@ApiImplicitParam(name = "bankName" ,value = "bankName",paramType = "query"
 			,dataType = "string") ,@ApiImplicitParam(name = "bankNumber" ,value = "bankNumber",paramType = "query"
+			,dataType = "int"),@ApiImplicitParam(name = "bankType" ,value = "bankType",paramType = "query"
 			,dataType = "int"),@ApiImplicitParam(name = "bankMobile" ,value = "bankMobile",paramType = "query"
 			,dataType = "string")})
 	public Object addBankInfo(@RequestHeader(value = "Authorization" ) String token,

@@ -1,12 +1,19 @@
 package com.origin.core.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.origin.common.dto.AjaxResult;
+import com.origin.core.dto.AppPersonDetailDTO;
+import com.origin.core.dto.AppStuDetailDTO;
+import com.origin.core.dto.AppUserBankDTO;
 import com.origin.core.dto.AppUserDTO;
+import com.origin.core.service.AppPersonDetailService;
+import com.origin.core.service.AppStuDetailService;
+import com.origin.core.service.AppUserBankService;
 import com.origin.core.service.AppUserService;
 import com.origin.core.util.Constants;
 import com.origin.core.util.StringUtil;
-import com.origin.data.entity.IAppUser;
+import com.origin.data.entity.*;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,8 +40,17 @@ public class AdminAppUserController {
 	@Autowired
 	private AppUserService appUserService;
 
-	@RequestMapping("/list")
-	public String list(HttpServletRequest request, Model model) throws ParseException {
+	@Autowired
+	private AppStuDetailService appStuDetailService;
+
+	@Autowired
+	private AppPersonDetailService appPersonDetailService;
+
+	@Autowired
+	private AppUserBankService appUserBankService;
+
+	@RequestMapping("/user/list")
+	public String userList(HttpServletRequest request, Model model) throws ParseException {
 		String id = request.getParameter("id");
 		String createDate = request.getParameter("createDate");
 		String updateDate = request.getParameter("updateDate");
@@ -125,25 +141,54 @@ public class AdminAppUserController {
 		}
 		PageHelper.startPage(currentPage, pageSize);
 		List<IAppUser> appUsers = appUserService.find(params);
+		PageInfo<IAppUser> page = new PageInfo(appUsers);
+		model.addAttribute("page", page);
     	model.addAttribute("appUsers", appUsers);
     	model.addAttribute("queryDTO", params);
     	model.addAttribute(Constants.MENU_NAME, "App用户列表");
 
     	return "appUser/appUser_list";
 	}
-    @RequestMapping("/dialog/appUser_edit")
-    public String edit(HttpServletRequest request, Model model){
+    @RequestMapping("/user/dialog/appUser_edit")
+    public String userEdit(HttpServletRequest request, Model model){
     	String id = request.getParameter("id");
     	if(StringUtils.isNotBlank(id)){
-    		IAppUser appUser = appUserService.findById(Integer.parseInt(id));
-    		model.addAttribute("appUser", appUser);
-
+			IAppUser appUser = appUserService.findById(Integer.parseInt(id));
+			model.addAttribute("appUser", appUser);
 		}
     	return "appUser/dialog/appUser_edit";
     }
-    @RequestMapping("/ajax/update")
+
+	@RequestMapping("/user/detail/appUser_edit")
+	public String userDetailEdit(HttpServletRequest request, Model model){
+		String id = request.getParameter("id");
+		if(StringUtils.isNotBlank(id)){
+			Integer uid = Integer.parseInt(id);
+			IAppUser appUser = appUserService.findById(uid);
+			model.addAttribute("appUser", appUser);
+			if (IAppUser.CATEGORY_STU.equals(appUser.getCategory())){
+				IAppStuDetail appStuDetail = new AppStuDetailDTO();
+				appStuDetail.setUid(uid);
+				appStuDetail = appStuDetailService.findFirst(appStuDetail);
+				model.addAttribute("appStuDetail", appStuDetail);
+			}else if (IAppUser.CATEGORY_PERSON.equals(appUser.getCategory())){
+				IAppPersonDetail appPersonDetail = new AppPersonDetailDTO();
+				appPersonDetail.setUid(uid);
+				appPersonDetail = appPersonDetailService.findFirst(appPersonDetail);
+				model.addAttribute("appPersonDetail", appPersonDetail);
+			}
+			IAppUserBank appUserBank = new AppUserBankDTO();
+			appUserBank.setUid(uid);
+			appUserBank = appUserBankService.findFirst(appUserBank);
+			model.addAttribute("appUserBank", appUserBank);
+		}
+		model.addAttribute(Constants.MENU_NAME, "App用户列表");
+		return "appUser/appUserDetail";
+	}
+
+    @RequestMapping("/user/ajax/update")
     @ResponseBody
-    public AjaxResult ajaxUpdate(HttpServletRequest request){
+    public AjaxResult userAjaxUpdate(HttpServletRequest request){
     	AjaxResult ajaxResult = new AjaxResult();
     	ajaxResult.setSuccess(false);
 
@@ -206,9 +251,9 @@ public class AdminAppUserController {
 
     	return ajaxResult;
     }
-    @RequestMapping("/ajax/delete")
+    @RequestMapping("/user/ajax/delete")
     @ResponseBody
-    public AjaxResult ajaxDelete(HttpServletRequest request){
+    public AjaxResult userAjaxDelete(HttpServletRequest request){
 		AjaxResult ajaxResult = new AjaxResult();
     	ajaxResult.setSuccess(false);
     	try {
@@ -221,5 +266,4 @@ public class AdminAppUserController {
     	}
     	return ajaxResult;
     }
-
 }

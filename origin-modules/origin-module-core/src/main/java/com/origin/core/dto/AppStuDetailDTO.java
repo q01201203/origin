@@ -13,9 +13,9 @@ public class AppStuDetailDTO implements IAppStuDetail {
     /**  */
 private Integer id;//;
     /**  */
-private Date createDate;//;
+private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
-private Date updateDate;//;
+private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
 private String infoMobile;//;
     /**  */
@@ -29,13 +29,15 @@ private String infoRoomnumber;//;
     /**  */
 private Integer infoEmycontactRelation;//;
     /**  */
-private Integer infoEmycontactMobile;//;
+private String infoEmycontactMobile;//;
     /**  */
 private Integer infoContactRelation;//;
     /**  */
-private Integer infoContactMobile;//;
+private String infoContactMobile;//;
     /**  */
 private Integer uid;//;
+    /**  */
+private Integer deleteFlag;// = Integer.valueOf(0);
 public AppStuDetailDTO(){
 }
 
@@ -116,11 +118,11 @@ public void setInfoEmycontactRelation(Integer infoEmycontactRelation) {
 this.infoEmycontactRelation = infoEmycontactRelation;
 }
 
-public Integer getInfoEmycontactMobile() {
+public String getInfoEmycontactMobile() {
 return this.infoEmycontactMobile;
 }
 
-public void setInfoEmycontactMobile(Integer infoEmycontactMobile) {
+public void setInfoEmycontactMobile(String infoEmycontactMobile) {
 this.infoEmycontactMobile = infoEmycontactMobile;
 }
 
@@ -132,11 +134,11 @@ public void setInfoContactRelation(Integer infoContactRelation) {
 this.infoContactRelation = infoContactRelation;
 }
 
-public Integer getInfoContactMobile() {
+public String getInfoContactMobile() {
 return this.infoContactMobile;
 }
 
-public void setInfoContactMobile(Integer infoContactMobile) {
+public void setInfoContactMobile(String infoContactMobile) {
 this.infoContactMobile = infoContactMobile;
 }
 
@@ -146,6 +148,14 @@ return this.uid;
 
 public void setUid(Integer uid) {
 this.uid = uid;
+}
+
+public Integer getDeleteFlag() {
+return this.deleteFlag;
+}
+
+public void setDeleteFlag(Integer deleteFlag) {
+this.deleteFlag = deleteFlag;
 }
 
 	public boolean equals(Object object) {
@@ -181,6 +191,7 @@ this.uid = uid;
 		+",infoContactRelation="+this.getInfoContactRelation()
 		+",infoContactMobile="+this.getInfoContactMobile()
 		+",uid="+this.getUid()
+		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}
 }

@@ -8,7 +8,7 @@ import com.origin.data.entity.ITest;
  */
 public class Test implements ITest {
 
-	private static final long serialVersionUID = 95194270871830969L;
+	private static final long serialVersionUID = 96314928860631871L;
 	
 	/**  */
 	private Integer id;//;

@@ -9,5 +9,6 @@ public interface AppStuDetailService {
     void delete(Integer id);
     void update(IAppStuDetail appStuDetail);
     IAppStuDetail findById(Integer id);
+    IAppStuDetail findFirst(IAppStuDetail appStuDetail);
     List<IAppStuDetail> find(IAppStuDetail appStuDetail);
 }

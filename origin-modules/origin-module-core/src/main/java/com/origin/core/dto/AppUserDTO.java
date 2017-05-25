@@ -1,8 +1,8 @@
 package com.origin.core.dto;
 
-import com.origin.data.entity.IAppUser;
-
 import java.util.Date;
+
+import com.origin.data.entity.IAppUser;
 
 /**
 * 
@@ -15,7 +15,7 @@ private Integer id;//;
     /**  */
 private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
-private Date updateDate;//;
+private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
 private String mobile;//;
     /**  */

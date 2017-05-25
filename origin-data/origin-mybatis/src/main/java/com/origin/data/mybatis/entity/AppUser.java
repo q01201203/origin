@@ -9,14 +9,14 @@ import java.util.Date;
  */
 public class AppUser implements IAppUser {
 
-	private static final long serialVersionUID = 5095144307529406L;
+	private static final long serialVersionUID = 25836834475777492L;
 	
 	/**  */
 	private Integer id;//;
 	/**  */
 	private Date createDate;// = CURRENT_TIMESTAMP;
 	/**  */
-	private Date updateDate;//;
+	private Date updateDate;// = CURRENT_TIMESTAMP;
 	/**  */
 	private String mobile;//;
 	/**  */

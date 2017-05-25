@@ -67,7 +67,6 @@
 $(function(){
 	
 	var menuName = '${menu_name}';
-	
 	$('#menu div.l_item').each(function(idx, obj){
 		
 		var txt = $(obj).find('div.i_default span').text();

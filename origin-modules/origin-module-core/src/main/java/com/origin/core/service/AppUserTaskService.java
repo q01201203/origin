@@ -1,6 +1,7 @@
 package com.origin.core.service;
 
 import com.origin.data.entity.IAppUserTask;
+
 import java.util.List;
 
 public interface AppUserTaskService {
@@ -10,4 +11,7 @@ public interface AppUserTaskService {
     void update(IAppUserTask appUserTask);
     IAppUserTask findById(Integer id);
     List<IAppUserTask> find(IAppUserTask appUserTask);
+
+    //add lc 170525
+    List<IAppUserTask> findTaskUserByTaskId(Integer id);
 }

@@ -7,6 +7,7 @@
         		    create_date,
         		    update_date,
         		    info_mobile,
+        		    info_company_name,
         		    info_company_address,
         		    info_qq,
         		    info_weixin,
@@ -15,7 +16,8 @@
         		    info_emycontact_mobile,
         		    info_contact_relation,
         		    info_contact_mobile,
-                    uid
+        		    uid,
+                    delete_flag
         FROM OGN_APP_PERSON_DETAIL
         where 1=1
 	</sql>
@@ -24,6 +26,7 @@
 			<if test="createDate != null">AND create_date=#{createDate}</if>
 			<if test="updateDate != null">AND update_date=#{updateDate}</if>
 			<if test="infoMobile != null">AND info_mobile=#{infoMobile}</if>
+			<if test="infoCompanyName != null">AND info_company_name=#{infoCompanyName}</if>
 			<if test="infoCompanyAddress != null">AND info_company_address=#{infoCompanyAddress}</if>
 			<if test="infoQq != null">AND info_qq=#{infoQq}</if>
 			<if test="infoWeixin != null">AND info_weixin=#{infoWeixin}</if>
@@ -33,6 +36,7 @@
 			<if test="infoContactRelation != null">AND info_contact_relation=#{infoContactRelation}</if>
 			<if test="infoContactMobile != null">AND info_contact_mobile=#{infoContactMobile}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
+			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppPersonDetail" id="appPersonDetailMap">
     	<id property="id" column="id" />
@@ -40,6 +44,7 @@
     	<result property="createDate" column="create_date"/>
     	<result property="updateDate" column="update_date"/>
     	<result property="infoMobile" column="info_mobile"/>
+    	<result property="infoCompanyName" column="info_company_name"/>
     	<result property="infoCompanyAddress" column="info_company_address"/>
     	<result property="infoQq" column="info_qq"/>
     	<result property="infoWeixin" column="info_weixin"/>
@@ -49,6 +54,7 @@
     	<result property="infoContactRelation" column="info_contact_relation"/>
     	<result property="infoContactMobile" column="info_contact_mobile"/>
     	<result property="uid" column="uid"/>
+    	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppPersonDetail">
         <include refid="selectPart"/>
@@ -67,34 +73,40 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO OGN_APP_PERSON_DETAIL (
-                        <if test="createDate != null">`create_date`</if>
-                        <if test="updateDate != null ">,`update_date`</if>
-                        <if test="infoMobile != null ">,`info_mobile`</if>
-                        <if test="infoCompanyAddress != null ">,`info_company_address`</if>
-                        <if test="infoQq != null ">,`info_qq`</if>
-                        <if test="infoWeixin != null ">,`info_weixin`</if>
-                        <if test="infoHome != null ">,`info_home`</if>
-                        <if test="infoEmycontactRelation != null ">,`info_emycontact_relation`</if>
-                        <if test="infoEmycontactMobile != null ">,`info_emycontact_mobile`</if>
-                        <if test="infoContactRelation != null ">,`info_contact_relation`</if>
-                        <if test="infoContactMobile != null ">,`info_contact_mobile`</if>
-                        <if test="uid != null ">,`uid`</if>
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">`create_date`,</if>
+                        <if test="updateDate != null">`update_date`,</if>
+                        <if test="infoMobile != null">`info_mobile`,</if>
+                        <if test="infoCompanyName != null">`info_company_name`,</if>
+                        <if test="infoCompanyAddress != null">`info_company_address`,</if>
+                        <if test="infoQq != null">`info_qq`,</if>
+                        <if test="infoWeixin != null">`info_weixin`,</if>
+                        <if test="infoHome != null">`info_home`,</if>
+                        <if test="infoEmycontactRelation != null">`info_emycontact_relation`,</if>
+                        <if test="infoEmycontactMobile != null">`info_emycontact_mobile`,</if>
+                        <if test="infoContactRelation != null">`info_contact_relation`,</if>
+                        <if test="infoContactMobile != null">`info_contact_mobile`,</if>
+                        <if test="uid != null">`uid`,</if>
+                        <if test="deleteFlag != null ">`delete_flag`</if>
+            </trim>
 		)
 		VALUES (
-
-                        <if test="createDate != null">#{createDate}</if>
-                        <if test="updateDate != null">,#{updateDate}</if>
-                        <if test="infoMobile != null">,#{infoMobile}</if>
-                        <if test="infoCompanyAddress != null">,#{infoCompanyAddress}</if>
-                        <if test="infoQq != null">,#{infoQq}</if>
-                        <if test="infoWeixin != null">,#{infoWeixin}</if>
-                        <if test="infoHome != null">,#{infoHome}</if>
-                        <if test="infoEmycontactRelation != null">,#{infoEmycontactRelation}</if>
-                        <if test="infoEmycontactMobile != null">,#{infoEmycontactMobile}</if>
-                        <if test="infoContactRelation != null">,#{infoContactRelation}</if>
-                        <if test="infoContactMobile != null">,#{infoContactMobile}</if>
-                        <if test="uid != null">,#{uid}</if>
-
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">#{createDate},</if>
+                        <if test="updateDate != null">#{updateDate},</if>
+                        <if test="infoMobile != null">#{infoMobile},</if>
+                        <if test="infoCompanyName != null">#{infoCompanyName},</if>
+                        <if test="infoCompanyAddress != null">#{infoCompanyAddress},</if>
+                        <if test="infoQq != null">#{infoQq},</if>
+                        <if test="infoWeixin != null">#{infoWeixin},</if>
+                        <if test="infoHome != null">#{infoHome},</if>
+                        <if test="infoEmycontactRelation != null">#{infoEmycontactRelation},</if>
+                        <if test="infoEmycontactMobile != null">#{infoEmycontactMobile},</if>
+                        <if test="infoContactRelation != null">#{infoContactRelation},</if>
+                        <if test="infoContactMobile != null">#{infoContactMobile},</if>
+                        <if test="uid != null">#{uid},</if>
+                        <if test="deleteFlag != null">#{deleteFlag}</if>
+            </trim>
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppPersonDetail" >
@@ -103,6 +115,7 @@
                 <if test="createDate != null">,create_date=#{createDate}</if>
                 <if test="updateDate != null">,update_date=#{updateDate}</if>
                 <if test="infoMobile != null">,info_mobile=#{infoMobile}</if>
+                <if test="infoCompanyName != null">,info_company_name=#{infoCompanyName}</if>
                 <if test="infoCompanyAddress != null">,info_company_address=#{infoCompanyAddress}</if>
                 <if test="infoQq != null">,info_qq=#{infoQq}</if>
                 <if test="infoWeixin != null">,info_weixin=#{infoWeixin}</if>
@@ -112,6 +125,7 @@
                 <if test="infoContactRelation != null">,info_contact_relation=#{infoContactRelation}</if>
                 <if test="infoContactMobile != null">,info_contact_mobile=#{infoContactMobile}</if>
                 <if test="uid != null">,uid=#{uid}</if>
+                <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
@@ -121,6 +135,7 @@
                     <if test="item.createDate != null">,create_date=#{item.createDate}</if>
                     <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
                     <if test="item.infoMobile != null">,info_mobile=#{item.infoMobile}</if>
+                    <if test="item.infoCompanyName != null">,info_company_name=#{item.infoCompanyName}</if>
                     <if test="item.infoCompanyAddress != null">,info_company_address=#{item.infoCompanyAddress}</if>
                     <if test="item.infoQq != null">,info_qq=#{item.infoQq}</if>
                     <if test="item.infoWeixin != null">,info_weixin=#{item.infoWeixin}</if>
@@ -130,6 +145,7 @@
                     <if test="item.infoContactRelation != null">,info_contact_relation=#{item.infoContactRelation}</if>
                     <if test="item.infoContactMobile != null">,info_contact_mobile=#{item.infoContactMobile}</if>
                     <if test="item.uid != null">,uid=#{item.uid}</if>
+                    <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}
         </foreach>
     </update>

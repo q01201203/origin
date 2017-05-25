@@ -1,6 +1,7 @@
 package com.origin.data.mybatis.entity;
 
 
+import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserTask;
 
 /**
@@ -8,7 +9,7 @@ import com.origin.data.entity.IAppUserTask;
  */
 public class AppUserTask implements IAppUserTask {
 
-	private static final long serialVersionUID = 68360036563532607L;
+	private static final long serialVersionUID = 17486693879904966L;
 	
 	/**  */
 	private Integer id;//;
@@ -17,9 +18,21 @@ public class AppUserTask implements IAppUserTask {
 	/**  */
 	private Integer tid;//;
 	/**  */
-	private Integer status;//;
-	
-	
+	private Integer status;// = Integer.valueOf(0);
+
+	//add lic 170525
+	private IAppUser appUser;
+
+	@Override
+	public IAppUser getAppUser() {
+		return appUser;
+	}
+
+	@Override
+	public void setAppUser(IAppUser appUser) {
+		this.appUser = appUser;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}

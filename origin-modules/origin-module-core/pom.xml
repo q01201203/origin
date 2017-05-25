@@ -77,10 +77,12 @@
         <dependency>
             <groupId>com.baidu.ueditor</groupId>
             <artifactId>ueditor</artifactId>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ueditor-1.1.2.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/json.jar</systemPath>
         </dependency>
         <!-- Mysql驱动程序 -->
         <dependency>

@@ -1,6 +1,7 @@
 package com.origin.core.dto;
 
 
+import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserTask;
 
 /**
@@ -17,6 +18,10 @@ private Integer uid;//;
 private Integer tid;//;
     /**  */
 private Integer status;//;
+
+	//add lic 170525
+	private IAppUser appUser;
+
 public AppUserTaskDTO(){
 }
 
@@ -24,8 +29,17 @@ public AppUserTaskDTO(Integer id){
 	this.id = id;
 }
 
+	@Override
+	public IAppUser getAppUser() {
+		return appUser;
+	}
 
-public Integer getId() {
+	@Override
+	public void setAppUser(IAppUser appUser) {
+		this.appUser = appUser;
+	}
+
+	public Integer getId() {
 return this.id;
 }
 
@@ -56,6 +70,8 @@ return this.status;
 public void setStatus(Integer status) {
 this.status = status;
 }
+
+
 
 	public boolean equals(Object object) {
 		if (object == null) {

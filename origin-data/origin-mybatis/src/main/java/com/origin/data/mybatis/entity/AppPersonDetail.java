@@ -9,16 +9,18 @@ import com.origin.data.entity.IAppPersonDetail;
  */
 public class AppPersonDetail implements IAppPersonDetail {
 
-	private static final long serialVersionUID = 14522201099972333L;
+	private static final long serialVersionUID = 83425867028196028L;
 	
 	/**  */
 	private Integer id;//;
 	/**  */
-	private Date createDate;//;
+	private Date createDate;// = CURRENT_TIMESTAMP;
 	/**  */
-	private Date updateDate;//;
+	private Date updateDate;// = CURRENT_TIMESTAMP;
 	/**  */
 	private String infoMobile;//;
+	/**  */
+	private String infoCompanyName;//;
 	/**  */
 	private String infoCompanyAddress;//;
 	/**  */
@@ -30,13 +32,15 @@ public class AppPersonDetail implements IAppPersonDetail {
 	/**  */
 	private Integer infoEmycontactRelation;//;
 	/**  */
-	private Integer infoEmycontactMobile;//;
+	private String infoEmycontactMobile;//;
 	/**  */
 	private Integer infoContactRelation;//;
 	/**  */
-	private Integer infoContactMobile;//;
+	private String infoContactMobile;//;
 	/**  */
 	private Integer uid;//;
+	/**  */
+	private Integer deleteFlag;// = Integer.valueOf(0);
 	
 	
 	public Integer getId() {
@@ -69,6 +73,14 @@ public class AppPersonDetail implements IAppPersonDetail {
 	
 	public void setInfoMobile(String infoMobile) {
 		this.infoMobile = infoMobile;
+	}
+	
+	public String getInfoCompanyName() {
+		return this.infoCompanyName;
+	}
+	
+	public void setInfoCompanyName(String infoCompanyName) {
+		this.infoCompanyName = infoCompanyName;
 	}
 	
 	public String getInfoCompanyAddress() {
@@ -111,11 +123,11 @@ public class AppPersonDetail implements IAppPersonDetail {
 		this.infoEmycontactRelation = infoEmycontactRelation;
 	}
 	
-	public Integer getInfoEmycontactMobile() {
+	public String getInfoEmycontactMobile() {
 		return this.infoEmycontactMobile;
 	}
 	
-	public void setInfoEmycontactMobile(Integer infoEmycontactMobile) {
+	public void setInfoEmycontactMobile(String infoEmycontactMobile) {
 		this.infoEmycontactMobile = infoEmycontactMobile;
 	}
 	
@@ -127,11 +139,11 @@ public class AppPersonDetail implements IAppPersonDetail {
 		this.infoContactRelation = infoContactRelation;
 	}
 	
-	public Integer getInfoContactMobile() {
+	public String getInfoContactMobile() {
 		return this.infoContactMobile;
 	}
 	
-	public void setInfoContactMobile(Integer infoContactMobile) {
+	public void setInfoContactMobile(String infoContactMobile) {
 		this.infoContactMobile = infoContactMobile;
 	}
 	
@@ -141,6 +153,14 @@ public class AppPersonDetail implements IAppPersonDetail {
 	
 	public void setUid(Integer uid) {
 		this.uid = uid;
+	}
+	
+	public Integer getDeleteFlag() {
+		return this.deleteFlag;
+	}
+	
+	public void setDeleteFlag(Integer deleteFlag) {
+		this.deleteFlag = deleteFlag;
 	}
 	
 	public boolean equals(Object object) {
@@ -167,6 +187,7 @@ public class AppPersonDetail implements IAppPersonDetail {
 		+",createDate="+this.getCreateDate()
 		+",updateDate="+this.getUpdateDate()
 		+",infoMobile="+this.getInfoMobile()
+		+",infoCompanyName="+this.getInfoCompanyName()
 		+",infoCompanyAddress="+this.getInfoCompanyAddress()
 		+",infoQq="+this.getInfoQq()
 		+",infoWeixin="+this.getInfoWeixin()
@@ -176,6 +197,7 @@ public class AppPersonDetail implements IAppPersonDetail {
 		+",infoContactRelation="+this.getInfoContactRelation()
 		+",infoContactMobile="+this.getInfoContactMobile()
 		+",uid="+this.getUid()
+		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}
 }

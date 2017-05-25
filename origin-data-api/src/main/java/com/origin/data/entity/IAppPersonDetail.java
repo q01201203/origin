@@ -31,6 +31,10 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setInfoMobile(String infoMobile);
 
+ String getInfoCompanyName();
+
+  void setInfoCompanyName(String infoCompanyName);
+
  String getInfoCompanyAddress();
 
   void setInfoCompanyAddress(String infoCompanyAddress);
@@ -51,20 +55,24 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setInfoEmycontactRelation(Integer infoEmycontactRelation);
 
- Integer getInfoEmycontactMobile();
+ String getInfoEmycontactMobile();
 
-  void setInfoEmycontactMobile(Integer infoEmycontactMobile);
+  void setInfoEmycontactMobile(String infoEmycontactMobile);
 
  Integer getInfoContactRelation();
 
   void setInfoContactRelation(Integer infoContactRelation);
 
- Integer getInfoContactMobile();
+ String getInfoContactMobile();
 
-  void setInfoContactMobile(Integer infoContactMobile);
+  void setInfoContactMobile(String infoContactMobile);
 
  Integer getUid();
 
   void setUid(Integer uid);
+
+ Integer getDeleteFlag();
+
+  void setDeleteFlag(Integer deleteFlag);
 
 }

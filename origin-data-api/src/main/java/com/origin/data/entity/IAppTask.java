@@ -39,9 +39,9 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setTaskType(Integer taskType);
 
- Integer getTaskMoney();
+ Double getTaskMoney();
 
-  void setTaskMoney(Integer taskMoney);
+  void setTaskMoney(Double taskMoney);
 
  String getTaskImg();
 

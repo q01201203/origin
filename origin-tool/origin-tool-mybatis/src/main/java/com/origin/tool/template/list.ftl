@@ -89,6 +89,7 @@
                         </tbody>
                     </table>
                 </div>
+                <%@ include file="../common/pager.jsp"%>
             </div>
         </form>
     </div>

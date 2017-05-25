@@ -12,6 +12,10 @@ public final static Integer STATUS_YES = 1; //可用
 
 public final static Integer STATUS_NO = 0; //不可用
 
+ public final static Integer CATEGORY_STU = 1; //学生
+ public final static Integer CATEGORY_PERSON = 2; //社会人群
+
+
 
 
 

@@ -15,7 +15,8 @@
         		    info_emycontact_mobile,
         		    info_contact_relation,
         		    info_contact_mobile,
-                    uid
+        		    uid,
+                    delete_flag
         FROM OGN_APP_STU_DETAIL
         where 1=1
 	</sql>
@@ -33,6 +34,7 @@
 			<if test="infoContactRelation != null">AND info_contact_relation=#{infoContactRelation}</if>
 			<if test="infoContactMobile != null">AND info_contact_mobile=#{infoContactMobile}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
+			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppStuDetail" id="appStuDetailMap">
     	<id property="id" column="id" />
@@ -49,6 +51,7 @@
     	<result property="infoContactRelation" column="info_contact_relation"/>
     	<result property="infoContactMobile" column="info_contact_mobile"/>
     	<result property="uid" column="uid"/>
+    	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppStuDetail">
         <include refid="selectPart"/>
@@ -67,34 +70,38 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO OGN_APP_STU_DETAIL (
-                        <if test="createDate != null">`create_date`</if>
-                        <if test="updateDate != null ">,`update_date`</if>
-                        <if test="infoMobile != null ">,`info_mobile`</if>
-                        <if test="infoSchool != null ">,`info_school`</if>
-                        <if test="infoDepartment != null ">,`info_department`</if>
-                        <if test="infoClass != null ">,`info_class`</if>
-                        <if test="infoRoomnumber != null ">,`info_roomnumber`</if>
-                        <if test="infoEmycontactRelation != null ">,`info_emycontact_relation`</if>
-                        <if test="infoEmycontactMobile != null ">,`info_emycontact_mobile`</if>
-                        <if test="infoContactRelation != null ">,`info_contact_relation`</if>
-                        <if test="infoContactMobile != null ">,`info_contact_mobile`</if>
-                        <if test="uid != null ">,`uid`</if>
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">`create_date`,</if>
+                        <if test="updateDate != null">`update_date`,</if>
+                        <if test="infoMobile != null">`info_mobile`,</if>
+                        <if test="infoSchool != null">`info_school`,</if>
+                        <if test="infoDepartment != null">`info_department`,</if>
+                        <if test="infoClass != null">`info_class`,</if>
+                        <if test="infoRoomnumber != null">`info_roomnumber`,</if>
+                        <if test="infoEmycontactRelation != null">`info_emycontact_relation`,</if>
+                        <if test="infoEmycontactMobile != null">`info_emycontact_mobile`,</if>
+                        <if test="infoContactRelation != null">`info_contact_relation`,</if>
+                        <if test="infoContactMobile != null">`info_contact_mobile`,</if>
+                        <if test="uid != null">`uid`,</if>
+                        <if test="deleteFlag != null ">`delete_flag`</if>
+            </trim>
 		)
 		VALUES (
-
-                        <if test="createDate != null">#{createDate}</if>
-                        <if test="updateDate != null">,#{updateDate}</if>
-                        <if test="infoMobile != null">,#{infoMobile}</if>
-                        <if test="infoSchool != null">,#{infoSchool}</if>
-                        <if test="infoDepartment != null">,#{infoDepartment}</if>
-                        <if test="infoClass != null">,#{infoClass}</if>
-                        <if test="infoRoomnumber != null">,#{infoRoomnumber}</if>
-                        <if test="infoEmycontactRelation != null">,#{infoEmycontactRelation}</if>
-                        <if test="infoEmycontactMobile != null">,#{infoEmycontactMobile}</if>
-                        <if test="infoContactRelation != null">,#{infoContactRelation}</if>
-                        <if test="infoContactMobile != null">,#{infoContactMobile}</if>
-                        <if test="uid != null">,#{uid}</if>
-
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">#{createDate},</if>
+                        <if test="updateDate != null">#{updateDate},</if>
+                        <if test="infoMobile != null">#{infoMobile},</if>
+                        <if test="infoSchool != null">#{infoSchool},</if>
+                        <if test="infoDepartment != null">#{infoDepartment},</if>
+                        <if test="infoClass != null">#{infoClass},</if>
+                        <if test="infoRoomnumber != null">#{infoRoomnumber},</if>
+                        <if test="infoEmycontactRelation != null">#{infoEmycontactRelation},</if>
+                        <if test="infoEmycontactMobile != null">#{infoEmycontactMobile},</if>
+                        <if test="infoContactRelation != null">#{infoContactRelation},</if>
+                        <if test="infoContactMobile != null">#{infoContactMobile},</if>
+                        <if test="uid != null">#{uid},</if>
+                        <if test="deleteFlag != null">#{deleteFlag}</if>
+            </trim>
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppStuDetail" >
@@ -112,6 +119,7 @@
                 <if test="infoContactRelation != null">,info_contact_relation=#{infoContactRelation}</if>
                 <if test="infoContactMobile != null">,info_contact_mobile=#{infoContactMobile}</if>
                 <if test="uid != null">,uid=#{uid}</if>
+                <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
@@ -130,6 +138,7 @@
                     <if test="item.infoContactRelation != null">,info_contact_relation=#{item.infoContactRelation}</if>
                     <if test="item.infoContactMobile != null">,info_contact_mobile=#{item.infoContactMobile}</if>
                     <if test="item.uid != null">,uid=#{item.uid}</if>
+                    <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}
         </foreach>
     </update>

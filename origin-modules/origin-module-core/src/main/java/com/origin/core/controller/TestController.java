@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.origin.common.dto.AjaxResult;
 import com.origin.core.dto.TestDTO;
 import com.origin.core.service.TestService;
@@ -65,6 +66,8 @@ public class TestController {
 		}
 		PageHelper.startPage(currentPage, pageSize);
 		List<ITest> tests = testService.find(params);
+    	PageInfo<ITest> page = new PageInfo(tests);
+        model.addAttribute("page", page);
     	model.addAttribute("tests", tests);
     	model.addAttribute("queryDTO", params);
     	model.addAttribute(Constants.MENU_NAME, "test列表");

@@ -13,7 +13,7 @@
 <%@ include file="../common/menu.jsp" %>
 <div class="J_content">
     <div class="mt20 plr20">
-        <form action="${ctx }/admin/appUser/list" id="queryForm">
+        <form action="${ctx }/admin/appUser/user/list" id="queryForm">
             <div class="J_toolsBar clearfix">
                 <div class="t_label"></div>
                 <div class="t_text ml10">
@@ -65,6 +65,7 @@
                                 <div class="t_link">
                                     <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
                                     <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>
+                                    <a href="${ctx}/admin/appUser/user/detail/appUser_edit?id=${r.id }"><i class="icon"></i>更多</a>
                                 </div>
                             </td>
                         </tr>
@@ -84,6 +85,7 @@
                 </tbody>
                 </table>
             </div>
+                <%@ include file="../common/pager.jsp"%>
     </div>
     </form>
 </div>
@@ -98,7 +100,7 @@
         }else{
             title = '修改区域';
         }
-        $.post('${ctx}/admin/appUser/dialog/appUser_edit?id='+id, {}, function(str){
+        $.post('${ctx}/admin/appUser/user/dialog/appUser_edit?id='+id, {}, function(str){
 
             layer.close(loadIdx);
 
@@ -118,7 +120,6 @@
         });
     }
 
-
     function mySubmit(){
         $('#editForm').submit();
     }
@@ -135,7 +136,7 @@
 
             var loadIdx = layer.load();
             $.ajax({
-                url : '${ctx}/admin/appUser/ajax/delete',
+                url : '${ctx}/admin/appUser/user/ajax/delete',
                 type : 'post',
                 data : {
                     'id' : id

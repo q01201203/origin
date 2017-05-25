@@ -1,14 +1,13 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.AppUserTaskService;
 import com.origin.data.dao.IAppUserTaskDao;
 import com.origin.data.entity.IAppUserTask;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AppUserTaskServiceImpl  implements AppUserTaskService {
@@ -39,5 +38,10 @@ return appUserTaskDao.findByPK(id);
 @Override
 public List<IAppUserTask> find(IAppUserTask appUserTask) {
     return appUserTaskDao.find(appUserTask);
+    }
+
+    @Override
+    public List<IAppUserTask> findTaskUserByTaskId(Integer id) {
+        return appUserTaskDao.findTaskUserByTaskId(id);
     }
 }
