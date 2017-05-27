@@ -7,62 +7,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="add admin design">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppConstantsDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppConstants.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/dao/AppConstantsDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppConstants.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppConstantsDao.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppTaskController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppConstantsDTO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppConstantsService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppConstantsServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTask_list.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/dialog/appTask_edit.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/classes/com/origin/core/exception/CustomSimpleMappingExceptionHandler.class" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/classes/com/origin/core/exception/CustomSimpleMappingExceptionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/classes/com/origin/core/exception/CustomSimpleMappingExceptionHandler.class" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/classes/com/origin/core/exception/CustomSimpleMappingExceptionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" />
+    <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/scripts/ogn_base170527.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppUserTaskDao.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppUserTaskDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppTask.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUser.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUserTask.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUserTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppTask.java" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUser.java" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUserTask.java" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUserTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppTaskDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppTaskDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserTaskDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserTaskDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppInfoController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppInfoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppTaskDTO.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppTaskDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserDTO.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserTaskDTO.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserTaskDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/exception/CustomSimpleMappingExceptionHandler.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/exception/CustomSimpleMappingExceptionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppTaskService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppTaskService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserTaskService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserTaskService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserTaskServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserTaskServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskUser.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskUser.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUser_list.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUser_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/imodel.ftl" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/imodel.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/modelDTO.ftl" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/modelDTO.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/com/origin/tool/template/imodel.ftl" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/com/origin/tool/template/imodel.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/com/origin/tool/template/modelDTO.ftl" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/com/origin/tool/template/modelDTO.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/origin-modules/origin-module-core/target/" />
     <ignored path="$PROJECT_DIR$/origin-tool/target/" />
@@ -419,9 +366,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="x" value="791" />
+    <option name="y" value="76" />
+    <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -1455,79 +1402,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="originnew" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="originnew" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="origin-modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="origin-module-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="font" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="originnew" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="originnew" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="origin-modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="origin-module-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2123,6 +1998,50 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -2140,18 +2059,19 @@
     <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appUser" />
-      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appUser\dialog" />
-      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF" />
-      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\static" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appTask\dialog" />
       <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appTask" />
       <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appUser" />
       <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\swagger" />
       <recent name="D:\lc\code\origin\origin\origin-modules\origin-module-core\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\scripts" />
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appUser" />
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appUser\dialog" />
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF" />
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\static" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -5639,7 +5559,7 @@
       <workItem from="1495674640167" duration="2732000" />
       <workItem from="1495677418257" duration="21658000" />
       <workItem from="1495760640530" duration="19759000" />
-      <workItem from="1495847233660" duration="17397000" />
+      <workItem from="1495847233660" duration="17810000" />
     </task>
     <task id="LOCAL-00001" summary="delete product">
       <created>1494493589166</created>
@@ -5739,7 +5659,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495706461779</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add admin design">
+      <created>1495877608035</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1495877608035</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -5775,7 +5702,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275492000" />
+    <option name="totallyTimeSpent" value="275905000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -5787,7 +5714,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="791" y="76" width="1932" height="1056" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -5803,7 +5730,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43600866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43058568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43058568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -5812,7 +5739,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4251627" sideWeight="0.4914712" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2595949" sideWeight="0.48698482" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26014957" sideWeight="0.48698482" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2468017" sideWeight="0.5130152" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23880596" sideWeight="0.5082353" order="2" side_tool="true" content_ui="tabs" />
