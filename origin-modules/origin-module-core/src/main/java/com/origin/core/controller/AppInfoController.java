@@ -1,8 +1,10 @@
 package com.origin.core.controller;
 
 import com.origin.common.model.mybatis.Result;
+import com.origin.core.dto.AppConstantsDTO;
 import com.origin.core.dto.AppGuideDTO;
 import com.origin.core.dto.AppTaskDTO;
+import com.origin.core.service.AppConstantsService;
 import com.origin.core.service.AppGuideService;
 import com.origin.core.service.AppTaskService;
 import com.origin.core.service.AppUserService;
@@ -10,11 +12,13 @@ import com.origin.core.util.Constants;
 import com.origin.core.util.CustomToken;
 import com.origin.core.util.SimpleToken;
 import com.origin.core.util.StringUtil;
+import com.origin.data.entity.IAppConstants;
 import com.origin.data.entity.IAppGuide;
 import com.origin.data.entity.IAppTask;
 import com.origin.data.entity.IAppUser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +46,9 @@ public class AppInfoController {
 
 	@Autowired
 	private AppGuideService appGuideService;
+
+	@Autowired
+	private AppConstantsService appConstantsService;
 
 	@RequestMapping(value = "/getTask" , method = RequestMethod.GET)
 	@ResponseBody
@@ -95,5 +102,22 @@ public class AppInfoController {
 		IAppGuide appGuide = new AppGuideDTO();
 		List<IAppGuide> appGuides = appGuideService.find(appGuide);
 		return Result.createSuccessResult(appGuides,"获取安全指南成功");
+	}
+
+	@RequestMapping(value = "/getConstants" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取app常量", httpMethod = "GET", response = Result.class,
+			notes = "获取app常量,type(1:文字2:图片),key为键value为值")
+	public Object getConstants(@RequestParam(value = "type" ,required = false) String type ,
+							   @RequestParam(value = "key" ,required = false) String key ) throws Exception{
+		IAppConstants appConstants = new AppConstantsDTO();
+		if(StringUtils.isNotBlank(type)){
+			appConstants.setType(type);
+		}
+		if(StringUtils.isNotBlank(key)){
+			appConstants.setKey(key);
+		}
+		List<IAppConstants> appConstantsList = appConstantsService.find(appConstants);
+		return Result.createSuccessResult(appConstantsList,"获取常量成功");
 	}
 }

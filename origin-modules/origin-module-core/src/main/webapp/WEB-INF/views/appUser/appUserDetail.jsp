@@ -20,7 +20,8 @@
                          <td>
                              <div class="J_toolsBar fl">
                                  <div class="t_text w200 ml10">
-									<input type="text" name="createDate"  value="${appUser.createDate}"/>
+									<input type="text" name="createDate"
+										   value="<fmt:formatDate value="${appUser.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
                                  </div>
                              </div>
                          </td>
@@ -30,7 +31,8 @@
                          <td>
                              <div class="J_toolsBar fl">
                                  <div class="t_text w200 ml10">
-                                     <input type="text" name="updateDate"  value="${appUser.updateDate}"/>
+                                     <input type="text" name="updateDate"
+											value="<fmt:formatDate value="${appUser.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
                                  </div>
                              </div>
                          </td>

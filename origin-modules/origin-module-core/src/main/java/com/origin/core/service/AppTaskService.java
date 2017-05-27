@@ -1,7 +1,6 @@
 package com.origin.core.service;
 
 import com.origin.data.entity.IAppTask;
-
 import java.util.List;
 
 public interface AppTaskService {

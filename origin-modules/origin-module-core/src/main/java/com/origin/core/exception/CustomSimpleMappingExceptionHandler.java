@@ -24,8 +24,10 @@ public class CustomSimpleMappingExceptionHandler extends SimpleMappingExceptionR
 
     @Override
     protected ModelAndView doResolveException(final HttpServletRequest request, final HttpServletResponse response, final Object handler, final Exception ex) {
-        //lic
+        //lic on
         System.out.println("lic CustomSimpleMappingExceptionHandler");
+        log.debug(ex.getMessage(),ex);
+        //lic off
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         ResponseBody body = handlerMethod.getMethodAnnotation(ResponseBody.class);
         // 判断有没有@ResponseBody的注解没有的话调用父方法
@@ -51,8 +53,6 @@ public class CustomSimpleMappingExceptionHandler extends SimpleMappingExceptionR
             // 没有封装过的异常
             //WebUtils.writeToBrowser(JsonUtil.object2Json(new JsonResultBean(JsonResultBean.FAULT, "系统错误，请联系管理员！")), response);
         }
-        //lic
-        log.debug(ex.getMessage(),ex);
         WebUtils.writeToBrowser(JsonUtil.object2Json(ajaxResult), response);
         return mv;
     }

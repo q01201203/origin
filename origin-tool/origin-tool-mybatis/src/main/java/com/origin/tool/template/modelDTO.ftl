@@ -18,25 +18,25 @@ public class ${model}DTO implements I${model} {
     <#if field.description??>
     /** ${field.description} */
     </#if>
-private ${field.fieldType} ${field.fieldName};//<#if field.defaultValue??><#if field.fieldType == "Boolean"> = <#if field.defaultValue == "0">Boolean.FALSE<#else>Boolean.TRUE</#if><#elseif field.fieldType == "Integer"> = Integer.valueOf(${field.defaultValue})<#elseif field.fieldType == "Double"> = ${field.defaultValue}D<#else> = ${field.defaultValue}</#if></#if>;
-</#list>
-public ${model}DTO(){
-}
+	private ${field.fieldType} ${field.fieldName};//<#if field.defaultValue??><#if field.fieldType == "Boolean"> = <#if field.defaultValue == "0">Boolean.FALSE<#else>Boolean.TRUE</#if><#elseif field.fieldType == "Integer"> = Integer.valueOf(${field.defaultValue})<#elseif field.fieldType == "Double"> = ${field.defaultValue}D<#else> = ${field.defaultValue}</#if></#if>;
+	</#list>
+	public ${model}DTO(){
+	}
 
-public ${model}DTO(Integer id){
-	this.id = id;
-}
+	public ${model}DTO(Integer id){
+		this.id = id;
+	}
 
-<#list fieldList as field>
+	<#list fieldList as field>
 
-public ${field.fieldType} get${field.upperFieldName}() {
-return this.${field.fieldName};
-}
+	public ${field.fieldType} get${field.upperFieldName}() {
+		return this.${field.fieldName};
+	}
 
-public void set${field.upperFieldName}(${field.fieldType} ${field.fieldName}) {
-this.${field.fieldName} = ${field.fieldName};
-}
-</#list>
+	public void set${field.upperFieldName}(${field.fieldType} ${field.fieldName}) {
+		this.${field.fieldName} = ${field.fieldName};
+	}
+	</#list>
 
 	public boolean equals(Object object) {
 		if (object == null) {
@@ -63,10 +63,10 @@ this.${field.fieldName} = ${field.fieldName};
 		</#list>
 		+"]";
 	}
-<#if containEnable>
-@Transient
-public String getIsEnableStr() {
-return (isEnable != null && isEnable) ? TrueFalseEnum.TRUE.getLabel() : TrueFalseEnum.FALSE.getLabel();
-}
-</#if>
+	<#if containEnable>
+	@Transient
+	public String getIsEnableStr() {
+		return (isEnable != null && isEnable) ? TrueFalseEnum.TRUE.getLabel() : TrueFalseEnum.FALSE.getLabel();
+	}
+	</#if>
 }

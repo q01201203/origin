@@ -6,6 +6,7 @@
         		    id,
         		    uid,
         		    tid,
+        		    auditTime,
                     status
         FROM OGN_APP_USER_TASK
         where 1=1
@@ -14,6 +15,7 @@
 			<if test="id != null">AND id=#{id}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
 			<if test="tid != null">AND tid=#{tid}</if>
+			<if test="auditTime != null">AND auditTime=#{auditTime}</if>
 			<if test="status != null">AND status=#{status}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppUserTask" id="appUserTaskMap">
@@ -21,6 +23,7 @@
     	<result property="id" column="id"/>
     	<result property="uid" column="uid"/>
     	<result property="tid" column="tid"/>
+    	<result property="auditTime" column="auditTime"/>
     	<result property="status" column="status"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppUserTask">
@@ -43,6 +46,7 @@
             <trim suffix="" suffixOverrides=",">
                         <if test="uid != null">`uid`,</if>
                         <if test="tid != null">`tid`,</if>
+                        <if test="auditTime != null">`auditTime`,</if>
                         <if test="status != null ">`status`</if>
             </trim>
 		)
@@ -50,6 +54,7 @@
             <trim suffix="" suffixOverrides=",">
                         <if test="uid != null">#{uid},</if>
                         <if test="tid != null">#{tid},</if>
+                        <if test="auditTime != null">#{auditTime},</if>
                         <if test="status != null">#{status}</if>
             </trim>
 		)
@@ -59,6 +64,7 @@
          id=id
                 <if test="uid != null">,uid=#{uid}</if>
                 <if test="tid != null">,tid=#{tid}</if>
+                <if test="auditTime != null">,auditTime=#{auditTime}</if>
                 <if test="status != null">,status=#{status}</if>
         WHERE `id` = #{id}
     </update>
@@ -68,6 +74,7 @@
             set id=id
                     <if test="item.uid != null">,uid=#{item.uid}</if>
                     <if test="item.tid != null">,tid=#{item.tid}</if>
+                    <if test="item.auditTime != null">,auditTime=#{item.auditTime}</if>
                     <if test="item.status != null">,status=#{item.status}</if>
                 where id=#{item.id}
         </foreach>
@@ -76,23 +83,29 @@
         DELETE FROM OGN_APP_USER_TASK WHERE id=#{id}
     </delete>
 
-    <select id="findTaskUserByTaskId"  resultMap="appUserTaskMapAll">
-        SELECT *
+    <select id="findTaskUserInfo" parameterType="com.origin.data.mybatis.entity.AppUserTask" resultMap="appUserTaskInfoMap">
+        SELECT ogn_app_user_task.id,ogn_app_user_task.uid,ogn_app_user_task.tid,ogn_app_user_task.status,
+        ogn_app_user.mobile,ogn_app_task.task_name,task_money,auditTime
         FROM ogn_app_user_task
-        LEFT JOIN ogn_app_user
-        ON ogn_app_user_task.uid = ogn_app_user.id
-        WHERE ogn_app_user_task.tid = #{id}
+        LEFT JOIN ogn_app_user ON ogn_app_user_task.uid = ogn_app_user.id
+        LEFT JOIN ogn_app_task ON ogn_app_user_task.tid = ogn_app_task.id
+        WHERE
+        1 =1
+        <if test="uid != null">AND ogn_app_user_task.uid=#{uid}</if>
+        <if test="tid != null">AND ogn_app_user_task.tid=#{tid}</if>
+        <if test="status != null">AND ogn_app_user_task.status=#{status}</if>
     </select>
 
-    <resultMap type="com.origin.data.mybatis.entity.AppUserTask" id="appUserTaskMapAll">
+    <resultMap type="com.origin.data.mybatis.entity.AppUserTask" id="appUserTaskInfoMap">
         <id property="id" column="ogn_app_user_task.id" />
         <result property="uid" column="uid"/>
         <result property="tid" column="tid"/>
+	<result property="auditTime" column="auditTime"/>
         <result property="status" column="status"/>
-        <association property="appUser" column="ogn_app_user.id" javaType="com.origin.data.mybatis.entity.AppUser">
+        <association property="appUser" javaType="com.origin.data.mybatis.entity.AppUser">
             <id property="id" column="ogn_app_user.id" />
-            <result property="createDate" column="create_date"/>
-            <result property="updateDate" column="update_date"/>
+            <result property="createDate" column="ogn_app_user.create_date"/>
+            <result property="updateDate" column="ogn_app_user.update_date"/>
             <result property="mobile" column="mobile"/>
             <result property="pwd" column="pwd"/>
             <result property="payPwd" column="pay_pwd"/>
@@ -108,7 +121,29 @@
             <result property="imgPortrait" column="img_portrait"/>
             <result property="nickname" column="nickname"/>
             <result property="category" column="category"/>
-            <result property="deleteFlag" column="delete_flag"/>
+            <result property="deleteFlag" column="ogn_app_user.delete_flag"/>
+        </association>
+
+        <association property="appTask" javaType="com.origin.data.mybatis.entity.AppTask">
+            <id property="id" column="ogn_app_task.id" />
+            <result property="createDate" column="ogn_app_task.create_date"/>
+            <result property="updateDate" column="ogn_app_task.update_date"/>
+            <result property="taskName" column="task_name"/>
+            <result property="taskNumber" column="task_number"/>
+            <result property="taskType" column="task_type"/>
+            <result property="taskMoney" column="task_money"/>
+            <result property="taskImg" column="task_img"/>
+            <result property="taskHot" column="task_hot"/>
+            <result property="taskStartTime" column="task_startTime"/>
+            <result property="taskEndTime" column="task_endTime"/>
+            <result property="taskSimpleStep" column="task_simpleStep"/>
+            <result property="taskDetailedStep" column="task_detailedStep"/>
+            <result property="taskLink" column="task_link"/>
+            <result property="deleteFlag" column="ogn_app_task.delete_flag"/>
         </association>
     </resultMap>
+
+    <select id="updateTaskSuccess" parameterType="com.origin.data.mybatis.entity.AppUserTask"  statementType="CALLABLE">
+        CALL finishTask(#{uid},#{tid})
+    </select>
 </mapper>

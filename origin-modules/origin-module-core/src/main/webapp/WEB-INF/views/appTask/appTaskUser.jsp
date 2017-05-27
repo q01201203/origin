@@ -13,20 +13,21 @@
 <%@ include file="../common/menu.jsp" %>
 <div class="J_content">
 	<div class="mt20 plr20">
-		<form action="${ctx }/admin/appTask/list" id="queryForm">
+		<form action="${ctx }/admin/appTask/userTask/list" id="queryForm">
 			<div class="J_toolsBar clearfix">
 				<div class="t_label"></div>
 				<div class="t_text ml10">
-					<input placeholder="请输入任务名称" type="text" name="name" value=""/>
+					<input placeholder="请输入任务名称" type="text" name="task_name" value=""/>
+				</div>
+				<div class="t_text ml10">
+					<input placeholder="请输入手机号" type="text" name="mobile" value=""/>
+				</div>
+				<div class="t_text ml10">
+					<input placeholder="请输入审核状态" type="text" name="status" value=""/>
 				</div>
 				<div class="t_button ml10">
 					<a class="abtn red" href="javascript:myQuery();">
 						<i class="icon"></i>查询
-					</a>
-				</div>
-				<div class="t_button ml10">
-					<a class="abtn blue" href="javascript:myEdit();">
-						<i class="icon"></i>新增
 					</a>
 				</div>
 			</div>
@@ -40,13 +41,22 @@
 								<span>序号</span>
 							</td>
 							<td>
-								<span>手机</span>
+								<span>任务名</span>
 							</td>
 							<td>
-								<span>状态</span>
+								<span>金额</span>
 							</td>
 							<td>
-								<span>操作</span>
+								<span>领取人手机号</span>
+							</td>
+							<td>
+								<span>审核时间</span>
+							</td>
+							<td>
+								<span>审核状态</span>
+							</td>
+							<td>
+								<span>审核</span>
 							</td>
 						</tr>
 						</thead>
@@ -62,19 +72,46 @@
 										</td>
 										<td>
 											<div class="t_text tc">
+													${r.appTask.taskName  }
+											</div>
+										</td>
+										<td>
+											<div class="t_text tc">
+													${r.appTask.taskMoney  }
+											</div>
+										</td>
+										<td>
+											<div class="t_text tc">
 													${r.appUser.mobile  }
 											</div>
 										</td>
 										<td>
 											<div class="t_text tc">
-													${r.status  }
+												<fmt:formatDate value="${r.auditTime  }" pattern="yyyy-MM-dd HH:mm:ss"/>
+											</div>
+										</td>
+										<td>
+											<div class="t_text tc">
+												<c:choose>
+													<c:when test="${r.status  eq 1}">
+														通过
+													</c:when>
+													<c:when test="${r.status  eq 2}">
+														不通过
+													</c:when>
+													<c:otherwise>
+														待审核
+													</c:otherwise>
+												</c:choose>
+
 											</div>
 										</td>
 										<td>
 											<div class="t_link">
-												<a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
-												<a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>
-												<a href="javascript:myEdit('${r.id }');"><i class="icon"></i>领取人员</a>
+												<c:if test="${r.status  eq 0}">
+													<a href="javascript:taskSuccess('${r.id}')"><i class="icon"></i>通过</a>
+													<a href="javascript:taskFail('${r.id }');"><i class="icon"></i>不通过</a>
+												</c:if>
 											</div>
 										</td>
 									</tr>
@@ -101,34 +138,6 @@
 </div>
 <script src="${ctx }/static/plugins/chosen_v1.6.2/chosen.jquery.js"></script>
 <script type="text/javascript">
-    function myEdit(id){
-        var loadIdx = layer.load();
-        var title = '添加区域';
-        if(!id){
-            id = '';
-        }else{
-            title = '修改区域';
-        }
-        $.post('${ctx}/admin/appTask/dialog/appTask_edit?id='+id, {}, function(str){
-
-            layer.close(loadIdx);
-
-            layer.open({
-                title : title,
-                type : 1,
-                area : ['700px', '450px'],
-                content : str,
-                btn : ['确定', '取消'],
-                yes : function(index, layero){
-                    mySubmit();
-                },
-                btn2 : function(index, layero){
-                    layer.close(index);
-                }
-            });
-        });
-    }
-
 
     function mySubmit(){
         $('#editForm').submit();
@@ -139,17 +148,17 @@
     }
 
 
-    function deleteById(id){
-        var content = '确定要删除数据吗？';
+    function taskSuccess(id){
+        var content = '确定任务审核通过吗？';
         layer.confirm(content, function(index){
             layer.close(index);
-
             var loadIdx = layer.load();
             $.ajax({
-                url : '${ctx}/admin/appTask/ajax/delete',
+                url : '${ctx}/admin/appTask/userTask/ajax/updateUserTaskStatus',
                 type : 'post',
                 data : {
-                    'id' : id
+                    'id' : id,
+					'status':1
                 },
                 traditional : true,
                 success : function(result){
@@ -163,9 +172,34 @@
                     }
                 }
             });
-
         });
+    }
 
+    function taskFail(id){
+        var content = '确定任务审核不通过吗？';
+        layer.confirm(content, function(index){
+            layer.close(index);
+            var loadIdx = layer.load();
+            $.ajax({
+                url : '${ctx}/admin/appTask/userTask/ajax/updateUserTaskStatus',
+                type : 'post',
+                data : {
+                    'id' : id,
+					'status':2
+                },
+                traditional : true,
+                success : function(result){
+                    layer.close(loadIdx);
+                    if(result.success){
+                        layer.alert('操作成功', function(){
+                            window.location.reload();
+                        });
+                    }else{
+                        layer.alert('操作失败');
+                    }
+                }
+            });
+        });
     }
 </script>
 </body>

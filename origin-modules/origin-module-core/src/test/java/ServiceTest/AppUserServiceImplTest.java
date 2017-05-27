@@ -1,6 +1,7 @@
 package ServiceTest;
 
 import com.origin.core.dto.AppUserDTO;
+import com.origin.core.dto.AppUserTaskDTO;
 import com.origin.core.service.AppUserService;
 import com.origin.core.service.AppUserTaskService;
 import com.origin.data.entity.IAppUser;
@@ -41,8 +42,29 @@ public class AppUserServiceImplTest {
 
     @Test
     public void findUserTask() throws Exception{
-        List<IAppUserTask> appUserTasks = appUserTaskService.findTaskUserByTaskId(Integer.parseInt("1"));
+        IAppUserTask appUserTask = new AppUserTaskDTO();
+        appUserTask.setTid(1);
+        List<IAppUserTask> appUserTasks = appUserTaskService.findTaskUserInfo(appUserTask);
         System.out.println("licheng size " +appUserTasks.size()+" status "+appUserTasks.get(1).getStatus() +
         " mobile "+appUserTasks.get(1).getAppUser().getMobile());
+    }
+
+    @Test
+    public void updateFinishTask() throws Exception{
+        IAppUserTask appUserTask = new AppUserTaskDTO();
+        appUserTask.setUid(6);
+        appUserTask.setTid(3);
+        appUserTaskService.updateTaskSuccess(appUserTask);
+    }
+
+    @Test
+    public void testIntegerString() throws Exception{
+        Integer i = 2;
+        String s = "2";
+        if (i.equals(Integer.parseInt(s))){
+            System.out.println("licheng 1");
+        }else {
+            System.out.println("licheng 2");
+        }
     }
 }

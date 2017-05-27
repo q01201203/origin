@@ -1,7 +1,6 @@
 package com.origin.core.service;
 
 import com.origin.data.entity.IAppUser;
-
 import java.util.List;
 
 public interface AppUserService {

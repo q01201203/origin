@@ -31,6 +31,16 @@ public class AppTask implements IAppTask {
 	/**  */
 	private Integer taskHot;// = Integer.valueOf(0);
 	/**  */
+	private Date taskStartTime;//;
+	/**  */
+	private Date taskEndTime;//;
+	/**  */
+	private String taskSimpleStep;//;
+	/**  */
+	private String taskDetailedStep;//;
+	/**  */
+	private String taskLink;//;
+	/**  */
 	private Integer deleteFlag;// = Integer.valueOf(0);
 
 	//add lic 170525
@@ -116,6 +126,46 @@ public class AppTask implements IAppTask {
 		this.taskHot = taskHot;
 	}
 	
+	public Date getTaskStartTime() {
+		return this.taskStartTime;
+	}
+	
+	public void setTaskStartTime(Date taskStartTime) {
+		this.taskStartTime = taskStartTime;
+	}
+	
+	public Date getTaskEndTime() {
+		return this.taskEndTime;
+	}
+	
+	public void setTaskEndTime(Date taskEndTime) {
+		this.taskEndTime = taskEndTime;
+	}
+	
+	public String getTaskSimpleStep() {
+		return this.taskSimpleStep;
+	}
+	
+	public void setTaskSimpleStep(String taskSimpleStep) {
+		this.taskSimpleStep = taskSimpleStep;
+	}
+	
+	public String getTaskDetailedStep() {
+		return this.taskDetailedStep;
+	}
+	
+	public void setTaskDetailedStep(String taskDetailedStep) {
+		this.taskDetailedStep = taskDetailedStep;
+	}
+	
+	public String getTaskLink() {
+		return this.taskLink;
+	}
+	
+	public void setTaskLink(String taskLink) {
+		this.taskLink = taskLink;
+	}
+	
 	public Integer getDeleteFlag() {
 		return this.deleteFlag;
 	}
@@ -153,6 +203,11 @@ public class AppTask implements IAppTask {
 		+",taskMoney="+this.getTaskMoney()
 		+",taskImg="+this.getTaskImg()
 		+",taskHot="+this.getTaskHot()
+		+",taskStartTime="+this.getTaskStartTime()
+		+",taskEndTime="+this.getTaskEndTime()
+		+",taskSimpleStep="+this.getTaskSimpleStep()
+		+",taskDetailedStep="+this.getTaskDetailedStep()
+		+",taskLink="+this.getTaskLink()
 		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}

@@ -1,24 +1,25 @@
 package com.origin.data.mybatis.entity;
 
-import java.util.Date;
-
 import com.origin.data.entity.IAppMoneyDetail;
+import com.origin.data.entity.IAppUser;
+
+import java.util.Date;
 
 /**
  * 
  */
 public class AppMoneyDetail implements IAppMoneyDetail {
 
-	private static final long serialVersionUID = 9328559145576475L;
+	private static final long serialVersionUID = 43605370234891028L;
 	
 	/**  */
 	private Integer id;//;
 	/**  */
-	private Date createDate;//;
+	private Date createDate;// = CURRENT_TIMESTAMP;
 	/**  */
-	private Date updateDate;//;
+	private Date updateDate;// = CURRENT_TIMESTAMP;
 	/**  */
-	private Integer money;//;
+	private Double money;//;
 	/**  */
 	private Integer type;//;
 	/**  */
@@ -26,11 +27,25 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 	/**  */
 	private Integer repayWay;//;
 	/**  */
-	private Integer repayTime;//;
+	private Date repayTime;//;
+	/**  */
+	private Integer repayTimeType;//;
 	/**  */
 	private Integer uid;//;
-	
-	
+	/**  */
+	private Integer deleteFlag;// = Integer.valueOf(0);
+
+	//add lic 170528
+	private IAppUser appUser;
+
+	public IAppUser getAppUser() {
+		return appUser;
+	}
+
+	public void setAppUser(IAppUser appUser) {
+		this.appUser = appUser;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -55,11 +70,11 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 		this.updateDate = updateDate;
 	}
 	
-	public Integer getMoney() {
+	public Double getMoney() {
 		return this.money;
 	}
 	
-	public void setMoney(Integer money) {
+	public void setMoney(Double money) {
 		this.money = money;
 	}
 	
@@ -87,12 +102,20 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 		this.repayWay = repayWay;
 	}
 	
-	public Integer getRepayTime() {
+	public Date getRepayTime() {
 		return this.repayTime;
 	}
 	
-	public void setRepayTime(Integer repayTime) {
+	public void setRepayTime(Date repayTime) {
 		this.repayTime = repayTime;
+	}
+	
+	public Integer getRepayTimeType() {
+		return this.repayTimeType;
+	}
+	
+	public void setRepayTimeType(Integer repayTimeType) {
+		this.repayTimeType = repayTimeType;
 	}
 	
 	public Integer getUid() {
@@ -101,6 +124,14 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 	
 	public void setUid(Integer uid) {
 		this.uid = uid;
+	}
+	
+	public Integer getDeleteFlag() {
+		return this.deleteFlag;
+	}
+	
+	public void setDeleteFlag(Integer deleteFlag) {
+		this.deleteFlag = deleteFlag;
 	}
 	
 	public boolean equals(Object object) {
@@ -131,7 +162,9 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 		+",status="+this.getStatus()
 		+",repayWay="+this.getRepayWay()
 		+",repayTime="+this.getRepayTime()
+		+",repayTimeType="+this.getRepayTimeType()
 		+",uid="+this.getUid()
+		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}
 }

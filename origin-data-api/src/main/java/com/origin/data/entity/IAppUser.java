@@ -2,97 +2,102 @@ package com.origin.data.entity;
 
 import java.util.Date;
 import java.io.Serializable;
-
+import java.util.List;
 /**
 * 
 */
 public interface IAppUser extends Serializable {
 
-public final static Integer STATUS_YES = 1; //可用
+	public final static Integer STATUS_YES = 1; //可用
 
-public final static Integer STATUS_NO = 0; //不可用
-
- public final static Integer CATEGORY_STU = 1; //学生
- public final static Integer CATEGORY_PERSON = 2; //社会人群
-
+	public final static Integer STATUS_NO = 0; //不可用
+	public final static Integer CATEGORY_STU = 1; //学生
+	public final static Integer CATEGORY_PERSON = 2; //社会人群
 
 
 
 
- Integer getId();
+	Integer getId();
 
-  void setId(Integer id);
+	void setId(Integer id);
 
- Date getCreateDate();
+	Date getCreateDate();
 
-  void setCreateDate(Date createDate);
+	void setCreateDate(Date createDate);
 
- Date getUpdateDate();
+	Date getUpdateDate();
 
-  void setUpdateDate(Date updateDate);
+	void setUpdateDate(Date updateDate);
 
- String getMobile();
+	String getMobile();
 
-  void setMobile(String mobile);
+	void setMobile(String mobile);
 
- String getPwd();
+	String getPwd();
 
-  void setPwd(String pwd);
+	void setPwd(String pwd);
 
- String getPayPwd();
+	String getPayPwd();
 
-  void setPayPwd(String payPwd);
+	void setPayPwd(String payPwd);
 
- Integer getAuthority();
+	Double getBalance();
 
-  void setAuthority(Integer authority);
+	void setBalance(Double balance);
 
- Integer getMoneyMax();
+	Integer getAuthority();
 
-  void setMoneyMax(Integer moneyMax);
+	void setAuthority(Integer authority);
 
- String getAlipayUsername();
+	Double getMoneyMax();
 
-  void setAlipayUsername(String alipayUsername);
+	void setMoneyMax(Double moneyMax);
 
- String getAlipayUseraccout();
+	String getAlipayUsername();
 
-  void setAlipayUseraccout(String alipayUseraccout);
+	void setAlipayUsername(String alipayUsername);
 
- String getImgFace();
+	String getAlipayUseraccout();
 
-  void setImgFace(String imgFace);
+	void setAlipayUseraccout(String alipayUseraccout);
 
- String getImgIdFront();
+	String getImgFace();
 
-  void setImgIdFront(String imgIdFront);
+	void setImgFace(String imgFace);
 
- String getImgIdBack();
+	String getImgIdFront();
 
-  void setImgIdBack(String imgIdBack);
+	void setImgIdFront(String imgIdFront);
 
- String getUserIdName();
+	String getImgIdBack();
 
-  void setUserIdName(String userIdName);
+	void setImgIdBack(String imgIdBack);
 
- String getUserIdNumber();
+	String getUserIdName();
 
-  void setUserIdNumber(String userIdNumber);
+	void setUserIdName(String userIdName);
 
- String getImgPortrait();
+	String getUserIdNumber();
 
-  void setImgPortrait(String imgPortrait);
+	void setUserIdNumber(String userIdNumber);
 
- String getNickname();
+	String getImgPortrait();
 
-  void setNickname(String nickname);
+	void setImgPortrait(String imgPortrait);
 
- Integer getCategory();
+	String getNickname();
 
-  void setCategory(Integer category);
+	void setNickname(String nickname);
 
- Integer getDeleteFlag();
+	Integer getCategory();
 
-  void setDeleteFlag(Integer deleteFlag);
+	void setCategory(Integer category);
 
+	Integer getDeleteFlag();
+
+	void setDeleteFlag(Integer deleteFlag);
+
+	public List<IAppMoneyDetail> getAppMoneyDetails() ;
+
+	public void setAppMoneyDetails(List<IAppMoneyDetail> appMoneyDetails);
 }

@@ -29,9 +29,9 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setUpdateDate(Date updateDate);
 
- Integer getMoney();
+ Double getMoney();
 
-  void setMoney(Integer money);
+  void setMoney(Double money);
 
  Integer getType();
 
@@ -45,12 +45,24 @@ public final static Integer STATUS_NO = 0; //不可用
 
   void setRepayWay(Integer repayWay);
 
- Integer getRepayTime();
+ Date getRepayTime();
 
-  void setRepayTime(Integer repayTime);
+  void setRepayTime(Date repayTime);
+
+ Integer getRepayTimeType();
+
+  void setRepayTimeType(Integer repayTimeType);
 
  Integer getUid();
 
   void setUid(Integer uid);
 
+ Integer getDeleteFlag();
+
+  void setDeleteFlag(Integer deleteFlag);
+
+  //add lic 170527
+  public IAppUser getAppUser() ;
+
+ public void setAppUser(IAppUser appUser) ;
 }

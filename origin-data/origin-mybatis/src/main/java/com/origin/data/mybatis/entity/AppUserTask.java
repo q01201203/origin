@@ -1,8 +1,10 @@
 package com.origin.data.mybatis.entity;
 
-
+import com.origin.data.entity.IAppTask;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserTask;
+
+import java.util.Date;
 
 /**
  * 
@@ -18,10 +20,15 @@ public class AppUserTask implements IAppUserTask {
 	/**  */
 	private Integer tid;//;
 	/**  */
+	private Date auditTime;//;
+	/**  */
 	private Integer status;// = Integer.valueOf(0);
 
 	//add lic 170525
 	private IAppUser appUser;
+
+	//add lic 170526
+	private IAppTask appTask;
 
 	@Override
 	public IAppUser getAppUser() {
@@ -31,6 +38,14 @@ public class AppUserTask implements IAppUserTask {
 	@Override
 	public void setAppUser(IAppUser appUser) {
 		this.appUser = appUser;
+	}
+
+	public IAppTask getAppTask() {
+		return appTask;
+	}
+
+	public void setAppTask(IAppTask appTask) {
+		this.appTask = appTask;
 	}
 
 	public Integer getId() {
@@ -55,6 +70,14 @@ public class AppUserTask implements IAppUserTask {
 	
 	public void setTid(Integer tid) {
 		this.tid = tid;
+	}
+	
+	public Date getAuditTime() {
+		return this.auditTime;
+	}
+	
+	public void setAuditTime(Date auditTime) {
+		this.auditTime = auditTime;
 	}
 	
 	public Integer getStatus() {
@@ -88,6 +111,7 @@ public class AppUserTask implements IAppUserTask {
 		+",id="+this.getId()
 		+",uid="+this.getUid()
 		+",tid="+this.getTid()
+		+",auditTime="+this.getAuditTime()
 		+",status="+this.getStatus()
 		+"]";
 	}

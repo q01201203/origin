@@ -12,6 +12,11 @@
         		    task_money,
         		    task_img,
         		    task_hot,
+        		    task_startTime,
+        		    task_endTime,
+        		    task_simpleStep,
+        		    task_detailedStep,
+        		    task_link,
                     delete_flag
         FROM OGN_APP_TASK
         where 1=1
@@ -26,6 +31,11 @@
 			<if test="taskMoney != null">AND task_money=#{taskMoney}</if>
 			<if test="taskImg != null">AND task_img=#{taskImg}</if>
 			<if test="taskHot != null">AND task_hot=#{taskHot}</if>
+			<if test="taskStartTime != null">AND task_startTime=#{taskStartTime}</if>
+			<if test="taskEndTime != null">AND task_endTime=#{taskEndTime}</if>
+			<if test="taskSimpleStep != null">AND task_simpleStep=#{taskSimpleStep}</if>
+			<if test="taskDetailedStep != null">AND task_detailedStep=#{taskDetailedStep}</if>
+			<if test="taskLink != null">AND task_link=#{taskLink}</if>
 			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppTask" id="appTaskMap">
@@ -39,6 +49,11 @@
     	<result property="taskMoney" column="task_money"/>
     	<result property="taskImg" column="task_img"/>
     	<result property="taskHot" column="task_hot"/>
+    	<result property="taskStartTime" column="task_startTime"/>
+    	<result property="taskEndTime" column="task_endTime"/>
+    	<result property="taskSimpleStep" column="task_simpleStep"/>
+    	<result property="taskDetailedStep" column="task_detailedStep"/>
+    	<result property="taskLink" column="task_link"/>
     	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppTask">
@@ -67,6 +82,11 @@
                         <if test="taskMoney != null">`task_money`,</if>
                         <if test="taskImg != null">`task_img`,</if>
                         <if test="taskHot != null">`task_hot`,</if>
+                        <if test="taskStartTime != null">`task_startTime`,</if>
+                        <if test="taskEndTime != null">`task_endTime`,</if>
+                        <if test="taskSimpleStep != null">`task_simpleStep`,</if>
+                        <if test="taskDetailedStep != null">`task_detailedStep`,</if>
+                        <if test="taskLink != null">`task_link`,</if>
                         <if test="deleteFlag != null ">`delete_flag`</if>
             </trim>
 		)
@@ -80,6 +100,11 @@
                         <if test="taskMoney != null">#{taskMoney},</if>
                         <if test="taskImg != null">#{taskImg},</if>
                         <if test="taskHot != null">#{taskHot},</if>
+                        <if test="taskStartTime != null">#{taskStartTime},</if>
+                        <if test="taskEndTime != null">#{taskEndTime},</if>
+                        <if test="taskSimpleStep != null">#{taskSimpleStep},</if>
+                        <if test="taskDetailedStep != null">#{taskDetailedStep},</if>
+                        <if test="taskLink != null">#{taskLink},</if>
                         <if test="deleteFlag != null">#{deleteFlag}</if>
             </trim>
 		)
@@ -95,6 +120,11 @@
                 <if test="taskMoney != null">,task_money=#{taskMoney}</if>
                 <if test="taskImg != null">,task_img=#{taskImg}</if>
                 <if test="taskHot != null">,task_hot=#{taskHot}</if>
+                <if test="taskStartTime != null">,task_startTime=#{taskStartTime}</if>
+                <if test="taskEndTime != null">,task_endTime=#{taskEndTime}</if>
+                <if test="taskSimpleStep != null">,task_simpleStep=#{taskSimpleStep}</if>
+                <if test="taskDetailedStep != null">,task_detailedStep=#{taskDetailedStep}</if>
+                <if test="taskLink != null">,task_link=#{taskLink}</if>
                 <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
     </update>
@@ -110,6 +140,11 @@
                     <if test="item.taskMoney != null">,task_money=#{item.taskMoney}</if>
                     <if test="item.taskImg != null">,task_img=#{item.taskImg}</if>
                     <if test="item.taskHot != null">,task_hot=#{item.taskHot}</if>
+                    <if test="item.taskStartTime != null">,task_startTime=#{item.taskStartTime}</if>
+                    <if test="item.taskEndTime != null">,task_endTime=#{item.taskEndTime}</if>
+                    <if test="item.taskSimpleStep != null">,task_simpleStep=#{item.taskSimpleStep}</if>
+                    <if test="item.taskDetailedStep != null">,task_detailedStep=#{item.taskDetailedStep}</if>
+                    <if test="item.taskLink != null">,task_link=#{item.taskLink}</if>
                     <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}
         </foreach>

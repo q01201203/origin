@@ -1,8 +1,10 @@
 package com.origin.core.dto;
 
-
+import com.origin.data.entity.IAppTask;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserTask;
+
+import java.util.Date;
 
 /**
 * 
@@ -11,23 +13,67 @@ public class AppUserTaskDTO implements IAppUserTask {
 
 
     /**  */
-private Integer id;//;
+	private Integer id;//;
     /**  */
-private Integer uid;//;
+	private Integer uid;//;
     /**  */
-private Integer tid;//;
+	private Integer tid;//;
     /**  */
-private Integer status;//;
-
+	private Date auditTime;//;
+    /**  */
+	private Integer status;// = Integer.valueOf(0);
 	//add lic 170525
 	private IAppUser appUser;
 
-public AppUserTaskDTO(){
-}
+	//add lic 170526
+	private IAppTask appTask;
+	public AppUserTaskDTO(){
+	}
 
-public AppUserTaskDTO(Integer id){
-	this.id = id;
-}
+	public AppUserTaskDTO(Integer id){
+		this.id = id;
+	}
+
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getUid() {
+		return this.uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public Integer getTid() {
+		return this.tid;
+	}
+
+	public void setTid(Integer tid) {
+		this.tid = tid;
+	}
+
+	public Date getAuditTime() {
+		return this.auditTime;
+	}
+
+	public void setAuditTime(Date auditTime) {
+		this.auditTime = auditTime;
+	}
+
+	public Integer getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
 	@Override
 	public IAppUser getAppUser() {
@@ -39,39 +85,15 @@ public AppUserTaskDTO(Integer id){
 		this.appUser = appUser;
 	}
 
-	public Integer getId() {
-return this.id;
-}
+	@Override
+	public IAppTask getAppTask() {
+		return appTask;
+	}
 
-public void setId(Integer id) {
-this.id = id;
-}
-
-public Integer getUid() {
-return this.uid;
-}
-
-public void setUid(Integer uid) {
-this.uid = uid;
-}
-
-public Integer getTid() {
-return this.tid;
-}
-
-public void setTid(Integer tid) {
-this.tid = tid;
-}
-
-public Integer getStatus() {
-return this.status;
-}
-
-public void setStatus(Integer status) {
-this.status = status;
-}
-
-
+	@Override
+	public void setAppTask(IAppTask appTask) {
+		this.appTask = appTask;
+	}
 
 	public boolean equals(Object object) {
 		if (object == null) {
@@ -96,6 +118,7 @@ this.status = status;
 		+",id="+this.getId()
 		+",uid="+this.getUid()
 		+",tid="+this.getTid()
+		+",auditTime="+this.getAuditTime()
 		+",status="+this.getStatus()
 		+"]";
 	}

@@ -3,14 +3,8 @@ package com.origin.core.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.origin.common.dto.AjaxResult;
-import com.origin.core.dto.AppPersonDetailDTO;
-import com.origin.core.dto.AppStuDetailDTO;
-import com.origin.core.dto.AppUserBankDTO;
-import com.origin.core.dto.AppUserDTO;
-import com.origin.core.service.AppPersonDetailService;
-import com.origin.core.service.AppStuDetailService;
-import com.origin.core.service.AppUserBankService;
-import com.origin.core.service.AppUserService;
+import com.origin.core.dto.*;
+import com.origin.core.service.*;
 import com.origin.core.util.Constants;
 import com.origin.core.util.StringUtil;
 import com.origin.data.entity.*;
@@ -48,6 +42,9 @@ public class AdminAppUserController {
 
 	@Autowired
 	private AppUserBankService appUserBankService;
+
+	@Autowired
+	private AppMoneyDetailService appMoneyDetailService;
 
 	@RequestMapping("/user/list")
 	public String userList(HttpServletRequest request, Model model) throws ParseException {
@@ -104,7 +101,7 @@ public class AdminAppUserController {
 			params.setAuthority( Integer.parseInt(authority));
 		}
 		if(StringUtils.isNotBlank(moneyMax)){
-			params.setMoneyMax( Integer.parseInt(moneyMax));
+			params.setMoneyMax( Double.parseDouble(moneyMax));
 		}
 		if(StringUtils.isNotBlank(alipayUsername)){
 			params.setAlipayUsername(alipayUsername);
@@ -224,7 +221,7 @@ public class AdminAppUserController {
 			appUser.setPwd(pwd);
 			appUser.setPayPwd(payPwd);
 			appUser.setAuthority( Integer.parseInt(authority));
-			appUser.setMoneyMax( Integer.parseInt(moneyMax));
+			appUser.setMoneyMax( Double.parseDouble(moneyMax));
 			appUser.setAlipayUsername(alipayUsername);
 			appUser.setAlipayUseraccout(alipayUseraccout);
 			appUser.setImgFace(imgFace);
@@ -266,4 +263,45 @@ public class AdminAppUserController {
     	}
     	return ajaxResult;
     }
+
+    //add lic 170526 钱记录
+	@RequestMapping(value = "/getMoney/list")
+	public String getMoney(HttpServletRequest request,Model model) throws Exception{
+
+		String uid = request.getParameter("uid");
+		String type = request.getParameter("type");
+		String currentPageStr = request.getParameter("currentPage");
+		String pageSizeStr = request.getParameter("pageSize");
+
+
+		int currentPage = 1;
+		int pageSize = 10;
+		if(StringUtils.isNotBlank(currentPageStr)){
+			currentPage = Integer.parseInt(currentPageStr);
+		}
+		if(StringUtils.isNotBlank(pageSizeStr)){
+			pageSize = Integer.parseInt(pageSizeStr);
+		}
+		IAppMoneyDetail params = new AppMoneyDetailDTO();
+		if(StringUtils.isNotBlank(type)){
+			params.setType( Integer.parseInt(type));
+		}
+		if(StringUtils.isNotBlank(uid)){
+			params.setUid( Integer.parseInt(uid));
+		}
+
+		PageHelper.startPage(currentPage, pageSize);
+		List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.findMoneyUserInfo(params);
+		PageInfo<IAppMoneyDetail> page = new PageInfo(appMoneyDetails);
+		model.addAttribute("page", page);
+		model.addAttribute("appMoneyDetails", appMoneyDetails);
+		model.addAttribute("queryDTO", params);
+		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
+			model.addAttribute(Constants.MENU_NAME, "借款列表");
+		}else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
+			model.addAttribute(Constants.MENU_NAME, "还款列表");
+		}
+
+		return "appUser/appMoneyDetail_list";
+	}
 }

@@ -6,5 +6,6 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface IAppUserTaskDao<T, PK extends Serializable> extends IBaseDao<T, PK> {
-    List<IAppUserTask> findTaskUserByTaskId(Integer id);
+    List<IAppUserTask> findTaskUserInfo(IAppUserTask appUserTask);
+    void updateTaskSuccess(IAppUserTask appUserTask);
 }

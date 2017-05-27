@@ -1,8 +1,10 @@
 package com.origin.data.mybatis.entity;
 
+import com.origin.data.entity.IAppMoneyDetail;
 import com.origin.data.entity.IAppUser;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 
@@ -24,9 +26,11 @@ public class AppUser implements IAppUser {
 	/**  */
 	private String payPwd;//;
 	/**  */
+	private Double balance;// = 0D;
+	/**  */
 	private Integer authority;// = Integer.valueOf(100);
 	/**  */
-	private Integer moneyMax;// = Integer.valueOf(2000);
+	private Double moneyMax;// = 2000D;
 	/**  */
 	private String alipayUsername;//;
 	/**  */
@@ -49,8 +53,18 @@ public class AppUser implements IAppUser {
 	private Integer category;//;
 	/**  */
 	private Integer deleteFlag;// = Integer.valueOf(0);
-	
-	
+
+	//add lic 170527
+	private List<IAppMoneyDetail> appMoneyDetails;
+
+	public List<IAppMoneyDetail> getAppMoneyDetails() {
+		return appMoneyDetails;
+	}
+
+	public void setAppMoneyDetails(List<IAppMoneyDetail> appMoneyDetails) {
+		this.appMoneyDetails = appMoneyDetails;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -99,6 +113,14 @@ public class AppUser implements IAppUser {
 		this.payPwd = payPwd;
 	}
 	
+	public Double getBalance() {
+		return this.balance;
+	}
+	
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+	
 	public Integer getAuthority() {
 		return this.authority;
 	}
@@ -107,11 +129,11 @@ public class AppUser implements IAppUser {
 		this.authority = authority;
 	}
 	
-	public Integer getMoneyMax() {
+	public Double getMoneyMax() {
 		return this.moneyMax;
 	}
 	
-	public void setMoneyMax(Integer moneyMax) {
+	public void setMoneyMax(Double moneyMax) {
 		this.moneyMax = moneyMax;
 	}
 	
@@ -229,6 +251,7 @@ public class AppUser implements IAppUser {
 		+",mobile="+this.getMobile()
 		+",pwd="+this.getPwd()
 		+",payPwd="+this.getPayPwd()
+		+",balance="+this.getBalance()
 		+",authority="+this.getAuthority()
 		+",moneyMax="+this.getMoneyMax()
 		+",alipayUsername="+this.getAlipayUsername()

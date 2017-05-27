@@ -9,6 +9,7 @@
         		    mobile,
         		    pwd,
         		    pay_pwd,
+        		    balance,
         		    authority,
         		    money_max,
         		    alipay_username,
@@ -32,6 +33,7 @@
 			<if test="mobile != null">AND mobile=#{mobile}</if>
 			<if test="pwd != null">AND pwd=#{pwd}</if>
 			<if test="payPwd != null">AND pay_pwd=#{payPwd}</if>
+			<if test="balance != null">AND balance=#{balance}</if>
 			<if test="authority != null">AND authority=#{authority}</if>
 			<if test="moneyMax != null">AND money_max=#{moneyMax}</if>
 			<if test="alipayUsername != null">AND alipay_username=#{alipayUsername}</if>
@@ -54,6 +56,7 @@
     	<result property="mobile" column="mobile"/>
     	<result property="pwd" column="pwd"/>
     	<result property="payPwd" column="pay_pwd"/>
+    	<result property="balance" column="balance"/>
     	<result property="authority" column="authority"/>
     	<result property="moneyMax" column="money_max"/>
     	<result property="alipayUsername" column="alipay_username"/>
@@ -91,6 +94,7 @@
                         <if test="mobile != null">`mobile`,</if>
                         <if test="pwd != null">`pwd`,</if>
                         <if test="payPwd != null">`pay_pwd`,</if>
+                        <if test="balance != null">`balance`,</if>
                         <if test="authority != null">`authority`,</if>
                         <if test="moneyMax != null">`money_max`,</if>
                         <if test="alipayUsername != null">`alipay_username`,</if>
@@ -113,6 +117,7 @@
                         <if test="mobile != null">#{mobile},</if>
                         <if test="pwd != null">#{pwd},</if>
                         <if test="payPwd != null">#{payPwd},</if>
+                        <if test="balance != null">#{balance},</if>
                         <if test="authority != null">#{authority},</if>
                         <if test="moneyMax != null">#{moneyMax},</if>
                         <if test="alipayUsername != null">#{alipayUsername},</if>
@@ -137,6 +142,7 @@
                 <if test="mobile != null">,mobile=#{mobile}</if>
                 <if test="pwd != null">,pwd=#{pwd}</if>
                 <if test="payPwd != null">,pay_pwd=#{payPwd}</if>
+                <if test="balance != null">,balance=#{balance}</if>
                 <if test="authority != null">,authority=#{authority}</if>
                 <if test="moneyMax != null">,money_max=#{moneyMax}</if>
                 <if test="alipayUsername != null">,alipay_username=#{alipayUsername}</if>
@@ -161,6 +167,7 @@
                     <if test="item.mobile != null">,mobile=#{item.mobile}</if>
                     <if test="item.pwd != null">,pwd=#{item.pwd}</if>
                     <if test="item.payPwd != null">,pay_pwd=#{item.payPwd}</if>
+                    <if test="item.balance != null">,balance=#{item.balance}</if>
                     <if test="item.authority != null">,authority=#{item.authority}</if>
                     <if test="item.moneyMax != null">,money_max=#{item.moneyMax}</if>
                     <if test="item.alipayUsername != null">,alipay_username=#{item.alipayUsername}</if>

@@ -11,7 +11,9 @@
         		    status,
         		    repay_way,
         		    repay_time,
-                    uid
+        		    repay_time_type,
+        		    uid,
+                    delete_flag
         FROM OGN_APP_MONEY_DETAIL
         where 1=1
 	</sql>
@@ -24,7 +26,9 @@
 			<if test="status != null">AND status=#{status}</if>
 			<if test="repayWay != null">AND repay_way=#{repayWay}</if>
 			<if test="repayTime != null">AND repay_time=#{repayTime}</if>
+			<if test="repayTimeType != null">AND repay_time_type=#{repayTimeType}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
+			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppMoneyDetail" id="appMoneyDetailMap">
     	<id property="id" column="id" />
@@ -36,7 +40,9 @@
     	<result property="status" column="status"/>
     	<result property="repayWay" column="repay_way"/>
     	<result property="repayTime" column="repay_time"/>
+    	<result property="repayTimeType" column="repay_time_type"/>
     	<result property="uid" column="uid"/>
+    	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppMoneyDetail">
         <include refid="selectPart"/>
@@ -55,26 +61,32 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO OGN_APP_MONEY_DETAIL (
-                        <if test="createDate != null">`create_date`</if>
-                        <if test="updateDate != null ">,`update_date`</if>
-                        <if test="money != null ">,`money`</if>
-                        <if test="type != null ">,`type`</if>
-                        <if test="status != null ">,`status`</if>
-                        <if test="repayWay != null ">,`repay_way`</if>
-                        <if test="repayTime != null ">,`repay_time`</if>
-                        <if test="uid != null ">,`uid`</if>
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">`create_date`,</if>
+                        <if test="updateDate != null">`update_date`,</if>
+                        <if test="money != null">`money`,</if>
+                        <if test="type != null">`type`,</if>
+                        <if test="status != null">`status`,</if>
+                        <if test="repayWay != null">`repay_way`,</if>
+                        <if test="repayTime != null">`repay_time`,</if>
+                        <if test="repayTimeType != null">`repay_time_type`,</if>
+                        <if test="uid != null">`uid`,</if>
+                        <if test="deleteFlag != null ">`delete_flag`</if>
+            </trim>
 		)
 		VALUES (
-
-                        <if test="createDate != null">#{createDate}</if>
-                        <if test="updateDate != null">,#{updateDate}</if>
-                        <if test="money != null">,#{money}</if>
-                        <if test="type != null">,#{type}</if>
-                        <if test="status != null">,#{status}</if>
-                        <if test="repayWay != null">,#{repayWay}</if>
-                        <if test="repayTime != null">,#{repayTime}</if>
-                        <if test="uid != null">,#{uid}</if>
-
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">#{createDate},</if>
+                        <if test="updateDate != null">#{updateDate},</if>
+                        <if test="money != null">#{money},</if>
+                        <if test="type != null">#{type},</if>
+                        <if test="status != null">#{status},</if>
+                        <if test="repayWay != null">#{repayWay},</if>
+                        <if test="repayTime != null">#{repayTime},</if>
+                        <if test="repayTimeType != null">#{repayTimeType},</if>
+                        <if test="uid != null">#{uid},</if>
+                        <if test="deleteFlag != null">#{deleteFlag}</if>
+            </trim>
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" >
@@ -87,7 +99,9 @@
                 <if test="status != null">,status=#{status}</if>
                 <if test="repayWay != null">,repay_way=#{repayWay}</if>
                 <if test="repayTime != null">,repay_time=#{repayTime}</if>
+                <if test="repayTimeType != null">,repay_time_type=#{repayTimeType}</if>
                 <if test="uid != null">,uid=#{uid}</if>
+                <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
@@ -101,11 +115,61 @@
                     <if test="item.status != null">,status=#{item.status}</if>
                     <if test="item.repayWay != null">,repay_way=#{item.repayWay}</if>
                     <if test="item.repayTime != null">,repay_time=#{item.repayTime}</if>
+                    <if test="item.repayTimeType != null">,repay_time_type=#{item.repayTimeType}</if>
                     <if test="item.uid != null">,uid=#{item.uid}</if>
+                    <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}
         </foreach>
     </update>
     <delete id="delete" parameterType="int">
         DELETE FROM OGN_APP_MONEY_DETAIL WHERE id=#{id}
     </delete>
+
+    <select id="findMoneyUserInfo" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultMap="MoneyUserInfoMap">
+        SELECT  ogn_app_money_detail.id,ogn_app_money_detail.create_date,ogn_app_money_detail.update_date,
+        money,ogn_app_money_detail.type,ogn_app_money_detail.status,repay_way,repay_time,repay_time_type,uid,
+        ogn_app_money_detail.delete_flag,ogn_app_user.mobile
+        FROM ogn_app_money_detail
+        LEFT JOIN ogn_app_user
+        ON ogn_app_user.id = ogn_app_money_detail.uid
+        where 1=1
+        <include refid="queryParams"/>
+    </select>
+
+    <resultMap id="MoneyUserInfoMap" type="com.origin.data.mybatis.entity.AppMoneyDetail">
+        <id property="id" column="id" />
+        <result property="id" column="id"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="money" column="money"/>
+        <result property="type" column="type"/>
+        <result property="status" column="status"/>
+        <result property="repayWay" column="repay_way"/>
+        <result property="repayTime" column="repay_time"/>
+        <result property="repayTimeType" column="repay_time_type"/>
+        <result property="uid" column="uid"/>
+        <result property="deleteFlag" column="delete_flag"/>
+
+        <association property="appUser" javaType="com.origin.data.mybatis.entity.AppUser">
+            <id property="id" column="id" />
+            <result property="createDate" column="create_date"/>
+            <result property="updateDate" column="update_date"/>
+            <result property="mobile" column="mobile"/>
+            <result property="pwd" column="pwd"/>
+            <result property="payPwd" column="pay_pwd"/>
+            <result property="authority" column="authority"/>
+            <result property="moneyMax" column="money_max"/>
+            <result property="alipayUsername" column="alipay_username"/>
+            <result property="alipayUseraccout" column="alipay_useraccout"/>
+            <result property="imgFace" column="img_face"/>
+            <result property="imgIdFront" column="img_id_front"/>
+            <result property="imgIdBack" column="img_id_back"/>
+            <result property="userIdName" column="user_id_name"/>
+            <result property="userIdNumber" column="user_id_number"/>
+            <result property="imgPortrait" column="img_portrait"/>
+            <result property="nickname" column="nickname"/>
+            <result property="category" column="category"/>
+            <result property="deleteFlag" column="delete_flag"/>
+        </association>
+    </resultMap>
 </mapper>

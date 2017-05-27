@@ -1,8 +1,11 @@
 package com.origin.core.dto;
 
-import java.util.Date;
-
+import com.origin.data.entity.IAppMoneyDetail;
 import com.origin.data.entity.IAppUser;
+
+import java.util.Date;
+import java.util.List;
+
 
 /**
 * 
@@ -11,202 +14,222 @@ public class AppUserDTO implements IAppUser {
 
 
     /**  */
-private Integer id;//;
+	private Integer id;//;
     /**  */
-private Date createDate;// = CURRENT_TIMESTAMP;
+	private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
-private Date updateDate;// = CURRENT_TIMESTAMP;
+	private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
-private String mobile;//;
+	private String mobile;//;
     /**  */
-private String pwd;//;
+	private String pwd;//;
     /**  */
-private String payPwd;//;
+	private String payPwd;//;
     /**  */
-private Integer authority;// = Integer.valueOf(100);
+	private Double balance;// = 0D;
     /**  */
-private Integer moneyMax;// = Integer.valueOf(2000);
+	private Integer authority;// = Integer.valueOf(100);
     /**  */
-private String alipayUsername;//;
+	private Double moneyMax;// = 2000D;
     /**  */
-private String alipayUseraccout;//;
+	private String alipayUsername;//;
     /**  */
-private String imgFace;//;
+	private String alipayUseraccout;//;
     /**  */
-private String imgIdFront;//;
+	private String imgFace;//;
     /**  */
-private String imgIdBack;//;
+	private String imgIdFront;//;
     /**  */
-private String userIdName;//;
+	private String imgIdBack;//;
     /**  */
-private String userIdNumber;//;
+	private String userIdName;//;
     /**  */
-private String imgPortrait;//;
+	private String userIdNumber;//;
     /**  */
-private String nickname;//;
+	private String imgPortrait;//;
     /**  */
-private Integer category;//;
+	private String nickname;//;
     /**  */
-private Integer deleteFlag;// = Integer.valueOf(0);
-public AppUserDTO(){
-}
+	private Integer category;//;
+    /**  */
+	private Integer deleteFlag;// = Integer.valueOf(0);
+	//add lic 170527
+	private List<IAppMoneyDetail> appMoneyDetails;
 
-public AppUserDTO(Integer id){
-	this.id = id;
-}
+	public List<IAppMoneyDetail> getAppMoneyDetails() {
+		return appMoneyDetails;
+	}
+
+	public void setAppMoneyDetails(List<IAppMoneyDetail> appMoneyDetails) {
+		this.appMoneyDetails = appMoneyDetails;
+	}
+	public AppUserDTO(){
+	}
+
+	public AppUserDTO(Integer id){
+		this.id = id;
+	}
 
 
-public Integer getId() {
-return this.id;
-}
+	public Integer getId() {
+		return this.id;
+	}
 
-public void setId(Integer id) {
-this.id = id;
-}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-public Date getCreateDate() {
-return this.createDate;
-}
+	public Date getCreateDate() {
+		return this.createDate;
+	}
 
-public void setCreateDate(Date createDate) {
-this.createDate = createDate;
-}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
-public Date getUpdateDate() {
-return this.updateDate;
-}
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
 
-public void setUpdateDate(Date updateDate) {
-this.updateDate = updateDate;
-}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
 
-public String getMobile() {
-return this.mobile;
-}
+	public String getMobile() {
+		return this.mobile;
+	}
 
-public void setMobile(String mobile) {
-this.mobile = mobile;
-}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 
-public String getPwd() {
-return this.pwd;
-}
+	public String getPwd() {
+		return this.pwd;
+	}
 
-public void setPwd(String pwd) {
-this.pwd = pwd;
-}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
 
-public String getPayPwd() {
-return this.payPwd;
-}
+	public String getPayPwd() {
+		return this.payPwd;
+	}
 
-public void setPayPwd(String payPwd) {
-this.payPwd = payPwd;
-}
+	public void setPayPwd(String payPwd) {
+		this.payPwd = payPwd;
+	}
 
-public Integer getAuthority() {
-return this.authority;
-}
+	public Double getBalance() {
+		return this.balance;
+	}
 
-public void setAuthority(Integer authority) {
-this.authority = authority;
-}
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
 
-public Integer getMoneyMax() {
-return this.moneyMax;
-}
+	public Integer getAuthority() {
+		return this.authority;
+	}
 
-public void setMoneyMax(Integer moneyMax) {
-this.moneyMax = moneyMax;
-}
+	public void setAuthority(Integer authority) {
+		this.authority = authority;
+	}
 
-public String getAlipayUsername() {
-return this.alipayUsername;
-}
+	public Double getMoneyMax() {
+		return this.moneyMax;
+	}
 
-public void setAlipayUsername(String alipayUsername) {
-this.alipayUsername = alipayUsername;
-}
+	public void setMoneyMax(Double moneyMax) {
+		this.moneyMax = moneyMax;
+	}
 
-public String getAlipayUseraccout() {
-return this.alipayUseraccout;
-}
+	public String getAlipayUsername() {
+		return this.alipayUsername;
+	}
 
-public void setAlipayUseraccout(String alipayUseraccout) {
-this.alipayUseraccout = alipayUseraccout;
-}
+	public void setAlipayUsername(String alipayUsername) {
+		this.alipayUsername = alipayUsername;
+	}
 
-public String getImgFace() {
-return this.imgFace;
-}
+	public String getAlipayUseraccout() {
+		return this.alipayUseraccout;
+	}
 
-public void setImgFace(String imgFace) {
-this.imgFace = imgFace;
-}
+	public void setAlipayUseraccout(String alipayUseraccout) {
+		this.alipayUseraccout = alipayUseraccout;
+	}
 
-public String getImgIdFront() {
-return this.imgIdFront;
-}
+	public String getImgFace() {
+		return this.imgFace;
+	}
 
-public void setImgIdFront(String imgIdFront) {
-this.imgIdFront = imgIdFront;
-}
+	public void setImgFace(String imgFace) {
+		this.imgFace = imgFace;
+	}
 
-public String getImgIdBack() {
-return this.imgIdBack;
-}
+	public String getImgIdFront() {
+		return this.imgIdFront;
+	}
 
-public void setImgIdBack(String imgIdBack) {
-this.imgIdBack = imgIdBack;
-}
+	public void setImgIdFront(String imgIdFront) {
+		this.imgIdFront = imgIdFront;
+	}
 
-public String getUserIdName() {
-return this.userIdName;
-}
+	public String getImgIdBack() {
+		return this.imgIdBack;
+	}
 
-public void setUserIdName(String userIdName) {
-this.userIdName = userIdName;
-}
+	public void setImgIdBack(String imgIdBack) {
+		this.imgIdBack = imgIdBack;
+	}
 
-public String getUserIdNumber() {
-return this.userIdNumber;
-}
+	public String getUserIdName() {
+		return this.userIdName;
+	}
 
-public void setUserIdNumber(String userIdNumber) {
-this.userIdNumber = userIdNumber;
-}
+	public void setUserIdName(String userIdName) {
+		this.userIdName = userIdName;
+	}
 
-public String getImgPortrait() {
-return this.imgPortrait;
-}
+	public String getUserIdNumber() {
+		return this.userIdNumber;
+	}
 
-public void setImgPortrait(String imgPortrait) {
-this.imgPortrait = imgPortrait;
-}
+	public void setUserIdNumber(String userIdNumber) {
+		this.userIdNumber = userIdNumber;
+	}
 
-public String getNickname() {
-return this.nickname;
-}
+	public String getImgPortrait() {
+		return this.imgPortrait;
+	}
 
-public void setNickname(String nickname) {
-this.nickname = nickname;
-}
+	public void setImgPortrait(String imgPortrait) {
+		this.imgPortrait = imgPortrait;
+	}
 
-public Integer getCategory() {
-return this.category;
-}
+	public String getNickname() {
+		return this.nickname;
+	}
 
-public void setCategory(Integer category) {
-this.category = category;
-}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 
-public Integer getDeleteFlag() {
-return this.deleteFlag;
-}
+	public Integer getCategory() {
+		return this.category;
+	}
 
-public void setDeleteFlag(Integer deleteFlag) {
-this.deleteFlag = deleteFlag;
-}
+	public void setCategory(Integer category) {
+		this.category = category;
+	}
+
+	public Integer getDeleteFlag() {
+		return this.deleteFlag;
+	}
+
+	public void setDeleteFlag(Integer deleteFlag) {
+		this.deleteFlag = deleteFlag;
+	}
 
 	public boolean equals(Object object) {
 		if (object == null) {
@@ -234,6 +257,7 @@ this.deleteFlag = deleteFlag;
 		+",mobile="+this.getMobile()
 		+",pwd="+this.getPwd()
 		+",payPwd="+this.getPayPwd()
+		+",balance="+this.getBalance()
 		+",authority="+this.getAuthority()
 		+",moneyMax="+this.getMoneyMax()
 		+",alipayUsername="+this.getAlipayUsername()

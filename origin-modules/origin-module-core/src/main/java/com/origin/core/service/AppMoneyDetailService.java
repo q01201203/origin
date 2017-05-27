@@ -9,5 +9,7 @@ public interface AppMoneyDetailService {
     void delete(Integer id);
     void update(IAppMoneyDetail appMoneyDetail);
     IAppMoneyDetail findById(Integer id);
+    IAppMoneyDetail findFirst(IAppMoneyDetail appMoneyDetail);
     List<IAppMoneyDetail> find(IAppMoneyDetail appMoneyDetail);
+    List<IAppMoneyDetail> findMoneyUserInfo(IAppMoneyDetail appMoneyDetail);
 }

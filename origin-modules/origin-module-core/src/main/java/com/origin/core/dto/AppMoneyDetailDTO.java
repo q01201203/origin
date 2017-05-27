@@ -1,8 +1,9 @@
 package com.origin.core.dto;
 
-import java.util.Date;
-
 import com.origin.data.entity.IAppMoneyDetail;
+import com.origin.data.entity.IAppUser;
+
+import java.util.Date;
 
 /**
 * 
@@ -13,11 +14,11 @@ public class AppMoneyDetailDTO implements IAppMoneyDetail {
     /**  */
 private Integer id;//;
     /**  */
-private Date createDate;//;
+private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
-private Date updateDate;//;
+private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
-private Integer money;//;
+private Double money;//;
     /**  */
 private Integer type;//;
     /**  */
@@ -25,10 +26,27 @@ private Integer status;// = Integer.valueOf(1);
     /**  */
 private Integer repayWay;//;
     /**  */
-private Integer repayTime;//;
+private Date repayTime;//;
+    /**  */
+private Integer repayTimeType;//;
     /**  */
 private Integer uid;//;
-public AppMoneyDetailDTO(){
+    /**  */
+private Integer deleteFlag;// = Integer.valueOf(0);
+
+private IAppUser appUser;
+
+	@Override
+	public IAppUser getAppUser() {
+		return appUser;
+	}
+
+	@Override
+	public void setAppUser(IAppUser appUser) {
+		this.appUser = appUser;
+	}
+
+	public AppMoneyDetailDTO(){
 }
 
 public AppMoneyDetailDTO(Integer id){
@@ -60,11 +78,11 @@ public void setUpdateDate(Date updateDate) {
 this.updateDate = updateDate;
 }
 
-public Integer getMoney() {
+public Double getMoney() {
 return this.money;
 }
 
-public void setMoney(Integer money) {
+public void setMoney(Double money) {
 this.money = money;
 }
 
@@ -92,12 +110,20 @@ public void setRepayWay(Integer repayWay) {
 this.repayWay = repayWay;
 }
 
-public Integer getRepayTime() {
+public Date getRepayTime() {
 return this.repayTime;
 }
 
-public void setRepayTime(Integer repayTime) {
+public void setRepayTime(Date repayTime) {
 this.repayTime = repayTime;
+}
+
+public Integer getRepayTimeType() {
+return this.repayTimeType;
+}
+
+public void setRepayTimeType(Integer repayTimeType) {
+this.repayTimeType = repayTimeType;
 }
 
 public Integer getUid() {
@@ -106,6 +132,14 @@ return this.uid;
 
 public void setUid(Integer uid) {
 this.uid = uid;
+}
+
+public Integer getDeleteFlag() {
+return this.deleteFlag;
+}
+
+public void setDeleteFlag(Integer deleteFlag) {
+this.deleteFlag = deleteFlag;
 }
 
 	public boolean equals(Object object) {
@@ -136,7 +170,9 @@ this.uid = uid;
 		+",status="+this.getStatus()
 		+",repayWay="+this.getRepayWay()
 		+",repayTime="+this.getRepayTime()
+		+",repayTimeType="+this.getRepayTimeType()
 		+",uid="+this.getUid()
+		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}
 }

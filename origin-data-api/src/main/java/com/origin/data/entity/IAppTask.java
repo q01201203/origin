@@ -8,51 +8,71 @@ import java.io.Serializable;
 */
 public interface IAppTask extends Serializable {
 
-public final static Integer STATUS_YES = 1; //可用
+	public final static Integer STATUS_YES = 1; //可用
 
-public final static Integer STATUS_NO = 0; //不可用
-
-
+	public final static Integer STATUS_NO = 0; //不可用
 
 
- Integer getId();
 
-  void setId(Integer id);
 
- Date getCreateDate();
+	Integer getId();
 
-  void setCreateDate(Date createDate);
+	void setId(Integer id);
 
- Date getUpdateDate();
+	Date getCreateDate();
 
-  void setUpdateDate(Date updateDate);
+	void setCreateDate(Date createDate);
 
- String getTaskName();
+	Date getUpdateDate();
 
-  void setTaskName(String taskName);
+	void setUpdateDate(Date updateDate);
 
- Integer getTaskNumber();
+	String getTaskName();
 
-  void setTaskNumber(Integer taskNumber);
+	void setTaskName(String taskName);
 
- Integer getTaskType();
+	Integer getTaskNumber();
 
-  void setTaskType(Integer taskType);
+	void setTaskNumber(Integer taskNumber);
 
- Double getTaskMoney();
+	Integer getTaskType();
 
-  void setTaskMoney(Double taskMoney);
+	void setTaskType(Integer taskType);
 
- String getTaskImg();
+	Double getTaskMoney();
 
-  void setTaskImg(String taskImg);
+	void setTaskMoney(Double taskMoney);
 
- Integer getTaskHot();
+	String getTaskImg();
 
-  void setTaskHot(Integer taskHot);
+	void setTaskImg(String taskImg);
 
- Integer getDeleteFlag();
+	Integer getTaskHot();
 
-  void setDeleteFlag(Integer deleteFlag);
+	void setTaskHot(Integer taskHot);
+
+	Date getTaskStartTime();
+
+	void setTaskStartTime(Date taskStartTime);
+
+	Date getTaskEndTime();
+
+	void setTaskEndTime(Date taskEndTime);
+
+	String getTaskSimpleStep();
+
+	void setTaskSimpleStep(String taskSimpleStep);
+
+	String getTaskDetailedStep();
+
+	void setTaskDetailedStep(String taskDetailedStep);
+
+	String getTaskLink();
+
+	void setTaskLink(String taskLink);
+
+	Integer getDeleteFlag();
+
+	void setDeleteFlag(Integer deleteFlag);
 
 }
