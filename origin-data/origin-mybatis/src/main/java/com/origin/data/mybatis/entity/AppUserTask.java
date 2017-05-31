@@ -4,14 +4,12 @@ import com.origin.data.entity.IAppTask;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserTask;
 
-import java.util.Date;
-
 /**
  * 
  */
 public class AppUserTask implements IAppUserTask {
 
-	private static final long serialVersionUID = 17486693879904966L;
+	private static final long serialVersionUID = 9257508442645321L;
 	
 	/**  */
 	private Integer id;//;
@@ -20,10 +18,7 @@ public class AppUserTask implements IAppUserTask {
 	/**  */
 	private Integer tid;//;
 	/**  */
-	private Date auditTime;//;
-	/**  */
-	private Integer status;// = Integer.valueOf(0);
-
+	private Integer mid;//;
 	//add lic 170525
 	private IAppUser appUser;
 
@@ -47,7 +42,6 @@ public class AppUserTask implements IAppUserTask {
 	public void setAppTask(IAppTask appTask) {
 		this.appTask = appTask;
 	}
-
 	public Integer getId() {
 		return this.id;
 	}
@@ -72,20 +66,12 @@ public class AppUserTask implements IAppUserTask {
 		this.tid = tid;
 	}
 	
-	public Date getAuditTime() {
-		return this.auditTime;
+	public Integer getMid() {
+		return this.mid;
 	}
 	
-	public void setAuditTime(Date auditTime) {
-		this.auditTime = auditTime;
-	}
-	
-	public Integer getStatus() {
-		return this.status;
-	}
-	
-	public void setStatus(Integer status) {
-		this.status = status;
+	public void setMid(Integer mid) {
+		this.mid = mid;
 	}
 	
 	public boolean equals(Object object) {
@@ -111,8 +97,7 @@ public class AppUserTask implements IAppUserTask {
 		+",id="+this.getId()
 		+",uid="+this.getUid()
 		+",tid="+this.getTid()
-		+",auditTime="+this.getAuditTime()
-		+",status="+this.getStatus()
+		+",mid="+this.getMid()
 		+"]";
 	}
 }

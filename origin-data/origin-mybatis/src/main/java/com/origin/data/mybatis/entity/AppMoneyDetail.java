@@ -1,6 +1,7 @@
 package com.origin.data.mybatis.entity;
 
 import com.origin.data.entity.IAppMoneyDetail;
+import com.origin.data.entity.IAppTask;
 import com.origin.data.entity.IAppUser;
 
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Date;
  */
 public class AppMoneyDetail implements IAppMoneyDetail {
 
-	private static final long serialVersionUID = 43605370234891028L;
+	private static final long serialVersionUID = 5329989487735057L;
 	
 	/**  */
 	private Integer id;//;
@@ -19,7 +20,9 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 	/**  */
 	private Date updateDate;// = CURRENT_TIMESTAMP;
 	/**  */
-	private Double money;//;
+	private Double moneyAsk;//;
+	/**  */
+	private Double moneyActual;//;
 	/**  */
 	private Integer type;//;
 	/**  */
@@ -31,12 +34,19 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 	/**  */
 	private Integer repayTimeType;//;
 	/**  */
+	private String extensionOne;//;
+	/**  */
+	private String extensionTwo;//;
+	/**  */
 	private Integer uid;//;
 	/**  */
 	private Integer deleteFlag;// = Integer.valueOf(0);
 
-	//add lic 170528
+	//add lic 170525
 	private IAppUser appUser;
+
+	//add lic 170526
+	private IAppTask appTask;
 
 	public IAppUser getAppUser() {
 		return appUser;
@@ -70,12 +80,20 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 		this.updateDate = updateDate;
 	}
 	
-	public Double getMoney() {
-		return this.money;
+	public Double getMoneyAsk() {
+		return this.moneyAsk;
 	}
 	
-	public void setMoney(Double money) {
-		this.money = money;
+	public void setMoneyAsk(Double moneyAsk) {
+		this.moneyAsk = moneyAsk;
+	}
+	
+	public Double getMoneyActual() {
+		return this.moneyActual;
+	}
+	
+	public void setMoneyActual(Double moneyActual) {
+		this.moneyActual = moneyActual;
 	}
 	
 	public Integer getType() {
@@ -118,6 +136,22 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 		this.repayTimeType = repayTimeType;
 	}
 	
+	public String getExtensionOne() {
+		return this.extensionOne;
+	}
+	
+	public void setExtensionOne(String extensionOne) {
+		this.extensionOne = extensionOne;
+	}
+	
+	public String getExtensionTwo() {
+		return this.extensionTwo;
+	}
+	
+	public void setExtensionTwo(String extensionTwo) {
+		this.extensionTwo = extensionTwo;
+	}
+	
 	public Integer getUid() {
 		return this.uid;
 	}
@@ -133,7 +167,17 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 	public void setDeleteFlag(Integer deleteFlag) {
 		this.deleteFlag = deleteFlag;
 	}
-	
+
+	@Override
+	public IAppTask getAppTask() {
+		return appTask;
+	}
+
+	@Override
+	public void setAppTask(IAppTask appTask) {
+		this.appTask = appTask;
+	}
+
 	public boolean equals(Object object) {
 		if (object == null) {
 			return false;
@@ -157,12 +201,15 @@ public class AppMoneyDetail implements IAppMoneyDetail {
 		+",id="+this.getId()
 		+",createDate="+this.getCreateDate()
 		+",updateDate="+this.getUpdateDate()
-		+",money="+this.getMoney()
+		+",moneyAsk="+this.getMoneyAsk()
+		+",moneyActual="+this.getMoneyActual()
 		+",type="+this.getType()
 		+",status="+this.getStatus()
 		+",repayWay="+this.getRepayWay()
 		+",repayTime="+this.getRepayTime()
 		+",repayTimeType="+this.getRepayTimeType()
+		+",extensionOne="+this.getExtensionOne()
+		+",extensionTwo="+this.getExtensionTwo()
 		+",uid="+this.getUid()
 		+",deleteFlag="+this.getDeleteFlag()
 		+"]";

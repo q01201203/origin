@@ -1,10 +1,9 @@
 package com.origin.data.mybatis.entity;
 
+import com.origin.data.entity.I${model};
 <#if containDate>
 import java.util.Date;
 </#if>
-
-import com.origin.data.entity.I${model};
 
 <#if tableComment??>
 /**

@@ -1,5 +1,6 @@
 package com.origin.core.service;
 
+import com.origin.common.model.mybatis.Result;
 import com.origin.data.entity.IAppMoneyDetail;
 import java.util.List;
 
@@ -11,5 +12,6 @@ public interface AppMoneyDetailService {
     IAppMoneyDetail findById(Integer id);
     IAppMoneyDetail findFirst(IAppMoneyDetail appMoneyDetail);
     List<IAppMoneyDetail> find(IAppMoneyDetail appMoneyDetail);
-    List<IAppMoneyDetail> findMoneyUserInfo(IAppMoneyDetail appMoneyDetail);
+    List<IAppMoneyDetail> findIncomeInfo(IAppMoneyDetail appMoneyDetail);
+    Result saveIncome(Integer uid , Integer tid,IAppMoneyDetail appMoneyDetail);
 }

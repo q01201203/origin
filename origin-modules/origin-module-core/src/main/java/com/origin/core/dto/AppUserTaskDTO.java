@@ -1,10 +1,9 @@
 package com.origin.core.dto;
 
+
 import com.origin.data.entity.IAppTask;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserTask;
-
-import java.util.Date;
 
 /**
 * 
@@ -19,14 +18,13 @@ public class AppUserTaskDTO implements IAppUserTask {
     /**  */
 	private Integer tid;//;
     /**  */
-	private Date auditTime;//;
-    /**  */
-	private Integer status;// = Integer.valueOf(0);
+	private Integer mid;//;
 	//add lic 170525
 	private IAppUser appUser;
 
 	//add lic 170526
 	private IAppTask appTask;
+	
 	public AppUserTaskDTO(){
 	}
 
@@ -59,20 +57,12 @@ public class AppUserTaskDTO implements IAppUserTask {
 		this.tid = tid;
 	}
 
-	public Date getAuditTime() {
-		return this.auditTime;
+	public Integer getMid() {
+		return this.mid;
 	}
 
-	public void setAuditTime(Date auditTime) {
-		this.auditTime = auditTime;
-	}
-
-	public Integer getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
+	public void setMid(Integer mid) {
+		this.mid = mid;
 	}
 
 	@Override
@@ -94,7 +84,6 @@ public class AppUserTaskDTO implements IAppUserTask {
 	public void setAppTask(IAppTask appTask) {
 		this.appTask = appTask;
 	}
-
 	public boolean equals(Object object) {
 		if (object == null) {
 			return false;
@@ -118,8 +107,7 @@ public class AppUserTaskDTO implements IAppUserTask {
 		+",id="+this.getId()
 		+",uid="+this.getUid()
 		+",tid="+this.getTid()
-		+",auditTime="+this.getAuditTime()
-		+",status="+this.getStatus()
+		+",mid="+this.getMid()
 		+"]";
 	}
 }

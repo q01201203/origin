@@ -283,15 +283,24 @@ public class AdminAppUserController {
 			pageSize = Integer.parseInt(pageSizeStr);
 		}
 		IAppMoneyDetail params = new AppMoneyDetailDTO();
-		if(StringUtils.isNotBlank(type)){
-			params.setType( Integer.parseInt(type));
-		}
+
 		if(StringUtils.isNotBlank(uid)){
 			params.setUid( Integer.parseInt(uid));
 		}
 
 		PageHelper.startPage(currentPage, pageSize);
-		List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.findMoneyUserInfo(params);
+		List<IAppMoneyDetail> appMoneyDetails;
+		if(StringUtils.isNotBlank(type)){
+			params.setType( Integer.parseInt(type));
+			if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
+				appMoneyDetails = appMoneyDetailService.findIncomeInfo(params);
+			}else{
+				appMoneyDetails = appMoneyDetailService.find(params);
+			}
+		}else{
+			appMoneyDetails = appMoneyDetailService.find(params);
+		}
+
 		PageInfo<IAppMoneyDetail> page = new PageInfo(appMoneyDetails);
 		model.addAttribute("page", page);
 		model.addAttribute("appMoneyDetails", appMoneyDetails);

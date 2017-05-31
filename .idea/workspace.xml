@@ -8,8 +8,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/scripts/ogn_base170527.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUserTask.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUserTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUserTask.java" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUserTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserTaskDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserTaskDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppTaskController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppTaskController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppUserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserTaskDTO.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserTaskDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserTaskServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserTaskServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/model.ftl" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/model.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/serviceImpl.ftl" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/serviceImpl.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/com/origin/tool/template/model.ftl" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/com/origin/tool/template/model.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/origin-modules/origin-module-core/target/" />
     <ignored path="$PROJECT_DIR$/origin-tool/target/" />
@@ -45,21 +66,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="appTaskUser.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskUser.jsp">
+      <file leaf-file-name="AppUserServiceImplTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="89" column="117" lean-forward="false" selection-start-line="89" selection-start-column="117" selection-end-line="89" selection-end-column="117" />
+            <state relative-caret-position="479">
+              <caret line="69" column="23" lean-forward="true" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminAppUserController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminAppUserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="223" column="52" lean-forward="false" selection-start-line="223" selection-start-column="52" selection-end-line="223" selection-end-column="52" />
+            <state relative-caret-position="3610">
+              <caret line="302" column="0" lean-forward="false" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -68,8 +89,8 @@
       <file leaf-file-name="AdminAppTaskController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppTaskController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="3597">
+              <caret line="266" column="7" lean-forward="false" selection-start-line="236" selection-start-column="4" selection-end-line="266" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -78,74 +99,9 @@
       <file leaf-file-name="AppInfoController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppInfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="111" column="108" lean-forward="false" selection-start-line="111" selection-start-column="108" selection-end-line="111" selection-end-column="108" />
+            <state relative-caret-position="313">
+              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppConstantsDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppConstantsDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-              <folding>
-                <marker date="1495868344605" expanded="true" signature="245:518" ph="SELECT id, c... OGN_APP_CONSTANTS" />
-                <marker date="1495868344605" expanded="true" signature="3434:3916" ph="UPDATE OGN_A... " />
-                <marker date="1495868344605" expanded="true" signature="4059:4636" ph="update OGN_A... " />
-                <marker date="1495868344605" expanded="true" signature="4723:4767" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modelDTO.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/modelDTO.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppUserTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUserTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="74" column="15" lean-forward="false" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1238#1239#0" expanded="true" />
-                <element signature="e#1266#1267#0" expanded="true" />
-                <marker date="1495865518826" expanded="false" signature="651:656" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="671:674" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="728:733" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="756:759" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="790:795" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="810:813" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="856:861" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="884:887" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="912:917" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="932:935" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="968:973" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="986:989" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="1016:1021" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="1037:1040" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="1075:1080" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="1095:1098" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="1125:1130" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="1146:1149" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="1184:1189" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="1204:1207" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="1311:1316" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="1343:1346" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="1376:1381" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="1400:1403" ph=" }" />
-                <marker date="1495865518826" expanded="false" signature="1444:1449" ph=" { " />
-                <marker date="1495865518826" expanded="false" signature="1470:1473" ph=" }" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -153,28 +109,58 @@
       <file leaf-file-name="AppUserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="591" column="60" lean-forward="false" selection-start-line="591" selection-start-column="60" selection-end-line="591" selection-end-column="60" />
+            <state relative-caret-position="535">
+              <caret line="593" column="77" lean-forward="false" selection-start-line="593" selection-start-column="77" selection-end-line="593" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appUser_list.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUser_list.jsp">
+      <file leaf-file-name="AppMoneyDetailService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-600">
-              <caret line="69" column="83" lean-forward="false" selection-start-line="69" selection-start-column="80" selection-end-line="69" selection-end-column="83" />
+            <state relative-caret-position="325">
+              <caret line="15" column="78" lean-forward="false" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appUserDetail.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp">
+      <file leaf-file-name="AppMoneyDetailServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="34" column="125" lean-forward="false" selection-start-line="34" selection-start-column="106" selection-end-line="34" selection-end-column="125" />
+            <state relative-caret-position="838">
+              <caret line="93" column="65" lean-forward="false" selection-start-line="93" selection-start-column="65" selection-end-line="93" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppUserTaskServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserTaskServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="15" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppTaskServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serviceImpl.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/serviceImpl.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -191,8 +177,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dfDateTime</find>
-      <find>createDate</find>
       <find>roleResourceService</find>
       <find>roles</find>
       <find>appTaskMap</find>
@@ -206,7 +190,6 @@
       <find>finishTask</find>
       <find>1</find>
       <find>1s</find>
-      <find>licheng</find>
       <find>apptask_ed</find>
       <find>appMoneyDetails</find>
       <find>repayTime</find>
@@ -221,6 +204,9 @@
       <find>queryDTO</find>
       <find>AppTask</find>
       <find>params</find>
+      <find>money id</find>
+      <find>IAppMoneyDetail</find>
+      <find>licheng</find>
     </findStrings>
     <replaceStrings>
       <replace>result</replace>
@@ -247,41 +233,28 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppStuDetailService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppStuDetailServiceImpl.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppPersonDetailService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppPersonDetailServiceImpl.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserBankService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserBankServiceImpl.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/common/pager.jsp" />
-        <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/serviceImpl.ftl" />
         <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/service.ftl" />
         <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/controller.ftl" />
         <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/list.ftl" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppTask.java" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppTaskDao.xml" />
         <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppTaskDao.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppTaskService.java" />
         <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppUserTaskDao.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/dialog/appTaskUser_edit.jsp" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserTaskService.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserTaskServiceImpl.java" />
-        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUserTask.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/dialog/appTask_edit.jsp" />
-        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java" />
-        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java" />
-        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/exception/CustomSimpleMappingExceptionHandler.java" />
         <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUser.java" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUser.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserDTO.java" />
-        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserDao.xml" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp" />
         <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/imodel.ftl" />
@@ -289,15 +262,28 @@
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTask_list.jsp" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUser_list.jsp" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserTaskDao.xml" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppTaskController.java" />
-        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUserTask.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserTaskDTO.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskUser.jsp" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppInfoController.java" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppConstantsDao.xml" />
         <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/modelDTO.ftl" />
+        <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/model.ftl" />
+        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUserTask.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserTaskDTO.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppTaskController.java" />
+        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java" />
+        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java" />
+        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUserTask.java" />
+        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java" />
+        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" />
+        <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/serviceImpl.ftl" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserTaskServiceImpl.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppUserController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
       </list>
     </option>
   </component>
@@ -366,9 +352,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="791" />
-    <option name="y" value="76" />
-    <option name="width" value="1932" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -778,6 +764,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2044,8 +2032,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4896,7 +4882,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Generator">
+  <component name="RunManager" selected="JUnit.AppUserServiceImplTest.updateMoneyStatus">
     <configuration default="false" name="Generator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -4915,58 +4901,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="origin-tool-mybatis" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="AppUserServiceImplTest.findUserTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ServiceTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="origin-module-core" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="ServiceTest.AppUserServiceImplTest" />
-      <option name="METHOD_NAME" value="findUserTask" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AppUserServiceImplTest.finishTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ServiceTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="origin-module-core" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="ServiceTest.AppUserServiceImplTest" />
-      <option name="METHOD_NAME" value="finishTask" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="false" name="AppUserServiceImplTest.updateFinishTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -5008,6 +4942,58 @@
       <option name="PACKAGE_NAME" value="ServiceTest" />
       <option name="MAIN_CLASS_NAME" value="ServiceTest.AppUserServiceImplTest" />
       <option name="METHOD_NAME" value="testIntegerString" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AppUserServiceImplTest.findUserIncome" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ServiceTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="origin-module-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTest.AppUserServiceImplTest" />
+      <option name="METHOD_NAME" value="findUserIncome" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AppUserServiceImplTest.updateMoneyStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ServiceTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="origin-module-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTest.AppUserServiceImplTest" />
+      <option name="METHOD_NAME" value="updateMoneyStatus" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -5516,18 +5502,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.tomcat8.5.14" />
       <item index="1" class="java.lang.String" itemvalue="Application.Generator" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.findUserTask" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.finishTask" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.updateFinishTask" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.testIntegerString" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.updateFinishTask" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.testIntegerString" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.findUserIncome" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.updateMoneyStatus" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Generator" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.testIntegerString" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.updateFinishTask" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.finishTask" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.findUserTask" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.updateMoneyStatus" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.updateFinishTask" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.findUserIncome" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Generator" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AppUserServiceImplTest.testIntegerString" />
       </list>
     </recent_temporary>
   </component>
@@ -5559,7 +5545,8 @@
       <workItem from="1495674640167" duration="2732000" />
       <workItem from="1495677418257" duration="21658000" />
       <workItem from="1495760640530" duration="19759000" />
-      <workItem from="1495847233660" duration="17810000" />
+      <workItem from="1495847233660" duration="17836000" />
+      <workItem from="1496192460022" duration="24062000" />
     </task>
     <task id="LOCAL-00001" summary="delete product">
       <created>1494493589166</created>
@@ -5666,43 +5653,50 @@
       <option name="project" value="LOCAL" />
       <updated>1495877608035</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add sql">
+      <created>1495878009097</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1495878009097</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AppUserServiceImplTest_finishTask - 2017.05.26 at 11h 52m 07s.xml">
-      <configuration name="AppUserServiceImplTest.finishTask" configurationId="JUnit" />
+    <history-entry file="AppUserServiceImplTest_findUserIncome - 2017.05.31 at 14h 15m 54s.xml">
+      <configuration name="AppUserServiceImplTest.findUserIncome" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppUserServiceImplTest_finishTask - 2017.05.26 at 11h 58m 03s.xml">
-      <configuration name="AppUserServiceImplTest.finishTask" configurationId="JUnit" />
+    <history-entry file="AppUserServiceImplTest_findUserIncome - 2017.05.31 at 14h 16m 54s.xml">
+      <configuration name="AppUserServiceImplTest.findUserIncome" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppUserServiceImplTest_testIntegerString - 2017.05.26 at 14h 38m 06s.xml">
-      <configuration name="AppUserServiceImplTest.testIntegerString" configurationId="JUnit" />
+    <history-entry file="AppUserServiceImplTest_findUserIncome - 2017.05.31 at 14h 18m 54s.xml">
+      <configuration name="AppUserServiceImplTest.findUserIncome" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppUserServiceImplTest_testIntegerString - 2017.05.26 at 14h 38m 41s.xml">
-      <configuration name="AppUserServiceImplTest.testIntegerString" configurationId="JUnit" />
+    <history-entry file="AppUserServiceImplTest_findUserIncome - 2017.05.31 at 15h 48m 57s.xml">
+      <configuration name="AppUserServiceImplTest.findUserIncome" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppUserServiceImplTest_testIntegerString - 2017.05.26 at 14h 39m 36s.xml">
-      <configuration name="AppUserServiceImplTest.testIntegerString" configurationId="JUnit" />
+    <history-entry file="AppUserServiceImplTest_findUserIncome - 2017.05.31 at 15h 49m 53s.xml">
+      <configuration name="AppUserServiceImplTest.findUserIncome" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppUserServiceImplTest_testIntegerString - 2017.05.26 at 14h 40m 03s.xml">
-      <configuration name="AppUserServiceImplTest.testIntegerString" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppUserServiceImplTest_testIntegerString - 2017.05.26 at 14h 40m 28s.xml">
-      <configuration name="AppUserServiceImplTest.testIntegerString" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AppUserServiceImplTest_updateFinishTask - 2017.05.26 at 12h 00m 20s.xml">
+    <history-entry file="AppUserServiceImplTest_updateFinishTask - 2017.05.31 at 15h 28m 44s.xml">
       <configuration name="AppUserServiceImplTest.updateFinishTask" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppUserServiceImplTest_updateFinishTask - 2017.05.26 at 12h 00m 45s.xml">
+    <history-entry file="AppUserServiceImplTest_updateFinishTask - 2017.05.31 at 15h 29m 22s.xml">
       <configuration name="AppUserServiceImplTest.updateFinishTask" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppUserServiceImplTest_updateFinishTask - 2017.05.26 at 12h 02m 00s.xml">
+    <history-entry file="AppUserServiceImplTest_updateFinishTask - 2017.05.31 at 15h 46m 39s.xml">
       <configuration name="AppUserServiceImplTest.updateFinishTask" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AppUserServiceImplTest_updateFinishTask - 2017.05.31 at 17h 51m 35s.xml">
+      <configuration name="AppUserServiceImplTest.updateFinishTask" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AppUserServiceImplTest_updateMoneyStatus - 2017.05.31 at 17h 57m 43s.xml">
+      <configuration name="AppUserServiceImplTest.updateMoneyStatus" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275905000" />
+    <option name="totallyTimeSpent" value="299993000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -5714,7 +5708,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="791" y="76" width="1932" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -5739,7 +5733,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4251627" sideWeight="0.4914712" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26014957" sideWeight="0.48698482" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26226014" sideWeight="0.48698482" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2468017" sideWeight="0.5130152" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23880596" sideWeight="0.5082353" order="2" side_tool="true" content_ui="tabs" />
@@ -5837,11 +5831,13 @@
     <MESSAGE value="add admin jsp" />
     <MESSAGE value="add admin task user" />
     <MESSAGE value="add admin design" />
-    <option name="LAST_COMMIT_MESSAGE" value="add admin design" />
+    <MESSAGE value="add sql" />
+    <MESSAGE value="add money and task" />
+    <option name="LAST_COMMIT_MESSAGE" value="add money and task" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -5850,90 +5846,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserTaskServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="49" column="40" lean-forward="false" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUserTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="57" lean-forward="false" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="69" column="1" lean-forward="false" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppUserTaskDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3425">
-          <caret line="161" column="17" lean-forward="false" selection-start-line="161" selection-start-column="17" selection-end-line="161" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1641">
-          <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-          <folding>
-            <element signature="e#819#820#0" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/daoImpl.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/dao.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/edit.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/idao.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -5958,14 +5870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/model.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-977">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/modelXml.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1050">
@@ -5982,40 +5886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/serviceImpl.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-488">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="13" column="76" lean-forward="false" selection-start-line="13" selection-start-column="76" selection-end-line="13" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/user/user_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -6028,7 +5898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51">
           <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -6044,7 +5913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="32" column="4" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="33" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -6052,7 +5920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="55" column="49" lean-forward="false" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -6078,41 +5945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
           <caret line="62" column="5" lean-forward="false" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="49" column="50" lean-forward="false" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1059">
-          <caret line="173" column="16" lean-forward="true" selection-start-line="127" selection-start-column="4" selection-end-line="173" selection-end-column="16" />
-          <folding>
-            <marker date="1495854170142" expanded="true" signature="247:573" ph="SELECT id, c... OGN_APP_MONEY_DETAIL" />
-            <marker date="1495854170142" expanded="true" signature="4570:5355" ph="UPDATE OGN_A... " />
-            <marker date="1495854170142" expanded="true" signature="5498:6434" ph="update OGN_A... " />
-            <marker date="1495854170142" expanded="true" signature="6521:6568" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="181" column="13" lean-forward="false" selection-start-line="181" selection-start-column="13" selection-end-line="181" selection-end-column="13" />
-          <folding>
-            <marker date="1495868814741" expanded="true" signature="240:397" ph="SELECT id, c... OGN_APP_USER" />
-            <marker date="1495868814741" expanded="true" signature="6990:8420" ph="UPDATE OGN_A... " />
-            <marker date="1495868814741" expanded="true" signature="9428:10673" ph="update OGN_A... " />
-            <marker date="1495868814741" expanded="true" signature="10760:10799" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -6128,7 +5960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -6137,18 +5968,6 @@
         <state relative-caret-position="175">
           <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppTaskDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="55" selection-end-column="56" />
-          <folding>
-            <marker date="1495855579872" expanded="true" signature="240:478" ph="SELECT id, c... OGN_APP_TASK" />
-            <marker date="1495855579872" expanded="true" signature="8468:8602" ph="update OGN_A... " />
-            <marker date="1495855579872" expanded="true" signature="8689:8728" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -6168,19 +5987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserTaskDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="87" column="61" lean-forward="false" selection-start-line="87" selection-start-column="61" selection-end-line="87" selection-end-column="61" />
-          <folding>
-            <marker date="1495865098831" expanded="true" signature="244:315" ph="SELECT id, u... OGN_APP_USER_TASK" />
-            <marker date="1495865098831" expanded="true" signature="4783:7332" ph="..." />
-            <marker date="1495865098831" expanded="true" signature="4928:6191" ph="..." />
-            <marker date="1495865098831" expanded="true" signature="6283:7315" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/imodel.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -6189,75 +5995,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserTaskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserTaskDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="591" column="60" lean-forward="false" selection-start-line="591" selection-start-column="60" selection-end-line="591" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUserTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="74" column="15" lean-forward="false" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#1266#1267#0" expanded="true" />
-            <marker date="1495865518826" expanded="false" signature="651:656" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="671:674" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="728:733" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="756:759" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="790:795" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="810:813" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="856:861" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="884:887" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="912:917" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="932:935" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="968:973" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="986:989" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="1016:1021" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="1037:1040" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="1075:1080" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="1095:1098" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="1125:1130" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="1146:1149" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="1184:1189" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="1204:1207" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="1311:1316" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="1343:1346" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="1376:1381" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="1400:1403" ph=" }" />
-            <marker date="1495865518826" expanded="false" signature="1444:1449" ph=" { " />
-            <marker date="1495865518826" expanded="false" signature="1470:1473" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="850">
           <caret line="34" column="125" lean-forward="false" selection-start-line="34" selection-start-column="106" selection-end-line="34" selection-end-column="125" />
           <folding />
         </state>
@@ -6265,7 +6005,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUser_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600">
+        <state relative-caret-position="1725">
           <caret line="69" column="83" lean-forward="false" selection-start-line="69" selection-start-column="80" selection-end-line="69" selection-end-column="83" />
           <folding />
         </state>
@@ -6273,24 +6013,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskUser.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="2225">
           <caret line="89" column="117" lean-forward="false" selection-start-line="89" selection-start-column="117" selection-end-line="89" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="111" column="108" lean-forward="false" selection-start-line="111" selection-start-column="108" selection-end-line="111" selection-end-column="108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppTaskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -6298,7 +6022,7 @@
     <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppConstantsDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
           <folding>
             <marker date="1495868344605" expanded="true" signature="245:518" ph="SELECT id, c... OGN_APP_CONSTANTS" />
             <marker date="1495868344605" expanded="true" signature="3434:3916" ph="UPDATE OGN_A... " />
@@ -6316,10 +6040,342 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/model.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="63" lean-forward="true" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserTaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserTaskDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="140" column="13" lean-forward="true" selection-start-line="140" selection-start-column="13" selection-end-line="140" selection-end-column="13" />
+          <folding>
+            <marker date="1496202157287" expanded="true" signature="244:315" ph="SELECT id, u... OGN_APP_USER_TASK" />
+            <marker date="1496202157287" expanded="true" signature="3069:3129" ph="..." />
+            <marker date="1496202157287" expanded="true" signature="3069:3143" ph="..." />
+            <marker date="1496202157287" expanded="true" signature="3188:3255" ph="..." />
+            <marker date="1496202157287" expanded="true" signature="3381:3995" ph="..." />
+            <marker date="1496202157287" expanded="true" signature="4086:6835" ph="..." />
+            <marker date="1496202157287" expanded="true" signature="4286:6835" ph="..." />
+            <marker date="1496202157287" expanded="true" signature="4431:5694" ph="..." />
+            <marker date="1496202157287" expanded="true" signature="5786:6818" ph="..." />
+            <marker date="1496202157287" expanded="true" signature="6957:7010" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppUserTaskDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppUserTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="25" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/entity/AppMoneyDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="168" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/RoleResourceDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-137">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1494380435476" expanded="true" signature="296:382" ph="INSERT INTO ogn_role_resource... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/RoleDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2025">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1494380435476" expanded="true" signature="231:410" ph="SELECT id,au... " />
+            <marker date="1494380435476" expanded="true" signature="3116:3820" ph="update ogn_r... " />
+            <marker date="1494380435476" expanded="true" signature="3957:4803" ph="update ogn_r... " />
+            <marker date="1494380435476" expanded="true" signature="4956:5008" ph="update ogn_r... " />
+            <marker date="1494380435476" expanded="true" signature="5100:5135" ph="delete from " />
+            <marker date="1494380435476" expanded="true" signature="5299:5617" ph="SELECT id,au... ogn_role_resource" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/UserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2700">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1494380435477" expanded="true" signature="231:453" ph="SELECT id,au... ogn_user" />
+            <marker date="1494380435477" expanded="true" signature="3460:4324" ph="update ogn_u... " />
+            <marker date="1494380435477" expanded="true" signature="4461:5494" ph="update ogn_u... " />
+            <marker date="1494380435477" expanded="true" signature="5645:5693" ph="update ogn_u... " />
+            <marker date="1494380435477" expanded="true" signature="5786:5821" ph="delete from " />
+            <marker date="1494380435477" expanded="true" signature="5969:6278" ph="SELECT id,au... " />
+            <marker date="1494380435477" expanded="true" signature="6392:6529" ph="SELECT ogn_r... ogn_user_role" />
+            <marker date="1494380435477" expanded="true" signature="6630:6675" ph="DELETE FROM " />
+            <marker date="1494380435477" expanded="true" signature="6742:6782" ph="DELETE FROM " />
+            <marker date="1494380435477" expanded="true" signature="6787:6839" ph="INSERT INTO ogn_user_role... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="24" selection-end-column="31" />
+          <folding>
+            <marker date="1495868814741" expanded="true" signature="240:397" ph="SELECT id, c... OGN_APP_USER" />
+            <marker date="1495868814741" expanded="true" signature="240:808" ph="SELECT id, c... OGN_APP_USER" />
+            <marker date="1495868814741" expanded="true" signature="7257:8755" ph="UPDATE OGN_A... " />
+            <marker date="1495868814741" expanded="true" signature="8898:10673" ph="update OGN_A... " />
+            <marker date="1495868814741" expanded="true" signature="10760:10799" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="8" column="40" lean-forward="false" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppTaskDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="29" />
+          <folding>
+            <marker date="1495855579872" expanded="true" signature="240:478" ph="SELECT id, c... OGN_APP_TASK" />
+            <marker date="1495855579872" expanded="true" signature="8468:8602" ph="update OGN_A... " />
+            <marker date="1495855579872" expanded="true" signature="8689:8728" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="150" column="35" lean-forward="false" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="35" />
+          <folding>
+            <marker date="1496217713477" expanded="true" signature="247:345" ph="SELECT id, c... OGN_APP_MONEY_DETAIL" />
+            <marker date="1496217713477" expanded="true" signature="247:663" ph="SELECT id, c... OGN_APP_MONEY_DETAIL" />
+            <marker date="1496217713477" expanded="true" signature="5557:6601" ph="UPDATE OGN_A... " />
+            <marker date="1496217713477" expanded="true" signature="6744:7981" ph="update OGN_A... " />
+            <marker date="1496217713477" expanded="true" signature="8068:8115" ph="DELETE FROM " />
+            <marker date="1496217713477" expanded="true" signature="8260:8652" ph="SELECT m.id,... ogn_app_money_detail" />
+            <marker date="1496217713477" expanded="true" signature="9400:9476" ph="SELECT mobil... ogn_app_user" />
+            <marker date="1496217713477" expanded="true" signature="9579:9658" ph="SELECT id,ta... ogn_app_task" />
+            <marker date="1496217713477" expanded="true" signature="9861:10191" ph="SELECT m.id,... ogn_app_user" />
+            <marker date="1496217713477" expanded="true" signature="9861:10357" ph="SELECT m.id,... ogn_app_user" />
+            <marker date="1496217713477" expanded="true" signature="9861:10362" ph="SELECT m.id,... ogn_app_user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/dto/AppMoneyDetailDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4475">
+          <caret line="179" column="34" lean-forward="false" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1051#1052#0" expanded="true" />
+            <element signature="e#1072#1073#0" expanded="true" />
+            <element signature="e#1128#1129#0" expanded="true" />
+            <element signature="e#1157#1158#0" expanded="true" />
+            <element signature="e#1229#1230#0" expanded="true" />
+            <element signature="e#1248#1249#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1297#1298#0" expanded="true" />
+            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#1350#1351#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1411#1412#0" expanded="true" />
+            <element signature="e#1458#1459#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1525#1526#0" expanded="true" />
+            <element signature="e#1554#1555#0" expanded="true" />
+            <element signature="e#1601#1602#0" expanded="true" />
+            <element signature="e#1636#1637#0" expanded="true" />
+            <element signature="e#1668#1669#0" expanded="true" />
+            <element signature="e#1695#1696#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#1771#1772#0" expanded="true" />
+            <element signature="e#1806#1807#0" expanded="true" />
+            <element signature="e#1836#1837#0" expanded="true" />
+            <element signature="e#1887#1888#0" expanded="true" />
+            <element signature="e#1924#1925#0" expanded="true" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#1976#1977#0" expanded="true" />
+            <element signature="e#2014#2015#0" expanded="true" />
+            <element signature="e#2037#2038#0" expanded="true" />
+            <element signature="e#2068#2069#0" expanded="true" />
+            <element signature="e#2093#2094#0" expanded="true" />
+            <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#2162#2163#0" expanded="true" />
+            <element signature="e#2195#2196#0" expanded="true" />
+            <element signature="e#2222#2223#0" expanded="true" />
+            <element signature="e#2268#2269#0" expanded="true" />
+            <element signature="e#2299#2300#0" expanded="true" />
+            <element signature="e#2330#2331#0" expanded="true" />
+            <element signature="e#2358#2359#0" expanded="true" />
+            <element signature="e#2403#2404#0" expanded="true" />
+            <element signature="e#2436#2437#0" expanded="true" />
+            <element signature="e#2474#2475#0" expanded="true" />
+            <element signature="e#2506#2507#0" expanded="true" />
+            <element signature="e#2562#2563#0" expanded="true" />
+            <element signature="e#2603#2604#0" expanded="true" />
+            <element signature="e#2639#2640#0" expanded="true" />
+            <element signature="e#2670#2671#0" expanded="true" />
+            <element signature="e#2723#2724#0" expanded="true" />
+            <element signature="e#2762#2763#0" expanded="true" />
+            <element signature="e#2798#2799#0" expanded="true" />
+            <element signature="e#2829#2830#0" expanded="true" />
+            <element signature="e#2882#2883#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
+            <element signature="e#2949#2950#0" expanded="true" />
+            <element signature="e#2971#2972#0" expanded="true" />
+            <element signature="e#3007#3008#0" expanded="true" />
+            <element signature="e#3028#3029#0" expanded="true" />
+            <element signature="e#3063#3064#0" expanded="true" />
+            <element signature="e#3092#3093#0" expanded="true" />
+            <element signature="e#3142#3143#0" expanded="true" />
+            <element signature="e#3177#3178#0" expanded="true" />
+            <element signature="e#3242#3243#0" expanded="true" />
+            <element signature="e#3298#3299#0" expanded="true" />
+            <element signature="e#3327#3328#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/constants/ResultCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="19" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppUserTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/template/serviceImpl.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserTaskServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="15" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppUserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="223" column="52" lean-forward="false" selection-start-line="223" selection-start-column="52" selection-end-line="223" selection-end-column="52" />
+        <state relative-caret-position="3610">
+          <caret line="302" column="0" lean-forward="false" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="15" column="78" lean-forward="false" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="838">
+          <caret line="93" column="65" lean-forward="false" selection-start-line="93" selection-start-column="65" selection-end-line="93" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AppUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="593" column="77" lean-forward="false" selection-start-line="593" selection-start-column="77" selection-end-line="593" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/AdminAppTaskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3597">
+          <caret line="266" column="7" lean-forward="false" selection-start-line="236" selection-start-column="4" selection-end-line="266" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="69" column="23" lean-forward="true" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
           <folding />
         </state>
       </provider>

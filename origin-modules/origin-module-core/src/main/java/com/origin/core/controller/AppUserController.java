@@ -14,7 +14,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -476,49 +475,58 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("银行卡信息保存成功");
 	}
 
-	@RequestMapping(value = "/saveMoney" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/submitMoney" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存钱信息", httpMethod = "GET", response = Result.class,
-			notes = "saveMoney type(1:借钱(repayTimeType(1:7天 2:15天)) 2:还钱(repayWay(1:支付宝 2:银行卡)))")
-	public Object saveMoney(@RequestHeader(value = "Authorization" ) String token,
-							  @RequestParam(value = "money") String money,
+			notes = "submitMoney type(1:借钱(repayTimeType(1:7天 2:15天)) 2:还钱(repayWay(1:支付宝 2:银行卡))" +
+					"3:提现   4:收入(任务id)) 警告:前三种type必须传入askMoney,收入只需要传入taskId")
+	public Object submitMoney(@RequestHeader(value = "Authorization" ) String token,
+							  @RequestParam(value = "askMoney",required = false) String askMoney,
 							  @RequestParam(value = "type") String type,
 							  @RequestParam(value = "repayTimeType",required = false) String repayTimeType,
-							  @RequestParam(value = "repayWay",required = false) String repayWay) throws Exception{
+							  @RequestParam(value = "repayWay",required = false) String repayWay,
+							  @RequestParam(value = "taskId",required = false) String taskId) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的money为" + money+ "\n请求的type为" + type);
-		if (StringUtil.isNullOrBlank(money)||StringUtil.isNullOrBlank(type)){
+		System.out.println("请求的money为" + askMoney + "\n请求的type为" + type);
+		if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(type)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
+
+		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+		appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
+		appMoneyDetail.setUid(uId);
 		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
 			System.out.println("请求的repayTimeType为" + repayTimeType);
 			if (StringUtil.isNullOrBlank(repayTimeType)){
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
-			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
-			appMoneyDetail.setMoney(Double.parseDouble(money));
 			appMoneyDetail.setRepayTimeType(Integer.parseInt(repayTimeType));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
-			appMoneyDetail.setUid(uId);
 			appMoneyDetailService.save(appMoneyDetail);
-			return Result.createSuccessResult().setMessage("借款成功");
+			return Result.createSuccessResult().setMessage("借款申请成功");
 		}else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
 			System.out.println("请求的repayWay为" + repayWay);
 			if (StringUtil.isNullOrBlank(repayWay)){
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
-			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
-			appMoneyDetail.setMoney(Double.parseDouble(money));
 			appMoneyDetail.setRepayWay(Integer.parseInt(repayWay));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
-			appMoneyDetail.setUid(uId);
 			appMoneyDetailService.save(appMoneyDetail);
-			return Result.createSuccessResult().setMessage("还款成功");
+			return Result.createSuccessResult().setMessage("还款申请成功");
+		}else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){
+			appMoneyDetail.setType(IAppMoneyDetail.TYPE_WITHDRAW);
+			appMoneyDetailService.save(appMoneyDetail);
+			return Result.createSuccessResult().setMessage("提现申请成功");
+		}else if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
+			if (StringUtil.isNullOrBlank(taskId)){
+				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+			}
+			return appMoneyDetailService.saveIncome(uId,Integer.parseInt(taskId),appMoneyDetail);
 		}else {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -527,9 +535,11 @@ public class AppUserController {
 	@RequestMapping(value = "/getMoney" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户获取钱信息", httpMethod = "GET", response = Result.class,
-			notes = "getMoney type(1:借钱 2:还钱)")
+			notes = "获取钱信息 钱使用money_actual字段 必传type(1:借钱 2:还钱 3:提现 4:收入) 可选status(1:待审核" +
+					"2:审核通过 3:审核未通过)")
 	public Object getMoney(@RequestHeader(value = "Authorization" ) String token,
-						   @RequestParam(value = "type") String type) throws Exception{
+						   @RequestParam(value = "type") String type,
+						   @RequestParam(value = "status" ,required = false) String status) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
@@ -541,72 +551,31 @@ public class AppUserController {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 
+		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+		appMoneyDetail.setUid(uId);
+		if (!StringUtil.isNullOrBlank(status)){
+			appMoneyDetail.setStatus(Integer.parseInt(status));
+		}
+
 		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
-			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
-			appMoneyDetail.setUid(uId);
 			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
 			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("借款信息查询成功");
 		} else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
-			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
-			appMoneyDetail.setUid(uId);
 			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
 			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("还款信息查询成功");
+		} else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){
+			appMoneyDetail.setType(IAppMoneyDetail.TYPE_WITHDRAW);
+			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
+			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("提现信息查询成功");
+		} else if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
+			appMoneyDetail.setType(IAppMoneyDetail.TYPE_INCOME);
+			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.findIncomeInfo(appMoneyDetail);
+			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("收入信息查询成功");
 		} else {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
-	}
-
-	@RequestMapping(value = "/submitTask" , method = RequestMethod.GET)
-	@ResponseBody
-	@ApiOperation(value = "app用户完成任务", httpMethod = "GET", response = Result.class, notes = "submitTask")
-	public Object submitTask(@RequestHeader(value = "Authorization" ) String token,
-						  @RequestParam(value = "taskId" ) String taskId) throws Exception {
-		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token), Constants.AHORITY_MEDIUM);
-		if (!(tokenValidResult instanceof SimpleToken)){
-			return tokenValidResult;
-		}
-		Integer uId = ((SimpleToken) tokenValidResult).getId();
-
-		System.out.println("请求的taskId为" + taskId);
-		if (StringUtil.isNullOrBlank(taskId)){
-			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-		}
-
-		IAppTask appTask = appTaskService.findById(Integer.parseInt(taskId));
-		if (appTask.getTaskNumber()>0){
-			IAppUserTask appUserTask = new AppUserTaskDTO();
-			appUserTask.setUid(uId);
-			appUserTask.setTid(appTask.getId());
-			appUserTaskService.save(appUserTask);
-			return Result.createSuccessResult().setMessage("任务完成成功");
-		}else {
-			return Result.createErrorResult().setMessage("任务已经被领取完");
-		}
-	}
-
-	@RequestMapping(value = "/getUserTaskMoney" , method = RequestMethod.GET)
-	@ResponseBody
-	@ApiOperation(value = "app用户获取任务奖励", httpMethod = "GET", response = Result.class,
-			notes = "app用户获取任务奖励,status（0、待审核1、任务成功2、任务失败）")
-	public Object getUserTaskMoney(@RequestHeader(value = "Authorization" ) String token,
-						  @RequestParam(value = "status" ,required = false) String taskStatus) throws Exception {
-		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token), Constants.AHORITY_LOW);
-		if (!(tokenValidResult instanceof SimpleToken)){
-			return tokenValidResult;
-		}
-		Integer uId = ((SimpleToken) tokenValidResult).getId();
-
-		System.out.println("请求的taskType为" + taskStatus);
-
-		IAppUserTask appUserTask = new AppUserTaskDTO();
-		if(!StringUtils.isNotBlank(taskStatus)){
-			appUserTask.setStatus( Integer.parseInt(taskStatus));
-		}
-		appUserTask.setUid(uId);
-		List<IAppUserTask> appUserTasks = appUserTaskService.findTaskUserInfo(appUserTask);
-		return Result.createSuccessResult(appUserTasks,"获取任务奖励成功");
 	}
 
 	@RequestMapping(value = "/saveFeedback" ,method = RequestMethod.GET)

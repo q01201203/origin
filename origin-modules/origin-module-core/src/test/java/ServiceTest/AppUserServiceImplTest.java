@@ -1,11 +1,15 @@
 package ServiceTest;
 
+import com.origin.core.dto.AppMoneyDetailDTO;
 import com.origin.core.dto.AppUserDTO;
-import com.origin.core.dto.AppUserTaskDTO;
+import com.origin.core.service.AppMoneyDetailService;
+import com.origin.core.service.AppTaskService;
 import com.origin.core.service.AppUserService;
 import com.origin.core.service.AppUserTaskService;
+import com.origin.core.util.StringUtil;
+import com.origin.data.entity.IAppMoneyDetail;
 import com.origin.data.entity.IAppUser;
-import com.origin.data.entity.IAppUserTask;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +32,12 @@ public class AppUserServiceImplTest {
     @Autowired
     private AppUserTaskService appUserTaskService;
 
+    @Autowired
+    private AppTaskService appTaskService;
+
+    @Autowired
+    private AppMoneyDetailService appMoneyDetailService;
+
     @Before
     public void setUp() throws Exception {
     }
@@ -40,21 +50,52 @@ public class AppUserServiceImplTest {
         //assert appUserService.findFirst(appUser).getId()==1;
     }
 
+    //获取用户收入信息
     @Test
-    public void findUserTask() throws Exception{
-        IAppUserTask appUserTask = new AppUserTaskDTO();
-        appUserTask.setTid(1);
-        List<IAppUserTask> appUserTasks = appUserTaskService.findTaskUserInfo(appUserTask);
-        System.out.println("licheng size " +appUserTasks.size()+" status "+appUserTasks.get(1).getStatus() +
-        " mobile "+appUserTasks.get(1).getAppUser().getMobile());
+    public void findUserIncome() throws Exception{
+        Integer userId = 6;
+        IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+        appMoneyDetail.setUid(userId);
+        appMoneyDetail.setType(IAppMoneyDetail.TYPE_INCOME);
+        appMoneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_WAIT);
+        List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.findIncomeInfo(appMoneyDetail);
+
+        System.out.println("licheng size " +appMoneyDetails.size()+" status " + appMoneyDetails.get(1).getStatus()+
+        " mobile "+appMoneyDetails.get(1).getAppUser().getMobile()+" uid "+appMoneyDetails.get(1).getAppUser().getId()
+        +" tid "+appMoneyDetails.get(1).getAppTask().getId());
     }
 
+    //完成任务提交审核
     @Test
     public void updateFinishTask() throws Exception{
-        IAppUserTask appUserTask = new AppUserTaskDTO();
-        appUserTask.setUid(6);
-        appUserTask.setTid(3);
-        appUserTaskService.updateTaskSuccess(appUserTask);
+        Integer userId = 3;
+        Integer taskId = 5;
+
+        IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+        appMoneyDetail.setUid(userId);
+        appMoneyDetail.setType(IAppMoneyDetail.TYPE_INCOME);
+        appMoneyDetailService.saveIncome(userId,taskId,appMoneyDetail);
+
+    }
+
+    //钱审核
+    @Test
+    public void updateMoneyStatus() throws Exception{
+
+        String mId = "13";
+        String moneyActual = "100";
+        String status = "2";
+
+        if (StringUtil.isNullOrBlank(mId)||StringUtil.isNullOrBlank(status)){
+            return;
+        }
+        IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+        appMoneyDetail.setId(Integer.parseInt(mId));
+        appMoneyDetail.setStatus(Integer.parseInt(status));
+        if (StringUtils.isNotBlank(moneyActual)){
+            appMoneyDetail.setMoneyActual(Double.parseDouble(moneyActual));
+        }
+        appMoneyDetailService.update(appMoneyDetail);
     }
 
     @Test

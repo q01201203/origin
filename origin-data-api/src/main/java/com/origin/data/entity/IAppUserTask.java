@@ -1,6 +1,5 @@
 package com.origin.data.entity;
 
-import java.util.Date;
 import java.io.Serializable;
 
 /**
@@ -11,14 +10,6 @@ public interface IAppUserTask extends Serializable {
 	public final static Integer STATUS_YES = 1; //可用
 
 	public final static Integer STATUS_NO = 0; //不可用
-
-	//add lic 170526
-	public final static Integer STATUS_AUDIT_FAIL = 2; //审核失败
-
-	public final static Integer STATUS_AUDIT_SUCCESS = 1; //审核通过
-
-	public final static Integer STATUS_AUDIT_WAIT = 0; //待审核
-
 
 	Integer getId();
 
@@ -32,13 +23,9 @@ public interface IAppUserTask extends Serializable {
 
 	void setTid(Integer tid);
 
-	Date getAuditTime();
+	Integer getMid();
 
-	void setAuditTime(Date auditTime);
-
-	Integer getStatus();
-
-	void setStatus(Integer status);
+	void setMid(Integer mid);
 
  	public IAppUser getAppUser();
  	

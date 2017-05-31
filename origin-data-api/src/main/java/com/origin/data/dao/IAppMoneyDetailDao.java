@@ -6,5 +6,5 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface IAppMoneyDetailDao<T, PK extends Serializable> extends IBaseDao<T, PK> {
-    List<IAppMoneyDetail> findMoneyUserInfo(IAppMoneyDetail appMoneyDetail);
+    List<IAppMoneyDetail> findIncomeInfo(IAppMoneyDetail appMoneyDetail);
 }

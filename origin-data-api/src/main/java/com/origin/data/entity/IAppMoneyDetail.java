@@ -8,61 +8,87 @@ import java.io.Serializable;
 */
 public interface IAppMoneyDetail extends Serializable {
 
-public final static Integer STATUS_YES = 1; //可用
+	public final static Integer STATUS_YES = 1; //可用
 
-public final static Integer STATUS_NO = 0; //不可用
+	public final static Integer STATUS_NO = 0; //不可用
 
- public final static Integer TYPE_BORROW = 1; //借款
+	//add lic 170526
+	public final static Integer STATUS_AUDIT_FAIL = 3; //审核失败
 
- public final static Integer TYPE_REPAY = 2; //还款
+	public final static Integer STATUS_AUDIT_SUCCESS = 2; //审核通过
 
+	public final static Integer STATUS_AUDIT_WAIT = 1; //待审核
 
- Integer getId();
+	public final static Integer TYPE_BORROW = 1; //借款
 
-  void setId(Integer id);
+	public final static Integer TYPE_REPAY = 2; //还款
 
- Date getCreateDate();
+	public final static Integer TYPE_WITHDRAW = 3; //提现
 
-  void setCreateDate(Date createDate);
+	public final static Integer TYPE_INCOME = 4; //收入
 
- Date getUpdateDate();
+	Integer getId();
 
-  void setUpdateDate(Date updateDate);
+	void setId(Integer id);
 
- Double getMoney();
+	Date getCreateDate();
 
-  void setMoney(Double money);
+	void setCreateDate(Date createDate);
 
- Integer getType();
+	Date getUpdateDate();
 
-  void setType(Integer type);
+	void setUpdateDate(Date updateDate);
 
- Integer getStatus();
+	Double getMoneyAsk();
 
-  void setStatus(Integer status);
+	void setMoneyAsk(Double moneyAsk);
 
- Integer getRepayWay();
+	Double getMoneyActual();
 
-  void setRepayWay(Integer repayWay);
+	void setMoneyActual(Double moneyActual);
 
- Date getRepayTime();
+	Integer getType();
 
-  void setRepayTime(Date repayTime);
+	void setType(Integer type);
 
- Integer getRepayTimeType();
+	Integer getStatus();
 
-  void setRepayTimeType(Integer repayTimeType);
+	void setStatus(Integer status);
 
- Integer getUid();
+	Integer getRepayWay();
 
-  void setUid(Integer uid);
+	void setRepayWay(Integer repayWay);
 
- Integer getDeleteFlag();
+	Date getRepayTime();
 
-  void setDeleteFlag(Integer deleteFlag);
+	void setRepayTime(Date repayTime);
 
-  //add lic 170527
-  public IAppUser getAppUser() ;
+	Integer getRepayTimeType();
 
- public void setAppUser(IAppUser appUser) ;
+	void setRepayTimeType(Integer repayTimeType);
+
+	String getExtensionOne();
+
+	void setExtensionOne(String extensionOne);
+
+	String getExtensionTwo();
+
+	void setExtensionTwo(String extensionTwo);
+
+	Integer getUid();
+
+	void setUid(Integer uid);
+
+	Integer getDeleteFlag();
+
+	void setDeleteFlag(Integer deleteFlag);
+
+	//add lic 170531
+	public IAppUser getAppUser() ;
+
+	public void setAppUser(IAppUser appUser) ;
+
+	public IAppTask getAppTask();
+
+	public void setAppTask(IAppTask appTask);
 }

@@ -1,20 +1,19 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.AppTaskService;
 import com.origin.data.dao.IAppTaskDao;
 import com.origin.data.entity.IAppTask;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AppTaskServiceImpl  implements AppTaskService {
 
-@Autowired
-private IAppTaskDao<IAppTask,Integer> appTaskDao;
+    @Autowired
+    private IAppTaskDao<IAppTask,Integer> appTaskDao;
 
     @Override
     public void save(IAppTask appTask) {

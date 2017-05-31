@@ -1,6 +1,7 @@
 package com.origin.core.dto;
 
 import com.origin.data.entity.IAppMoneyDetail;
+import com.origin.data.entity.IAppTask;
 import com.origin.data.entity.IAppUser;
 
 import java.util.Date;
@@ -12,29 +13,39 @@ public class AppMoneyDetailDTO implements IAppMoneyDetail {
 
 
     /**  */
-private Integer id;//;
+	private Integer id;//;
     /**  */
-private Date createDate;// = CURRENT_TIMESTAMP;
+	private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
-private Date updateDate;// = CURRENT_TIMESTAMP;
+	private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
-private Double money;//;
+	private Double moneyAsk;//;
     /**  */
-private Integer type;//;
+	private Double moneyActual;//;
     /**  */
-private Integer status;// = Integer.valueOf(1);
+	private Integer type;//;
     /**  */
-private Integer repayWay;//;
+	private Integer status;// = Integer.valueOf(1);
     /**  */
-private Date repayTime;//;
+	private Integer repayWay;//;
     /**  */
-private Integer repayTimeType;//;
+	private Date repayTime;//;
     /**  */
-private Integer uid;//;
+	private Integer repayTimeType;//;
     /**  */
-private Integer deleteFlag;// = Integer.valueOf(0);
+	private String extensionOne;//;
+    /**  */
+	private String extensionTwo;//;
+    /**  */
+	private Integer uid;//;
+    /**  */
+	private Integer deleteFlag;// = Integer.valueOf(0);
 
-private IAppUser appUser;
+	//add lic 170525
+	private IAppUser appUser;
+
+	//add lic 170526
+	private IAppTask appTask;
 
 	@Override
 	public IAppUser getAppUser() {
@@ -45,102 +56,135 @@ private IAppUser appUser;
 	public void setAppUser(IAppUser appUser) {
 		this.appUser = appUser;
 	}
-
 	public AppMoneyDetailDTO(){
-}
+	}
 
-public AppMoneyDetailDTO(Integer id){
-	this.id = id;
-}
+	public AppMoneyDetailDTO(Integer id){
+		this.id = id;
+	}
 
 
-public Integer getId() {
-return this.id;
-}
+	public Integer getId() {
+		return this.id;
+	}
 
-public void setId(Integer id) {
-this.id = id;
-}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-public Date getCreateDate() {
-return this.createDate;
-}
+	public Date getCreateDate() {
+		return this.createDate;
+	}
 
-public void setCreateDate(Date createDate) {
-this.createDate = createDate;
-}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
-public Date getUpdateDate() {
-return this.updateDate;
-}
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
 
-public void setUpdateDate(Date updateDate) {
-this.updateDate = updateDate;
-}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
 
-public Double getMoney() {
-return this.money;
-}
+	public Double getMoneyAsk() {
+		return this.moneyAsk;
+	}
 
-public void setMoney(Double money) {
-this.money = money;
-}
+	public void setMoneyAsk(Double moneyAsk) {
+		this.moneyAsk = moneyAsk;
+	}
 
-public Integer getType() {
-return this.type;
-}
+	public Double getMoneyActual() {
+		return this.moneyActual;
+	}
 
-public void setType(Integer type) {
-this.type = type;
-}
+	public void setMoneyActual(Double moneyActual) {
+		this.moneyActual = moneyActual;
+	}
 
-public Integer getStatus() {
-return this.status;
-}
+	public Integer getType() {
+		return this.type;
+	}
 
-public void setStatus(Integer status) {
-this.status = status;
-}
+	public void setType(Integer type) {
+		this.type = type;
+	}
 
-public Integer getRepayWay() {
-return this.repayWay;
-}
+	public Integer getStatus() {
+		return this.status;
+	}
 
-public void setRepayWay(Integer repayWay) {
-this.repayWay = repayWay;
-}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-public Date getRepayTime() {
-return this.repayTime;
-}
+	public Integer getRepayWay() {
+		return this.repayWay;
+	}
 
-public void setRepayTime(Date repayTime) {
-this.repayTime = repayTime;
-}
+	public void setRepayWay(Integer repayWay) {
+		this.repayWay = repayWay;
+	}
 
-public Integer getRepayTimeType() {
-return this.repayTimeType;
-}
+	public Date getRepayTime() {
+		return this.repayTime;
+	}
 
-public void setRepayTimeType(Integer repayTimeType) {
-this.repayTimeType = repayTimeType;
-}
+	public void setRepayTime(Date repayTime) {
+		this.repayTime = repayTime;
+	}
 
-public Integer getUid() {
-return this.uid;
-}
+	public Integer getRepayTimeType() {
+		return this.repayTimeType;
+	}
 
-public void setUid(Integer uid) {
-this.uid = uid;
-}
+	public void setRepayTimeType(Integer repayTimeType) {
+		this.repayTimeType = repayTimeType;
+	}
 
-public Integer getDeleteFlag() {
-return this.deleteFlag;
-}
+	public String getExtensionOne() {
+		return this.extensionOne;
+	}
 
-public void setDeleteFlag(Integer deleteFlag) {
-this.deleteFlag = deleteFlag;
-}
+	public void setExtensionOne(String extensionOne) {
+		this.extensionOne = extensionOne;
+	}
+
+	public String getExtensionTwo() {
+		return this.extensionTwo;
+	}
+
+	public void setExtensionTwo(String extensionTwo) {
+		this.extensionTwo = extensionTwo;
+	}
+
+	public Integer getUid() {
+		return this.uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public Integer getDeleteFlag() {
+		return this.deleteFlag;
+	}
+
+	public void setDeleteFlag(Integer deleteFlag) {
+		this.deleteFlag = deleteFlag;
+	}
+
+	@Override
+	public IAppTask getAppTask() {
+		return appTask;
+	}
+
+	@Override
+	public void setAppTask(IAppTask appTask) {
+		this.appTask = appTask;
+	}
 
 	public boolean equals(Object object) {
 		if (object == null) {
@@ -165,12 +209,15 @@ this.deleteFlag = deleteFlag;
 		+",id="+this.getId()
 		+",createDate="+this.getCreateDate()
 		+",updateDate="+this.getUpdateDate()
-		+",money="+this.getMoney()
+		+",moneyAsk="+this.getMoneyAsk()
+		+",moneyActual="+this.getMoneyActual()
 		+",type="+this.getType()
 		+",status="+this.getStatus()
 		+",repayWay="+this.getRepayWay()
 		+",repayTime="+this.getRepayTime()
 		+",repayTimeType="+this.getRepayTimeType()
+		+",extensionOne="+this.getExtensionOne()
+		+",extensionTwo="+this.getExtensionTwo()
 		+",uid="+this.getUid()
 		+",deleteFlag="+this.getDeleteFlag()
 		+"]";

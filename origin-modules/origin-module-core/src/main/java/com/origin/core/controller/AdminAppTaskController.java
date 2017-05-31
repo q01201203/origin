@@ -5,15 +5,11 @@ import com.github.pagehelper.PageInfo;
 import com.origin.common.dto.AjaxResult;
 import com.origin.common.util.DateUtils;
 import com.origin.core.dto.AppTaskDTO;
-import com.origin.core.dto.AppUserDTO;
-import com.origin.core.dto.AppUserTaskDTO;
 import com.origin.core.service.AppTaskService;
 import com.origin.core.service.AppUserService;
 import com.origin.core.service.AppUserTaskService;
 import com.origin.core.util.Constants;
 import com.origin.data.entity.IAppTask;
-import com.origin.data.entity.IAppUser;
-import com.origin.data.entity.IAppUserTask;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -186,7 +182,7 @@ public class AdminAppTaskController {
     }
 
 
-    //add lic 20170526 任务记录
+    /*//add lic 20170526 任务记录
     @RequestMapping("/userTask/list")
 	public String taskUserList(HttpServletRequest request,Model model){
 		String uid = request.getParameter("uid");
@@ -236,9 +232,9 @@ public class AdminAppTaskController {
 		model.addAttribute(Constants.MENU_NAME, "任务记录");
 
     	return "appTask/appTaskUser";
-	}
+	}*/
 
-	@RequestMapping("/userTask/ajax/updateUserTaskStatus")
+	/*@RequestMapping("/userTask/ajax/updateUserTaskStatus")
 	@ResponseBody
 	public AjaxResult updateUserTaskStatus(HttpServletRequest request){
 		AjaxResult ajaxResult = new AjaxResult();
@@ -268,6 +264,6 @@ public class AdminAppTaskController {
 		}
 
 		return ajaxResult;
-	}
+	}*/
 
 }

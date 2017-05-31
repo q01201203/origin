@@ -6,12 +6,15 @@
         		    id,
         		    create_date,
         		    update_date,
-        		    money,
+        		    money_ask,
+        		    money_actual,
         		    type,
         		    status,
         		    repay_way,
         		    repay_time,
         		    repay_time_type,
+        		    extension_one,
+        		    extension_two,
         		    uid,
                     delete_flag
         FROM OGN_APP_MONEY_DETAIL
@@ -21,12 +24,15 @@
 			<if test="id != null">AND id=#{id}</if>
 			<if test="createDate != null">AND create_date=#{createDate}</if>
 			<if test="updateDate != null">AND update_date=#{updateDate}</if>
-			<if test="money != null">AND money=#{money}</if>
+			<if test="moneyAsk != null">AND money_ask=#{moneyAsk}</if>
+			<if test="moneyActual != null">AND money_actual=#{moneyActual}</if>
 			<if test="type != null">AND type=#{type}</if>
 			<if test="status != null">AND status=#{status}</if>
 			<if test="repayWay != null">AND repay_way=#{repayWay}</if>
 			<if test="repayTime != null">AND repay_time=#{repayTime}</if>
 			<if test="repayTimeType != null">AND repay_time_type=#{repayTimeType}</if>
+			<if test="extensionOne != null">AND extension_one=#{extensionOne}</if>
+			<if test="extensionTwo != null">AND extension_two=#{extensionTwo}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
 			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
@@ -35,12 +41,15 @@
     	<result property="id" column="id"/>
     	<result property="createDate" column="create_date"/>
     	<result property="updateDate" column="update_date"/>
-    	<result property="money" column="money"/>
+    	<result property="moneyAsk" column="money_ask"/>
+    	<result property="moneyActual" column="money_actual"/>
     	<result property="type" column="type"/>
     	<result property="status" column="status"/>
     	<result property="repayWay" column="repay_way"/>
     	<result property="repayTime" column="repay_time"/>
     	<result property="repayTimeType" column="repay_time_type"/>
+    	<result property="extensionOne" column="extension_one"/>
+    	<result property="extensionTwo" column="extension_two"/>
     	<result property="uid" column="uid"/>
     	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
@@ -64,12 +73,15 @@
             <trim suffix="" suffixOverrides=",">
                         <if test="createDate != null">`create_date`,</if>
                         <if test="updateDate != null">`update_date`,</if>
-                        <if test="money != null">`money`,</if>
+                        <if test="moneyAsk != null">`money_ask`,</if>
+                        <if test="moneyActual != null">`money_actual`,</if>
                         <if test="type != null">`type`,</if>
                         <if test="status != null">`status`,</if>
                         <if test="repayWay != null">`repay_way`,</if>
                         <if test="repayTime != null">`repay_time`,</if>
                         <if test="repayTimeType != null">`repay_time_type`,</if>
+                        <if test="extensionOne != null">`extension_one`,</if>
+                        <if test="extensionTwo != null">`extension_two`,</if>
                         <if test="uid != null">`uid`,</if>
                         <if test="deleteFlag != null ">`delete_flag`</if>
             </trim>
@@ -78,12 +90,15 @@
             <trim suffix="" suffixOverrides=",">
                         <if test="createDate != null">#{createDate},</if>
                         <if test="updateDate != null">#{updateDate},</if>
-                        <if test="money != null">#{money},</if>
+                        <if test="moneyAsk != null">#{moneyAsk},</if>
+                        <if test="moneyActual != null">#{moneyActual},</if>
                         <if test="type != null">#{type},</if>
                         <if test="status != null">#{status},</if>
                         <if test="repayWay != null">#{repayWay},</if>
                         <if test="repayTime != null">#{repayTime},</if>
                         <if test="repayTimeType != null">#{repayTimeType},</if>
+                        <if test="extensionOne != null">#{extensionOne},</if>
+                        <if test="extensionTwo != null">#{extensionTwo},</if>
                         <if test="uid != null">#{uid},</if>
                         <if test="deleteFlag != null">#{deleteFlag}</if>
             </trim>
@@ -94,12 +109,15 @@
          id=id
                 <if test="createDate != null">,create_date=#{createDate}</if>
                 <if test="updateDate != null">,update_date=#{updateDate}</if>
-                <if test="money != null">,money=#{money}</if>
+                <if test="moneyAsk != null">,money_ask=#{moneyAsk}</if>
+                <if test="moneyActual != null">,money_actual=#{moneyActual}</if>
                 <if test="type != null">,type=#{type}</if>
                 <if test="status != null">,status=#{status}</if>
                 <if test="repayWay != null">,repay_way=#{repayWay}</if>
                 <if test="repayTime != null">,repay_time=#{repayTime}</if>
                 <if test="repayTimeType != null">,repay_time_type=#{repayTimeType}</if>
+                <if test="extensionOne != null">,extension_one=#{extensionOne}</if>
+                <if test="extensionTwo != null">,extension_two=#{extensionTwo}</if>
                 <if test="uid != null">,uid=#{uid}</if>
                 <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
@@ -110,12 +128,15 @@
             set id=id
                     <if test="item.createDate != null">,create_date=#{item.createDate}</if>
                     <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
-                    <if test="item.money != null">,money=#{item.money}</if>
+                    <if test="item.moneyAsk != null">,money_ask=#{item.moneyAsk}</if>
+                    <if test="item.moneyActual != null">,money_actual=#{item.moneyActual}</if>
                     <if test="item.type != null">,type=#{item.type}</if>
                     <if test="item.status != null">,status=#{item.status}</if>
                     <if test="item.repayWay != null">,repay_way=#{item.repayWay}</if>
                     <if test="item.repayTime != null">,repay_time=#{item.repayTime}</if>
                     <if test="item.repayTimeType != null">,repay_time_type=#{item.repayTimeType}</if>
+                    <if test="item.extensionOne != null">,extension_one=#{item.extensionOne}</if>
+                    <if test="item.extensionTwo != null">,extension_two=#{item.extensionTwo}</if>
                     <if test="item.uid != null">,uid=#{item.uid}</if>
                     <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}
@@ -125,51 +146,76 @@
         DELETE FROM OGN_APP_MONEY_DETAIL WHERE id=#{id}
     </delete>
 
-    <select id="findMoneyUserInfo" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultMap="MoneyUserInfoMap">
-        SELECT  ogn_app_money_detail.id,ogn_app_money_detail.create_date,ogn_app_money_detail.update_date,
-        money,ogn_app_money_detail.type,ogn_app_money_detail.status,repay_way,repay_time,repay_time_type,uid,
-        ogn_app_money_detail.delete_flag,ogn_app_user.mobile
-        FROM ogn_app_money_detail
-        LEFT JOIN ogn_app_user
-        ON ogn_app_user.id = ogn_app_money_detail.uid
-        where 1=1
-        <include refid="queryParams"/>
+    <select id="findIncomeInfo" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultMap="IncomeInfoMap">
+        SELECT m.id,m.create_date,m.update_date,m.money_actual,m.type,m.status,m.delete_flag,
+        m.uid,ogn_app_user_task.tid
+        FROM ogn_app_money_detail m,ogn_app_user_task
+        WHERE
+        m.id = ogn_app_user_task.mid
+        <if test="type != null">AND m.type=#{type}</if>
+        <if test="status != null">AND m.status=#{status}</if>
+        <if test="uid != null">AND m.uid=#{uid}</if>
     </select>
 
-    <resultMap id="MoneyUserInfoMap" type="com.origin.data.mybatis.entity.AppMoneyDetail">
-        <id property="id" column="id" />
-        <result property="id" column="id"/>
-        <result property="createDate" column="create_date"/>
-        <result property="updateDate" column="update_date"/>
-        <result property="money" column="money"/>
-        <result property="type" column="type"/>
-        <result property="status" column="status"/>
-        <result property="repayWay" column="repay_way"/>
-        <result property="repayTime" column="repay_time"/>
-        <result property="repayTimeType" column="repay_time_type"/>
-        <result property="uid" column="uid"/>
-        <result property="deleteFlag" column="delete_flag"/>
+    <resultMap id="IncomeInfoMap" type="com.origin.data.mybatis.entity.AppMoneyDetail">
+        <id property="id" column="m.id" />
+        <result property="createDate" column="m.create_date"/>
+        <result property="updateDate" column="m.update_date"/>
+        <result property="money" column="m.money"/>
+        <result property="type" column="m.type"/>
+        <result property="status" column="m.status"/>
+        <result property="deleteFlag" column="m.delete_flag"/>
+
+        <association property="appUser" column="uid" select="getUser"/>
+
+        <association property="appTask" column="tid" select="getTask"/>
+    </resultMap>
+
+    <select id="getUser"  resultType="com.origin.data.mybatis.entity.AppUser">
+        SELECT id,mobile
+        FROM ogn_app_user
+        WHERE
+        id = #{uid}
+    </select>
+
+    <select id="getTask"  resultType="com.origin.data.mybatis.entity.AppTask">
+        SELECT id,task_name
+        FROM ogn_app_task
+        WHERE
+        id = #{tid}
+    </select>
+
+    <!--<select id="findIncomeInfo" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultMap="IncomeInfoMap">
+        SELECT m.id,m.create_date,m.update_date,m.money_actual,m.type,m.status,m.delete_flag,
+        ogn_app_user_task.uid,ogn_app_user_task.tid,
+        u.mobile,t.task_name
+        FROM ogn_app_user u,ogn_app_task t,ogn_app_money_detail m,ogn_app_user_task
+        WHERE
+        m.id = ogn_app_user_task.mid AND
+        u.id = ogn_app_user_task.uid AND
+        t.id = ogn_app_user_task.tid
+        <if test="type != null">AND m.type=#{type}</if>
+        <if test="status != null">AND m.status=#{status}</if>
+        <if test="uid != null">AND m.uid=#{uid}</if>
+    </select>
+
+    <resultMap id="IncomeInfoMap" type="com.origin.data.mybatis.entity.AppMoneyDetail">
+        <id property="id" column="m.id" />
+        <result property="createDate" column="m.create_date"/>
+        <result property="updateDate" column="m.update_date"/>
+        <result property="money" column="m.money"/>
+        <result property="type" column="m.type"/>
+        <result property="status" column="m.status"/>
+        <result property="deleteFlag" column="m.delete_flag"/>
 
         <association property="appUser" javaType="com.origin.data.mybatis.entity.AppUser">
-            <id property="id" column="id" />
-            <result property="createDate" column="create_date"/>
-            <result property="updateDate" column="update_date"/>
-            <result property="mobile" column="mobile"/>
-            <result property="pwd" column="pwd"/>
-            <result property="payPwd" column="pay_pwd"/>
-            <result property="authority" column="authority"/>
-            <result property="moneyMax" column="money_max"/>
-            <result property="alipayUsername" column="alipay_username"/>
-            <result property="alipayUseraccout" column="alipay_useraccout"/>
-            <result property="imgFace" column="img_face"/>
-            <result property="imgIdFront" column="img_id_front"/>
-            <result property="imgIdBack" column="img_id_back"/>
-            <result property="userIdName" column="user_id_name"/>
-            <result property="userIdNumber" column="user_id_number"/>
-            <result property="imgPortrait" column="img_portrait"/>
-            <result property="nickname" column="nickname"/>
-            <result property="category" column="category"/>
-            <result property="deleteFlag" column="delete_flag"/>
+            <id property="id" column="uid" />
+            <result property="mobile" column="u.mobile"/>
         </association>
-    </resultMap>
+
+        <association property="appTask" javaType="com.origin.data.mybatis.entity.AppTask">
+            <id property="id" column="tid" />
+            <result property="taskName" column="t.task_name"/>
+        </association>
+    </resultMap>-->
 </mapper>

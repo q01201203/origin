@@ -6,8 +6,7 @@
         		    id,
         		    uid,
         		    tid,
-        		    auditTime,
-                    status
+                    mid
         FROM OGN_APP_USER_TASK
         where 1=1
 	</sql>
@@ -15,16 +14,14 @@
 			<if test="id != null">AND id=#{id}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
 			<if test="tid != null">AND tid=#{tid}</if>
-			<if test="auditTime != null">AND auditTime=#{auditTime}</if>
-			<if test="status != null">AND status=#{status}</if>
+			<if test="mid != null">AND mid=#{mid}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppUserTask" id="appUserTaskMap">
     	<id property="id" column="id" />
     	<result property="id" column="id"/>
     	<result property="uid" column="uid"/>
     	<result property="tid" column="tid"/>
-    	<result property="auditTime" column="auditTime"/>
-    	<result property="status" column="status"/>
+    	<result property="mid" column="mid"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppUserTask">
         <include refid="selectPart"/>
@@ -46,16 +43,14 @@
             <trim suffix="" suffixOverrides=",">
                         <if test="uid != null">`uid`,</if>
                         <if test="tid != null">`tid`,</if>
-                        <if test="auditTime != null">`auditTime`,</if>
-                        <if test="status != null ">`status`</if>
+                        <if test="mid != null ">`mid`</if>
             </trim>
 		)
 		VALUES (
             <trim suffix="" suffixOverrides=",">
                         <if test="uid != null">#{uid},</if>
                         <if test="tid != null">#{tid},</if>
-                        <if test="auditTime != null">#{auditTime},</if>
-                        <if test="status != null">#{status}</if>
+                        <if test="mid != null">#{mid}</if>
             </trim>
 		)
     </insert>
@@ -64,8 +59,7 @@
          id=id
                 <if test="uid != null">,uid=#{uid}</if>
                 <if test="tid != null">,tid=#{tid}</if>
-                <if test="auditTime != null">,auditTime=#{auditTime}</if>
-                <if test="status != null">,status=#{status}</if>
+                <if test="mid != null">,mid=#{mid}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
@@ -74,8 +68,7 @@
             set id=id
                     <if test="item.uid != null">,uid=#{item.uid}</if>
                     <if test="item.tid != null">,tid=#{item.tid}</if>
-                    <if test="item.auditTime != null">,auditTime=#{item.auditTime}</if>
-                    <if test="item.status != null">,status=#{item.status}</if>
+                    <if test="item.mid != null">,mid=#{item.mid}</if>
                 where id=#{item.id}
         </foreach>
     </update>
