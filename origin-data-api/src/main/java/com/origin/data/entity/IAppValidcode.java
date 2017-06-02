@@ -13,7 +13,8 @@ public final static Integer STATUS_YES = 1; //可用
 public final static Integer STATUS_NO = 0; //不可用
 
 public final static String TYPE_REGISTER = "1"; //注册
-public final static String TYPE_RESETPWD = "2"; //注册
+public final static String TYPE_RESETPWD = "2"; //找回密码
+ public final static String TYPE_BORROW = "3"; //借钱
 
 
  Integer getId();

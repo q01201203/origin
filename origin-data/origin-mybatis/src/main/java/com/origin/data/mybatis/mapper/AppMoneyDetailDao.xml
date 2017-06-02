@@ -13,6 +13,9 @@
         		    repay_way,
         		    repay_time,
         		    repay_time_type,
+        		    task_name,
+        		    task_username,
+        		    task_mobile,
         		    extension_one,
         		    extension_two,
         		    uid,
@@ -31,6 +34,9 @@
 			<if test="repayWay != null">AND repay_way=#{repayWay}</if>
 			<if test="repayTime != null">AND repay_time=#{repayTime}</if>
 			<if test="repayTimeType != null">AND repay_time_type=#{repayTimeType}</if>
+			<if test="taskName != null">AND task_name=#{taskName}</if>
+			<if test="taskUsername != null">AND task_username=#{taskUsername}</if>
+			<if test="taskMobile != null">AND task_mobile=#{taskMobile}</if>
 			<if test="extensionOne != null">AND extension_one=#{extensionOne}</if>
 			<if test="extensionTwo != null">AND extension_two=#{extensionTwo}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
@@ -38,7 +44,6 @@
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppMoneyDetail" id="appMoneyDetailMap">
     	<id property="id" column="id" />
-    	<result property="id" column="id"/>
     	<result property="createDate" column="create_date"/>
     	<result property="updateDate" column="update_date"/>
     	<result property="moneyAsk" column="money_ask"/>
@@ -48,10 +53,15 @@
     	<result property="repayWay" column="repay_way"/>
     	<result property="repayTime" column="repay_time"/>
     	<result property="repayTimeType" column="repay_time_type"/>
+    	<result property="taskName" column="task_name"/>
+    	<result property="taskUsername" column="task_username"/>
+    	<result property="taskMobile" column="task_mobile"/>
     	<result property="extensionOne" column="extension_one"/>
     	<result property="extensionTwo" column="extension_two"/>
     	<result property="uid" column="uid"/>
     	<result property="deleteFlag" column="delete_flag"/>
+
+        <association property="appUser" column="uid" select="getUser"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppMoneyDetail">
         <include refid="selectPart"/>
@@ -65,6 +75,14 @@
         <include refid="selectPart"/>
         <include refid="queryParams"/>
     </select>
+
+    <select id="findTotalActualMoney" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultType="Double">
+        SELECT MAX(money_actual)
+        FROM OGN_APP_MONEY_DETAIL
+        where 1=1
+        <include refid="queryParams"/>
+    </select>
+
     <insert id="save" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
@@ -80,6 +98,9 @@
                         <if test="repayWay != null">`repay_way`,</if>
                         <if test="repayTime != null">`repay_time`,</if>
                         <if test="repayTimeType != null">`repay_time_type`,</if>
+                        <if test="taskName != null">`task_name`,</if>
+                        <if test="taskUsername != null">`task_username`,</if>
+                        <if test="taskMobile != null">`task_mobile`,</if>
                         <if test="extensionOne != null">`extension_one`,</if>
                         <if test="extensionTwo != null">`extension_two`,</if>
                         <if test="uid != null">`uid`,</if>
@@ -97,6 +118,9 @@
                         <if test="repayWay != null">#{repayWay},</if>
                         <if test="repayTime != null">#{repayTime},</if>
                         <if test="repayTimeType != null">#{repayTimeType},</if>
+                        <if test="taskName != null">#{taskName},</if>
+                        <if test="taskUsername != null">#{taskUsername},</if>
+                        <if test="taskMobile != null">#{taskMobile},</if>
                         <if test="extensionOne != null">#{extensionOne},</if>
                         <if test="extensionTwo != null">#{extensionTwo},</if>
                         <if test="uid != null">#{uid},</if>
@@ -116,6 +140,9 @@
                 <if test="repayWay != null">,repay_way=#{repayWay}</if>
                 <if test="repayTime != null">,repay_time=#{repayTime}</if>
                 <if test="repayTimeType != null">,repay_time_type=#{repayTimeType}</if>
+                <if test="taskName != null">,task_name=#{taskName}</if>
+                <if test="taskUsername != null">,task_username=#{taskUsername}</if>
+                <if test="taskMobile != null">,task_mobile=#{taskMobile}</if>
                 <if test="extensionOne != null">,extension_one=#{extensionOne}</if>
                 <if test="extensionTwo != null">,extension_two=#{extensionTwo}</if>
                 <if test="uid != null">,uid=#{uid}</if>
@@ -135,6 +162,9 @@
                     <if test="item.repayWay != null">,repay_way=#{item.repayWay}</if>
                     <if test="item.repayTime != null">,repay_time=#{item.repayTime}</if>
                     <if test="item.repayTimeType != null">,repay_time_type=#{item.repayTimeType}</if>
+                    <if test="item.taskName != null">,task_name=#{item.taskName}</if>
+                    <if test="item.taskUsername != null">,task_username=#{item.taskUsername}</if>
+                    <if test="item.taskMobile != null">,task_mobile=#{item.taskMobile}</if>
                     <if test="item.extensionOne != null">,extension_one=#{item.extensionOne}</if>
                     <if test="item.extensionTwo != null">,extension_two=#{item.extensionTwo}</if>
                     <if test="item.uid != null">,uid=#{item.uid}</if>
@@ -146,8 +176,14 @@
         DELETE FROM OGN_APP_MONEY_DETAIL WHERE id=#{id}
     </delete>
 
+    <select id="findMoneyUser" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultMap="appMoneyDetailMap">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+    </select>
+
+
     <select id="findIncomeInfo" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultMap="IncomeInfoMap">
-        SELECT m.id,m.create_date,m.update_date,m.money_actual,m.type,m.status,m.delete_flag,
+        SELECT m.id,m.create_date,m.update_date,m.money_ask,m.money_actual,m.type,m.status,m.delete_flag,
         m.uid,ogn_app_user_task.tid
         FROM ogn_app_money_detail m,ogn_app_user_task
         WHERE

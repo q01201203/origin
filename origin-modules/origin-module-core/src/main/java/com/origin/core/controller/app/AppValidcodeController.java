@@ -1,4 +1,4 @@
-package com.origin.core.controller;
+package com.origin.core.controller.app;
 
 import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
@@ -40,7 +40,7 @@ public class AppValidcodeController {
 	@RequestMapping(value = "/send" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户发送验证码", httpMethod = "GET", response = Result.class,
-			notes = "type(1:注册 2:重置密码) return validcode")
+			notes = "type(1:注册 2:重置密码 3:借钱) ")
 	public Object send(@RequestParam(value = "mobile") String mobile ,
 					   @RequestParam(value = "type") String type) throws Exception{
 		if (StringUtil.isNullOrBlank(mobile) || StringUtil.isNullOrBlank(type)){
@@ -53,7 +53,7 @@ public class AppValidcodeController {
 				appUser = appUserService.findFirst(appUser);
 				if (appUser==null){
 					String validcode = saveValidcode(mobile, type);
-					return Result.createSuccessResult(validcode,"发送验证码成功");
+					return Result.createSuccessResult().setMessage("发送验证码成功");
 				}else {
 					return Result.createErrorResult().setMessage("用户已存在");
 				}
@@ -61,7 +61,15 @@ public class AppValidcodeController {
 				appUser = appUserService.findFirst(appUser);
 				if (appUser!=null){
 					String validcode = saveValidcode(mobile, type);
-					return Result.createSuccessResult(validcode,"发送验证码成功");
+					return Result.createSuccessResult().setMessage("发送验证码成功");
+				}else {
+					return Result.createErrorResult().setMessage("用户不存在");
+				}
+			case IAppValidcode.TYPE_BORROW:
+				appUser = appUserService.findFirst(appUser);
+				if (appUser!=null){
+					String validcode = saveValidcode(mobile, type);
+					return Result.createSuccessResult().setMessage("发送验证码成功");
 				}else {
 					return Result.createErrorResult().setMessage("用户不存在");
 				}
@@ -96,10 +104,8 @@ public class AppValidcodeController {
 		appValidcode.setStatus(IAppValidcode.STATUS_YES);
 		IAppValidcode appValidcodeResult = appValidcodeService.findFirst(appValidcode);
 		if (appValidcodeResult!=null){
-			IAppValidcode appValidcode1 = new AppValidcodeDTO();
-			appValidcode1.setId(appValidcodeResult.getId());
-			appValidcode1.setStatus(IAppValidcode.STATUS_NO);
-			appValidcodeService.update(appValidcode1);
+			appValidcodeResult.setStatus(IAppValidcode.STATUS_NO);
+			appValidcodeService.update(appValidcodeResult);
 			return Result.createSuccessResult().setMessage("验证码验证成功");
 		}else {
 			return Result.createErrorResult().setMessage("验证码错误");

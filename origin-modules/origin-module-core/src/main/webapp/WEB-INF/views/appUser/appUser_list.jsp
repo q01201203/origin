@@ -68,8 +68,8 @@
                                     <a href="${ctx}/admin/appUser/user/detail/appUser_edit?id=${r.id }"><i class="icon"></i>更多</a>
                                     <a href="${ctx}/admin/appTask/userTask/list?uid=${r.id}"><i class="icon"></i>任务</a>
                                     <a href="${ctx}/admin/appTask/userTask/list?uid=${r.id}&status=1"><i class="icon"></i>收入</a>
-                                    <a href="${ctx }/admin/appUser/getMoney/list?type=1&uid=${r.id}"><i class="icon"></i>借款</a>
-                                    <a href="${ctx }/admin/appUser/getMoney/list?type=2&uid=${r.id}"><i class="icon"></i>还款</a>
+                                    <a href="${ctx }/admin/appUser/money/list?type=1&uid=${r.id}"><i class="icon"></i>借款</a>
+                                    <a href="${ctx }/admin/appUser/money/list?type=2&uid=${r.id}"><i class="icon"></i>还款</a>
                                 </div>
                             </td>
                         </tr>

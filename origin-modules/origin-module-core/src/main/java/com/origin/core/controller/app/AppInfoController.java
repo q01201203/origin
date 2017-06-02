@@ -1,4 +1,4 @@
-package com.origin.core.controller;
+package com.origin.core.controller.app;
 
 import com.origin.common.model.mybatis.Result;
 import com.origin.core.dto.AppConstantsDTO;

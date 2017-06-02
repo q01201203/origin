@@ -1,15 +1,19 @@
-package com.origin.core.controller;
+package com.origin.core.controller.admin;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.origin.common.dto.AjaxResult;
 import com.origin.common.util.DateUtils;
+import com.origin.core.dto.AppMoneyDetailDTO;
 import com.origin.core.dto.AppTaskDTO;
+import com.origin.core.dto.AppUserTaskDTO;
 import com.origin.core.service.AppTaskService;
 import com.origin.core.service.AppUserService;
 import com.origin.core.service.AppUserTaskService;
 import com.origin.core.util.Constants;
+import com.origin.data.entity.IAppMoneyDetail;
 import com.origin.data.entity.IAppTask;
+import com.origin.data.entity.IAppUserTask;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -181,14 +185,23 @@ public class AdminAppTaskController {
     	return ajaxResult;
     }
 
+	@RequestMapping("/task/detail/appTask_edit")
+	public String userDetailEdit(HttpServletRequest request, Model model){
+		String id = request.getParameter("id");
+		if(StringUtils.isNotBlank(id)){
+			IAppTask appTask = appTaskService.findById(Integer.parseInt(id));
+			model.addAttribute("appTask", appTask);
+		}
+		model.addAttribute(Constants.MENU_NAME, "任务详情");
+		return "appTask/appTaskDetail";
+	}
 
-    /*//add lic 20170526 任务记录
+
+    //add lic 20170526 任务记录
     @RequestMapping("/userTask/list")
 	public String taskUserList(HttpServletRequest request,Model model){
 		String uid = request.getParameter("uid");
 		String tid = request.getParameter("tid");
-		String mobile = request.getParameter("mobile");
-		String task_name = request.getParameter("task_name");
 		String status = request.getParameter("status");
 		String currentPageStr = request.getParameter("currentPage");
 		String pageSizeStr = request.getParameter("pageSize");
@@ -203,36 +216,28 @@ public class AdminAppTaskController {
 		}
 
 		PageHelper.startPage(currentPage, pageSize);
-		IAppUserTask appUserTask = new AppUserTaskDTO();
+		IAppUserTask queryDTO = new AppUserTaskDTO();
 		if(StringUtils.isNotBlank(uid)){
-			appUserTask.setUid(Integer.parseInt(uid));
+			queryDTO.setUid(Integer.parseInt(uid));
 		}
 		if(StringUtils.isNotBlank(tid)){
-			appUserTask.setTid(Integer.parseInt(tid));
-		}
-		if(StringUtils.isNotBlank(mobile)){
-			IAppUser appUser = new AppUserDTO();
-			appUser.setMobile(mobile);
-			appUser = appUserService.findFirst(appUser);
-			appUserTask.setUid(appUser.getId());
-		}
-		if(StringUtils.isNotBlank(task_name)){
-			IAppTask appTask = new AppTaskDTO();
-			appTask.setTaskName(task_name);
-			appTask = appTaskService.findFirst(appTask);
-			appUserTask.setTid(appTask.getId());
+			queryDTO.setTid(Integer.parseInt(tid));
 		}
 		if(StringUtils.isNotBlank(status)){
-			appUserTask.setStatus( Integer.parseInt(status));
+			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+			appMoneyDetail.setStatus(Integer.parseInt(status));
+			queryDTO.setAppMoneyDetail(appMoneyDetail);
 		}
-		List<IAppUserTask> appUserTasks = appUserTaskService.findTaskUserInfo(appUserTask);
+
+		List<IAppUserTask> appUserTasks = appUserTaskService.findTaskUserInfo(queryDTO);
 		PageInfo<IAppTask> page = new PageInfo(appUserTasks);
+		model.addAttribute("queryDTO", queryDTO);
 		model.addAttribute("page", page);
 		model.addAttribute("appUserTasks",appUserTasks);
-		model.addAttribute(Constants.MENU_NAME, "任务记录");
+		model.addAttribute(Constants.MENU_NAME, "任务审批");
 
-    	return "appTask/appTaskUser";
-	}*/
+    	return "appTask/appTaskAudit";
+	}
 
 	/*@RequestMapping("/userTask/ajax/updateUserTaskStatus")
 	@ResponseBody

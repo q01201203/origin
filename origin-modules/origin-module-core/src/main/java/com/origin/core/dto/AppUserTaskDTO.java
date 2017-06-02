@@ -1,6 +1,7 @@
 package com.origin.core.dto;
 
 
+import com.origin.data.entity.IAppMoneyDetail;
 import com.origin.data.entity.IAppTask;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserTask;
@@ -24,7 +25,10 @@ public class AppUserTaskDTO implements IAppUserTask {
 
 	//add lic 170526
 	private IAppTask appTask;
-	
+
+	//add lic 170601
+	private IAppMoneyDetail appMoneyDetail;
+
 	public AppUserTaskDTO(){
 	}
 
@@ -78,6 +82,14 @@ public class AppUserTaskDTO implements IAppUserTask {
 	@Override
 	public IAppTask getAppTask() {
 		return appTask;
+	}
+
+	public IAppMoneyDetail getAppMoneyDetail() {
+		return appMoneyDetail;
+	}
+
+	public void setAppMoneyDetail(IAppMoneyDetail appMoneyDetail) {
+		this.appMoneyDetail = appMoneyDetail;
 	}
 
 	@Override

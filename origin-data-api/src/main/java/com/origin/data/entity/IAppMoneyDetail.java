@@ -27,6 +27,12 @@ public interface IAppMoneyDetail extends Serializable {
 
 	public final static Integer TYPE_INCOME = 4; //收入
 
+	public final static Integer REPAY_WAY_WEIXIN = 1; //微信
+
+	public final static Integer REPAY_WAY_CARD = 2; //银行卡
+
+	public final static Integer REPAY_WAY_BALANCE = 3; //余额
+
 	Integer getId();
 
 	void setId(Integer id);
@@ -66,6 +72,18 @@ public interface IAppMoneyDetail extends Serializable {
 	Integer getRepayTimeType();
 
 	void setRepayTimeType(Integer repayTimeType);
+
+	String getTaskName();
+
+	void setTaskName(String taskName);
+
+	String getTaskUsername();
+
+	void setTaskUsername(String taskUsername);
+
+	String getTaskMobile();
+
+	void setTaskMobile(String taskMobile);
 
 	String getExtensionOne();
 

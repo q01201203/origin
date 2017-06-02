@@ -33,6 +33,12 @@ public class AppMoneyDetailDTO implements IAppMoneyDetail {
     /**  */
 	private Integer repayTimeType;//;
     /**  */
+	private String taskName;//;
+    /**  */
+	private String taskUsername;//;
+    /**  */
+	private String taskMobile;//;
+    /**  */
 	private String extensionOne;//;
     /**  */
 	private String extensionTwo;//;
@@ -144,6 +150,30 @@ public class AppMoneyDetailDTO implements IAppMoneyDetail {
 		this.repayTimeType = repayTimeType;
 	}
 
+	public String getTaskName() {
+		return this.taskName;
+	}
+
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
+	}
+
+	public String getTaskUsername() {
+		return this.taskUsername;
+	}
+
+	public void setTaskUsername(String taskUsername) {
+		this.taskUsername = taskUsername;
+	}
+
+	public String getTaskMobile() {
+		return this.taskMobile;
+	}
+
+	public void setTaskMobile(String taskMobile) {
+		this.taskMobile = taskMobile;
+	}
+
 	public String getExtensionOne() {
 		return this.extensionOne;
 	}
@@ -216,6 +246,9 @@ public class AppMoneyDetailDTO implements IAppMoneyDetail {
 		+",repayWay="+this.getRepayWay()
 		+",repayTime="+this.getRepayTime()
 		+",repayTimeType="+this.getRepayTimeType()
+		+",taskName="+this.getTaskName()
+		+",taskUsername="+this.getTaskUsername()
+		+",taskMobile="+this.getTaskMobile()
 		+",extensionOne="+this.getExtensionOne()
 		+",extensionTwo="+this.getExtensionTwo()
 		+",uid="+this.getUid()

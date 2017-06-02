@@ -13,8 +13,8 @@ import com.origin.data.entity.I${model};
 @Service
 public class ${model}ServiceImpl  implements ${model}Service {
 
-@Autowired
-private I${model}Dao<I${model},Integer> ${_model}Dao;
+    @Autowired
+    private I${model}Dao<I${model},Integer> ${_model}Dao;
 
     @Override
     public void save(I${model} ${_model}) {

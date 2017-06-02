@@ -50,7 +50,7 @@ $(function(){
 	                <div class="m_txt">
 	                	<c:choose>
 	                		<c:when test="${not empty msg }">${msg }</c:when>
-	                		<c:otherwise>防伪溯源管理系统</c:otherwise>
+	                		<c:otherwise>任性花后台管理系统</c:otherwise>
 	                	</c:choose>
 	                </div>
 	                <div class="m_input">

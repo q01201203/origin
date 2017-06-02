@@ -1,4 +1,4 @@
-package com.origin.core.controller;
+package com.origin.core.controller.admin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;

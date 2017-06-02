@@ -13,11 +13,13 @@
 <%@ include file="../common/menu.jsp" %>
 <div class="J_content">
     <div class="mt20 plr20">
-        <form action="${ctx }/admin/appTask/list" id="queryForm">
+        <form action="${ctx }/admin/appTask/userTask/list" id="queryForm">
             <div class="J_toolsBar clearfix">
                 <div class="t_label"></div>
                 <div class="t_text ml10">
-                    <input placeholder="请输入任务名称" type="text" name="name" value="${queryDTO.taskName }"/>
+                    <input placeholder="请输入状态" type="text" name="status" value="${queryDTO.appMoneyDetail.status}"/>
+                    <input type="hidden" name="tid" value="${queryDTO.tid}">
+                    <input type="hidden" name="uid" value="${queryDTO.uid}">
                 </div>
                 <div class="t_button ml10">
                     <a class="abtn red" href="javascript:myQuery();">
@@ -43,7 +45,31 @@
                                 <span>创建时间</span>
                             </td>
                             <td>
-                                <span>任务名字</span>
+                                <span>修改时间</span>
+                            </td>
+                            <td>
+                                <span>申请金额</span>
+                            </td>
+                            <td>
+                                <span>实际金额</span>
+                            </td>
+                            <td>
+                                <span>类型</span>
+                            </td>
+                            <td>
+                                <span>状态</span>
+                            </td>
+                            <td>
+                                <span>任务名称</span>
+                            </td>
+                            <td>
+                                <span>完成任务的用户名</span>
+                            </td>
+                            <td>
+                                <span>完成任务的手机号</span>
+                            </td>
+                            <td>
+                                <span>用户</span>
                             </td>
                             <td>
                                 <span>操作</span>
@@ -52,30 +78,73 @@
                         </thead>
                         <tbody>
                         <c:choose>
-                            <c:when test="${(appTasks)!= null && fn:length(appTasks) > 0}">
-                                <c:forEach items="${appTasks }" var="r">
+                            <c:when test="${(appUserTasks)!= null && fn:length(appUserTasks) > 0}">
+                                <c:forEach items="${appUserTasks }" var="r">
                                     <tr>
                                         <td class="first">
                                             <div class="t_text tc">
-                                                ${r.id }
+                                                ${r.mid }
                                             </div>
                                         </td>
                                         <td>
                                             <div class="t_text tc">
-                                                <fmt:formatDate value="${r.createDate }" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                                <fmt:formatDate value="${r.appMoneyDetail.createDate }" pattern="yyyy-MM-dd HH:mm:ss"/>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="t_text tc">
-                                                ${r.taskName  }
+                                                <fmt:formatDate value="${r.appMoneyDetail.updateDate }" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                ${r.appMoneyDetail.moneyAsk  }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                 ${r.appMoneyDetail.moneyActual  }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                用户收入
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                <c:choose>
+                                                    <c:when test="${r.appMoneyDetail.status  eq 1}">审核中</c:when>
+                                                    <c:when test="${r.appMoneyDetail.status  eq 2}">审核通过</c:when>
+                                                    <c:when test="${r.appMoneyDetail.status  eq 3}">审核未通过</c:when>
+                                                </c:choose>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                ${r.appMoneyDetail.taskName}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                    ${r.appMoneyDetail.taskUsername}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                    ${r.appMoneyDetail.taskMobile}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                ${r.appUser.mobile  }
                                             </div>
                                         </td>
                                         <td>
                                             <div class="t_link">
-                                                <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
-                                                <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>
-                                                <a href="${ctx}/admin/appTask/task/detail/appTask_edit?id=${r.id }"><i class="icon"></i>更多</a>
-                                                <a href="${ctx}/admin/appTask/userTask/list?tid=${r.id}"><i class="icon"></i>领取人员</a>
+                                                <c:if test="${r.appMoneyDetail.status  eq 1}">
+                                                    <a href="javascript:myEdit('${r.mid }');"><i class="icon"></i>编辑</a>
+                                                </c:if>
                                             </div>
                                         </td>
                                     </tr>
@@ -83,7 +152,7 @@
                             </c:when>
                             <c:otherwise>
                                 <tr>
-                                    <td colspan="12">
+                                    <td colspan="13">
                                         <div class="J_null mt40">
                                             <img src="${ctx }/static/images/null.png">
                                             <p>暂无相关数据</p>
@@ -110,7 +179,7 @@
         }else{
             title = '修改区域';
         }
-        $.post('${ctx}/admin/appTask/dialog/appTask_edit?id='+id, {}, function(str){
+        $.post('${ctx}/admin/appUser/money/dialog/appMoneyDetail_edit?id='+id, {}, function(str){
 
             layer.close(loadIdx);
 
@@ -147,7 +216,7 @@
 
             var loadIdx = layer.load();
             $.ajax({
-                url : '${ctx}/admin/appTask/ajax/delete',
+                url : '${ctx}/appMoneyDetail/ajax/delete',
                 type : 'post',
                 data : {
                     'id' : id

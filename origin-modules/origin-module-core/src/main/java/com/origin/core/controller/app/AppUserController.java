@@ -1,4 +1,4 @@
-package com.origin.core.controller;
+package com.origin.core.controller.app;
 
 import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
@@ -23,6 +23,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -144,7 +145,8 @@ public class AppUserController {
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
 		System.out.println("请求的payPwd为" + payPwd);
-		if (StringUtil.isNullOrBlank(payPwd)){
+		String regex = "^\\d{6}$"; //验证密码
+		if (StringUtil.isNullOrBlank(payPwd) || !payPwd.matches(regex)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 
@@ -478,14 +480,17 @@ public class AppUserController {
 	@RequestMapping(value = "/submitMoney" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存钱信息", httpMethod = "GET", response = Result.class,
-			notes = "submitMoney type(1:借钱(repayTimeType(1:7天 2:15天)) 2:还钱(repayWay(1:支付宝 2:银行卡))" +
-					"3:提现   4:收入(任务id)) 警告:前三种type必须传入askMoney,收入只需要传入taskId")
+			notes = "submitMoney 借钱(askMoney、type=1、repayTimeType(1:7天 2:15天)) 还钱(askMoney、type=2、" +
+					"repayWay(1:支付宝 2:银行卡))  提现(askMoney、type=3)  收入(type=4、taskId（任务ID）、" +
+					"taskUserName(完成任务的用户名)、taskMobile(完成任务的手机号)))")
 	public Object submitMoney(@RequestHeader(value = "Authorization" ) String token,
 							  @RequestParam(value = "askMoney",required = false) String askMoney,
 							  @RequestParam(value = "type") String type,
 							  @RequestParam(value = "repayTimeType",required = false) String repayTimeType,
 							  @RequestParam(value = "repayWay",required = false) String repayWay,
-							  @RequestParam(value = "taskId",required = false) String taskId) throws Exception{
+							  @RequestParam(value = "taskId",required = false) String taskId,
+							  @RequestParam(value = "taskUserName",required = false) String taskUserName,
+							  @RequestParam(value = "taskMobile",required = false) String taskMobile) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
@@ -493,39 +498,71 @@ public class AppUserController {
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
 		System.out.println("请求的money为" + askMoney + "\n请求的type为" + type);
-		if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(type)){
+		if (StringUtil.isNullOrBlank(type)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 
 		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
-		appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
 		appMoneyDetail.setUid(uId);
 		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
 			System.out.println("请求的repayTimeType为" + repayTimeType);
-			if (StringUtil.isNullOrBlank(repayTimeType)){
+			if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayTimeType)){
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
+			//借钱不能大于可借额度
+			IAppUser appUser = appUserService.findById(uId);
+			Double moneyMax = appUser.getMoneyMax();
+			Double borrow = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+			Double repay = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
+			Double needRepay = borrow - repay;
+			Double borrowLine = moneyMax - needRepay;
+			if (Double.parseDouble(askMoney)>borrowLine){
+				return Result.create(ResultCode.SERVICE_ERROR).setMessage("借钱金额大于可借额度");
+			}
+
+			appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
 			appMoneyDetail.setRepayTimeType(Integer.parseInt(repayTimeType));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
 			appMoneyDetailService.save(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("借款申请成功");
 		}else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
 			System.out.println("请求的repayWay为" + repayWay);
-			if (StringUtil.isNullOrBlank(repayWay)){
+			if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayWay)){
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
+			//还钱不能大于需还金额
+			Double borrow = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+			Double repay = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
+			Double needRepay = borrow - repay;
+			if (Double.parseDouble(askMoney)>needRepay){
+				return Result.create(ResultCode.SERVICE_ERROR).setMessage("还钱金额大于需还金额");
+			}
+
+			appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
 			appMoneyDetail.setRepayWay(Integer.parseInt(repayWay));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
 			appMoneyDetailService.save(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("还款申请成功");
 		}else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){
+			if (StringUtil.isNullOrBlank(askMoney)){
+				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+			}
+			IAppUser appUser = appUserService.findById(uId);
+			Double balance = appUser.getBalance();
+			if (Double.parseDouble(askMoney)>balance){
+				return Result.create(ResultCode.SERVICE_ERROR).setMessage("提现金额大于余额");
+			}
+
+			appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_WITHDRAW);
 			appMoneyDetailService.save(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("提现申请成功");
 		}else if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
-			if (StringUtil.isNullOrBlank(taskId)){
+			if (StringUtil.isNullOrBlank(taskId)||StringUtil.isNullOrBlank(taskUserName)||StringUtil.isNullOrBlank(taskMobile)){
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
+			appMoneyDetail.setTaskUsername(taskUserName);
+			appMoneyDetail.setTaskMobile(taskMobile);
 			return appMoneyDetailService.saveIncome(uId,Integer.parseInt(taskId),appMoneyDetail);
 		}else {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
@@ -571,7 +608,8 @@ public class AppUserController {
 			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("提现信息查询成功");
 		} else if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_INCOME);
-			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.findIncomeInfo(appMoneyDetail);
+			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
+			//List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.findIncomeInfo(appMoneyDetail);
 			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("收入信息查询成功");
 		} else {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
@@ -615,5 +653,86 @@ public class AppUserController {
 		appUserBank.setUid(uId);
 		List<IAppUserBank> appUserBanks = appUserBankService.find(appUserBank);
 		return Result.createSuccessResult(appUserBanks,"获取用户银行卡信息成功");
+	}
+
+	@RequestMapping(value = "/getUserDetail" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取app用户详细信息", httpMethod = "GET", response = Result.class, notes = "获取用户详细信息")
+	public Object getUserDetail(@RequestHeader(value = "Authorization" ) String token) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		IAppUser appUser = appUserService.findById(uId);
+
+		if (appUser.getCategory()!=null){
+			if (IAppUser.CATEGORY_STU.equals(appUser.getCategory())){
+				IAppStuDetail appStuDetail = new AppStuDetailDTO();
+				appStuDetail.setUid(uId);
+				appStuDetail = appStuDetailService.findFirst(appStuDetail);
+				return Result.createSuccessResult(appStuDetail,"获取用户学生信息成功");
+			}else if (IAppUser.CATEGORY_PERSON.equals(appUser.getCategory())){
+				IAppPersonDetail appPersonDetail = new AppPersonDetailDTO();
+				appPersonDetail.setUid(uId);
+				appPersonDetail = appPersonDetailService.findFirst(appPersonDetail);
+				return Result.createSuccessResult(appPersonDetail,"获取用户社会人群信息成功");
+			}
+		}
+		return Result.create(ResultCode.SERVICE_ERROR).setMessage("用户详细信息不存在");
+	}
+
+	@RequestMapping(value = "/getMoneyTotal" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取app用户钱信息", httpMethod = "GET", response = Result.class, notes = "获取用户总共借钱borrowTotal" +
+			"总共需要还的钱repayTotal 总提现withdrawTotal 总收入incomeTotal 用余额还的款repayBalance 需要还的钱needRepay" +
+			"余额balance 额度moneyMax 可借额度borrowLine")
+	public Object getMoneyTotal(@RequestHeader(value = "Authorization" ) String token) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		IAppUser appUser = appUserService.findById(uId);
+		Double moneyMax = appUser.getMoneyMax();
+
+		Double borrow = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+		Double repay = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
+		Double withdraw = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_WITHDRAW);
+		Double income = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_INCOME);
+		Double repayBalance = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_INCOME,IAppMoneyDetail.REPAY_WAY_BALANCE);
+
+		Double needRepay = borrow - repay;
+		Double balance = income - withdraw - repayBalance;
+		Double borrowLine = moneyMax - needRepay;
+		HashMap<String,Double> moneyMap = new HashMap();
+		moneyMap.put("borrowTotal",borrow);
+		moneyMap.put("repayTotal",repay);
+		moneyMap.put("withdrawTotal",withdraw);
+		moneyMap.put("incomeTotal",income);
+		moneyMap.put("repayBalance",repayBalance);
+		moneyMap.put("needRepay",needRepay);
+		moneyMap.put("balance",balance);
+		moneyMap.put("moneyMax",moneyMax);
+		moneyMap.put("borrowLine",borrowLine);
+		return Result.createSuccessResult(moneyMap,"获取app用户钱信息");
+	}
+
+	private Double getTotalActualMoney(Integer uId,Integer type){
+		return getTotalActualMoney(uId,type,null);
+	}
+
+	private Double getTotalActualMoney(Integer uId,Integer type,Integer repayWay){
+		IAppMoneyDetail moneyDetail = new AppMoneyDetailDTO();
+		moneyDetail.setType(type);
+		moneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_SUCCESS);
+		if (repayWay!=null){
+			moneyDetail.setRepayWay(repayWay);
+		}
+		moneyDetail.setUid(uId);
+		Double totalActualMoney = appMoneyDetailService.findTotalActualMoney(moneyDetail);
+		return totalActualMoney==null?0:totalActualMoney;
 	}
 }

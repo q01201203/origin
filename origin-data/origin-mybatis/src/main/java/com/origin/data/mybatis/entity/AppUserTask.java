@@ -1,5 +1,6 @@
 package com.origin.data.mybatis.entity;
 
+import com.origin.data.entity.IAppMoneyDetail;
 import com.origin.data.entity.IAppTask;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserTask;
@@ -25,6 +26,9 @@ public class AppUserTask implements IAppUserTask {
 	//add lic 170526
 	private IAppTask appTask;
 
+	//add lic 170601
+	private IAppMoneyDetail appMoneyDetail;
+
 	@Override
 	public IAppUser getAppUser() {
 		return appUser;
@@ -42,6 +46,15 @@ public class AppUserTask implements IAppUserTask {
 	public void setAppTask(IAppTask appTask) {
 		this.appTask = appTask;
 	}
+
+	public IAppMoneyDetail getAppMoneyDetail() {
+		return appMoneyDetail;
+	}
+
+	public void setAppMoneyDetail(IAppMoneyDetail appMoneyDetail) {
+		this.appMoneyDetail = appMoneyDetail;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}

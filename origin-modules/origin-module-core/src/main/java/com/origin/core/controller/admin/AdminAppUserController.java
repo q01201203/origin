@@ -1,4 +1,4 @@
-package com.origin.core.controller;
+package com.origin.core.controller.admin;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -20,6 +20,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -179,7 +180,7 @@ public class AdminAppUserController {
 			appUserBank = appUserBankService.findFirst(appUserBank);
 			model.addAttribute("appUserBank", appUserBank);
 		}
-		model.addAttribute(Constants.MENU_NAME, "App用户列表");
+		model.addAttribute(Constants.MENU_NAME, "用户详情");
 		return "appUser/appUserDetail";
 	}
 
@@ -265,11 +266,12 @@ public class AdminAppUserController {
     }
 
     //add lic 170526 钱记录
-	@RequestMapping(value = "/getMoney/list")
+	@RequestMapping(value = "/money/list")
 	public String getMoney(HttpServletRequest request,Model model) throws Exception{
 
 		String uid = request.getParameter("uid");
 		String type = request.getParameter("type");
+		String status = request.getParameter("status");
 		String currentPageStr = request.getParameter("currentPage");
 		String pageSizeStr = request.getParameter("pageSize");
 
@@ -287,30 +289,68 @@ public class AdminAppUserController {
 		if(StringUtils.isNotBlank(uid)){
 			params.setUid( Integer.parseInt(uid));
 		}
+		if(StringUtils.isNotBlank(status)){
+			params.setStatus( Integer.parseInt(status));
+		}
 
 		PageHelper.startPage(currentPage, pageSize);
 		List<IAppMoneyDetail> appMoneyDetails;
 		if(StringUtils.isNotBlank(type)){
 			params.setType( Integer.parseInt(type));
-			if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
-				appMoneyDetails = appMoneyDetailService.findIncomeInfo(params);
-			}else{
-				appMoneyDetails = appMoneyDetailService.find(params);
-			}
-		}else{
-			appMoneyDetails = appMoneyDetailService.find(params);
 		}
-
+		appMoneyDetails = appMoneyDetailService.findMoneyUser(params);
 		PageInfo<IAppMoneyDetail> page = new PageInfo(appMoneyDetails);
 		model.addAttribute("page", page);
 		model.addAttribute("appMoneyDetails", appMoneyDetails);
 		model.addAttribute("queryDTO", params);
 		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
-			model.addAttribute(Constants.MENU_NAME, "借款列表");
+			model.addAttribute(Constants.MENU_NAME, "借款记录");
 		}else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
-			model.addAttribute(Constants.MENU_NAME, "还款列表");
+			model.addAttribute(Constants.MENU_NAME, "还款记录");
+		}else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){
+			model.addAttribute(Constants.MENU_NAME, "提现记录");
+		}else if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
+			model.addAttribute(Constants.MENU_NAME, "用户收入记录");
 		}
 
 		return "appUser/appMoneyDetail_list";
+	}
+	@RequestMapping("/money/dialog/appMoneyDetail_edit")
+	public String edit(HttpServletRequest request, Model model){
+		String id = request.getParameter("id");
+		if(StringUtils.isNotBlank(id)){
+			IAppMoneyDetail appMoneyDetail = appMoneyDetailService.findById(Integer.parseInt(id));
+			model.addAttribute("appMoneyDetail", appMoneyDetail);
+
+		}
+		return "appUser/dialog/appMoneyDetail_edit";
+	}
+
+	@RequestMapping("/money/ajax/update")
+	@ResponseBody
+	public AjaxResult ajaxUpdate(HttpServletRequest request){
+		AjaxResult ajaxResult = new AjaxResult();
+		ajaxResult.setSuccess(false);
+
+		try {
+			String id = request.getParameter("id");
+			String moneyActual = request.getParameter("moneyActual");
+			String status = request.getParameter("status");
+			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+			if(StringUtils.isNotBlank(id)){
+				appMoneyDetail = appMoneyDetailService.findById(Integer.parseInt(id));
+			}
+			appMoneyDetail.setUpdateDate(new Date());
+			appMoneyDetail.setMoneyActual(Double.parseDouble(moneyActual));
+			appMoneyDetail.setStatus( Integer.parseInt(status));
+			if(StringUtils.isNotBlank(id)){
+				appMoneyDetailService.updateAudit(appMoneyDetail);
+			}
+			ajaxResult.setSuccess(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ajaxResult.setMsg("操作失败!");
+		}
+		return ajaxResult;
 	}
 }

@@ -27,11 +27,15 @@ public interface IAppUserTask extends Serializable {
 
 	void setMid(Integer mid);
 
- 	public IAppUser getAppUser();
+ 	IAppUser getAppUser();
  	
- 	public void setAppUser(IAppUser appUser) ;
+ 	void setAppUser(IAppUser appUser) ;
 
- 	public IAppTask getAppTask();
+ 	IAppTask getAppTask();
 
-	public void setAppTask(IAppTask appTask);
+	void setAppTask(IAppTask appTask);
+
+	IAppMoneyDetail getAppMoneyDetail();
+
+	void setAppMoneyDetail(IAppMoneyDetail appMoneyDetail) ;
 }

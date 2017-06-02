@@ -77,24 +77,25 @@
     </delete>
 
     <select id="findTaskUserInfo" parameterType="com.origin.data.mybatis.entity.AppUserTask" resultMap="appUserTaskInfoMap">
-        SELECT ogn_app_user_task.id,ogn_app_user_task.uid,ogn_app_user_task.tid,ogn_app_user_task.status,
-        ogn_app_user.mobile,ogn_app_task.task_name,task_money,auditTime
-        FROM ogn_app_user_task
-        LEFT JOIN ogn_app_user ON ogn_app_user_task.uid = ogn_app_user.id
-        LEFT JOIN ogn_app_task ON ogn_app_user_task.tid = ogn_app_task.id
+        SELECT m.create_date,m.update_date,m.money_ask,m.money_actual,m.type,m.status,m.task_name,m.task_username,m.task_mobile,
+        ogn_app_user_task.uid,ogn_app_user_task.tid,ogn_app_user_task.mid,
+        u.mobile
+        FROM ogn_app_user u,ogn_app_task t,ogn_app_money_detail m,ogn_app_user_task
         WHERE
-        1 =1
+        m.id = ogn_app_user_task.mid AND
+        u.id = ogn_app_user_task.uid AND
+        t.id = ogn_app_user_task.tid
         <if test="uid != null">AND ogn_app_user_task.uid=#{uid}</if>
         <if test="tid != null">AND ogn_app_user_task.tid=#{tid}</if>
-        <if test="status != null">AND ogn_app_user_task.status=#{status}</if>
+        <if test="appMoneyDetail != null">AND m.status=#{appMoneyDetail.status}</if>
     </select>
 
     <resultMap type="com.origin.data.mybatis.entity.AppUserTask" id="appUserTaskInfoMap">
         <id property="id" column="ogn_app_user_task.id" />
         <result property="uid" column="uid"/>
         <result property="tid" column="tid"/>
-	<result property="auditTime" column="auditTime"/>
-        <result property="status" column="status"/>
+        <result property="mid" column="mid"/>
+
         <association property="appUser" javaType="com.origin.data.mybatis.entity.AppUser">
             <id property="id" column="ogn_app_user.id" />
             <result property="createDate" column="ogn_app_user.create_date"/>
@@ -133,6 +134,26 @@
             <result property="taskDetailedStep" column="task_detailedStep"/>
             <result property="taskLink" column="task_link"/>
             <result property="deleteFlag" column="ogn_app_task.delete_flag"/>
+        </association>
+
+        <association property="appMoneyDetail" javaType="com.origin.data.mybatis.entity.AppMoneyDetail">
+            <id property="id" column="id" />
+            <result property="createDate" column="create_date"/>
+            <result property="updateDate" column="update_date"/>
+            <result property="moneyAsk" column="money_ask"/>
+            <result property="moneyActual" column="money_actual"/>
+            <result property="type" column="type"/>
+            <result property="status" column="status"/>
+            <result property="repayWay" column="repay_way"/>
+            <result property="repayTime" column="repay_time"/>
+            <result property="repayTimeType" column="repay_time_type"/>
+            <result property="taskName" column="task_name"/>
+            <result property="taskUsername" column="task_username"/>
+            <result property="taskMobile" column="task_mobile"/>
+            <result property="extensionOne" column="extension_one"/>
+            <result property="extensionTwo" column="extension_two"/>
+            <result property="uid" column="uid"/>
+            <result property="deleteFlag" column="delete_flag"/>
         </association>
     </resultMap>
 

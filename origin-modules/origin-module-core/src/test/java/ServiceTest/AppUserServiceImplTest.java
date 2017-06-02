@@ -2,6 +2,7 @@ package ServiceTest;
 
 import com.origin.core.dto.AppMoneyDetailDTO;
 import com.origin.core.dto.AppUserDTO;
+import com.origin.core.dto.AppUserTaskDTO;
 import com.origin.core.service.AppMoneyDetailService;
 import com.origin.core.service.AppTaskService;
 import com.origin.core.service.AppUserService;
@@ -9,6 +10,7 @@ import com.origin.core.service.AppUserTaskService;
 import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppMoneyDetail;
 import com.origin.data.entity.IAppUser;
+import com.origin.data.entity.IAppUserTask;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,11 +71,13 @@ public class AppUserServiceImplTest {
     @Test
     public void updateFinishTask() throws Exception{
         Integer userId = 3;
-        Integer taskId = 5;
+        Integer taskId = 1;
 
         IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
         appMoneyDetail.setUid(userId);
         appMoneyDetail.setType(IAppMoneyDetail.TYPE_INCOME);
+        appMoneyDetail.setTaskUsername("sdffff");
+        appMoneyDetail.setTaskMobile("13622215564");
         appMoneyDetailService.saveIncome(userId,taskId,appMoneyDetail);
 
     }
@@ -82,7 +86,7 @@ public class AppUserServiceImplTest {
     @Test
     public void updateMoneyStatus() throws Exception{
 
-        String mId = "13";
+        String mId = "22";
         String moneyActual = "100";
         String status = "2";
 
@@ -95,7 +99,7 @@ public class AppUserServiceImplTest {
         if (StringUtils.isNotBlank(moneyActual)){
             appMoneyDetail.setMoneyActual(Double.parseDouble(moneyActual));
         }
-        appMoneyDetailService.update(appMoneyDetail);
+        appMoneyDetailService.updateAudit(appMoneyDetail);
     }
 
     @Test
@@ -107,5 +111,63 @@ public class AppUserServiceImplTest {
         }else {
             System.out.println("licheng 2");
         }
+    }
+
+    //通过任务id查找审批记录
+    @Test
+    public void findTaskUser() throws Exception{
+        String uid = "";
+        String tid = "";
+        String status = "2";
+        IAppUserTask appUserTask = new AppUserTaskDTO();
+        if(StringUtils.isNotBlank(uid)){
+            appUserTask.setUid(Integer.parseInt(uid));
+        }
+        if(StringUtils.isNotBlank(tid)){
+            appUserTask.setTid(Integer.parseInt(tid));
+        }
+        if(StringUtils.isNotBlank(status)){
+            IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+            appMoneyDetail.setStatus(Integer.parseInt(status));
+            appUserTask.setAppMoneyDetail(appMoneyDetail);
+        }
+        List<IAppUserTask> appUserTasks = appUserTaskService.findTaskUserInfo(appUserTask);
+        System.out.println("licheng size " +appUserTasks.size()+" status " + appUserTasks.get(1).getAppMoneyDetail().getStatus()+
+                " tid "+appUserTasks.get(1).getTid());
+    }
+
+    @Test
+    public void validateRegex() throws Exception{
+        String  s = "123a435";
+        String regex = "^\\d{6}$";
+        System.out.println("licheng"+s.matches(regex));
+    }
+
+    @Test
+    public void findTotalMoney() throws Exception{
+        Integer uid = 6 ;
+
+        IAppMoneyDetail moneyDetail = new AppMoneyDetailDTO();
+        moneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
+        moneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_SUCCESS);
+        moneyDetail.setUid(uid);
+        Double borrow = appMoneyDetailService.findTotalActualMoney(moneyDetail);
+        moneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
+        Double repay = appMoneyDetailService.findTotalActualMoney(moneyDetail);
+        moneyDetail.setType(IAppMoneyDetail.TYPE_WITHDRAW);
+        Double withdraw = appMoneyDetailService.findTotalActualMoney(moneyDetail);
+        moneyDetail.setType(IAppMoneyDetail.TYPE_INCOME);
+        Double income = appMoneyDetailService.findTotalActualMoney(moneyDetail);
+        income = (income==null?0:income);
+        moneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
+        moneyDetail.setRepayWay(IAppMoneyDetail.REPAY_WAY_BALANCE);
+        Double repayBalance = appMoneyDetailService.findTotalActualMoney(moneyDetail);
+
+        IAppUser appUser = appUserService.findById(uid);
+        System.out.println("licheng income "+income);
+        Double balance = income - (withdraw==null?0:withdraw) - (repayBalance==null?0:repayBalance);
+        appUser.setBalance(balance);
+        appUserService.update(appUser);
+        System.out.println("licheng "+balance);
     }
 }

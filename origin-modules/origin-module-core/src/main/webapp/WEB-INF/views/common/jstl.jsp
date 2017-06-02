@@ -5,7 +5,7 @@
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>  
 
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-<c:set var="title" value="任性花管理系统" />
+<c:set var="title" value="任性花后台管理系统" />
 
 <script type="text/javascript">
 	var _ctx = '${ctx}';

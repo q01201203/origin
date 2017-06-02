@@ -6,7 +6,7 @@
             <%-- <a href="javascript:;">
                 <img src="${ctx }/static/images/logo.png" />
             </a> --%>
-            <span style="color: #fff;font-size: 21px;">防伪溯源管理系统</span>
+            <span style="color: #fff;font-size: 21px;">任性花后台管理系统</span>
         </div>
         <div class="n_user">
             <div class="u_left">

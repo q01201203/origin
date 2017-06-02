@@ -1,4 +1,4 @@
-package com.origin.core.controller;
+package com.origin.core.controller.admin;
 
 import com.origin.common.util.Md5Util;
 import com.origin.core.util.WebHelper;

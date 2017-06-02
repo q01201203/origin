@@ -13,13 +13,13 @@
 <%@ include file="../common/menu.jsp" %>
 <div class="J_content">
     <div class="mt20 plr20">
-        <form action="${ctx }/admin/appUser/getMoney/list" id="queryForm">
+        <form action="${ctx }/admin/appUser/money/list" id="queryForm">
             <div class="J_toolsBar clearfix">
                 <div class="t_label"></div>
                 <div class="t_text ml10">
-                    <input placeholder="请输入状态" type="text" name="status" value=""/>
+                    <input placeholder="请输入状态" type="text" name="status" value="${queryDTO.status}"/>
                     <input type="hidden" name="type" value="${queryDTO.type}">
-                    <input type="hidden" name="type" value="${queryDTO.uid}">
+                    <input type="hidden" name="uid" value="${queryDTO.uid}">
                 </div>
                 <div class="t_button ml10">
                     <a class="abtn red" href="javascript:myQuery();">
@@ -48,7 +48,10 @@
                                 <span>修改时间</span>
                             </td>
                             <td>
-                                <span>金额</span>
+                                <span>申请金额</span>
+                            </td>
+                            <td>
+                                <span>实际金额</span>
                             </td>
                             <td>
                                 <span>类型</span>
@@ -67,6 +70,17 @@
                                 </td>
                                 <td>
                                     <span>还款时间</span>
+                                </td>
+                            </c:if>
+                            <c:if test="${queryDTO.type eq 4}">
+                                <td>
+                                    <span>任务名称</span>
+                                </td>
+                                <td>
+                                    <span>完成任务的用户名</span>
+                                </td>
+                                <td>
+                                    <span>完成任务的手机号</span>
                                 </td>
                             </c:if>
                             <td>
@@ -99,7 +113,12 @@
                                         </td>
                                         <td>
                                             <div class="t_text tc">
-                                                ${r.money  }
+                                                ${r.moneyAsk  }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                 ${r.moneyActual  }
                                             </div>
                                         </td>
                                         <td>
@@ -107,6 +126,8 @@
                                                 <c:choose>
                                                     <c:when test="${r.type eq 1 }">借款</c:when>
                                                     <c:when test="${r.type eq 2 }">还款</c:when>
+                                                    <c:when test="${r.type eq 3 }">提现</c:when>
+                                                    <c:when test="${r.type eq 4 }">用户收入</c:when>
                                                 </c:choose>
                                             </div>
                                         </td>
@@ -116,8 +137,6 @@
                                                     <c:when test="${r.status  eq 1}">审核中</c:when>
                                                     <c:when test="${r.status  eq 2}">审核通过</c:when>
                                                     <c:when test="${r.status  eq 3}">审核未通过</c:when>
-                                                    <c:when test="${r.status  eq 4}">还款成功</c:when>
-                                                    <c:when test="${r.status  eq 5}">还款失败</c:when>
                                                 </c:choose>
                                             </div>
                                         </td>
@@ -142,7 +161,24 @@
                                             </td>
                                             <td>
                                                 <div class="t_text tc">
-                                                        ${r.repayTime  }
+                                                    <fmt:formatDate value="${r.repayTime  }" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                                </div>
+                                            </td>
+                                        </c:if>
+                                        <c:if test="${queryDTO.type eq 4}">
+                                            <td>
+                                                <div class="t_text tc">
+                                                    ${r.taskName}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="t_text tc">
+                                                        ${r.taskUsername}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="t_text tc">
+                                                        ${r.taskMobile}
                                                 </div>
                                             </td>
                                         </c:if>
@@ -153,8 +189,9 @@
                                         </td>
                                         <td>
                                             <div class="t_link">
-                                                <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
-                                                <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>
+                                                <c:if test="${r.status  eq 1}">
+                                                    <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
+                                                </c:if>
                                             </div>
                                         </td>
                                     </tr>
@@ -189,7 +226,7 @@
         }else{
             title = '修改区域';
         }
-        $.post('${ctx}/appMoneyDetail/dialog/appMoneyDetail_edit?id='+id, {}, function(str){
+        $.post('${ctx}/admin/appUser/money/dialog/appMoneyDetail_edit?id='+id, {}, function(str){
 
             layer.close(loadIdx);
 
