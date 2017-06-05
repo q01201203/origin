@@ -4,40 +4,47 @@
 	<sql id="selectPart">
         SELECT
         		    id,
+        		    create_date,
+        		    update_date,
         		    mobile,
         		    validcode,
         		    type,
-        		    create_date,
-                    status
+        		    count,
+        		    status,
+                    delete_flag
         FROM OGN_APP_VALIDCODE
         where 1=1
 	</sql>
     <sql id="queryParams">
 			<if test="id != null">AND id=#{id}</if>
+			<if test="createDate != null">AND create_date=#{createDate}</if>
+			<if test="updateDate != null">AND update_date=#{updateDate}</if>
 			<if test="mobile != null">AND mobile=#{mobile}</if>
 			<if test="validcode != null">AND validcode=#{validcode}</if>
 			<if test="type != null">AND type=#{type}</if>
-			<if test="createDate != null">AND create_date=#{createDate}</if>
+			<if test="count != null">AND count=#{count}</if>
 			<if test="status != null">AND status=#{status}</if>
+			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppValidcode" id="appValidcodeMap">
     	<id property="id" column="id" />
     	<result property="id" column="id"/>
+    	<result property="createDate" column="create_date"/>
+    	<result property="updateDate" column="update_date"/>
     	<result property="mobile" column="mobile"/>
     	<result property="validcode" column="validcode"/>
     	<result property="type" column="type"/>
-    	<result property="createDate" column="create_date"/>
+    	<result property="count" column="count"/>
     	<result property="status" column="status"/>
+    	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppValidcode">
         <include refid="selectPart"/>
         AND id=#{0}
     </select>
-    <!--add lic 170517-->
     <select id="findFirst" parameterType="com.origin.data.mybatis.entity.AppValidcode" resultType="com.origin.data.mybatis.entity.AppValidcode">
         <include refid="selectPart"/>
         <include refid="queryParams"/>
-        AND create_date = (SELECT MAX(create_date) FROM ogn_app_validcode)
     </select>
     <select id="find" parameterType="com.origin.data.mybatis.entity.AppValidcode" resultType="com.origin.data.mybatis.entity.AppValidcode">
         <include refid="selectPart"/>
@@ -48,41 +55,55 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO OGN_APP_VALIDCODE (
-                        <if test="mobile != null ">`mobile`</if>
-                        <if test="validcode != null ">,`validcode`</if>
-                        <if test="type != null ">,`type`</if>
-                        <if test="createDate != null ">,`create_date`</if>
-                        <if test="status != null">,`status`</if>
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">`create_date`,</if>
+                        <if test="updateDate != null">`update_date`,</if>
+                        <if test="mobile != null">`mobile`,</if>
+                        <if test="validcode != null">`validcode`,</if>
+                        <if test="type != null">`type`,</if>
+                        <if test="count != null">`count`,</if>
+                        <if test="status != null">`status`,</if>
+                        <if test="deleteFlag != null ">`delete_flag`</if>
+            </trim>
 		)
 		VALUES (
-
-                        <if test="mobile != null">#{mobile}</if>
-                        <if test="validcode != null">,#{validcode}</if>
-                        <if test="type != null">,#{type}</if>
-                        <if test="createDate != null">,#{createDate}</if>
-                        <if test="status != null">,#{status}</if>
-
+            <trim suffix="" suffixOverrides=",">
+                        <if test="createDate != null">#{createDate},</if>
+                        <if test="updateDate != null">#{updateDate},</if>
+                        <if test="mobile != null">#{mobile},</if>
+                        <if test="validcode != null">#{validcode},</if>
+                        <if test="type != null">#{type},</if>
+                        <if test="count != null">#{count},</if>
+                        <if test="status != null">#{status},</if>
+                        <if test="deleteFlag != null">#{deleteFlag}</if>
+            </trim>
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppValidcode" >
         UPDATE OGN_APP_VALIDCODE  SET
          id=id
+                <if test="createDate != null">,create_date=#{createDate}</if>
+                <if test="updateDate != null">,update_date=#{updateDate}</if>
                 <if test="mobile != null">,mobile=#{mobile}</if>
                 <if test="validcode != null">,validcode=#{validcode}</if>
                 <if test="type != null">,type=#{type}</if>
-                <if test="createDate != null">,create_date=#{createDate}</if>
+                <if test="count != null">,count=#{count}</if>
                 <if test="status != null">,status=#{status}</if>
+                <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
         <foreach collection="list" item="item"  separator=";" >
             update OGN_APP_VALIDCODE
             set id=id
-                    <if test="item.mobile != null">,mobile=#{mobile}</if>
-                    <if test="item.validcode != null">,validcode=#{validcode}</if>
-                    <if test="item.type != null">,type=#{type}</if>
-                    <if test="item.createDate != null">,create_date=#{createDate}</if>
-                    <if test="item.status != null">,status=#{status}</if>
+                    <if test="item.createDate != null">,create_date=#{item.createDate}</if>
+                    <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
+                    <if test="item.mobile != null">,mobile=#{item.mobile}</if>
+                    <if test="item.validcode != null">,validcode=#{item.validcode}</if>
+                    <if test="item.type != null">,type=#{item.type}</if>
+                    <if test="item.count != null">,count=#{item.count}</if>
+                    <if test="item.status != null">,status=#{item.status}</if>
+                    <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}
         </foreach>
     </update>

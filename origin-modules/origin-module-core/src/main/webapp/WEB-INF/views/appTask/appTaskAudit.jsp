@@ -143,7 +143,7 @@
                                         <td>
                                             <div class="t_link">
                                                 <c:if test="${r.appMoneyDetail.status  eq 1}">
-                                                    <a href="javascript:myEdit('${r.mid }');"><i class="icon"></i>编辑</a>
+                                                    <a href="javascript:myEdit('${r.mid }');"><i class="icon"></i>审核</a>
                                                 </c:if>
                                             </div>
                                         </td>

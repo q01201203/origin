@@ -8,37 +8,50 @@ import java.io.Serializable;
 */
 public interface IAppValidcode extends Serializable {
 
-public final static Integer STATUS_YES = 1; //可用
+	public final static Integer STATUS_YES = 1; //可用
 
-public final static Integer STATUS_NO = 0; //不可用
-
-public final static String TYPE_REGISTER = "1"; //注册
-public final static String TYPE_RESETPWD = "2"; //找回密码
- public final static String TYPE_BORROW = "3"; //借钱
+	public final static Integer STATUS_NO = 0; //不可用
 
 
- Integer getId();
+	public final static String TYPE_REGISTER = "1"; //注册
+	public final static String TYPE_RESETPWD = "2"; //找回密码
+	public final static String TYPE_BORROW = "3"; //借钱
 
-  void setId(Integer id);
 
- String getMobile();
+	Integer getId();
 
-  void setMobile(String mobile);
+	void setId(Integer id);
 
- String getValidcode();
+	Date getCreateDate();
 
-  void setValidcode(String validcode);
+	void setCreateDate(Date createDate);
 
- Integer getType();
+	Date getUpdateDate();
 
-  void setType(Integer type);
+	void setUpdateDate(Date updateDate);
 
- Date getCreateDate();
+	String getMobile();
 
-  void setCreateDate(Date createDate);
+	void setMobile(String mobile);
 
- Integer getStatus();
+	String getValidcode();
 
-  void setStatus(Integer status);
+	void setValidcode(String validcode);
+
+	Integer getType();
+
+	void setType(Integer type);
+
+	Integer getCount();
+
+	void setCount(Integer count);
+
+	Integer getStatus();
+
+	void setStatus(Integer status);
+
+	Integer getDeleteFlag();
+
+	void setDeleteFlag(Integer deleteFlag);
 
 }

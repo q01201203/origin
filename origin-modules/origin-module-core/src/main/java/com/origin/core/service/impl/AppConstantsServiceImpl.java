@@ -1,14 +1,14 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.AppConstantsService;
 import com.origin.data.dao.IAppConstantsDao;
 import com.origin.data.entity.IAppConstants;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class AppConstantsServiceImpl  implements AppConstantsService {
@@ -28,6 +28,7 @@ private IAppConstantsDao<IAppConstants,Integer> appConstantsDao;
 
     @Override
     public void update(IAppConstants appConstants) {
+        appConstants.setUpdateDate(new Date());
         appConstantsDao.update(appConstants);
     }
 

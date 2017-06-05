@@ -64,7 +64,7 @@ public class AppUserController {
 	//query
 	@RequestMapping(value = "/login" , method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "app用户登录", httpMethod = "POST", response = Result.class, notes = "login return a token")
+	@ApiOperation(value = "app用户登录", httpMethod = "POST", response = Result.class, notes = "登录返回一个token")
 	public Object login(@RequestParam(value = "mobile") String mobile ,
 						@RequestParam(value = "pwd") String pwd) throws Exception {
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
@@ -86,7 +86,7 @@ public class AppUserController {
 	//insert
 	@RequestMapping(value = "/register")
 	@ResponseBody
-	@ApiOperation(value = "app用户注册", httpMethod = "POST", response = Result.class, notes = "register")
+	@ApiOperation(value = "app用户注册", httpMethod = "POST", response = Result.class, notes = "注册")
 	public Object register(@RequestParam(value = "mobile") String mobile ,
 						   @RequestParam(value = "pwd") String pwd,
 						   @RequestParam(value = "alipayUsername") String alipayUsername ,
@@ -116,7 +116,7 @@ public class AppUserController {
 	//update
 	@RequestMapping(value = "/resetPwd")
 	@ResponseBody
-	@ApiOperation(value = "app用户重置密码", httpMethod = "POST", response = Result.class, notes = "resetPwd")
+	@ApiOperation(value = "app用户重置密码", httpMethod = "POST", response = Result.class, notes = "重置密码")
 	public Object resetPwd(@RequestParam(value = "mobile") String mobile ,
 						   @RequestParam(value = "pwd") String pwd) throws Exception {
 		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
@@ -135,7 +135,7 @@ public class AppUserController {
 
 	@RequestMapping(value = "/addPayPwd" ,method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加支付密码", httpMethod = "POST", response = Result.class, notes = "addPayPwd")
+	@ApiOperation(value = "app用户添加支付密码", httpMethod = "POST", response = Result.class, notes = "添加支付密码")
 	public Object addPayPwd(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "payPwd") String payPwd) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -213,7 +213,7 @@ public class AppUserController {
 	@RequestMapping(value = "/addFace" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加人脸图片", httpMethod = "GET", response = Result.class ,
-			notes = "addFace return a token")
+			notes = "添加人脸照片返回一个更高权限的 token")
 	public Object addFace(@RequestHeader(value = "Authorization" ) String token,
 						  @RequestParam(value = "face") String face) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -239,7 +239,7 @@ public class AppUserController {
 
 	@RequestMapping(value = "/addIdInfo" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加身份证信息", httpMethod = "GET", response = Result.class, notes = "addIdInfo")
+	@ApiOperation(value = "app用户添加身份证信息", httpMethod = "GET", response = Result.class, notes = "添加身份证信息")
 	public Object addIdInfo(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "idFrontImg") String idFrontImg,
 							@RequestParam(value = "idBackImg") String idBackImg,
@@ -275,7 +275,7 @@ public class AppUserController {
 
 	@RequestMapping(value = "/addPortrait" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加头像", httpMethod = "GET", response = Result.class, notes = "addPortrait")
+	@ApiOperation(value = "app用户添加头像", httpMethod = "GET", response = Result.class, notes = "添加头像")
 	public Object addPortrait(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "portrait") String portrait) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -299,7 +299,7 @@ public class AppUserController {
 
 	@RequestMapping(value = "/addNickname" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加用户昵称", httpMethod = "GET", response = Result.class, notes = "addNickname")
+	@ApiOperation(value = "app用户添加用户昵称", httpMethod = "GET", response = Result.class, notes = "添加昵称")
 	public Object addNickname(@RequestHeader(value = "Authorization" ) String token,
 							  @RequestParam(value = "nickname") String nickname) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -325,7 +325,7 @@ public class AppUserController {
 	@RequestMapping(value = "/savePersonInfo" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存个人信息", httpMethod = "GET", response = Result.class,
-			notes = "addIdInfo category(1:学生(infoSchool,infoDepartment,infoClass,infoRoomNumber) " +
+			notes = "保存用户详细信息 category(1:学生(infoSchool,infoDepartment,infoClass,infoRoomNumber) " +
 					"2:社会人群(infoCompanyAddress,infoQq,infoWeixin,infoHome))")
 	@ApiImplicitParams({@ApiImplicitParam(name = "infoMobile" ,value = "infoMobile",paramType = "query"
 			,dataType = "string") ,
@@ -448,7 +448,7 @@ public class AppUserController {
 
 	@RequestMapping(value = "/saveBankInfo" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户保存银行信息", httpMethod = "GET", response = Result.class, notes = "addBankInfo")
+	@ApiOperation(value = "app用户保存银行信息", httpMethod = "GET", response = Result.class, notes = "保存用户银行信息")
 	@ApiImplicitParams({@ApiImplicitParam(name = "bankName" ,value = "bankName",paramType = "query"
 			,dataType = "string") ,@ApiImplicitParam(name = "bankNumber" ,value = "bankNumber",paramType = "query"
 			,dataType = "int"),@ApiImplicitParam(name = "bankType" ,value = "bankType",paramType = "query"
@@ -480,7 +480,7 @@ public class AppUserController {
 	@RequestMapping(value = "/submitMoney" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存钱信息", httpMethod = "GET", response = Result.class,
-			notes = "submitMoney 借钱(askMoney、type=1、repayTimeType(1:7天 2:15天)) 还钱(askMoney、type=2、" +
+			notes = "提交借钱请求 借钱(askMoney、type=1、repayTimeType(1:7天 2:15天)) 还钱(askMoney、type=2、" +
 					"repayWay(1:支付宝 2:银行卡))  提现(askMoney、type=3)  收入(type=4、taskId（任务ID）、" +
 					"taskUserName(完成任务的用户名)、taskMobile(完成任务的手机号)))")
 	public Object submitMoney(@RequestHeader(value = "Authorization" ) String token,

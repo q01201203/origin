@@ -15,18 +15,13 @@
     <div class="mt20 plr20">
         <form action="${ctx }/admin/appUser/user/list" id="queryForm">
             <div class="J_toolsBar clearfix">
-                <div class="t_label"></div>
+                <div class="t_label">手机号</div>
                 <div class="t_text ml10">
                     <input placeholder="请输入手机号" type="text" name="mobile" value="${queryDTO.mobile }"/>
                 </div>
                 <div class="t_button ml10">
                     <a class="abtn red" href="javascript:myQuery();">
                         <i class="icon"></i>查询
-                    </a>
-                </div>
-                <div class="t_button ml10">
-                    <a class="abtn blue" href="javascript:myEdit();">
-                        <i class="icon"></i>新增
                     </a>
                 </div>
             </div>
@@ -63,13 +58,14 @@
                             </td>
                             <td>
                                 <div class="t_link">
-                                    <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
-                                    <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>
-                                    <a href="${ctx}/admin/appUser/user/detail/appUser_edit?id=${r.id }"><i class="icon"></i>更多</a>
-                                    <a href="${ctx}/admin/appTask/userTask/list?uid=${r.id}"><i class="icon"></i>任务</a>
-                                    <a href="${ctx}/admin/appTask/userTask/list?uid=${r.id}&status=1"><i class="icon"></i>收入</a>
-                                    <a href="${ctx }/admin/appUser/money/list?type=1&uid=${r.id}"><i class="icon"></i>借款</a>
-                                    <a href="${ctx }/admin/appUser/money/list?type=2&uid=${r.id}"><i class="icon"></i>还款</a>
+                                    <!--<a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
+                                    <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>-->
+                                    <a href="${ctx}/admin/appUser/user/detail/appUser_edit?id=${r.id }"><i class="icon"></i>详细信息</a>
+                                    <a href="${ctx}/admin/appTask/userTask/list?uid=${r.id}"><i class="icon"></i>审核任务</a>
+                                    <a href="${ctx }/admin/appUser/money/list?type=1&uid=${r.id}"><i class="icon"></i>借款记录</a>
+                                    <a href="${ctx }/admin/appUser/money/list?type=2&uid=${r.id}"><i class="icon"></i>还款记录</a>
+                                    <a href="${ctx }/admin/appUser/money/list?type=3&uid=${r.id}"><i class="icon"></i>提现记录</a>
+                                    <a href="${ctx }/admin/appUser/money/list?type=4&uid=${r.id}"><i class="icon"></i>收入记录</a>
                                 </div>
                             </td>
                         </tr>

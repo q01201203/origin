@@ -7,6 +7,7 @@ import com.origin.data.entity.IAppTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -27,6 +28,7 @@ public class AppTaskServiceImpl  implements AppTaskService {
 
     @Override
     public void update(IAppTask appTask) {
+        appTask.setUpdateDate(new Date());
         appTaskDao.update(appTask);
     }
 

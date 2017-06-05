@@ -11,7 +11,7 @@
         $('#editForm').validator({
             ignore: ':hidden',
             fields : {
-									createDate : ':required;length[~20]',
+                    createDate : ':required;length[~20]',
 					updateDate : ':required;length[~20]',
 					taskName : ':required;length[~20]',
 					taskNumber : ':required;length[~20]',

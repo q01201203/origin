@@ -15,7 +15,7 @@
     <div class="mt20 plr20">
         <form action="${ctx }/admin/appTask/list" id="queryForm">
             <div class="J_toolsBar clearfix">
-                <div class="t_label"></div>
+                <div class="t_label">任务名称</div>
                 <div class="t_text ml10">
                     <input placeholder="请输入任务名称" type="text" name="name" value="${queryDTO.taskName }"/>
                 </div>
@@ -72,10 +72,10 @@
                                         </td>
                                         <td>
                                             <div class="t_link">
-                                                <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
-                                                <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>
-                                                <a href="${ctx}/admin/appTask/task/detail/appTask_edit?id=${r.id }"><i class="icon"></i>更多</a>
-                                                <a href="${ctx}/admin/appTask/userTask/list?tid=${r.id}"><i class="icon"></i>领取人员</a>
+                                                <!--<a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
+                                                <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>-->
+                                                <a href="${ctx}/admin/appTask/task/detail/appTask_edit?id=${r.id }"><i class="icon"></i>详情</a>
+                                                <a href="${ctx}/admin/appTask/userTask/list?tid=${r.id}"><i class="icon"></i>审批领取人员</a>
                                             </div>
                                         </td>
                                     </tr>

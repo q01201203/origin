@@ -4,7 +4,7 @@
 <%@ include file="../common/common.jsp" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>详情 - ${title }</title>
+<title>${menu_name } - ${title }</title>
 </head>
 <body <%@ include file="../common/skin.jsp" %>>
 	<%@ include file="../common/head.jsp" %>

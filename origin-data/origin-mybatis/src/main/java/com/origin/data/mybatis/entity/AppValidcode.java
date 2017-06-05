@@ -1,28 +1,33 @@
 package com.origin.data.mybatis.entity;
 
-import java.util.Date;
-
 import com.origin.data.entity.IAppValidcode;
+import java.util.Date;
 
 /**
  * 
  */
 public class AppValidcode implements IAppValidcode {
 
-	private static final long serialVersionUID = 69153347280338209L;
+	private static final long serialVersionUID = 44431168368338378L;
 	
 	/**  */
 	private Integer id;//;
+	/**  */
+	private Date createDate;// = CURRENT_TIMESTAMP;
+	/**  */
+	private Date updateDate;// = CURRENT_TIMESTAMP;
 	/**  */
 	private String mobile;//;
 	/**  */
 	private String validcode;//;
 	/**  */
-	private Integer type;//;
+	private Integer type;// = Integer.valueOf(0);
 	/**  */
-	private Date createDate;//;
+	private Integer count;// = Integer.valueOf(0);
 	/**  */
-	private Integer status;//;
+	private Integer status;// = Integer.valueOf(1);
+	/**  */
+	private Integer deleteFlag;// = Integer.valueOf(0);
 	
 	
 	public Integer getId() {
@@ -31,6 +36,22 @@ public class AppValidcode implements IAppValidcode {
 	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public Date getCreateDate() {
+		return this.createDate;
+	}
+	
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
+	
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
 	
 	public String getMobile() {
@@ -57,12 +78,12 @@ public class AppValidcode implements IAppValidcode {
 		this.type = type;
 	}
 	
-	public Date getCreateDate() {
-		return this.createDate;
+	public Integer getCount() {
+		return this.count;
 	}
 	
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 	
 	public Integer getStatus() {
@@ -71,6 +92,14 @@ public class AppValidcode implements IAppValidcode {
 	
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	
+	public Integer getDeleteFlag() {
+		return this.deleteFlag;
+	}
+	
+	public void setDeleteFlag(Integer deleteFlag) {
+		this.deleteFlag = deleteFlag;
 	}
 	
 	public boolean equals(Object object) {
@@ -94,11 +123,14 @@ public class AppValidcode implements IAppValidcode {
 	public String toString() {
 		return this.getClass().getName() + "["
 		+",id="+this.getId()
+		+",createDate="+this.getCreateDate()
+		+",updateDate="+this.getUpdateDate()
 		+",mobile="+this.getMobile()
 		+",validcode="+this.getValidcode()
 		+",type="+this.getType()
-		+",createDate="+this.getCreateDate()
+		+",count="+this.getCount()
 		+",status="+this.getStatus()
+		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}
 }

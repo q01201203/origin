@@ -47,6 +47,7 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
 
     @Override
     public void update(IAppMoneyDetail appMoneyDetail) {
+        appMoneyDetail.setUpdateDate(new Date());
         appMoneyDetailDao.update(appMoneyDetail);
     }
 

@@ -11,72 +11,102 @@ public class AppValidcodeDTO implements IAppValidcode {
 
 
     /**  */
-private Integer id;//;
+	private Integer id;//;
     /**  */
-private String mobile;//;
+	private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
-private String validcode;//;
+	private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
-private Integer type;//;
+	private String mobile;//;
     /**  */
-private Date createDate;//;
+	private String validcode;//;
     /**  */
-private Integer status;//;
-public AppValidcodeDTO(){
-}
+	private Integer type;// = Integer.valueOf(0);
+    /**  */
+	private Integer count;// = Integer.valueOf(0);
+    /**  */
+	private Integer status;// = Integer.valueOf(1);
+    /**  */
+	private Integer deleteFlag;// = Integer.valueOf(0);
+	public AppValidcodeDTO(){
+	}
 
-public AppValidcodeDTO(Integer id){
-	this.id = id;
-}
+	public AppValidcodeDTO(Integer id){
+		this.id = id;
+	}
 
 
-public Integer getId() {
-return this.id;
-}
+	public Integer getId() {
+		return this.id;
+	}
 
-public void setId(Integer id) {
-this.id = id;
-}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-public String getMobile() {
-return this.mobile;
-}
+	public Date getCreateDate() {
+		return this.createDate;
+	}
 
-public void setMobile(String mobile) {
-this.mobile = mobile;
-}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
-public String getValidcode() {
-return this.validcode;
-}
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
 
-public void setValidcode(String validcode) {
-this.validcode = validcode;
-}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
 
-public Integer getType() {
-return this.type;
-}
+	public String getMobile() {
+		return this.mobile;
+	}
 
-public void setType(Integer type) {
-this.type = type;
-}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 
-public Date getCreateDate() {
-return this.createDate;
-}
+	public String getValidcode() {
+		return this.validcode;
+	}
 
-public void setCreateDate(Date createDate) {
-this.createDate = createDate;
-}
+	public void setValidcode(String validcode) {
+		this.validcode = validcode;
+	}
 
-public Integer getStatus() {
-return this.status;
-}
+	public Integer getType() {
+		return this.type;
+	}
 
-public void setStatus(Integer status) {
-this.status = status;
-}
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public Integer getCount() {
+		return this.count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public Integer getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	public Integer getDeleteFlag() {
+		return this.deleteFlag;
+	}
+
+	public void setDeleteFlag(Integer deleteFlag) {
+		this.deleteFlag = deleteFlag;
+	}
 
 	public boolean equals(Object object) {
 		if (object == null) {
@@ -99,11 +129,14 @@ this.status = status;
 	public String toString() {
 		return this.getClass().getName() + "["
 		+",id="+this.getId()
+		+",createDate="+this.getCreateDate()
+		+",updateDate="+this.getUpdateDate()
 		+",mobile="+this.getMobile()
 		+",validcode="+this.getValidcode()
 		+",type="+this.getType()
-		+",createDate="+this.getCreateDate()
+		+",count="+this.getCount()
 		+",status="+this.getStatus()
+		+",deleteFlag="+this.getDeleteFlag()
 		+"]";
 	}
 }

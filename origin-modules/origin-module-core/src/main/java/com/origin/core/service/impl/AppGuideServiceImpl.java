@@ -1,14 +1,14 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.AppGuideService;
 import com.origin.data.dao.IAppGuideDao;
 import com.origin.data.entity.IAppGuide;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class AppGuideServiceImpl  implements AppGuideService {
@@ -28,7 +28,8 @@ appGuideDao.delete(id);
 
 @Override
 public void update(IAppGuide appGuide) {
-appGuideDao.update(appGuide);
+    appGuide.setUpdateDate(new Date());
+    appGuideDao.update(appGuide);
 }
 
 @Override

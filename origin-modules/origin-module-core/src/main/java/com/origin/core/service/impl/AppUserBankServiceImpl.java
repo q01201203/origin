@@ -7,6 +7,7 @@ import com.origin.data.entity.IAppUserBank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -27,7 +28,8 @@ appUserBankDao.delete(id);
 
 @Override
 public void update(IAppUserBank appUserBank) {
-appUserBankDao.update(appUserBank);
+    appUserBank.setUpdateDate(new Date());
+    appUserBankDao.update(appUserBank);
 }
 
 @Override

@@ -1,14 +1,14 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.AppUserService;
 import com.origin.data.dao.IAppUserDao;
 import com.origin.data.entity.IAppUser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class AppUserServiceImpl  implements AppUserService {
@@ -28,6 +28,7 @@ private IAppUserDao<IAppUser,Integer> appUserDao;
 
     @Override
     public void update(IAppUser appUser) {
+        appUser.setUpdateDate(new Date());
         appUserDao.update(appUser);
     }
 

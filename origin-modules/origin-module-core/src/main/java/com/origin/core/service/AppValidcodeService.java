@@ -1,7 +1,6 @@
 package com.origin.core.service;
 
 import com.origin.data.entity.IAppValidcode;
-
 import java.util.List;
 
 public interface AppValidcodeService {

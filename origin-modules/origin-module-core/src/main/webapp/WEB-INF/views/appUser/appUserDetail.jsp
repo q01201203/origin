@@ -4,7 +4,7 @@
 <%@ include file="../common/common.jsp" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>App用户详情 - ${title }</title>
+<title>${menu_name } - ${title }</title>
 </head>
 <body <%@ include file="../common/skin.jsp" %>>
 	<%@ include file="../common/head.jsp" %>
@@ -20,8 +20,7 @@
                          <td>
                              <div class="J_toolsBar fl">
                                  <div class="t_text w200 ml10">
-									<input type="text" name="createDate"
-										   value="<fmt:formatDate value="${appUser.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
+									 <fmt:formatDate value="${appUser.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                  </div>
                              </div>
                          </td>
@@ -31,8 +30,7 @@
                          <td>
                              <div class="J_toolsBar fl">
                                  <div class="t_text w200 ml10">
-                                     <input type="text" name="updateDate"
-											value="<fmt:formatDate value="${appUser.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
+									 <fmt:formatDate value="${appUser.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                  </div>
                              </div>
                          </td>
@@ -42,7 +40,14 @@
                          <td>
                              <div class="J_toolsBar fl">
                                  <div class="t_text w200 ml10">
-                                     <input type="text" name="authority"  value="${appUser.authority}"/>
+									 <c:choose>
+										 <c:when test="${appUser.authority eq 100}">
+											 低
+										 </c:when>
+										 <c:when test="${appUser.authority eq 101}">
+											 高
+										 </c:when>
+									 </c:choose>
                                  </div>
                              </div>
                          </td>
@@ -52,7 +57,7 @@
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w200 ml10">
-									<input type="text" name="moneyMax"  value="${appUser.moneyMax}"/>
+									${appUser.moneyMax}
 								</div>
 							</div>
 						</td>
@@ -62,7 +67,7 @@
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w200 ml10">
-									<input type="text" name="alipayUsername"  value="${appUser.alipayUsername}"/>
+									${appUser.alipayUsername}
 								</div>
 							</div>
 						</td>
@@ -72,7 +77,7 @@
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w200 ml10">
-									<input type="text" name="alipayUseraccout"  value="${appUser.alipayUseraccout}"/>
+									${appUser.alipayUseraccout}
 								</div>
 							</div>
 						</td>
@@ -81,8 +86,9 @@
 						<td class="l_title "><b class="cRed">*</b> 人脸图片地址</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w200 ml10" style="width: 260px">
 									<input type="text" name="imgFace"  value="${appUser.imgFace}"/>
+									<a id="a_imgFace" style="margin-left: 30px">查看</a>
 								</div>
 							</div>
 						</td>
@@ -91,8 +97,9 @@
 						<td class="l_title "><b class="cRed">*</b> 身份证正面图片地址</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w200 ml10" style="width: 260px">
 									<input type="text" name="imgIdFront"  value="${appUser.imgIdFront}"/>
+									<a id="a_imgIdFront" style="margin-left: 30px">查看</a>
 								</div>
 							</div>
 						</td>
@@ -101,8 +108,9 @@
 						<td class="l_title "><b class="cRed">*</b> 身份证背面图片地址</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w200 ml10" style="width: 260px">
 									<input type="text" name="imgIdBack"  value="${appUser.imgIdBack}"/>
+									<a id="a_imgIdBack" style="margin-left: 30px">查看</a>
 								</div>
 							</div>
 						</td>
@@ -112,7 +120,7 @@
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w200 ml10">
-									<input type="text" name="userIdName"  value="${appUser.userIdName}"/>
+									${appUser.userIdName}
 								</div>
 							</div>
 						</td>
@@ -121,8 +129,8 @@
 						<td class="l_title "><b class="cRed">*</b> 身份证号码</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
-									<input type="text" name="userIdNumber"  value="${appUser.userIdNumber}"/>
+								<div class="t_text w200 ml10" >
+									${appUser.userIdNumber}
 								</div>
 							</div>
 						</td>
@@ -131,8 +139,9 @@
 						<td class="l_title "><b class="cRed">*</b> 头像图片地址</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w200 ml10" style="width: 260px">
 									<input type="text" name="imgPortrait"  value="${appUser.imgPortrait}"/>
+									<a id="a_imgPortrait" style="margin-left: 30px">查看</a>
 								</div>
 							</div>
 						</td>
@@ -142,7 +151,7 @@
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w200 ml10">
-									<input type="text" name="nickname"  value="${appUser.nickname}"/>
+									${appUser.nickname}
 								</div>
 							</div>
 						</td>
@@ -152,38 +161,23 @@
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w200 ml10">
-									<input type="text" name="category"  value="${appUser.category}"/>
+									<c:if test="${appUser.category eq 1}">
+										学生
+									</c:if>
+									<c:if test="${appUser.category eq 2}">
+										社会人群
+									</c:if>
 								</div>
 							</div>
 						</td>
 					</tr>
 					<c:if test="${appUser.category eq 1}">
 						<tr>
-							<td class="l_title "><b class="cRed">*</b> 详细信息创建时间</td>
-							<td>
-								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
-										<input type="text" name="createDate"  value="${appStuDetail.createDate}"/>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="l_title "><b class="cRed">*</b> 详细信息更新时间</td>
-							<td>
-								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
-										<input type="text" name="updateDate"  value="${appStuDetail.updateDate}"/>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
 							<td class="l_title "><b class="cRed">*</b> 详细信息手机号</td>
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoMobile"  value="${appStuDetail.infoMobile}"/>
+											${appStuDetail.infoMobile}
 									</div>
 								</div>
 							</td>
@@ -193,7 +187,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoSchool"  value="${appStuDetail.infoSchool}"/>
+											${appStuDetail.infoSchool}
 									</div>
 								</div>
 							</td>
@@ -203,7 +197,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoDepartment"  value="${appStuDetail.infoDepartment}"/>
+											${appStuDetail.infoDepartment}
 									</div>
 								</div>
 							</td>
@@ -213,7 +207,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoClass"  value="${appStuDetail.infoClass}"/>
+											${appStuDetail.infoClass}
 									</div>
 								</div>
 							</td>
@@ -223,7 +217,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoRoomnumber"  value="${appStuDetail.infoRoomnumber}"/>
+											${appStuDetail.infoRoomnumber}
 									</div>
 								</div>
 							</td>
@@ -233,7 +227,23 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoEmycontactRelation"  value="${appStuDetail.infoEmycontactRelation}"/>
+										<c:choose>
+											<c:when test="${appStuDetail.infoEmycontactRelation eq 1}">
+												父母
+											</c:when>
+											<c:when test="${appStuDetail.infoEmycontactRelation eq 2}">
+												朋友
+											</c:when>
+											<c:when test="${appStuDetail.infoEmycontactRelation eq 3}">
+												同学
+											</c:when>
+											<c:when test="${appStuDetail.infoEmycontactRelation eq 4}">
+												同事
+											</c:when>
+											<c:when test="${appStuDetail.infoEmycontactRelation eq 5}">
+												亲戚
+											</c:when>
+										</c:choose>
 									</div>
 								</div>
 							</td>
@@ -243,7 +253,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoEmycontactMobile"  value="${appStuDetail.infoEmycontactMobile}"/>
+											${appStuDetail.infoEmycontactMobile}
 									</div>
 								</div>
 							</td>
@@ -253,7 +263,23 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoContactRelation"  value="${appStuDetail.infoContactRelation}"/>
+										<c:choose>
+											<c:when test="${appStuDetail.infoContactRelation eq 1}">
+												父母
+											</c:when>
+											<c:when test="${appStuDetail.infoContactRelation eq 2}">
+												朋友
+											</c:when>
+											<c:when test="${appStuDetail.infoContactRelation eq 3}">
+												同学
+											</c:when>
+											<c:when test="${appStuDetail.infoContactRelation eq 4}">
+												同事
+											</c:when>
+											<c:when test="${appStuDetail.infoContactRelation eq 5}">
+												亲戚
+											</c:when>
+										</c:choose>
 									</div>
 								</div>
 							</td>
@@ -263,7 +289,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoContactMobile"  value="${appStuDetail.infoContactMobile}"/>
+											${appStuDetail.infoContactMobile}
 									</div>
 								</div>
 							</td>
@@ -271,31 +297,11 @@
 					</c:if>
 					<c:if test="${appUser.category eq 2}">
 						<tr>
-							<td class="l_title "><b class="cRed">*</b> 详细信息创建时间</td>
+							<td class="l_title "><b class="cRed">*</b> 详细信息手机号</td>
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="createDate"  value="${appPersonDetail.createDate}"/>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="l_title "><b class="cRed">*</b> 详细信息更新时间</td>
-							<td>
-								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
-										<input type="text" name="updateDate"  value="${appPersonDetail.updateDate}"/>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="l_title "><b class="cRed">*</b> 详细信息收集号</td>
-							<td>
-								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
-										<input type="text" name="infoMobile"  value="${appPersonDetail.infoMobile}"/>
+											${appPersonDetail.infoMobile}
 									</div>
 								</div>
 							</td>
@@ -305,7 +311,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoCompanyName"  value="${appPersonDetail.infoCompanyName}"/>
+											${appPersonDetail.infoCompanyName}
 									</div>
 								</div>
 							</td>
@@ -315,7 +321,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoCompanyAddress"  value="${appPersonDetail.infoCompanyAddress}"/>
+											${appPersonDetail.infoCompanyAddress}
 									</div>
 								</div>
 							</td>
@@ -325,7 +331,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoQq"  value="${appPersonDetail.infoQq}"/>
+											${appPersonDetail.infoQq}
 									</div>
 								</div>
 							</td>
@@ -335,7 +341,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoWeixin"  value="${appPersonDetail.infoWeixin}"/>
+											${appPersonDetail.infoWeixin}
 									</div>
 								</div>
 							</td>
@@ -345,7 +351,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoHome"  value="${appPersonDetail.infoHome}"/>
+											${appPersonDetail.infoHome}
 									</div>
 								</div>
 							</td>
@@ -355,7 +361,23 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="category"  value="${appPersonDetail.infoEmycontactRelation}"/>
+										<c:choose>
+											<c:when test="${appPersonDetail.infoEmycontactRelation eq 1}">
+												父母
+											</c:when>
+											<c:when test="${appPersonDetail.infoEmycontactRelation eq 2}">
+												朋友
+											</c:when>
+											<c:when test="${appPersonDetail.infoEmycontactRelation eq 3}">
+												同学
+											</c:when>
+											<c:when test="${appPersonDetail.infoEmycontactRelation eq 4}">
+												同事
+											</c:when>
+											<c:when test="${appPersonDetail.infoEmycontactRelation eq 5}">
+												亲戚
+											</c:when>
+										</c:choose>
 									</div>
 								</div>
 							</td>
@@ -365,7 +387,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoEmycontactMobile"  value="${appPersonDetail.infoEmycontactMobile}"/>
+											${appPersonDetail.infoEmycontactMobile}
 									</div>
 								</div>
 							</td>
@@ -375,7 +397,23 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoContactRelation"  value="${appPersonDetail.infoContactRelation}"/>
+										<c:choose>
+											<c:when test="${appPersonDetail.infoContactRelation eq 1}">
+												父母
+											</c:when>
+											<c:when test="${appPersonDetail.infoContactRelation eq 2}">
+												朋友
+											</c:when>
+											<c:when test="${appPersonDetail.infoContactRelation eq 3}">
+												同学
+											</c:when>
+											<c:when test="${appPersonDetail.infoContactRelation eq 4}">
+												同事
+											</c:when>
+											<c:when test="${appPersonDetail.infoContactRelation eq 5}">
+												亲戚
+											</c:when>
+										</c:choose>
 									</div>
 								</div>
 							</td>
@@ -385,7 +423,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoContactMobile"  value="${appPersonDetail.infoContactMobile}"/>
+											${appPersonDetail.infoContactMobile}
 									</div>
 								</div>
 							</td>
@@ -397,7 +435,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoContactMobile"  value="${appUserBank.bankName}"/>
+											${appUserBank.bankName}
 									</div>
 								</div>
 							</td>
@@ -407,7 +445,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoContactMobile"  value="${appUserBank.bankNumber}"/>
+											${appUserBank.bankNumber}
 									</div>
 								</div>
 							</td>
@@ -417,7 +455,14 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoContactMobile"  value="${appUserBank.bankType}"/>
+										<c:choose>
+											<c:when test="${appUserBank.bankType eq 0}">
+												储蓄卡
+											</c:when>
+											<c:when test="${appUserBank.bankType eq 1}">
+												信用卡
+											</c:when>
+										</c:choose>
 									</div>
 								</div>
 							</td>
@@ -427,7 +472,7 @@
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w200 ml10">
-										<input type="text" name="infoContactMobile"  value="${appUserBank.bankMobile}"/>
+											${appUserBank.bankMobile}
 									</div>
 								</div>
 							</td>
@@ -440,12 +485,12 @@
 	                     		<div class="l_p_btn pd50">
 									<div class="J_toolsBar">
 										<div class="t_buttonGroup">
-					                    	<a class="abtn red" href="javascript:mySubmit();">修改</a>
-					                    </div>
-									</div>
-								</div>
-	                     	</th>
-	                     </tr>
+											<!--<a class="abtn red" href="javascript:mySubmit();">修改</a>-->
+                                        </div>
+                                    </div>
+                                </div>
+                             </th>
+                         </tr>
                      </tfoot>
 				</table>
 			</div>
@@ -483,6 +528,20 @@
 		function mySubmit(){
 			$('#myForm').submit();
 		}
+
+		$('#a_imgPortrait').click(function () {
+            $("#a_imgPortrait").attr("href", $("input[name='imgPortrait']").val());
+        })
+        $('#a_imgIdBack').click(function () {
+            $("#a_imgIdBack").attr("href", $("input[name='imgIdBack']").val());
+        })
+        $('#a_imgIdFront').click(function () {
+            $("#a_imgIdFront").attr("href", $("input[name='imgIdFront']").val());
+        })
+        $('#a_imgFace').click(function () {
+            $("#a_imgFace").attr("href", $("input[name='imgFace']").val());
+        })
+
 	</script>
 </body>
 </html>

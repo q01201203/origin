@@ -2,6 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@ include file="../common/common.jsp" %>
+
+<script type="text/javascript">
+    var parentChosen;
+    $(function(){
+
+        parentChosen = $(".chosen-select").chosen({
+            no_results_text: "未找到状态",
+            width : '100%'
+        });
+    });
+</script>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>${menu_name } - ${title }</title>
@@ -15,20 +26,20 @@
     <div class="mt20 plr20">
         <form action="${ctx }/admin/appUser/money/list" id="queryForm">
             <div class="J_toolsBar clearfix">
-                <div class="t_label"></div>
-                <div class="t_text ml10">
-                    <input placeholder="请输入状态" type="text" name="status" value="${queryDTO.status}"/>
+                <div class="t_label">状态</div>
+                <div class="t_label ml10" style="width: 220px;">
+                    <select data-placeholder="选择状态" class="chosen-select" name="status">
+                        <option value="" >选择状态</option>
+                        <option value="1" ${queryDTO.status eq 1 ? "selected=\"selected\"":""}>待审核</option>
+                        <option value="2" ${queryDTO.status eq 2 ? "selected=\"selected\"":""}>审核通过</option>
+                        <option value="3" ${queryDTO.status eq 3 ? "selected=\"selected\"":""}>审核不通过</option>
+                    </select>
                     <input type="hidden" name="type" value="${queryDTO.type}">
                     <input type="hidden" name="uid" value="${queryDTO.uid}">
                 </div>
                 <div class="t_button ml10">
                     <a class="abtn red" href="javascript:myQuery();">
                         <i class="icon"></i>查询
-                    </a>
-                </div>
-                <div class="t_button ml10">
-                    <a class="abtn blue" href="javascript:myEdit();">
-                        <i class="icon"></i>新增
                     </a>
                 </div>
             </div>
@@ -156,6 +167,7 @@
                                                     <c:choose>
                                                         <c:when test="${r.repayWay eq 1 }">支付宝</c:when>
                                                         <c:when test="${r.repayWay eq 2 }">银行卡</c:when>
+                                                        <c:when test="${r.repayWay eq 3 }">余额</c:when>
                                                     </c:choose>
                                                 </div>
                                             </td>
@@ -190,7 +202,7 @@
                                         <td>
                                             <div class="t_link">
                                                 <c:if test="${r.status  eq 1}">
-                                                    <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
+                                                    <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>审核</a>
                                                 </c:if>
                                             </div>
                                         </td>
@@ -218,6 +230,7 @@
 </div>
 <script src="${ctx }/static/plugins/chosen_v1.6.2/chosen.jquery.js"></script>
 <script type="text/javascript">
+
     function myEdit(id){
         var loadIdx = layer.load();
         var title = '添加区域';

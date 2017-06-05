@@ -1,14 +1,14 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.AppFeedbackService;
 import com.origin.data.dao.IAppFeedbackDao;
 import com.origin.data.entity.IAppFeedback;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class AppFeedbackServiceImpl  implements AppFeedbackService {
@@ -28,7 +28,8 @@ appFeedbackDao.delete(id);
 
 @Override
 public void update(IAppFeedback appFeedback) {
-appFeedbackDao.update(appFeedback);
+    appFeedback.setUpdateDate(new Date());
+    appFeedbackDao.update(appFeedback);
 }
 
 @Override
