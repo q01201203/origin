@@ -8,7 +8,6 @@ import com.origin.core.dto.AppMoneyDetailDTO;
 import com.origin.core.dto.AppTaskDTO;
 import com.origin.core.dto.AppUserTaskDTO;
 import com.origin.core.service.AppTaskService;
-import com.origin.core.service.AppUserService;
 import com.origin.core.service.AppUserTaskService;
 import com.origin.core.util.Constants;
 import com.origin.data.entity.IAppMoneyDetail;
@@ -25,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -42,9 +42,6 @@ public class AdminAppTaskController {
 	private AppTaskService appTaskService;
 
 	@Autowired
-	private AppUserService appUserService;
-
-	@Autowired
 	private AppUserTaskService appUserTaskService;
 
 	@RequestMapping("/list")
@@ -58,6 +55,11 @@ public class AdminAppTaskController {
 		String taskMoney = request.getParameter("taskMoney");
 		String taskImg = request.getParameter("taskImg");
 		String taskHot = request.getParameter("taskHot");
+		String taskStartTime = request.getParameter("taskStartTime");
+		String taskEndTime = request.getParameter("taskEndTime");
+		String taskSimpleStep = request.getParameter("taskSimpleStep");
+		String taskDetailedStep = request.getParameter("taskDetailedStep");
+		String taskLink = request.getParameter("taskLink");
 		String deleteFlag = request.getParameter("deleteFlag");
 		String currentPageStr = request.getParameter("currentPage");
 		String pageSizeStr = request.getParameter("pageSize");
@@ -98,6 +100,21 @@ public class AdminAppTaskController {
 		if(StringUtils.isNotBlank(taskHot)){
 			params.setTaskHot( Integer.parseInt(taskHot));
 		}
+		if(StringUtils.isNotBlank(taskStartTime)){
+			params.setTaskStartTime(DateUtils.parseDate(taskStartTime));
+		}
+		if(StringUtils.isNotBlank(taskEndTime)){
+			params.setTaskEndTime(DateUtils.parseDate(taskEndTime));
+		}
+		if(StringUtils.isNotBlank(taskSimpleStep)){
+			params.setTaskSimpleStep(taskSimpleStep);
+		}
+		if(StringUtils.isNotBlank(taskDetailedStep)){
+			params.setTaskDetailedStep(taskDetailedStep);
+		}
+		if(StringUtils.isNotBlank(taskLink)){
+			params.setTaskLink(taskLink);
+		}
 		if(StringUtils.isNotBlank(deleteFlag)){
 			params.setDeleteFlag( Integer.parseInt(deleteFlag));
 		}
@@ -130,30 +147,41 @@ public class AdminAppTaskController {
 
     	try {
     		String id = request.getParameter("id");
-    		String createDate = request.getParameter("createDate");
-    		String updateDate = request.getParameter("updateDate");
     		String taskName = request.getParameter("taskName");
     		String taskNumber = request.getParameter("taskNumber");
     		String taskType = request.getParameter("taskType");
     		String taskMoney = request.getParameter("taskMoney");
     		String taskImg = request.getParameter("taskImg");
     		String taskHot = request.getParameter("taskHot");
-    		String deleteFlag = request.getParameter("deleteFlag");
+    		String taskStartTime = request.getParameter("taskStartTime");
+    		String taskEndTime = request.getParameter("taskEndTime");
+    		String taskSimpleStep = request.getParameter("taskSimpleStep");
+    		String taskDetailedStep = request.getParameter("taskDetailedStep");
+    		String taskLink = request.getParameter("taskLink");
+    		//String deleteFlag = request.getParameter("deleteFlag");
     		IAppTask appTask = new AppTaskDTO();
     		if(StringUtils.isNotBlank(id)){
 				appTask = appTaskService.findById(Integer.parseInt(id));
     		}else{
 				appTask = new AppTaskDTO();
-    		}
-			appTask.setCreateDate(DateUtils.parseDate(createDate));
-			appTask.setUpdateDate(DateUtils.parseDate(updateDate));
-			appTask.setTaskName(taskName);
+				appTask.setCreateDate(new Date());
+			}
+			if(StringUtils.isNotBlank(taskName)) {
+				appTask.setTaskName(taskName);
+			}
 			appTask.setTaskNumber( Integer.parseInt(taskNumber));
 			appTask.setTaskType( Integer.parseInt(taskType));
-			appTask.setTaskMoney(Double.parseDouble(taskMoney));
+			if(StringUtils.isNotBlank(taskMoney)){
+				appTask.setTaskMoney(Double.parseDouble(taskMoney));
+			}
 			appTask.setTaskImg(taskImg);
 			appTask.setTaskHot( Integer.parseInt(taskHot));
-			appTask.setDeleteFlag( Integer.parseInt(deleteFlag));
+			appTask.setTaskStartTime(DateUtils.parseDate(taskStartTime));
+			appTask.setTaskEndTime(DateUtils.parseDate(taskEndTime));
+			appTask.setTaskSimpleStep(taskSimpleStep);
+			appTask.setTaskDetailedStep(taskDetailedStep);
+			appTask.setTaskLink(taskLink);
+			//appTask.setDeleteFlag( Integer.parseInt(deleteFlag));
     		if(StringUtils.isNotBlank(id)){
 				appTaskService.update(appTask);
     		}else{
@@ -188,11 +216,14 @@ public class AdminAppTaskController {
 	@RequestMapping("/task/detail/appTask_edit")
 	public String userDetailEdit(HttpServletRequest request, Model model){
 		String id = request.getParameter("id");
+		String operation = request.getParameter("operation");
+		System.out.println("licheng   operation = "+operation);
 		if(StringUtils.isNotBlank(id)){
 			IAppTask appTask = appTaskService.findById(Integer.parseInt(id));
 			model.addAttribute("appTask", appTask);
 		}
 		model.addAttribute(Constants.MENU_NAME, "任务详情");
+		model.addAttribute(Constants.OPERATION,operation);
 		return "appTask/appTaskDetail";
 	}
 

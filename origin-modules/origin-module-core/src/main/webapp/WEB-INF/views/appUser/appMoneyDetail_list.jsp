@@ -28,7 +28,7 @@
             <div class="J_toolsBar clearfix">
                 <div class="t_label">状态</div>
                 <div class="t_label ml10" style="width: 220px;">
-                    <select data-placeholder="选择状态" class="chosen-select" name="status">
+                    <select title="选择状态" class="chosen-select" name="status">
                         <option value="" >选择状态</option>
                         <option value="1" ${queryDTO.status eq 1 ? "selected=\"selected\"":""}>待审核</option>
                         <option value="2" ${queryDTO.status eq 2 ? "selected=\"selected\"":""}>审核通过</option>

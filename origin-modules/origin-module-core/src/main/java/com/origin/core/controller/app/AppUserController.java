@@ -326,13 +326,14 @@ public class AppUserController {
 	@ResponseBody
 	@ApiOperation(value = "app用户保存个人信息", httpMethod = "GET", response = Result.class,
 			notes = "保存用户详细信息 category(1:学生(infoSchool,infoDepartment,infoClass,infoRoomNumber) " +
-					"2:社会人群(infoCompanyAddress,infoQq,infoWeixin,infoHome))")
+					"2:社会人群(infoCompanyName,infoCompanyAddress,infoQq,infoWeixin,infoHome))")
 	@ApiImplicitParams({@ApiImplicitParam(name = "infoMobile" ,value = "infoMobile",paramType = "query"
 			,dataType = "string") ,
 			@ApiImplicitParam(name = "infoSchool" ,value = "infoSchool",paramType = "query",dataType = "string"),
 			@ApiImplicitParam(name = "infoDepartment" ,value = "infoDepartment",paramType = "query",dataType = "string"),
 			@ApiImplicitParam(name = "infoClass" ,value = "infoClass",paramType = "query",dataType = "string"),
 			@ApiImplicitParam(name = "infoRoomNumber" ,value = "infoRoomNumber",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "infoCompanyName" ,value = "infoCompanyName",paramType = "query",dataType = "string"),
 			@ApiImplicitParam(name = "infoCompanyAddress" ,value = "infoCompanyAddress",paramType = "query",dataType = "string"),
 			@ApiImplicitParam(name = "infoQq" ,value = "infoQq",paramType = "query",dataType = "string"),
 			@ApiImplicitParam(name = "infoWeixin" ,value = "infoWeixin",paramType = "query",dataType = "string"),
@@ -370,6 +371,7 @@ public class AppUserController {
 
 	private Object savePersonInfo(HttpServletRequest request, Integer uId) {
 		String infoMobile = request.getParameter("infoMobile");
+		String infoCompanyName = request.getParameter("infoCompanyName");
 		String infoCompanyAddress = request.getParameter("infoCompanyAddress");
 		String infoQq = request.getParameter("infoQq");
 		String infoWeixin = request.getParameter("infoWeixin");
@@ -379,22 +381,29 @@ public class AppUserController {
 		String infoContactRelation = request.getParameter("infoContactRelation");
 		String infoContactMobile = request.getParameter("infoContactMobile");
 		System.out.println("请求的infoMobile为" + infoMobile + "\n请求的infoCompanyAddress为" +
-				infoCompanyAddress+ "\n请求的infoQq为" + infoQq+ "\n请求的infoWeixin为" +
+				infoCompanyAddress +"\n请求的infoQq为" + infoQq+ "\n请求的infoWeixin为" +
 				infoWeixin+ "\n请求的infoHome为" + infoHome+ "\n请求的infoEmycontactRelation为" +
 				infoEmycontactRelation+ "\n请求的infoEmycontactMobile为" + infoEmycontactMobile+
 				"\n请求的infoContactRelation为" + infoContactRelation+ "\n请求的infoContactMobile为" +
-				infoContactMobile);
+				infoContactMobile+ "\n请求的infoCompanyName为" + infoCompanyName);
 		if (StringUtil.isNullOrBlank(infoMobile)||StringUtil.isNullOrBlank(infoCompanyAddress)
 				||StringUtil.isNullOrBlank(infoQq)||StringUtil.isNullOrBlank(infoWeixin)
 				||StringUtil.isNullOrBlank(infoHome)||StringUtil.isNullOrBlank(infoEmycontactRelation)
 				||StringUtil.isNullOrBlank(infoEmycontactMobile)||StringUtil.isNullOrBlank(infoContactRelation)
-				||StringUtil.isNullOrBlank(infoContactMobile)){
+				||StringUtil.isNullOrBlank(infoContactMobile)||StringUtil.isNullOrBlank(infoCompanyName)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
-
+		boolean save = false;
 		IAppPersonDetail appPersonDetail = new AppPersonDetailDTO();
+		appPersonDetail.setUid(uId);
+		appPersonDetail = appPersonDetailService.findFirst(appPersonDetail);
+		if (appPersonDetail == null){
+			save = true;
+			appPersonDetail = new AppPersonDetailDTO();
+		}
 		appPersonDetail.setInfoMobile(infoMobile);
 		appPersonDetail.setInfoCompanyAddress(infoCompanyAddress);
+		appPersonDetail.setInfoCompanyName(infoCompanyName);
 		appPersonDetail.setInfoQq(infoQq);
 		appPersonDetail.setInfoWeixin(infoWeixin);
 		appPersonDetail.setInfoHome(infoHome);
@@ -403,7 +412,11 @@ public class AppUserController {
 		appPersonDetail.setInfoContactRelation(Integer.parseInt(infoContactRelation));
 		appPersonDetail.setInfoContactMobile(infoContactMobile);
 		appPersonDetail.setUid(uId);
-		appPersonDetailService.save(appPersonDetail);
+		if (save){
+			appPersonDetailService.save(appPersonDetail);
+		}else {
+			appPersonDetailService.update(appPersonDetail);
+		}
 		return Result.createSuccessResult().setMessage("社会人群信息保存成功");
 	}
 
@@ -430,8 +443,16 @@ public class AppUserController {
 				||StringUtil.isNullOrBlank(infoContactMobile)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
-
+		boolean save = false;
 		IAppStuDetail appStuDetail = new AppStuDetailDTO();
+		appStuDetail.setUid(uId);
+		appStuDetail = appStuDetailService.findFirst(appStuDetail);
+		if (appStuDetail == null){
+			save = true;
+			appStuDetail = new AppStuDetailDTO();
+			System.out.println("licheng null");
+		}
+
 		appStuDetail.setInfoMobile(infoMobile);
 		appStuDetail.setInfoSchool(infoSchool);
 		appStuDetail.setInfoDepartment(infoDepartment);
@@ -442,7 +463,11 @@ public class AppUserController {
 		appStuDetail.setInfoContactRelation(Integer.parseInt(infoContactRelation));
 		appStuDetail.setInfoContactMobile(infoContactMobile);
 		appStuDetail.setUid(uId);
-		appStuDetailService.save(appStuDetail);
+		if (save){
+			appStuDetailService.save(appStuDetail);
+		}else {
+			appStuDetailService.update(appStuDetail);
+		}
 		return Result.createSuccessResult().setMessage("学生信息保存成功");
 	}
 
@@ -465,15 +490,32 @@ public class AppUserController {
 		String bankName = appUserBank.getBankName();
 		Integer bankNumber = appUserBank.getBankNumber();
 		String bankMobile = appUserBank.getBankMobile();
+		Integer bankType = appUserBank.getBankType();
 		System.out.println("请求的bankName为" + bankName + "\n请求的bankNumber为" +
-				bankNumber+ "\n请求的bankMobile为" + bankMobile);
-		if (StringUtil.isNullOrBlank(bankName)||bankNumber==null ||StringUtil.isNullOrBlank(bankMobile)){
+				bankNumber+ "\n请求的bankMobile为" + bankMobile+"\n请求的bankType为" + bankType);
+		if (StringUtil.isNullOrBlank(bankName)||bankNumber==null ||StringUtil.isNullOrBlank(bankMobile) ||bankType ==null){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
+		boolean save = false;
+		IAppUserBank appUserBankDTO = new AppUserBankDTO();
+		appUserBankDTO.setUid(uId);
+		appUserBankDTO = appUserBankService.findFirst(appUserBankDTO);
+		if (appUserBankDTO == null){
+			save = true;
+			appUserBankDTO = new AppUserBankDTO();
+			System.out.println("licheng null");
+		}
 
-		appUserBank.setUpdateDate(new Date());
-		appUserBank.setUid(uId);
-		appUserBankService.save(appUserBank);
+		appUserBankDTO.setBankNumber(bankNumber);
+		appUserBankDTO.setBankName(bankName);
+		appUserBankDTO.setBankMobile(bankMobile);
+		appUserBankDTO.setBankType(bankType);
+		appUserBankDTO.setUid(uId);
+		if (save){
+			appUserBankService.save(appUserBankDTO);
+		}else {
+			appUserBankService.update(appUserBankDTO);
+		}
 		return Result.createSuccessResult().setMessage("银行卡信息保存成功");
 	}
 

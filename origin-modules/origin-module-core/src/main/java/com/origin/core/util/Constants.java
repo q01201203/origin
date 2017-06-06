@@ -25,4 +25,7 @@ public class Constants {
 	public static final String SUCCESS = "success";
 	public static final Integer STATUS_OK = 1;
 	public static final Integer STATUS_NOT_OK = 0;
+
+	public static final String OPERATION = "operation";
+
 }
