@@ -476,7 +476,7 @@ public class AppUserController {
 	@ApiOperation(value = "app用户保存银行信息", httpMethod = "GET", response = Result.class, notes = "保存用户银行信息")
 	@ApiImplicitParams({@ApiImplicitParam(name = "bankName" ,value = "bankName",paramType = "query"
 			,dataType = "string") ,@ApiImplicitParam(name = "bankNumber" ,value = "bankNumber",paramType = "query"
-			,dataType = "int"),@ApiImplicitParam(name = "bankType" ,value = "bankType",paramType = "query"
+			,dataType = "string"),@ApiImplicitParam(name = "bankType" ,value = "bankType",paramType = "query"
 			,dataType = "int"),@ApiImplicitParam(name = "bankMobile" ,value = "bankMobile",paramType = "query"
 			,dataType = "string")})
 	public Object addBankInfo(@RequestHeader(value = "Authorization" ) String token,
@@ -488,12 +488,13 @@ public class AppUserController {
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
 		String bankName = appUserBank.getBankName();
-		Integer bankNumber = appUserBank.getBankNumber();
+		String bankNumber = appUserBank.getBankNumber();
 		String bankMobile = appUserBank.getBankMobile();
 		Integer bankType = appUserBank.getBankType();
 		System.out.println("请求的bankName为" + bankName + "\n请求的bankNumber为" +
 				bankNumber+ "\n请求的bankMobile为" + bankMobile+"\n请求的bankType为" + bankType);
-		if (StringUtil.isNullOrBlank(bankName)||bankNumber==null ||StringUtil.isNullOrBlank(bankMobile) ||bankType ==null){
+		if (StringUtil.isNullOrBlank(bankName)||StringUtil.isNullOrBlank(bankNumber)
+				||StringUtil.isNullOrBlank(bankMobile) ||bankType ==null){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 		boolean save = false;

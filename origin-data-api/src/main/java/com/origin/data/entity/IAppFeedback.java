@@ -8,35 +8,38 @@ import java.io.Serializable;
 */
 public interface IAppFeedback extends Serializable {
 
-public final static Integer STATUS_YES = 1; //可用
+	public final static Integer STATUS_YES = 1; //可用
 
-public final static Integer STATUS_NO = 0; //不可用
-
-
+	public final static Integer STATUS_NO = 0; //不可用
 
 
- Integer getId();
 
-  void setId(Integer id);
 
- Date getCreateDate();
+	Integer getId();
 
-  void setCreateDate(Date createDate);
+	void setId(Integer id);
 
- Date getUpdateDate();
+	Date getCreateDate();
 
-  void setUpdateDate(Date updateDate);
+	void setCreateDate(Date createDate);
 
- String getContent();
+	Date getUpdateDate();
 
-  void setContent(String content);
+	void setUpdateDate(Date updateDate);
 
- Integer getUid();
+	String getContent();
 
-  void setUid(Integer uid);
+	void setContent(String content);
 
- Integer getDeleteFlag();
+	Integer getUid();
 
-  void setDeleteFlag(Integer deleteFlag);
+	void setUid(Integer uid);
 
+	Integer getDeleteFlag();
+
+	void setDeleteFlag(Integer deleteFlag);
+
+	IAppUser getAppUser() ;
+
+	void setAppUser(IAppUser appUser) ;
 }

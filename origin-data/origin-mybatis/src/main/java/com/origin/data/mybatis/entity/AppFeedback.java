@@ -1,8 +1,9 @@
 package com.origin.data.mybatis.entity;
 
-import java.util.Date;
-
 import com.origin.data.entity.IAppFeedback;
+import com.origin.data.entity.IAppUser;
+
+import java.util.Date;
 
 /**
  * 
@@ -23,7 +24,8 @@ public class AppFeedback implements IAppFeedback {
 	private Integer uid;//;
 	/**  */
 	private Integer deleteFlag;// = Integer.valueOf(0);
-	
+
+	private IAppUser appUser;
 	
 	public Integer getId() {
 		return this.id;
@@ -72,7 +74,15 @@ public class AppFeedback implements IAppFeedback {
 	public void setDeleteFlag(Integer deleteFlag) {
 		this.deleteFlag = deleteFlag;
 	}
-	
+
+	public IAppUser getAppUser() {
+		return appUser;
+	}
+
+	public void setAppUser(IAppUser appUser) {
+		this.appUser = appUser;
+	}
+
 	public boolean equals(Object object) {
 		if (object == null) {
 			return false;

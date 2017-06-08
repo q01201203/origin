@@ -13,32 +13,38 @@ import java.util.List;
 @Service
 public class AppFeedbackServiceImpl  implements AppFeedbackService {
 
-@Autowired
-private IAppFeedbackDao<IAppFeedback,Integer> appFeedbackDao;
+    @Autowired
+    private IAppFeedbackDao<IAppFeedback,Integer> appFeedbackDao;
 
-@Override
-public void save(IAppFeedback appFeedback) {
-appFeedbackDao.save(appFeedback);
-}
+    @Override
+    public void save(IAppFeedback appFeedback) {
+        appFeedbackDao.save(appFeedback);
+    }
 
-@Override
-public void delete(Integer id) {
-appFeedbackDao.delete(id);
-}
+    @Override
+    public void delete(Integer id) {
+        appFeedbackDao.delete(id);
+    }
 
-@Override
-public void update(IAppFeedback appFeedback) {
-    appFeedback.setUpdateDate(new Date());
-    appFeedbackDao.update(appFeedback);
-}
+    @Override
+    public void update(IAppFeedback appFeedback) {
+		appFeedback.setUpdateDate(new Date());
+        appFeedbackDao.update(appFeedback);
+    }
 
-@Override
-public IAppFeedback findById(Integer id) {
-return appFeedbackDao.findByPK(id);
-}
+    @Override
+    public IAppFeedback findById(Integer id) {
+        return appFeedbackDao.findByPK(id);
+    }
 
-@Override
-public List<IAppFeedback> find(IAppFeedback appFeedback) {
-    return appFeedbackDao.find(appFeedback);
+    @Override
+    public IAppFeedback findFirst(IAppFeedback appFeedback) {
+        return appFeedbackDao.findFirst(appFeedback);
+    }
+
+    @Override
+    public List<IAppFeedback> find(IAppFeedback appFeedback) {
+        appFeedback.setDeleteFlag(0);
+        return appFeedbackDao.find(appFeedback);
     }
 }

@@ -8,6 +8,7 @@ D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\my
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\dao\ResourceDao.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\dao\UserRoleDao.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppUserTask.java
+D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppConstants.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\dao\TestDao.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppMoneyDetail.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\dao\RoleDao.java
@@ -27,6 +28,7 @@ D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\my
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppStuDetail.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppValidcode.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppPersonDetail.java
+D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\dao\AppConstantsDao.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\RoleResource.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\common\BaseEntity.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\UserRole.java

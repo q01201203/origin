@@ -8,47 +8,47 @@ import java.io.Serializable;
 */
 public interface IAppUserBank extends Serializable {
 
-public final static Integer STATUS_YES = 1; //可用
+	public final static Integer STATUS_YES = 1; //可用
 
-public final static Integer STATUS_NO = 0; //不可用
-
-
+	public final static Integer STATUS_NO = 0; //不可用
 
 
- Integer getId();
 
-  void setId(Integer id);
 
- Date getCreateDate();
+	Integer getId();
 
-  void setCreateDate(Date createDate);
+	void setId(Integer id);
 
- Date getUpdateDate();
+	Date getCreateDate();
 
-  void setUpdateDate(Date updateDate);
+	void setCreateDate(Date createDate);
 
- String getBankName();
+	Date getUpdateDate();
 
-  void setBankName(String bankName);
+	void setUpdateDate(Date updateDate);
 
- Integer getBankNumber();
+	String getBankName();
 
-  void setBankNumber(Integer bankNumber);
+	void setBankName(String bankName);
 
- Integer getBankType();
+	String getBankNumber();
 
-  void setBankType(Integer bankType);
+	void setBankNumber(String bankNumber);
 
- String getBankMobile();
+	Integer getBankType();
 
-  void setBankMobile(String bankMobile);
+	void setBankType(Integer bankType);
 
- Integer getUid();
+	String getBankMobile();
 
-  void setUid(Integer uid);
+	void setBankMobile(String bankMobile);
 
- Integer getDeleteFlag();
+	Integer getUid();
 
-  void setDeleteFlag(Integer deleteFlag);
+	void setUid(Integer uid);
+
+	Integer getDeleteFlag();
+
+	void setDeleteFlag(Integer deleteFlag);
 
 }

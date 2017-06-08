@@ -3,14 +3,13 @@ package ServiceTest;
 import com.origin.core.dto.AppMoneyDetailDTO;
 import com.origin.core.dto.AppUserDTO;
 import com.origin.core.dto.AppUserTaskDTO;
-import com.origin.core.service.AppMoneyDetailService;
-import com.origin.core.service.AppTaskService;
-import com.origin.core.service.AppUserService;
-import com.origin.core.service.AppUserTaskService;
+import com.origin.core.dto.AppValidcodeDTO;
+import com.origin.core.service.*;
 import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppMoneyDetail;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserTask;
+import com.origin.data.entity.IAppValidcode;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,6 +39,9 @@ public class AppUserServiceImplTest {
     @Autowired
     private AppMoneyDetailService appMoneyDetailService;
 
+    @Autowired
+    private AppValidcodeService appValidcodeService;
+
     @Before
     public void setUp() throws Exception {
     }
@@ -48,8 +50,14 @@ public class AppUserServiceImplTest {
     public void findOne() throws Exception {
         IAppUser appUser = new AppUserDTO();
         appUser.setMobile("13611112222");
-        appUser.setPwd("123456");
-        //assert appUserService.findFirst(appUser).getId()==1;
+        assert appUserService.findFirst(appUser).getId()==2;
+
+        IAppValidcode appValidcode = new AppValidcodeDTO();
+        appValidcode.setMobile("13611114444");
+        appValidcode.setValidcode("110110");
+        appValidcode.setType(3);
+        appValidcode.setStatus(1);
+        System.out.println("licheng" + appValidcodeService.findFirst(appValidcode).getCreateDate());
     }
 
     //获取用户收入信息

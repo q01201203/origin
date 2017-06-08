@@ -1,8 +1,9 @@
 package com.origin.core.dto;
 
-import java.util.Date;
-
 import com.origin.data.entity.IAppFeedback;
+import com.origin.data.entity.IAppUser;
+
+import java.util.Date;
 
 /**
 * 
@@ -11,72 +12,85 @@ public class AppFeedbackDTO implements IAppFeedback {
 
 
     /**  */
-private Integer id;//;
+	private Integer id;//;
     /**  */
-private Date createDate;// = CURRENT_TIMESTAMP;
+	private Date createDate;// = CURRENT_TIMESTAMP;
     /**  */
-private Date updateDate;// = CURRENT_TIMESTAMP;
+	private Date updateDate;// = CURRENT_TIMESTAMP;
     /**  */
-private String content;//;
+	private String content;//;
     /**  */
-private Integer uid;//;
+	private Integer uid;//;
     /**  */
-private Integer deleteFlag;// = Integer.valueOf(0);
-public AppFeedbackDTO(){
-}
+	private Integer deleteFlag;// = Integer.valueOf(0);
 
-public AppFeedbackDTO(Integer id){
-	this.id = id;
-}
+	private IAppUser appUser;
+
+	public AppFeedbackDTO(){
+	}
+
+	public AppFeedbackDTO(Integer id){
+		this.id = id;
+	}
 
 
-public Integer getId() {
-return this.id;
-}
+	public Integer getId() {
+		return this.id;
+	}
 
-public void setId(Integer id) {
-this.id = id;
-}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-public Date getCreateDate() {
-return this.createDate;
-}
+	public Date getCreateDate() {
+		return this.createDate;
+	}
 
-public void setCreateDate(Date createDate) {
-this.createDate = createDate;
-}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
-public Date getUpdateDate() {
-return this.updateDate;
-}
+	public Date getUpdateDate() {
+		return this.updateDate;
+	}
 
-public void setUpdateDate(Date updateDate) {
-this.updateDate = updateDate;
-}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
 
-public String getContent() {
-return this.content;
-}
+	public String getContent() {
+		return this.content;
+	}
 
-public void setContent(String content) {
-this.content = content;
-}
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-public Integer getUid() {
-return this.uid;
-}
+	public Integer getUid() {
+		return this.uid;
+	}
 
-public void setUid(Integer uid) {
-this.uid = uid;
-}
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 
-public Integer getDeleteFlag() {
-return this.deleteFlag;
-}
+	public Integer getDeleteFlag() {
+		return this.deleteFlag;
+	}
 
-public void setDeleteFlag(Integer deleteFlag) {
-this.deleteFlag = deleteFlag;
-}
+	public void setDeleteFlag(Integer deleteFlag) {
+		this.deleteFlag = deleteFlag;
+	}
+
+	@Override
+	public IAppUser getAppUser() {
+		return appUser;
+	}
+
+	@Override
+	public void setAppUser(IAppUser appUser) {
+		this.appUser = appUser;
+	}
 
 	public boolean equals(Object object) {
 		if (object == null) {

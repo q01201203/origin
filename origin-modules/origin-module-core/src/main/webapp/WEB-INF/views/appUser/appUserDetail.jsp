@@ -3,6 +3,7 @@
 <html>
 <%@ include file="../common/common.jsp" %>
 <head>
+	<link rel="stylesheet" type="text/css" href="${ctx }/static/plugins/oss-h5-upload-js-direct/style.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>${menu_name } - ${title }</title>
 </head>
@@ -16,10 +17,10 @@
 				<table width="800px" class="not_hightlight">
 					<tbody>
 					<tr>
-						<td class="l_title w200"><b class="cRed">*</b> 创建时间</td>
+						<td class="l_title"><b class="cRed">*</b> 创建时间</td>
                          <td>
                              <div class="J_toolsBar fl">
-                                 <div class="t_text w200 ml10">
+                                 <div class="t_text w240 ml10">
 									 <fmt:formatDate value="${appUser.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                  </div>
                              </div>
@@ -29,7 +30,7 @@
 						<td class="l_title "><b class="cRed">*</b> 更新时间</td>
                          <td>
                              <div class="J_toolsBar fl">
-                                 <div class="t_text w200 ml10">
+                                 <div class="t_text w240 ml10">
 									 <fmt:formatDate value="${appUser.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                  </div>
                              </div>
@@ -39,7 +40,7 @@
 						<td class="l_title "><b class="cRed">*</b> 权限</td>
                          <td>
                              <div class="J_toolsBar fl">
-                                 <div class="t_text w200 ml10">
+                                 <div class="t_text w240 ml10">
 									 <c:choose>
 										 <c:when test="${appUser.authority eq 100}">
 											 低
@@ -56,7 +57,7 @@
 						<td class="l_title "><b class="cRed">*</b> 额度</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									${appUser.moneyMax}
 								</div>
 							</div>
@@ -66,7 +67,7 @@
 						<td class="l_title "><b class="cRed">*</b> 支付宝名</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									${appUser.alipayUsername}
 								</div>
 							</div>
@@ -76,19 +77,25 @@
 						<td class="l_title "><b class="cRed">*</b> 支付宝账号</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									${appUser.alipayUseraccout}
 								</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td class="l_title "><b class="cRed">*</b> 人脸图片地址</td>
+						<td class="l_title " style="width: 150px"><b class="cRed">*</b> 人脸图片地址</td>
+						<td style="width: 240px">
+							<div class="J_toolsBar fl">
+								<div class="t_text w240 ml10" >
+									<input id="imgFace" type="text" name="imgFace"  value="${appUser.imgFace}"/>
+								</div>
+							</div>
+						</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10" style="width: 260px">
-									<input type="text" name="imgFace"  value="${appUser.imgFace}"/>
-									<a id="a_imgFace" style="margin-left: 30px">查看</a>
+								<div class="t_label w240 ml10">
+									<a href="javascript:myVisit('imgFace');" class='btn'>查看</a>
 								</div>
 							</div>
 						</td>
@@ -97,9 +104,15 @@
 						<td class="l_title "><b class="cRed">*</b> 身份证正面图片地址</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10" style="width: 260px">
-									<input type="text" name="imgIdFront"  value="${appUser.imgIdFront}"/>
-									<a id="a_imgIdFront" style="margin-left: 30px">查看</a>
+								<div class="t_text w240 ml10" >
+									<input id="imgIdFront" type="text" name="imgIdFront"  value="${appUser.imgIdFront}"/>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_label w240 ml10">
+									<a href="javascript:myVisit('imgIdFront');" class='btn'>查看</a>
 								</div>
 							</div>
 						</td>
@@ -108,9 +121,15 @@
 						<td class="l_title "><b class="cRed">*</b> 身份证背面图片地址</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10" style="width: 260px">
-									<input type="text" name="imgIdBack"  value="${appUser.imgIdBack}"/>
-									<a id="a_imgIdBack" style="margin-left: 30px">查看</a>
+								<div class="t_text w240 ml10" >
+									<input id="imgIdBack" type="text" name="imgIdBack"  value="${appUser.imgIdBack}"/>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_label w240 ml10">
+									<a href="javascript:myVisit('imgIdBack');" class='btn'>查看</a>
 								</div>
 							</div>
 						</td>
@@ -119,7 +138,7 @@
 						<td class="l_title "><b class="cRed">*</b> 身份证名字</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									${appUser.userIdName}
 								</div>
 							</div>
@@ -129,7 +148,7 @@
 						<td class="l_title "><b class="cRed">*</b> 身份证号码</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10" >
+								<div class="t_text w240 ml10" >
 									${appUser.userIdNumber}
 								</div>
 							</div>
@@ -139,9 +158,15 @@
 						<td class="l_title "><b class="cRed">*</b> 头像图片地址</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10" style="width: 260px">
-									<input type="text" name="imgPortrait"  value="${appUser.imgPortrait}"/>
-									<a id="a_imgPortrait" style="margin-left: 30px">查看</a>
+								<div class="t_text w240 ml10" >
+									<input id="imgPortrait" type="text" name="imgPortrait"  value="${appUser.imgPortrait}"/>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_label w240 ml10">
+									<a href="javascript:myVisit('imgPortrait');" class='btn'>查看</a>
 								</div>
 							</div>
 						</td>
@@ -150,7 +175,7 @@
 						<td class="l_title "><b class="cRed">*</b> 昵称</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									${appUser.nickname}
 								</div>
 							</div>
@@ -160,7 +185,7 @@
 						<td class="l_title "><b class="cRed">*</b> 群体</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									<c:if test="${appUser.category eq 1}">
 										学生
 									</c:if>
@@ -176,7 +201,7 @@
 							<td class="l_title "><b class="cRed">*</b> 详细信息手机号</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appStuDetail.infoMobile}
 									</div>
 								</div>
@@ -186,7 +211,7 @@
 							<td class="l_title "><b class="cRed">*</b> 学校</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appStuDetail.infoSchool}
 									</div>
 								</div>
@@ -196,7 +221,7 @@
 							<td class="l_title "><b class="cRed">*</b> 院系</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appStuDetail.infoDepartment}
 									</div>
 								</div>
@@ -206,7 +231,7 @@
 							<td class="l_title "><b class="cRed">*</b> 班级</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appStuDetail.infoClass}
 									</div>
 								</div>
@@ -216,7 +241,7 @@
 							<td class="l_title "><b class="cRed">*</b> 宿舍楼号</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appStuDetail.infoRoomnumber}
 									</div>
 								</div>
@@ -226,7 +251,7 @@
 							<td class="l_title "><b class="cRed">*</b> 紧急联系人关系</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 										<c:choose>
 											<c:when test="${appStuDetail.infoEmycontactRelation eq 1}">
 												父母
@@ -252,7 +277,7 @@
 							<td class="l_title "><b class="cRed">*</b> 紧急联系人电话号码</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appStuDetail.infoEmycontactMobile}
 									</div>
 								</div>
@@ -262,7 +287,7 @@
 							<td class="l_title "><b class="cRed">*</b> 联系人关系</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 										<c:choose>
 											<c:when test="${appStuDetail.infoContactRelation eq 1}">
 												父母
@@ -288,7 +313,7 @@
 							<td class="l_title "><b class="cRed">*</b> 联系人电话号码</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appStuDetail.infoContactMobile}
 									</div>
 								</div>
@@ -300,7 +325,7 @@
 							<td class="l_title "><b class="cRed">*</b> 详细信息手机号</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appPersonDetail.infoMobile}
 									</div>
 								</div>
@@ -310,7 +335,7 @@
 							<td class="l_title "><b class="cRed">*</b> 公司名称</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appPersonDetail.infoCompanyName}
 									</div>
 								</div>
@@ -320,7 +345,7 @@
 							<td class="l_title "><b class="cRed">*</b> 公司地址</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appPersonDetail.infoCompanyAddress}
 									</div>
 								</div>
@@ -330,7 +355,7 @@
 							<td class="l_title "><b class="cRed">*</b> 常用QQ</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appPersonDetail.infoQq}
 									</div>
 								</div>
@@ -340,7 +365,7 @@
 							<td class="l_title "><b class="cRed">*</b> 常用微信</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appPersonDetail.infoWeixin}
 									</div>
 								</div>
@@ -350,7 +375,7 @@
 							<td class="l_title "><b class="cRed">*</b> 常用地址</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appPersonDetail.infoHome}
 									</div>
 								</div>
@@ -360,7 +385,7 @@
 							<td class="l_title "><b class="cRed">*</b> 紧急联系人关系</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 										<c:choose>
 											<c:when test="${appPersonDetail.infoEmycontactRelation eq 1}">
 												父母
@@ -386,7 +411,7 @@
 							<td class="l_title "><b class="cRed">*</b> 紧急联系人电话号码</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appPersonDetail.infoEmycontactMobile}
 									</div>
 								</div>
@@ -396,7 +421,7 @@
 							<td class="l_title "><b class="cRed">*</b> 联系人关系</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 										<c:choose>
 											<c:when test="${appPersonDetail.infoContactRelation eq 1}">
 												父母
@@ -422,7 +447,7 @@
 							<td class="l_title "><b class="cRed">*</b> 联系人电话号码</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appPersonDetail.infoContactMobile}
 									</div>
 								</div>
@@ -434,7 +459,7 @@
 							<td class="l_title "><b class="cRed">*</b> 银行卡名字</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appUserBank.bankName}
 									</div>
 								</div>
@@ -444,7 +469,7 @@
 							<td class="l_title "><b class="cRed">*</b> 银行卡号</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appUserBank.bankNumber}
 									</div>
 								</div>
@@ -454,7 +479,7 @@
 							<td class="l_title "><b class="cRed">*</b> 银行卡类型</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 										<c:choose>
 											<c:when test="${appUserBank.bankType eq 0}">
 												储蓄卡
@@ -471,7 +496,7 @@
 							<td class="l_title "><b class="cRed">*</b> 银行卡预留手机号</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 											${appUserBank.bankMobile}
 									</div>
 								</div>
@@ -529,18 +554,15 @@
 			$('#myForm').submit();
 		}
 
-		$('#a_imgPortrait').click(function () {
-            $("#a_imgPortrait").attr("href", $("input[name='imgPortrait']").val());
-        })
-        $('#a_imgIdBack').click(function () {
-            $("#a_imgIdBack").attr("href", $("input[name='imgIdBack']").val());
-        })
-        $('#a_imgIdFront').click(function () {
-            $("#a_imgIdFront").attr("href", $("input[name='imgIdFront']").val());
-        })
-        $('#a_imgFace').click(function () {
-            $("#a_imgFace").attr("href", $("input[name='imgFace']").val());
-        })
+        function myVisit(name){
+            var url = $("#"+name).val();
+            if( url != null && url != ''){
+                if (url.indexOf('http://')<0 && url.indexOf('https://')<0){
+                    url = 'http://' +url;
+                }
+                window.open(url);
+            }
+        }
 
 	</script>
 </body>

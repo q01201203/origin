@@ -9,5 +9,6 @@ public interface AppFeedbackService {
     void delete(Integer id);
     void update(IAppFeedback appFeedback);
     IAppFeedback findById(Integer id);
+    IAppFeedback findFirst(IAppFeedback appFeedback);
     List<IAppFeedback> find(IAppFeedback appFeedback);
 }

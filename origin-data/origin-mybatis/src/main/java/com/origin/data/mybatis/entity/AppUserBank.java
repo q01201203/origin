@@ -20,7 +20,7 @@ public class AppUserBank implements IAppUserBank {
 	/**  */
 	private String bankName;//;
 	/**  */
-	private Integer bankNumber;//;
+	private String bankNumber;//;
 	/**  */
 	private Integer bankType;//;
 	/**  */
@@ -63,11 +63,11 @@ public class AppUserBank implements IAppUserBank {
 		this.bankName = bankName;
 	}
 	
-	public Integer getBankNumber() {
+	public String getBankNumber() {
 		return this.bankNumber;
 	}
 	
-	public void setBankNumber(Integer bankNumber) {
+	public void setBankNumber(String bankNumber) {
 		this.bankNumber = bankNumber;
 	}
 	

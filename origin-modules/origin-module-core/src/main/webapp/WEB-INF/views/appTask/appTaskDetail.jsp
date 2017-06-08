@@ -11,8 +11,9 @@
         });
     });
 </script>
-<link href="${ctx }/static/plugins/chosen_v1.6.2/chosen.css" rel="stylesheet" />
 <head>
+	<link href="${ctx }/static/plugins/chosen_v1.6.2/chosen.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="${ctx }/static/plugins/oss-h5-upload-js-direct/style.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>${menu_name } - ${title }</title>
 </head>
@@ -24,14 +25,14 @@
 			<form action="${ctx }/admin/appTask/ajax/update" method="post" id="myForm">
 				<input type="hidden" name="id" value="${appTask.id }"/>
 			<div class="J_formTable l_form_table">
-				<table width="800px" class="not_hightlight">
+				<table width="1200px" class="not_hightlight">
 					<tbody>
 					<c:if test="${operation == 'update'}">
 						<tr>
-							<td class="l_title w200"><b class="cRed">*</b> 创建时间</td>
+							<td class="l_title"><b class="cRed">*</b> 创建时间</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 										<fmt:formatDate value="${appTask.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
 									</div>
 								</div>
@@ -41,7 +42,7 @@
 							<td class="l_title "><b class="cRed">*</b> 更新时间</td>
 							<td>
 								<div class="J_toolsBar fl">
-									<div class="t_text w200 ml10">
+									<div class="t_text w240 ml10">
 										<fmt:formatDate value="${appTask.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
 									</div>
 								</div>
@@ -52,7 +53,7 @@
 						<td class="l_title "><b class="cRed">*</b> 任务名称</td>
                          <td>
                              <div class="J_toolsBar fl">
-                                 <div class="t_text w200 ml10">
+                                 <div class="t_text w240 ml10">
 									 <c:if test="${operation == 'update'}">
 										 ${appTask.taskName}
 									 </c:if>
@@ -67,7 +68,7 @@
 						<td class="l_title "><b class="cRed">*</b> 任务数量</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									<input type="text" name="taskNumber"  value="${appTask.taskNumber}"/>
 								</div>
 							</div>
@@ -77,7 +78,7 @@
 						<td class="l_title "><b class="cRed">*</b> 任务类型</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_label ml10" style="width: 220px;">
+								<div class="t_label w240 ml10">
 									<select data-placeholder="选择父菜单" class="chosen-select" name="taskType">
 										<option value="" >选择类型</option>
 										<option value="1" ${appTask.taskType eq 1 ? "selected=\"selected\"":""}>普通任务</option>
@@ -92,7 +93,7 @@
 						<td class="l_title "><b class="cRed">*</b> 任务金额</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									<c:if test="${operation == 'update'}">
 										${appTask.taskMoney}
 									</c:if>
@@ -104,11 +105,30 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="l_title "><b class="cRed">*</b> 任务图片地址</td>
+						<td class="l_title " style="width: 150px"><b class="cRed">*</b> 任务图片地址</td>
+						<td style="width: 240px">
+							<div class="J_toolsBar fl">
+								<div class="t_text w240 ml10">
+									<input id="taskImg" type="text" name="taskImg"  value="${appTask.taskImg}"/>
+								</div>
+							</div>
+						</td>
+						<td style="width: 240px">
+							<div class="J_toolsBar fl">
+								<div class="t_label w240 ml10">
+									<div id="container">
+										<a href="javascript:myVisit('taskImg');" class='btn'>查看</a>
+										<a href="javascript:myUpload();" class='btn'>选择文件</a>
+										<a href="javascript:myUpload('taskImg');" class='btn'>开始上传</a>
+									</div>
+								</div>
+							</div>
+						</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
-									<input type="text" name="taskImg"  value="${appTask.taskImg}"/>
+								<div class="t_label w240 ml10">
+									<div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+									<pre id="console"></pre>
 								</div>
 							</div>
 						</td>
@@ -117,7 +137,7 @@
 						<td class="l_title "><b class="cRed">*</b> 任务热门</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_check w200 ml10">
+								<div class="t_check w240 ml10">
 									<c:choose>
 										<c:when test="${appTask.taskHot eq 0}">
 											<label>
@@ -152,7 +172,7 @@
 						<td class="l_title "><b class="cRed">*</b> 任务开始时间</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									<input id="startDate" type="text" name="taskStartTime" class="Wdate" placeholder="选择日期"
 										   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'endDate\')}'})"
 										   value="<fmt:formatDate value="${appTask.taskStartTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
@@ -164,7 +184,7 @@
 						<td class="l_title "><b class="cRed">*</b> 任务结束时间</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									<input id="endDate" type="text" name="taskEndTime" class="Wdate" placeholder="选择日期"
 										   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'startDate\')}'})"
 										   value="<fmt:formatDate value="${appTask.taskEndTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
@@ -176,7 +196,7 @@
 						<td class="l_title "><b class="cRed">*</b> 任务简单步骤</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
+								<div class="t_text w240 ml10">
 									<input type="text" name="taskSimpleStep"  value="${appTask.taskSimpleStep}"/>
 								</div>
 							</div>
@@ -186,8 +206,15 @@
 						<td class="l_title "><b class="cRed">*</b> 任务详细步骤</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
-									<input type="text" name="taskDetailedStep"  value="${appTask.taskDetailedStep}"/>
+								<div class="t_text w240 ml10">
+									<input id="taskDetailedStep" type="text" name="taskDetailedStep"  value="${appTask.taskDetailedStep}"/>
+								</div>
+							</div>
+						</td>
+						<td style="width: 240px">
+							<div class="J_toolsBar fl">
+								<div class="t_label w240 ml10">
+									<a href="javascript:myVisit('taskDetailedStep');" class='btn'>查看</a>
 								</div>
 							</div>
 						</td>
@@ -196,8 +223,15 @@
 						<td class="l_title "><b class="cRed">*</b> 任务链接</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w200 ml10">
-									<input type="text" name="taskLink"  value="${appTask.taskLink}"/>
+								<div class="t_text w240 ml10">
+									<input id="taskLink" type="text" name="taskLink"  value="${appTask.taskLink}"/>
+								</div>
+							</div>
+						</td>
+						<td style="width: 240px">
+							<div class="J_toolsBar fl">
+								<div class="t_label w240 ml10">
+									<a href="javascript:myVisit('taskLink');" class='btn'>查看</a>
 								</div>
 							</div>
 						</td>
@@ -215,6 +249,11 @@
 											<c:if test="${operation == 'add'}">
 												<a class="abtn red" href="javascript:addTask();">添加</a>
 											</c:if>
+											<input type="hidden" name="myradio" value="local_name" />
+											<input type="hidden" name="myradio" value="random_name" checked=true/>
+											<input type="hidden" id='dirname' placeholder="如果不填，默认是上传到根目录" size=50>
+											<a id="selectfiles" href="javascript:void(0);" class='btn' style="visibility:hidden">选择文件</a>
+											<a id="postfiles" href="javascript:void(0);" class='btn' style="visibility:hidden">开始上传</a>
 					                    </div>
 									</div>
 								</div>
@@ -261,6 +300,33 @@
 			$('#myForm').submit();
         }
 
+        function myUpload(name){
+            if(name == null || name == ''){
+                document.getElementById('ossfile').innerHTML = '';
+                document.getElementById('selectfiles').click();
+			}else{
+                document.getElementById('postfiles').name = name;
+                document.getElementById('postfiles').click();
+			}
+        }
+
+        function myVisit(name){
+            var url = $("#"+name).val();
+            if( url != null && url != ''){
+                if (url.indexOf('http://')<0 && url.indexOf('https://')<0){
+                    url = 'http://' +url;
+				}
+                window.open(url);
+			}
+        }
+
+
 	</script>
+	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/crypto1/crypto/crypto.js"></script>
+	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/crypto1/hmac/hmac.js"></script>
+	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/crypto1/sha1/sha1.js"></script>
+	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/base64.js"></script>
+	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/upload.js"></script>
 </body>
 </html>

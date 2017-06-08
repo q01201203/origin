@@ -6,6 +6,7 @@ import com.origin.core.dto.AppUserDTO;
 import com.origin.core.dto.AppValidcodeDTO;
 import com.origin.core.service.AppUserService;
 import com.origin.core.service.AppValidcodeService;
+import com.origin.core.util.HttpSender;
 import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppValidcode;
@@ -52,24 +53,33 @@ public class AppValidcodeController {
 			case IAppValidcode.TYPE_REGISTER:
 				appUser = appUserService.findFirst(appUser);
 				if (appUser==null){
-					String validcode = saveValidcode(mobile, type);
-					return Result.createSuccessResult().setMessage("发送验证码成功");
+					if (saveValidcode(mobile, type)){
+						return Result.createSuccessResult().setMessage("发送验证码成功");
+					}else {
+						return Result.createErrorResult().setMessage("短信平台出错");
+					}
 				}else {
 					return Result.createErrorResult().setMessage("用户已存在");
 				}
 			case IAppValidcode.TYPE_RESETPWD:
 				appUser = appUserService.findFirst(appUser);
 				if (appUser!=null){
-					String validcode = saveValidcode(mobile, type);
-					return Result.createSuccessResult().setMessage("发送验证码成功");
+					if (saveValidcode(mobile, type)){
+						return Result.createSuccessResult().setMessage("发送验证码成功");
+					}else {
+						return Result.createErrorResult().setMessage("短信平台出错");
+					}
 				}else {
 					return Result.createErrorResult().setMessage("用户不存在");
 				}
 			case IAppValidcode.TYPE_BORROW:
 				appUser = appUserService.findFirst(appUser);
 				if (appUser!=null){
-					String validcode = saveValidcode(mobile, type);
-					return Result.createSuccessResult().setMessage("发送验证码成功");
+					if (saveValidcode(mobile, type)){
+						return Result.createSuccessResult().setMessage("发送验证码成功");
+					}else {
+						return Result.createErrorResult().setMessage("短信平台出错");
+					}
 				}else {
 					return Result.createErrorResult().setMessage("用户不存在");
 				}
@@ -77,15 +87,19 @@ public class AppValidcodeController {
 		return Result.createErrorResult().setMessage("type类型不存在");
 	}
 
-	private String saveValidcode(String mobile, String type) {
+	private boolean saveValidcode(String mobile, String type) {
+		//String validcode = "110110";
+		int validcode = HttpSender.send(mobile);
+		if (validcode < 0){
+			return false;
+		}
 		IAppValidcode appValidcode = new AppValidcodeDTO();
 		appValidcode.setMobile(mobile);
-		String validcode = "110110";
-		appValidcode.setValidcode(validcode);
+		appValidcode.setValidcode(String.valueOf(validcode));
 		appValidcode.setType(Integer.parseInt(type));
 		appValidcodeService.save(appValidcode);
 		System.out.println("lic i = "+appValidcode.getId());
-		return validcode;
+		return true;
 	}
 
 	@RequestMapping(value = "/validate",method = RequestMethod.GET)
