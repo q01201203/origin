@@ -7,18 +7,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="">
+    <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="add message module">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/com/origin/tool/generate/ModelXml.class" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/classes/com/origin/tool/generate/ModelXml.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppTaskController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppTaskController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/JPushUtil.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/JPushUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/Test.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/ZhimaTest.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/ZhimaTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/generate/ModelXml.java" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/java/com/origin/tool/generate/ModelXml.java" />
     </list>
     <ignored path="$PROJECT_DIR$/origin-modules/origin-module-core/target/" />
     <ignored path="$PROJECT_DIR$/origin-tool/target/" />
@@ -87,8 +79,8 @@
       <file leaf-file-name="AppMessageDao.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMessageDao.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="119" column="27" lean-forward="false" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="27" />
+            <state relative-caret-position="24">
+              <caret line="111" column="58" lean-forward="false" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="58" />
               <folding>
                 <marker date="1497521264971" expanded="true" signature="243:513" ph="SELECT id, c... ogn_app_message" />
                 <marker date="1497521264971" expanded="true" signature="2506:2624" ph="SELECT id,cr... ogn_app_message" />
@@ -5835,7 +5827,7 @@
       <workItem from="1497229345848" duration="24567000" />
       <workItem from="1497317246690" duration="9223000" />
       <workItem from="1497402526604" duration="21343000" />
-      <workItem from="1497490006030" duration="20849000" />
+      <workItem from="1497490006030" duration="20950000" />
     </task>
     <task id="LOCAL-00001" summary="delete product">
       <created>1494493589166</created>
@@ -5991,7 +5983,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497492014204</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="add message module">
+      <created>1497521329575</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1497521329575</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -6027,7 +6026,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="529272000" />
+    <option name="totallyTimeSpent" value="529373000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -6061,7 +6060,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.324295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.324295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5911063" sideWeight="0.4914712" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -6169,7 +6168,8 @@
     <MESSAGE value="modify task page" />
     <MESSAGE value="add upload and feedback" />
     <MESSAGE value="add zhima and jpush" />
-    <option name="LAST_COMMIT_MESSAGE" value="add zhima and jpush" />
+    <MESSAGE value="add message module" />
+    <option name="LAST_COMMIT_MESSAGE" value="add message module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6438,8 +6438,8 @@
         <state relative-caret-position="300">
           <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="25" />
           <folding>
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="false" />
+            <element signature="e#627#628#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -6531,7 +6531,7 @@
         <state relative-caret-position="125">
           <caret line="5" column="72" lean-forward="true" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="72" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -6634,8 +6634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMessageDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="119" column="27" lean-forward="false" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="27" />
+        <state relative-caret-position="24">
+          <caret line="111" column="58" lean-forward="false" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="58" />
           <folding>
             <marker date="1497521264971" expanded="true" signature="243:513" ph="SELECT id, c... ogn_app_message" />
             <marker date="1497521264971" expanded="true" signature="2506:2624" ph="SELECT id,cr... ogn_app_message" />
