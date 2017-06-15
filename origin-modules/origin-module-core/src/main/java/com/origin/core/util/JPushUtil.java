@@ -48,12 +48,19 @@ public class JPushUtil {
         }
     }
 
-
-    public static PushPayload buildPushObject_all_alias_alert() {
+    public static PushPayload buildPushObject_all_alert(String content) {
         return PushPayload.newBuilder()
                 .setPlatform(Platform.all())
-                .setAudience(Audience.alias("alias"))
-                .setNotification(Notification.alert(ALERT))
+                .setAudience(Audience.all())
+                .setNotification(Notification.alert(content))
+                .build();
+    }
+
+    public static PushPayload buildPushObject_all_alias_alert(String alias,String content) {
+        return PushPayload.newBuilder()
+                .setPlatform(Platform.all())
+                .setAudience(Audience.alias(alias))
+                .setNotification(Notification.alert(content))
                 .build();
     }
 

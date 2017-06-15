@@ -118,7 +118,7 @@ public class AdminAppTaskController {
 		if(StringUtils.isNotBlank(deleteFlag)){
 			params.setDeleteFlag( Integer.parseInt(deleteFlag));
 		}
-		System.out.println("lichengsss " +params.getCreateDate());
+		System.out.println("renxinhuasss " +params.getCreateDate());
 		PageHelper.startPage(currentPage, pageSize);
 		List<IAppTask> appTasks = appTaskService.find(params);
     	PageInfo<IAppTask> page = new PageInfo(appTasks);
@@ -217,7 +217,7 @@ public class AdminAppTaskController {
 	public String userDetailEdit(HttpServletRequest request, Model model){
 		String id = request.getParameter("id");
 		String operation = request.getParameter("operation");
-		System.out.println("licheng   operation = "+operation);
+		System.out.println("renxinhua   operation = "+operation);
 		if(StringUtils.isNotBlank(id)){
 			IAppTask appTask = appTaskService.findById(Integer.parseInt(id));
 			model.addAttribute("appTask", appTask);

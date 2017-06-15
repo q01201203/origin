@@ -119,7 +119,10 @@ public class AppUserController {
 		String result = zhimaUtil.getResult(params,sign);
 
 		Map map = StringUtil.urlSplit(result);
-		String open_id = map.get("open_id").toString();
+		String open_id = "";
+		if (map.get("open_id")!=null){
+			open_id = map.get("open_id").toString();
+		}
 		String error_message = map.get("error_message").toString();
 		String success = map.get("success").toString();
 		String error_code = map.get("error_code").toString();
@@ -461,7 +464,7 @@ public class AppUserController {
 		if (appStuDetail == null){
 			save = true;
 			appStuDetail = new AppStuDetailDTO();
-			System.out.println("licheng null");
+			System.out.println("renxinhua null");
 		}
 
 		appStuDetail.setInfoMobile(infoMobile);
@@ -515,7 +518,7 @@ public class AppUserController {
 		if (appUserBankDTO == null){
 			save = true;
 			appUserBankDTO = new AppUserBankDTO();
-			System.out.println("licheng null");
+			System.out.println("renxinhua null");
 		}
 
 		appUserBankDTO.setBankNumber(bankNumber);

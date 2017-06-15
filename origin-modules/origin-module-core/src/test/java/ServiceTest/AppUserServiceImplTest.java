@@ -57,7 +57,7 @@ public class AppUserServiceImplTest {
         appValidcode.setValidcode("110110");
         appValidcode.setType(3);
         appValidcode.setStatus(1);
-        System.out.println("licheng" + appValidcodeService.findFirst(appValidcode).getCreateDate());
+        System.out.println("renxinhua" + appValidcodeService.findFirst(appValidcode).getCreateDate());
     }
 
     //获取用户收入信息
@@ -70,7 +70,7 @@ public class AppUserServiceImplTest {
         appMoneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_WAIT);
         List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.findIncomeInfo(appMoneyDetail);
 
-        System.out.println("licheng size " +appMoneyDetails.size()+" status " + appMoneyDetails.get(1).getStatus()+
+        System.out.println("renxinhua size " +appMoneyDetails.size()+" status " + appMoneyDetails.get(1).getStatus()+
         " mobile "+appMoneyDetails.get(1).getAppUser().getMobile()+" uid "+appMoneyDetails.get(1).getAppUser().getId()
         +" tid "+appMoneyDetails.get(1).getAppTask().getId());
     }
@@ -115,11 +115,10 @@ public class AppUserServiceImplTest {
         Integer i = 2;
         String s = "2";
         if (i.equals(Integer.parseInt(s))){
-            System.out.println("licheng 1");
+            System.out.println("renxinhua 1");
         }else {
-            System.out.println("licheng 2");
+            System.out.println("renxinhua 2");
         }
-        System.out.println("李诚");
     }
 
     //通过任务id查找审批记录
@@ -141,7 +140,7 @@ public class AppUserServiceImplTest {
             appUserTask.setAppMoneyDetail(appMoneyDetail);
         }
         List<IAppUserTask> appUserTasks = appUserTaskService.findTaskUserInfo(appUserTask);
-        System.out.println("licheng size " +appUserTasks.size()+" status " + appUserTasks.get(1).getAppMoneyDetail().getStatus()+
+        System.out.println("renxinhua size " +appUserTasks.size()+" status " + appUserTasks.get(1).getAppMoneyDetail().getStatus()+
                 " tid "+appUserTasks.get(1).getTid());
     }
 
@@ -149,7 +148,7 @@ public class AppUserServiceImplTest {
     public void validateRegex() throws Exception{
         String  s = "123a435";
         String regex = "^\\d{6}$";
-        System.out.println("licheng"+s.matches(regex));
+        System.out.println("renxinhua"+s.matches(regex));
     }
 
     //@Test
@@ -173,10 +172,10 @@ public class AppUserServiceImplTest {
         Double repayBalance = appMoneyDetailService.findTotalActualMoney(moneyDetail);
 
         IAppUser appUser = appUserService.findById(uid);
-        System.out.println("licheng income "+income);
+        System.out.println("renxinhua income "+income);
         Double balance = income - (withdraw==null?0:withdraw) - (repayBalance==null?0:repayBalance);
         appUser.setBalance(balance);
         appUserService.update(appUser);
-        System.out.println("licheng "+balance);
+        System.out.println("renxinhua "+balance);
     }
 }

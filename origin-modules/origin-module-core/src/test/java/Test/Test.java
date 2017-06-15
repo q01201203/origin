@@ -3,8 +3,11 @@ package Test;
 import com.origin.core.util.StringUtil;
 import jodd.util.URLDecoder;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Created by lc on 2017/6/13.
@@ -44,6 +47,8 @@ public class Test {
             sb.append(num);
         }
         System.out.println("number = "+sb);
+        System.out.println("uuid = "+new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())
+                + UUID.randomUUID().toString());
     }
 
     @org.junit.Test
@@ -60,5 +65,4 @@ public class Test {
         String ss = URLDecoder.decode("open_id=268806749671786140099668503&error_message=%E6%93%8D%E4%BD%9C%E6%88%90%E5%8A%9F&state=13637857084%2C110110%2C201706141742041435%2C%E5%91%A8%E7%BB%B4%E7%A7%91%2C500222199301225210&error_code=SUCCESS&app_id=1003280&success=true", "utf-8");
         System.out.println(ss);
     }
-
 }

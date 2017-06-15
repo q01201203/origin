@@ -41,7 +41,7 @@ public class ModelXml {
 		/** 字段list **/
 		dataMap.put("fieldList", fieldList);
 		/** 表名 **/
-		dataMap.put("tableName", tableName.toUpperCase());
+		dataMap.put("tableName", tableName);
 
 		/** 版本ID **/
 		dataMap.put("versionId", versionId);

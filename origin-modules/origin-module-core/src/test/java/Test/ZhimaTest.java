@@ -12,7 +12,6 @@ public class ZhimaTest {
     //@Test
     public void test1(){
         //ZhimaUtil result = new ZhimaUtil();
-        //result.zhimaAuthInfoAuthorize("李诚","500107199212054414");
     }
 
     //@Test
