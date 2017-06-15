@@ -53,13 +53,21 @@ public interface IAppUser extends Serializable {
 
 	void setMoneyMax(Double moneyMax);
 
-	String getAlipayUsername();
+	String getZhimaCertName();
 
-	void setAlipayUsername(String alipayUsername);
+	void setZhimaCertName(String zhimaCertName);
 
-	String getAlipayUseraccout();
+	String getZhimaCertNo();
 
-	void setAlipayUseraccout(String alipayUseraccout);
+	void setZhimaCertNo(String zhimaCertNo);
+
+	String getZhimaOpenid();
+
+	void setZhimaOpenid(String zhimaOpenid);
+
+	String getZhimaScore();
+
+	void setZhimaScore(String zhimaScore);
 
 	String getImgFace();
 
@@ -88,6 +96,10 @@ public interface IAppUser extends Serializable {
 	String getNickname();
 
 	void setNickname(String nickname);
+
+	String getJpushAlias();
+
+	void setJpushAlias(String jpushAlias);
 
 	Integer getCategory();
 

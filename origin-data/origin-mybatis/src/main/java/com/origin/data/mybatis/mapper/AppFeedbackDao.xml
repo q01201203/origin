@@ -3,7 +3,7 @@
 <mapper namespace="com.origin.data.mybatis.dao.AppFeedbackDao">
 	<sql id="selectPart">
         SELECT f.id,f.create_date,f.update_date,f.content,f.uid, f.delete_flag
-        FROM OGN_APP_FEEDBACK f
+        FROM ogn_app_feedback f
         where 1=1
 	</sql>
     <sql id="queryParams">
@@ -36,7 +36,7 @@
     </select>
     <select id="find" parameterType="com.origin.data.mybatis.entity.AppFeedback" resultMap="appFeedbackMap">
         SELECT f.id,f.create_date,f.update_date,f.content,f.uid, f.delete_flag,u.mobile
-        FROM OGN_APP_FEEDBACK f,OGN_APP_USER u
+        FROM ogn_app_feedback f,ogn_app_user u
         WHERE f.uid = u.id
         <include refid="queryParams"/>
         GROUP BY f.create_date DESC
@@ -45,7 +45,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO OGN_APP_FEEDBACK (
+        INSERT INTO ogn_app_feedback (
             <trim suffix="" suffixOverrides=",">
                         <if test="createDate != null">`create_date`,</if>
                         <if test="updateDate != null">`update_date`,</if>
@@ -65,7 +65,7 @@
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppFeedback" >
-        UPDATE OGN_APP_FEEDBACK  SET
+        UPDATE ogn_app_feedback  SET
          id=id
                 <if test="createDate != null">,create_date=#{createDate}</if>
                 <if test="updateDate != null">,update_date=#{updateDate}</if>
@@ -76,7 +76,7 @@
     </update>
     <update id="updateBatch" parameterType="list" >
         <foreach collection="list" item="item"  separator=";" >
-            update OGN_APP_FEEDBACK
+            update ogn_app_feedback
             set id=id
                     <if test="item.createDate != null">,create_date=#{item.createDate}</if>
                     <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
@@ -87,7 +87,7 @@
         </foreach>
     </update>
     <delete id="delete" parameterType="int">
-        UPDATE OGN_APP_FEEDBACK
+        UPDATE ogn_app_feedback
         SET delete_flag=1
         WHERE id=#{id}
     </delete>

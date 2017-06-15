@@ -74,7 +74,7 @@
                                             <div class="t_link">
                                                 <!--<a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
                                                 <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>-->
-                                                <a href="${ctx}/admin/appTask/task/detail/appTask_edit?id=${r.id }&operation=update"><i class="icon"></i>详情</a>
+                                                <a href="${ctx}/admin/appTask/task/detail/appTask_edit?id=${r.id }&operation=update"><i class="icon">&#xe5d4;</i>详细信息</a>
                                                 <a href="${ctx}/admin/appTask/userTask/list?tid=${r.id}"><i class="icon"></i>审批领取人员</a>
                                             </div>
                                         </td>

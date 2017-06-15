@@ -1,8 +1,9 @@
 package ServiceTest;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.origin.core.dto.UserRoleDTO;
+import com.origin.data.entity.IUserRole;
+import com.origin.data.mybatis.dao.UserRoleDao;
+import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -11,11 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.origin.core.dto.UserRoleDTO;
-import com.origin.data.entity.IUserRole;
-import com.origin.data.mybatis.dao.UserRoleDao;
-
-import junit.framework.TestCase;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext-mybatis.xml")
@@ -50,11 +48,15 @@ public class UserRoleServiceTest  extends TestCase{
     	ts.add(urd);
     	userRoleDao.deleteBatch(ts);
     }
-    @Test
+    //@Test
     public void delete(){
     	IUserRole urd = new UserRoleDTO();
     	urd.setUserId(12);
     	urd.setRoleId(11);
     	userRoleDao.deleteEntity(urd);
     }
+
+    @Test
+	public void test(){
+	}
 }

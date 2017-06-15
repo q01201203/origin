@@ -64,21 +64,31 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="l_title "><b class="cRed">*</b> 支付宝名</td>
+						<td class="l_title "><b class="cRed">*</b> 芝麻授权用户名</td>
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w240 ml10">
-									${appUser.alipayUsername}
+									${appUser.zhimaCertName}
 								</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td class="l_title "><b class="cRed">*</b> 支付宝账号</td>
+						<td class="l_title "><b class="cRed">*</b> 芝麻授权用户身份证</td>
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w240 ml10">
-									${appUser.alipayUseraccout}
+									${appUser.zhimaCertNo}
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="l_title "><b class="cRed">*</b> 芝麻信用分</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_text w240 ml10">
+									${appUser.zhimaScore}
 								</div>
 							</div>
 						</td>

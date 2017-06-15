@@ -18,7 +18,7 @@
         		    task_detailedStep,
         		    task_link,
                     delete_flag
-        FROM OGN_APP_TASK
+        FROM ogn_app_task
         where 1=1
 	</sql>
     <sql id="queryParams">
@@ -72,7 +72,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO OGN_APP_TASK (
+        INSERT INTO ogn_app_task (
             <trim suffix="" suffixOverrides=",">
                         <if test="createDate != null">`create_date`,</if>
                         <if test="updateDate != null">`update_date`,</if>
@@ -110,7 +110,7 @@
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppTask" >
-        UPDATE OGN_APP_TASK  SET
+        UPDATE ogn_app_task  SET
          id=id
                 <if test="createDate != null">,create_date=#{createDate}</if>
                 <if test="updateDate != null">,update_date=#{updateDate}</if>
@@ -130,7 +130,7 @@
     </update>
     <update id="updateBatch" parameterType="list" >
         <foreach collection="list" item="item"  separator=";" >
-            update OGN_APP_TASK
+            update ogn_app_task
             set id=id
                     <if test="item.createDate != null">,create_date=#{item.createDate}</if>
                     <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
@@ -150,6 +150,6 @@
         </foreach>
     </update>
     <delete id="delete" parameterType="int">
-        DELETE FROM OGN_APP_TASK WHERE id=#{id}
+        DELETE FROM ogn_app_task WHERE id=#{id}
     </delete>
 </mapper>

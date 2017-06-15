@@ -46,7 +46,7 @@ public class AppUserServiceImplTest {
     public void setUp() throws Exception {
     }
 
-    @Test
+    //@Test
     public void findOne() throws Exception {
         IAppUser appUser = new AppUserDTO();
         appUser.setMobile("13611112222");
@@ -61,7 +61,7 @@ public class AppUserServiceImplTest {
     }
 
     //获取用户收入信息
-    @Test
+    //@Test
     public void findUserIncome() throws Exception{
         Integer userId = 6;
         IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
@@ -76,7 +76,7 @@ public class AppUserServiceImplTest {
     }
 
     //完成任务提交审核
-    @Test
+    //@Test
     public void updateFinishTask() throws Exception{
         Integer userId = 3;
         Integer taskId = 1;
@@ -91,7 +91,7 @@ public class AppUserServiceImplTest {
     }
 
     //钱审核
-    @Test
+    //@Test
     public void updateMoneyStatus() throws Exception{
 
         String mId = "22";
@@ -110,7 +110,7 @@ public class AppUserServiceImplTest {
         appMoneyDetailService.updateAudit(appMoneyDetail);
     }
 
-    @Test
+    //@Test
     public void testIntegerString() throws Exception{
         Integer i = 2;
         String s = "2";
@@ -123,7 +123,7 @@ public class AppUserServiceImplTest {
     }
 
     //通过任务id查找审批记录
-    @Test
+    //@Test
     public void findTaskUser() throws Exception{
         String uid = "";
         String tid = "";
@@ -152,7 +152,7 @@ public class AppUserServiceImplTest {
         System.out.println("licheng"+s.matches(regex));
     }
 
-    @Test
+    //@Test
     public void findTotalMoney() throws Exception{
         Integer uid = 6 ;
 

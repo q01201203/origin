@@ -32,9 +32,13 @@ public class AppUserDTO implements IAppUser {
     /**  */
 	private Double moneyMax;// = 2000D;
     /**  */
-	private String alipayUsername;//;
+	private String zhimaCertName;//;
     /**  */
-	private String alipayUseraccout;//;
+	private String zhimaCertNo;//;
+    /**  */
+	private String zhimaOpenid;//;
+    /**  */
+	private String zhimaScore;//;
     /**  */
 	private String imgFace;//;
     /**  */
@@ -49,6 +53,8 @@ public class AppUserDTO implements IAppUser {
 	private String imgPortrait;//;
     /**  */
 	private String nickname;//;
+    /**  */
+	private String jpushAlias;//;
     /**  */
 	private Integer category;//;
     /**  */
@@ -143,20 +149,36 @@ public class AppUserDTO implements IAppUser {
 		this.moneyMax = moneyMax;
 	}
 
-	public String getAlipayUsername() {
-		return this.alipayUsername;
+	public String getZhimaCertName() {
+		return this.zhimaCertName;
 	}
 
-	public void setAlipayUsername(String alipayUsername) {
-		this.alipayUsername = alipayUsername;
+	public void setZhimaCertName(String zhimaCertName) {
+		this.zhimaCertName = zhimaCertName;
 	}
 
-	public String getAlipayUseraccout() {
-		return this.alipayUseraccout;
+	public String getZhimaCertNo() {
+		return this.zhimaCertNo;
 	}
 
-	public void setAlipayUseraccout(String alipayUseraccout) {
-		this.alipayUseraccout = alipayUseraccout;
+	public void setZhimaCertNo(String zhimaCertNo) {
+		this.zhimaCertNo = zhimaCertNo;
+	}
+
+	public String getZhimaOpenid() {
+		return this.zhimaOpenid;
+	}
+
+	public void setZhimaOpenid(String zhimaOpenid) {
+		this.zhimaOpenid = zhimaOpenid;
+	}
+
+	public String getZhimaScore() {
+		return this.zhimaScore;
+	}
+
+	public void setZhimaScore(String zhimaScore) {
+		this.zhimaScore = zhimaScore;
 	}
 
 	public String getImgFace() {
@@ -215,6 +237,14 @@ public class AppUserDTO implements IAppUser {
 		this.nickname = nickname;
 	}
 
+	public String getJpushAlias() {
+		return this.jpushAlias;
+	}
+
+	public void setJpushAlias(String jpushAlias) {
+		this.jpushAlias = jpushAlias;
+	}
+
 	public Integer getCategory() {
 		return this.category;
 	}
@@ -260,8 +290,10 @@ public class AppUserDTO implements IAppUser {
 		+",balance="+this.getBalance()
 		+",authority="+this.getAuthority()
 		+",moneyMax="+this.getMoneyMax()
-		+",alipayUsername="+this.getAlipayUsername()
-		+",alipayUseraccout="+this.getAlipayUseraccout()
+		+",zhimaCertName="+this.getZhimaCertName()
+		+",zhimaCertNo="+this.getZhimaCertNo()
+		+",zhimaOpenid="+this.getZhimaOpenid()
+		+",zhimaScore="+this.getZhimaScore()
 		+",imgFace="+this.getImgFace()
 		+",imgIdFront="+this.getImgIdFront()
 		+",imgIdBack="+this.getImgIdBack()
@@ -269,6 +301,7 @@ public class AppUserDTO implements IAppUser {
 		+",userIdNumber="+this.getUserIdNumber()
 		+",imgPortrait="+this.getImgPortrait()
 		+",nickname="+this.getNickname()
+		+",jpushAlias="+this.getJpushAlias()
 		+",category="+this.getCategory()
 		+",deleteFlag="+this.getDeleteFlag()
 		+"]";

@@ -3,6 +3,8 @@ package com.origin.core.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -289,5 +291,31 @@ public final class StringUtil {
 			result += sa[i];
 		}
 		return result.toUpperCase();
+	}
+
+	public static Map<String, Object> urlSplit(String data){
+		StringBuffer strbuf = new StringBuffer();
+		StringBuffer strbuf2 = new StringBuffer();
+		Map<String ,Object> map = new HashMap<String,Object>();
+		for(int i =0;i<data.length();i++){
+			if(data.substring(i,i+1).equals("=")){
+				for(int n=i+1;n<data.length();n++){
+					if(data.substring(n,n+1).equals("&")|| n ==data.length()-1){
+						if (n ==data.length()-1){
+							strbuf2.append(data.substring(n,n+1));
+						}
+						map.put(strbuf.toString(), strbuf2);
+						strbuf =new  StringBuffer("");
+						strbuf2 =new  StringBuffer("");
+						i=n;
+						break;
+					}
+					strbuf2.append(data.substring(n,n+1));
+				}
+				continue;
+			}
+			strbuf.append(data.substring(i,i+1));
+		}
+		return map;
 	}
 }

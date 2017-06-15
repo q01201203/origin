@@ -1,11 +1,14 @@
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IAppUserTask.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IRoleResource.java
+D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppZhimaDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IRoleDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppPersonDetailDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IResourceDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppUserBankDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IBasePermission.java
+D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppConstantsDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppMoneyDetailDao.java
+D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IAppConstants.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IUserDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IAppTask.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IUserRoleDao.java
@@ -25,6 +28,7 @@ D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\ITestDao.
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppFeedbackDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppTaskDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IUser.java
+D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IAppZhima.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppUserTaskDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppUserDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IRoleResourceDao.java

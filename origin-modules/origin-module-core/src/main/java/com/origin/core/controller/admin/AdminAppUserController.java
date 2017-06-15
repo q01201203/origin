@@ -55,10 +55,13 @@ public class AdminAppUserController {
 		String mobile = request.getParameter("mobile");
 		String pwd = request.getParameter("pwd");
 		String payPwd = request.getParameter("payPwd");
+		String balance = request.getParameter("balance");
 		String authority = request.getParameter("authority");
 		String moneyMax = request.getParameter("moneyMax");
-		String alipayUsername = request.getParameter("alipayUsername");
-		String alipayUseraccout = request.getParameter("alipayUseraccout");
+		String zhimaCertName = request.getParameter("zhimaCertName");
+		String zhimaCertNo = request.getParameter("zhimaCertNo");
+		String zhimaOpenid = request.getParameter("zhimaOpenid");
+		String zhimaScore = request.getParameter("zhimaScore");
 		String imgFace = request.getParameter("imgFace");
 		String imgIdFront = request.getParameter("imgIdFront");
 		String imgIdBack = request.getParameter("imgIdBack");
@@ -98,17 +101,26 @@ public class AdminAppUserController {
 		if(StringUtils.isNotBlank(payPwd)){
 			params.setPayPwd(payPwd);
 		}
+		if(StringUtils.isNotBlank(balance)){
+			params.setBalance(Double.parseDouble(balance));
+		}
 		if(StringUtils.isNotBlank(authority)){
 			params.setAuthority( Integer.parseInt(authority));
 		}
 		if(StringUtils.isNotBlank(moneyMax)){
 			params.setMoneyMax( Double.parseDouble(moneyMax));
 		}
-		if(StringUtils.isNotBlank(alipayUsername)){
-			params.setAlipayUsername(alipayUsername);
+		if(StringUtils.isNotBlank(zhimaCertName)){
+			params.setZhimaCertName(zhimaCertName);
 		}
-		if(StringUtils.isNotBlank(alipayUseraccout)){
-			params.setAlipayUseraccout(alipayUseraccout);
+		if(StringUtils.isNotBlank(zhimaCertNo)){
+			params.setZhimaCertNo(zhimaCertNo);
+		}
+		if(StringUtils.isNotBlank(zhimaOpenid)){
+			params.setZhimaOpenid(zhimaOpenid);
+		}
+		if(StringUtils.isNotBlank(zhimaScore)){
+			params.setZhimaScore(zhimaScore);
 		}
 		if(StringUtils.isNotBlank(imgFace)){
 			params.setImgFace(imgFace);
@@ -197,10 +209,13 @@ public class AdminAppUserController {
     		String mobile = request.getParameter("mobile");
     		String pwd = request.getParameter("pwd");
     		String payPwd = request.getParameter("payPwd");
+    		String balance = request.getParameter("balance");
     		String authority = request.getParameter("authority");
     		String moneyMax = request.getParameter("moneyMax");
-    		String alipayUsername = request.getParameter("alipayUsername");
-    		String alipayUseraccout = request.getParameter("alipayUseraccout");
+    		String zhimaCertName = request.getParameter("zhimaCertName");
+    		String zhimaCertNo = request.getParameter("zhimaCertNo");
+    		String zhimaOpenid = request.getParameter("zhimaOpenid");
+    		String zhimaScore = request.getParameter("zhimaScore");
     		String imgFace = request.getParameter("imgFace");
     		String imgIdFront = request.getParameter("imgIdFront");
     		String imgIdBack = request.getParameter("imgIdBack");
@@ -221,10 +236,13 @@ public class AdminAppUserController {
 			appUser.setMobile(mobile);
 			appUser.setPwd(pwd);
 			appUser.setPayPwd(payPwd);
+			appUser.setBalance(Double.parseDouble(balance));
 			appUser.setAuthority( Integer.parseInt(authority));
 			appUser.setMoneyMax( Double.parseDouble(moneyMax));
-			appUser.setAlipayUsername(alipayUsername);
-			appUser.setAlipayUseraccout(alipayUseraccout);
+			appUser.setZhimaCertName(zhimaCertName);
+			appUser.setZhimaCertNo(zhimaCertNo);
+			appUser.setZhimaOpenid(zhimaOpenid);
+			appUser.setZhimaScore(zhimaScore);
 			appUser.setImgFace(imgFace);
 			appUser.setImgIdFront(imgIdFront);
 			appUser.setImgIdBack(imgIdBack);

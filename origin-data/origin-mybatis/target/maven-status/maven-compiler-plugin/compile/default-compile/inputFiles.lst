@@ -1,4 +1,5 @@
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppGuide.java
+D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\dao\AppZhimaDao.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\Resource.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\dao\AppTaskDao.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppUserBank.java
@@ -30,6 +31,7 @@ D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\my
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppPersonDetail.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\dao\AppConstantsDao.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\RoleResource.java
+D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppZhima.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\common\BaseEntity.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\UserRole.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppTask.java

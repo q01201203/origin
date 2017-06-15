@@ -15,7 +15,7 @@
     <div class="mt20 plr20">
         <form action="${ctx }/admin/appFeedback/list" id="queryForm">
             <div class="J_toolsBar clearfix">
-                <div class="t_label">检索关键字</div>
+                <div class="t_label">检索内容</div>
                 <div class="t_text ml10">
                     <input placeholder="请输入关键字" type="text" name="content" value="${queryDTO.content}"/>
                 </div>

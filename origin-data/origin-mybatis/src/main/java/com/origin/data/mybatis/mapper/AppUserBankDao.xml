@@ -12,7 +12,7 @@
         		    bank_mobile,
         		    uid,
                     delete_flag
-        FROM OGN_APP_USER_BANK
+        FROM ogn_app_user_bank
         where 1=1
 	</sql>
     <sql id="queryParams">
@@ -54,7 +54,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO OGN_APP_USER_BANK (
+        INSERT INTO ogn_app_user_bank (
             <trim suffix="" suffixOverrides=",">
                         <if test="createDate != null">`create_date`,</if>
                         <if test="updateDate != null">`update_date`,</if>
@@ -80,7 +80,7 @@
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppUserBank" >
-        UPDATE OGN_APP_USER_BANK  SET
+        UPDATE ogn_app_user_bank  SET
          id=id
                 <if test="createDate != null">,create_date=#{createDate}</if>
                 <if test="updateDate != null">,update_date=#{updateDate}</if>
@@ -94,7 +94,7 @@
     </update>
     <update id="updateBatch" parameterType="list" >
         <foreach collection="list" item="item"  separator=";" >
-            update OGN_APP_USER_BANK
+            update ogn_app_user_bank
             set id=id
                     <if test="item.createDate != null">,create_date=#{item.createDate}</if>
                     <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
@@ -108,6 +108,6 @@
         </foreach>
     </update>
     <delete id="delete" parameterType="int">
-        DELETE FROM OGN_APP_USER_BANK WHERE id=#{id}
+        DELETE FROM ogn_app_user_bank WHERE id=#{id}
     </delete>
 </mapper>

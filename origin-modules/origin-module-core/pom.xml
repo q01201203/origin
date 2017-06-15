@@ -80,6 +80,11 @@
             <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ueditor-1.1.2.jar</systemPath>
         </dependency>
         <dependency>
+            <groupId>zmxy-sdk-java</groupId>
+            <artifactId>zmxy</artifactId>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/zmxy-sdk-java-20170605134301.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/json.jar</systemPath>
@@ -282,6 +287,10 @@
         <dependency>
             <groupId>commons-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.jpush.api</groupId>
+            <artifactId>jpush-client</artifactId>
         </dependency>
     </dependencies>
 

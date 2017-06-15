@@ -7,10 +7,10 @@
         		    create_date,
         		    update_date,
         		    type,
-        		    OGN_APP_CONSTANTS.key,
-        		    OGN_APP_CONSTANTS.value,
+        		    ogn_app_constants.key,
+        		    ogn_app_constants.value,
                     delete_flag
-        FROM OGN_APP_CONSTANTS
+        FROM ogn_app_constants
         where 1=1
 	</sql>
     <sql id="queryParams">
@@ -18,8 +18,8 @@
 			<if test="createDate != null">AND create_date=#{createDate}</if>
 			<if test="updateDate != null">AND update_date=#{updateDate}</if>
 			<if test="type != null">AND type=#{type}</if>
-			<if test="key != null">AND OGN_APP_CONSTANTS.key=#{key}</if>
-			<if test="value != null">AND OGN_APP_CONSTANTS.value=#{value}</if>
+			<if test="key != null">AND ogn_app_constants.key=#{key}</if>
+			<if test="value != null">AND ogn_app_constants.value=#{value}</if>
 			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
     <resultMap type="com.origin.data.mybatis.entity.AppConstants" id="appConstantsMap">
@@ -28,8 +28,8 @@
     	<result property="createDate" column="create_date"/>
     	<result property="updateDate" column="update_date"/>
     	<result property="type" column="type"/>
-    	<result property="key" column="OGN_APP_CONSTANTS.key"/>
-    	<result property="value" column="OGN_APP_CONSTANTS.value"/>
+    	<result property="key" column="ogn_app_constants.key"/>
+    	<result property="value" column="ogn_app_constants.value"/>
     	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
     <select id="findByPK" parameterType="int" resultType="com.origin.data.mybatis.entity.AppConstants">
@@ -48,7 +48,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO OGN_APP_CONSTANTS (
+        INSERT INTO ogn_app_constants (
             <trim suffix="" suffixOverrides=",">
                         <if test="createDate != null">`create_date`,</if>
                         <if test="updateDate != null">`update_date`,</if>
@@ -70,30 +70,30 @@
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppConstants" >
-        UPDATE OGN_APP_CONSTANTS  SET
+        UPDATE ogn_app_constants  SET
          id=id
                 <if test="createDate != null">,create_date=#{createDate}</if>
                 <if test="updateDate != null">,update_date=#{updateDate}</if>
                 <if test="type != null">,type=#{type}</if>
-                <if test="key != null">,OGN_APP_CONSTANTS.key=#{key}</if>
-                <if test="value != null">,OGN_APP_CONSTANTS.value=#{value}</if>
+                <if test="key != null">,ogn_app_constants.key=#{key}</if>
+                <if test="value != null">,ogn_app_constants.value=#{value}</if>
                 <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
     </update>
     <update id="updateBatch" parameterType="list" >
         <foreach collection="list" item="item"  separator=";" >
-            update OGN_APP_CONSTANTS
+            update ogn_app_constants
             set id=id
                     <if test="item.createDate != null">,create_date=#{item.createDate}</if>
                     <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
                     <if test="item.type != null">,type=#{item.type}</if>
-                    <if test="item.key != null">,OGN_APP_CONSTANTS.key=#{item.key}</if>
-                    <if test="item.value != null">,OGN_APP_CONSTANTS.value=#{item.value}</if>
+                    <if test="item.key != null">,ogn_app_constants.key=#{item.key}</if>
+                    <if test="item.value != null">,ogn_app_constants.value=#{item.value}</if>
                     <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}
         </foreach>
     </update>
     <delete id="delete" parameterType="int">
-        DELETE FROM OGN_APP_CONSTANTS WHERE id=#{id}
+        DELETE FROM ogn_app_constants WHERE id=#{id}
     </delete>
 </mapper>

@@ -6,7 +6,6 @@ import com.origin.core.dto.AppUserDTO;
 import com.origin.core.dto.AppValidcodeDTO;
 import com.origin.core.service.AppUserService;
 import com.origin.core.service.AppValidcodeService;
-import com.origin.core.util.HttpSender;
 import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppValidcode;
@@ -73,23 +72,18 @@ public class AppValidcodeController {
 					return Result.createErrorResult().setMessage("用户不存在");
 				}
 			case IAppValidcode.TYPE_BORROW:
-				appUser = appUserService.findFirst(appUser);
-				if (appUser!=null){
-					if (saveValidcode(mobile, type)){
-						return Result.createSuccessResult().setMessage("发送验证码成功");
-					}else {
-						return Result.createErrorResult().setMessage("短信平台出错");
-					}
+				if (saveValidcode(mobile, type)){
+					return Result.createSuccessResult().setMessage("发送验证码成功");
 				}else {
-					return Result.createErrorResult().setMessage("用户不存在");
+					return Result.createErrorResult().setMessage("短信平台出错");
 				}
 		}
 		return Result.createErrorResult().setMessage("type类型不存在");
 	}
 
 	private boolean saveValidcode(String mobile, String type) {
-		//String validcode = "110110";
-		int validcode = HttpSender.send(mobile);
+		int validcode = 110110;
+		//int validcode = HttpSender.send(mobile);
 		if (validcode < 0){
 			return false;
 		}

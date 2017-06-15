@@ -1,8 +1,9 @@
 package ServiceTest;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.origin.core.dto.UserDTO;
+import com.origin.data.entity.IUser;
+import com.origin.data.mybatis.dao.UserDao;
+import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -11,11 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.origin.data.mybatis.dao.UserDao;
-import com.origin.core.dto.UserDTO;
-import com.origin.data.entity.IUser;
-
-import junit.framework.TestCase;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext-mybatis.xml")
@@ -56,7 +54,7 @@ public class UserServiceTest extends TestCase  {
     	user.setPassword("123456");
     	userDao.update(user);
     }
-    @Test
+    //@Test
     public void updatePks(){
     	List<Integer> pks = new ArrayList<Integer>();
     	pks.add(2);
@@ -67,4 +65,8 @@ public class UserServiceTest extends TestCase  {
     public void delete(){
     	userDao.delete(22);
     }
+
+	@Test
+	public void test(){
+	}
 }

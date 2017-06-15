@@ -5,10 +5,7 @@ import com.origin.common.model.mybatis.Result;
 import com.origin.common.util.Md5Util;
 import com.origin.core.dto.*;
 import com.origin.core.service.*;
-import com.origin.core.util.Constants;
-import com.origin.core.util.CustomToken;
-import com.origin.core.util.SimpleToken;
-import com.origin.core.util.StringUtil;
+import com.origin.core.util.*;
 import com.origin.data.entity.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -25,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Controller
@@ -53,13 +51,10 @@ public class AppUserController {
 	private AppMoneyDetailService appMoneyDetailService;
 
 	@Autowired
-	private AppTaskService appTaskService;
-
-	@Autowired
-	private AppUserTaskService appUserTaskService;
-
-	@Autowired
 	private AppFeedbackService appFeedbackService;
+
+	@Autowired
+	private AppZhimaService appZhimaService;
 
 	//query
 	@RequestMapping(value = "/login" , method = RequestMethod.POST)
@@ -82,19 +77,18 @@ public class AppUserController {
 		return Result.createErrorResult().setMessage("用户名密码错误");
 	}
 
-
-	//insert
-	@RequestMapping(value = "/register")
+	@RequestMapping(value = "/register" ,method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "app用户注册", httpMethod = "POST", response = Result.class, notes = "注册")
-	public Object register(@RequestParam(value = "mobile") String mobile ,
-						   @RequestParam(value = "pwd") String pwd,
-						   @RequestParam(value = "alipayUsername") String alipayUsername ,
-						   @RequestParam(value = "alipayUseraccout") String alipayUseraccout) throws Exception {
-		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd +"请求的alipayusername为"
-				+ alipayUsername + "\n请求的alipayuseraccout为" + alipayUseraccout);
-		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)||StringUtil.isNullOrBlank(alipayUsername)
-				||StringUtil.isNullOrBlank(alipayUseraccout)){
+	@ApiOperation(value = "请求芝麻信用授权", httpMethod = "POST", response = Result.class,
+			notes = "注册传入手机号，密码，JPush的alias，芝麻授权用户名，芝麻授权用户身份证，返回一个H5的url地址")
+	public Object requestZhimaAuth(@RequestParam(value = "zhimaCertName") String zhimaCertName,
+								   @RequestParam(value = "zhimaCertNo") String zhimaCertNo,
+								   @RequestParam(value = "mobile") String mobile ,
+								   @RequestParam(value = "pwd") String pwd,
+								   @RequestParam(value = "alias") String alias) throws Exception{
+		if (StringUtil.isNullOrBlank(zhimaCertName)||StringUtil.isNullOrBlank(zhimaCertNo)||
+				StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)
+				||StringUtil.isNullOrBlank(alias)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 		IAppUser appUser = new AppUserDTO();
@@ -103,13 +97,82 @@ public class AppUserController {
 		if (appUser!=null){
 			return Result.createErrorResult().setMessage("用户已存在");
 		}else {
-			IAppUser appUser1 = new AppUserDTO();
-			appUser1.setMobile(mobile);
-			appUser1.setPwd(Md5Util.generatePassword(pwd));
-			appUser1.setAlipayUsername(alipayUsername);
-			appUser1.setAlipayUseraccout(alipayUseraccout);
-			appUserService.save(appUser1);
-			return Result.createSuccessResult().setMessage("注册成功");
+			ZhimaUtil zhimaUtil = new ZhimaUtil();
+			String result = zhimaUtil.zhimaAuthInfoAuthorize(zhimaCertName, zhimaCertNo, mobile, pwd, alias);
+			if (!"error".equals(result) && result != null) {
+				return Result.createSuccessResult(result, "成功返回芝麻认证url");
+			} else {
+				return Result.createErrorResult().setMessage("返回芝麻认证url失败");
+			}
+		}
+	}
+
+	//芝麻认证回调接口
+	@RequestMapping(value = "/saveRegisterInfo")
+	@ResponseBody
+	@ApiIgnore
+	public String saveRegisterInfo(HttpServletRequest request) throws Exception{
+		String params = request.getParameter("params");
+		String sign = request.getParameter("sign");
+		System.out.println("zhima params = "+params +" sign = "+sign);
+		ZhimaUtil zhimaUtil = new ZhimaUtil();
+		String result = zhimaUtil.getResult(params,sign);
+
+		Map map = StringUtil.urlSplit(result);
+		String open_id = map.get("open_id").toString();
+		String error_message = map.get("error_message").toString();
+		String success = map.get("success").toString();
+		String error_code = map.get("error_code").toString();
+		String state = map.get("state").toString();
+		System.out.println("open_id = "+open_id+" error_message = "+error_message+" success = "+success+
+				" error_code = "+error_code+" state = "+state);
+		String[] datas = state.split("\\,");
+		String mobile = datas[0];
+		String pwd = datas[1];
+		String alias = datas[2];
+		String zhimaCertName = datas[3];
+		String zhimaCertNo = datas[4];
+		System.out.println("mobile = "+mobile+" pwd = "+pwd+" alias = "+alias+" zhimaCertName = "+zhimaCertName
+				+" zhimaCertNo = "+zhimaCertNo);
+
+		if (!"error".equals(result) && result!=null){
+			if ("true".equals(success)){
+				//保存注册信息
+				IAppUser appUser = new AppUserDTO();
+				appUser.setMobile(mobile);
+				appUser.setPwd(Md5Util.generatePassword(pwd));
+				appUser.setZhimaCertName(zhimaCertName);
+				appUser.setZhimaCertNo(zhimaCertNo);
+				appUser.setZhimaOpenid(open_id);
+				appUser.setJpushAlias(alias);
+				appUserService.save(appUser);
+
+				appUser = appUserService.findFirst(appUser);
+				//获取芝麻信用分
+				String[] resultCreditScore = zhimaUtil.zhimaCreditScoreGet(open_id);
+				if (result!=null){
+					IAppZhima zhimaDTO = new AppZhimaDTO();
+					zhimaDTO.setType(IAppZhima.TYPE_CREDIT_SCORE);
+					zhimaDTO.setScore(resultCreditScore[0]);
+					zhimaDTO.setBizNo(resultCreditScore[1]);
+					zhimaDTO.setUid(appUser.getId());
+					appZhimaService.save(zhimaDTO);
+
+					appUser.setZhimaScore(resultCreditScore[0]);
+					appUserService.update(appUser);
+				}else{
+					appUser.setZhimaScore("600");
+					appUserService.update(appUser);
+				}
+				JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias,"注册成功"));
+				return "success";
+			}else {
+				JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias,"注册失败"));
+				return error_code+":"+error_message;
+			}
+		}else {
+			JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias,"注册失败"));
+			return "error";
 		}
 	}
 
@@ -157,58 +220,6 @@ public class AppUserController {
 		appUserService.update(appUser);
 		return Result.createSuccessResult().setMessage("添加支付密码成功");
 	}
-
-	/*@RequestMapping(value = "/user/updateMaxMoney")
-	@ResponseBody
-	public Object updateMaxMoney(HttpServletRequest request) throws Exception {
-		Object tokenValidResult = CustomToken.tokenValidate(request,Constants.AHORITY_LOW);
-		if (!(tokenValidResult instanceof SimpleToken)){
-			return tokenValidResult;
-		}
-		Integer uId = ((SimpleToken) tokenValidResult).getId();
-
-		String zhimaCredit = request.getParameter("zhimaCredit");
-		System.out.println("请求的zhimacredit为" + zhimaCredit);
-		if (StringUtil.isNullOrBlank(zhimaCredit)){
-			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-		}
-
-		IAppUser appUser = new AppUserDTO();
-		appUser.setId(uId);
-		//lic wait modify
-		Integer maxMoney = 2000+Integer.parseInt(zhimaCredit);
-		appUser.setMoneyMax(maxMoney);
-		appUser.setUpdateDate(new Date());
-		appUserService.update(appUser);
-		return Result.createSuccessResult();
-	}*/
-
-	/*@RequestMapping(value = "/addAlipayAccount" ,method = RequestMethod.GET)
-	@ResponseBody
-	@ApiOperation(value = "app用户添加支付宝账号", httpMethod = "GET", response = Result.class, notes = "addAlipayAccout")
-	public Object addAlipayAccout(@RequestHeader(value = "Authorization" ) String token,
-								  @RequestParam(value = "alipayUsername") String alipayUsername ,
-								  @RequestParam(value = "alipayUseraccout") String alipayUseraccout) throws Exception{
-		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
-		if (!(tokenValidResult instanceof SimpleToken)){
-			return tokenValidResult;
-		}
-		Integer uId = ((SimpleToken) tokenValidResult).getId();
-
-		System.out.println("请求的alipayusername为" + alipayUsername + "\n请求的alipayuseraccout为" +
-				alipayUseraccout);
-		if (StringUtil.isNullOrBlank(alipayUsername)||StringUtil.isNullOrBlank(alipayUseraccout)){
-			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-		}
-
-		IAppUser appUser = new AppUserDTO();
-		appUser.setId(uId);
-		appUser.setAlipayUsername(alipayUsername);
-		appUser.setAlipayUseraccout(alipayUseraccout);
-		appUser.setUpdateDate(new Date());
-		appUserService.update(appUser);
-		return Result.createSuccessResult().setMessage("添加成功");
-	}*/
 
 	@RequestMapping(value = "/addFace" ,method = RequestMethod.GET)
 	@ResponseBody

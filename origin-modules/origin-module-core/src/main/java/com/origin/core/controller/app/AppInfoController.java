@@ -120,4 +120,5 @@ public class AppInfoController {
 		List<IAppConstants> appConstantsList = appConstantsService.find(appConstants);
 		return Result.createSuccessResult(appConstantsList,"获取常量成功");
 	}
+
 }

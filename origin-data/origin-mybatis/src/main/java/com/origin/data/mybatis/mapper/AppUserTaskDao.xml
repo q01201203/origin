@@ -7,7 +7,7 @@
         		    uid,
         		    tid,
                     mid
-        FROM OGN_APP_USER_TASK
+        FROM ogn_app_user_task
         where 1=1
 	</sql>
     <sql id="queryParams">
@@ -39,7 +39,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO OGN_APP_USER_TASK (
+        INSERT INTO ogn_app_user_task (
             <trim suffix="" suffixOverrides=",">
                         <if test="uid != null">`uid`,</if>
                         <if test="tid != null">`tid`,</if>
@@ -55,7 +55,7 @@
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppUserTask" >
-        UPDATE OGN_APP_USER_TASK  SET
+        UPDATE ogn_app_user_task  SET
          id=id
                 <if test="uid != null">,uid=#{uid}</if>
                 <if test="tid != null">,tid=#{tid}</if>
@@ -64,7 +64,7 @@
     </update>
     <update id="updateBatch" parameterType="list" >
         <foreach collection="list" item="item"  separator=";" >
-            update OGN_APP_USER_TASK
+            update ogn_app_user_task
             set id=id
                     <if test="item.uid != null">,uid=#{item.uid}</if>
                     <if test="item.tid != null">,tid=#{item.tid}</if>
@@ -73,7 +73,7 @@
         </foreach>
     </update>
     <delete id="delete" parameterType="int">
-        DELETE FROM OGN_APP_USER_TASK WHERE id=#{id}
+        DELETE FROM ogn_app_user_task WHERE id=#{id}
     </delete>
 
     <select id="findTaskUserInfo" parameterType="com.origin.data.mybatis.entity.AppUserTask" resultMap="appUserTaskInfoMap">

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="zmxy-sdk-java-20170605134301">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/lib/zmxy-sdk-java-20170605134301.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/lib/zmxy-sdk-java-20170605134301-source.jar!/com/antgroup/zmxy/openplatform/api" />
+    </SOURCES>
+  </library>
+</component>

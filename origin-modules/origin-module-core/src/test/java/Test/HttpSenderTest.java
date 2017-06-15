@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class HttpSenderTest {
 
-	@Test
+	//@Test
 	public void testMsg(){
 		String url = "http://sms.253.com/msg/";// 应用地址
 		String un = "N3353057";// 账号
@@ -26,14 +26,14 @@ public class HttpSenderTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testRandom(){
 		for (int i = 0; i < 100; i++) {
 			System.out.println("随机数为" +(int)((Math.random()*9+1)*100000));
 		}
 	}
 
-	@Test
+	//@Test
 	public void test2(){
 		String s = "2222222,0";
 		char successCode = '0';
@@ -43,4 +43,7 @@ public class HttpSenderTest {
 		System.out.println("s = " +success);
 	}
 
+	@Test
+	public void test(){
+	}
 }

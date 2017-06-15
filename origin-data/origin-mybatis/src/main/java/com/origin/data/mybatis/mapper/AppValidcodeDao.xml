@@ -12,7 +12,7 @@
         		    count,
         		    status,
                     delete_flag
-        FROM OGN_APP_VALIDCODE
+        FROM ogn_app_validcode
         where 1=1
 	</sql>
     <sql id="queryParams">
@@ -47,7 +47,7 @@
         <include refid="queryParams"/>
         AND create_date =
         (SELECT MAX(create_date)
-        FROM OGN_APP_VALIDCODE
+        FROM ogn_app_validcode
         WHERE 1=1
         <include refid="queryParams"/>
         )
@@ -60,7 +60,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO OGN_APP_VALIDCODE (
+        INSERT INTO ogn_app_validcode (
             <trim suffix="" suffixOverrides=",">
                         <if test="createDate != null">`create_date`,</if>
                         <if test="updateDate != null">`update_date`,</if>
@@ -86,7 +86,7 @@
 		)
     </insert>
     <update id="update" parameterType="com.origin.data.mybatis.entity.AppValidcode" >
-        UPDATE OGN_APP_VALIDCODE  SET
+        UPDATE ogn_app_validcode  SET
          id=id
                 <if test="createDate != null">,create_date=#{createDate}</if>
                 <if test="updateDate != null">,update_date=#{updateDate}</if>
@@ -100,7 +100,7 @@
     </update>
     <update id="updateBatch" parameterType="list" >
         <foreach collection="list" item="item"  separator=";" >
-            update OGN_APP_VALIDCODE
+            update ogn_app_validcode
             set id=id
                     <if test="item.createDate != null">,create_date=#{item.createDate}</if>
                     <if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
@@ -114,6 +114,6 @@
         </foreach>
     </update>
     <delete id="delete" parameterType="int">
-        DELETE FROM OGN_APP_VALIDCODE WHERE id=#{id}
+        DELETE FROM ogn_app_validcode WHERE id=#{id}
     </delete>
 </mapper>

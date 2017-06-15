@@ -2,7 +2,6 @@ com\origin\core\service\impl\RoleResourceServiceImpl.class
 com\origin\core\shiro\ShiroDBRealm.class
 com\origin\core\util\WebUtils.class
 com\origin\core\util\JsonResultBean.class
-com\origin\core\controller\UserController.class
 com\origin\core\exception\BusinessExceptionWapper.class
 com\origin\core\service\UserRoleService.class
 com\origin\core\dto\UserRoleDTO.class
@@ -13,11 +12,11 @@ com\origin\core\service\RoleService.class
 com\origin\core\service\impl\UserRoleServiceImpl.class
 com\origin\core\util\StringUtil.class
 com\origin\core\dto\RoleResourceDTO.class
-com\origin\core\controller\LoginController.class
 com\origin\core\dto\UserDTO.class
 com\origin\core\util\JsonUtil.class
 com\origin\core\util\WebHelper.class
 com\origin\core\exception\BusinessException.class
+com\origin\core\util\ZhimaUtil.class
 com\origin\core\service\impl\RoleServiceImpl.class
 com\origin\core\util\XmlUtil.class
 com\origin\core\service\impl\UserServiceImpl.class
@@ -25,7 +24,7 @@ com\origin\core\service\ResourceService.class
 com\origin\core\exception\BusinessExceptionWapper$Singleton.class
 com\origin\core\service\RoleResourceService.class
 com\origin\core\exception\SystemException.class
-com\origin\core\controller\IndexController.class
+com\origin\core\util\JPushUtil.class
 com\origin\core\service\UserService.class
 com\origin\core\shiro\RememberAuthenticationFilter.class
 com\origin\core\dto\ResourceDTO.class

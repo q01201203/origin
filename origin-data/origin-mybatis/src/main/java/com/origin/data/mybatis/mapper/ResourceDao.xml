@@ -88,7 +88,11 @@
     <update id="updateBatch" parameterType="list" >
 	     <foreach collection="list" item="item"  separator=";" >
 	        update ogn_resource 
-	        set name=#{item.name},url=#{item.url},order_no=#{item.orderNo},icon=#{item.icon}
+	        set id=id
+			 <if test="item.name != null">,name=#{item.name}</if>
+			 <if test="item.url != null">,url=#{item.url}</if>
+			 <if test="item.orderNo != null">,orderNo=#{item.orderNo}</if>
+			 <if test="item.icon != null">,icon=#{item.icon}</if>
 			<if test="item.auditFlag != null">,audit_flag=#{item.auditFlag}</if>
 			<if test="item.createDate != null">,create_date=#{item.createDate}</if>
 			<if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
@@ -98,6 +102,19 @@
 	        where id=#{item.id}
         </foreach>
     </update>
+	<!--<update id="updateBatch" parameterType="list" >
+		<foreach collection="list" item="item"  separator=";" >
+			update ogn_resource
+			set name=#{item.name},url=#{item.url},order_no=#{item.orderNo},icon=#{item.icon}
+			<if test="item.auditFlag != null">,audit_flag=#{item.auditFlag}</if>
+			<if test="item.createDate != null">,create_date=#{item.createDate}</if>
+			<if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
+			<if test="item.updateDate != null">,update_date=#{item.updateDate}</if>
+			<if test="item.type != null and item.type != '' ">,type=#{item.type}</if>
+			<if test="item.parentId != null and item.parentId != '' ">,parent_id=#{item.parentId}</if>
+			where id=#{item.id}
+		</foreach>
+	</update>-->
     <update id="updatePks" >
     	<foreach collection="#{0}" item="item" open="" separator="" close="">  
             update ogn_resource set status=#{1} where id=#{item};
