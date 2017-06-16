@@ -54,7 +54,7 @@ public class AppUserController {
 	private AppFeedbackService appFeedbackService;
 
 	@Autowired
-	private AppZhimaService appZhimaService;
+	private AppMessageService appMessageService;
 
 	//query
 	@RequestMapping(value = "/login" , method = RequestMethod.POST)
@@ -148,33 +148,18 @@ public class AppUserController {
 				appUser.setZhimaCertNo(zhimaCertNo);
 				appUser.setZhimaOpenid(open_id);
 				appUser.setJpushAlias(alias);
-				appUserService.save(appUser);
-
-				appUser = appUserService.findFirst(appUser);
-				//获取芝麻信用分
-				String[] resultCreditScore = zhimaUtil.zhimaCreditScoreGet(open_id);
-				if (result!=null){
-					IAppZhima zhimaDTO = new AppZhimaDTO();
-					zhimaDTO.setType(IAppZhima.TYPE_CREDIT_SCORE);
-					zhimaDTO.setScore(resultCreditScore[0]);
-					zhimaDTO.setBizNo(resultCreditScore[1]);
-					zhimaDTO.setUid(appUser.getId());
-					appZhimaService.save(zhimaDTO);
-
-					appUser.setZhimaScore(resultCreditScore[0]);
-					appUserService.update(appUser);
-				}else{
-					appUser.setZhimaScore("600");
-					appUserService.update(appUser);
-				}
-				JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias,"注册成功"));
+				appUserService.saveUser(appUser);
 				return "success";
 			}else {
-				JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias,"注册失败"));
+				if (!StringUtil.isNullOrBlank(alias)) {
+					JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, "注册失败"));
+				}
 				return error_code+":"+error_message;
 			}
 		}else {
-			JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias,"注册失败"));
+			if (!StringUtil.isNullOrBlank(alias)) {
+				JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, "注册失败"));
+			}
 			return "error";
 		}
 	}
@@ -792,4 +777,51 @@ public class AppUserController {
 		Double totalActualMoney = appMoneyDetailService.findTotalActualMoney(moneyDetail);
 		return totalActualMoney==null?0:totalActualMoney;
 	}
+
+	@RequestMapping(value = "/getUserMessage" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取用户消息列表", httpMethod = "GET", response = Result.class, notes = "传入参数type(1、个人消息2、系统消息)")
+	public Object getUserMessage(@RequestHeader(value = "Authorization") String token,
+								 @RequestParam(value = "type" ,required = false) String type) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		IAppMessage appMessage = new AppMessageDTO();
+		appMessage.setUid(uId);
+		if (!StringUtil.isNullOrBlank(type)){
+			appMessage.setType(Integer.parseInt(type));
+		}
+		List<IAppMessage> appMessages = appMessageService.find(appMessage);
+
+		return Result.createSuccessResult(appMessages,"获取用户消息列表成功");
+	}
+
+	@RequestMapping(value = "/updateUserMessage" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "更新用户消息列表状态", httpMethod = "GET", response = Result.class, notes = "传入参数消息id")
+	public Object updateUserMessage(@RequestHeader(value = "Authorization") String token,
+								 @RequestParam(value = "mid") String mid) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		if (StringUtil.isNullOrBlank(mid)){
+			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+		}
+
+		IAppMessage appMessage = appMessageService.findById(Integer.parseInt(mid));
+		if (uId.equals(appMessage.getUid())){
+			appMessage.setStatus(IAppMessage.STATUS_NO);
+			appMessageService.update(appMessage);
+			return Result.createSuccessResult().setMessage("更新用户消息状态成功");
+		}else{
+			return Result.createErrorResult().setMessage("消息和用户不匹配");
+		}
+	}
+
 }

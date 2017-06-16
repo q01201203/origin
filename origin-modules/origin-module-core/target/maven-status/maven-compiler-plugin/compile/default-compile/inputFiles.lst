@@ -47,10 +47,13 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\UserController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppGuideDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppMoneyDetailServiceImpl.java
+D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\AdminAppMessageController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppTaskDTO.java
+D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppMessageServiceImpl.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\exception\SystemException.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\shiro\ShiroDBRealm.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\IndexController.java
+D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppMessageService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\StringUtil.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppUserServiceImpl.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\UserRoleDTO.java
@@ -76,6 +79,7 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\AdminAppTaskController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppStuDetailService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\TestServiceImpl.java
+D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppMessageDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\RoleResourceDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppGuideServiceImpl.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\HttpSender.java

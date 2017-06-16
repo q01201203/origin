@@ -20,6 +20,13 @@ public class ZhimaTest {
         result.zhimaCreditScoreGet("");
     }
 
+    //500222199301225210
+    //@Test
+    public void test3(){
+        ZhimaUtil result = new ZhimaUtil();
+        result.zhimaCustomerCertificationInitialize("周维科","500222199301225210");
+    }
+
     @Test
     public void test(){
     }

@@ -14,4 +14,5 @@ public interface AppMessageService {
     List<IAppMessage> find(IAppMessage appMessage);
     public List<IAppMessage> findSystemMessage(IAppMessage appMessage);
     public void saveBatchSystemMessage(IAppMessage appMessage);
+    public void updateBatch(List<IAppMessage> appMessages);
 }

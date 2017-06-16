@@ -80,7 +80,7 @@
                                         </td>
                                         <td>
                                             <div class="t_link">
-                                                <a href="javascript:deleteById('${r.id }');"><i class="icon"></i>删除</a>
+                                                <a href="javascript:deleteById('${r.content }');"><i class="icon"></i>删除</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -138,9 +138,9 @@
     }
 
 
-    function deleteById(id){
-        var content = '确定要删除数据吗？';
-        layer.confirm(content, function(index){
+    function deleteById(content){
+        var title = '确定要删除数据吗？';
+        layer.confirm(title, function(index){
             layer.close(index);
 
             var loadIdx = layer.load();
@@ -148,7 +148,7 @@
                 url : '${ctx}/admin/appMessage/ajax/delete',
                 type : 'post',
                 data : {
-                    'id' : id
+                    'content' : content
                 },
                 traditional : true,
                 success : function(result){

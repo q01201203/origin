@@ -74,4 +74,8 @@ public class AppMessageServiceImpl  implements AppMessageService {
         appMessageDao.saveBatchSystemMessage(appMessages);
         JPushUtil.sendPush(JPushUtil.buildPushObject_all_alert(appMessage.getContent()));
     }
+
+    public void updateBatch(List<IAppMessage> appMessages){
+        appMessageDao.updateBatch(appMessages);
+    }
 }

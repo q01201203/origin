@@ -5,8 +5,10 @@ import com.antgroup.zmxy.openplatform.api.ZhimaApiException;
 import com.antgroup.zmxy.openplatform.api.request.ZhimaAuthInfoAuthorizeRequest;
 import com.antgroup.zmxy.openplatform.api.request.ZhimaAuthInfoAuthqueryRequest;
 import com.antgroup.zmxy.openplatform.api.request.ZhimaCreditScoreGetRequest;
+import com.antgroup.zmxy.openplatform.api.request.ZhimaCustomerCertificationInitializeRequest;
 import com.antgroup.zmxy.openplatform.api.response.ZhimaAuthInfoAuthqueryResponse;
 import com.antgroup.zmxy.openplatform.api.response.ZhimaCreditScoreGetResponse;
+import com.antgroup.zmxy.openplatform.api.response.ZhimaCustomerCertificationInitializeResponse;
 import jodd.util.URLDecoder;
 
 import java.util.Random;
@@ -95,14 +97,14 @@ public class ZhimaUtil {
         ZhimaCreditScoreGetRequest req = new ZhimaCreditScoreGetRequest();
         req.setChannel("apppc");
         req.setPlatform("zmop");
-        StringBuffer sb = new StringBuffer();
-        sb.append(StringUtil.getNow("yyyyMMddhhmmssSSS"));
+        StringBuffer transactionId = new StringBuffer();
+        transactionId.append(StringUtil.getNow("yyyyMMddhhmmssSSS"));
         Random r = new Random();
         for(int i=0;i<13;i++){
             int num = r.nextInt(10);
-            sb.append(num);
+            transactionId.append(num);
         }
-        req.setTransactionId(sb.toString());// 必要参数
+        req.setTransactionId(transactionId.toString());// 必要参数
         req.setProductCode("w1010100100000000001");// 必要参数
         req.setOpenId(openId);// 必要参数
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
@@ -144,6 +146,41 @@ public class ZhimaUtil {
             }
             System.out.println("zhima result = "+result);
             return result;
+        } catch (ZhimaApiException e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    public String  zhimaCustomerCertificationInitialize(String name,String identityCard) {
+        ZhimaCustomerCertificationInitializeRequest req = new ZhimaCustomerCertificationInitializeRequest();
+        req.setChannel("apppc");
+        req.setPlatform("zmop");
+        StringBuffer transactionId = new StringBuffer();
+        transactionId.append(StringUtil.getNow("yyyyMMddhhmmssSSS"));
+        Random r = new Random();
+        for(int i=0;i<13;i++){
+            int num = r.nextInt(10);
+            transactionId.append(num);
+        }
+        req.setTransactionId(transactionId.toString());// 必要参数
+        req.setProductCode("w1010100000000002978");// 必要参数
+        req.setBizCode("FACE");// 必要参数
+        req.setIdentityParam("{\"identity_type\":\"CERT_INFO\",\"cert_type\":\"IDENTITY_CARD\",\"cert_name\":\""+name+"\",\"cert_no\":\""+identityCard+"\"}");// 必要参数
+        req.setMerchantConfig("{\"need_user_authorization\":\"false\"}");//
+        req.setExtBizParam("{}");// 必要参数
+        DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
+        try {
+            ZhimaCustomerCertificationInitializeResponse response =(ZhimaCustomerCertificationInitializeResponse)client.execute(req);
+            System.out.println(response.isSuccess());
+            if (response.isSuccess()){
+                System.out.println(response.getBizNo());
+                return response.getBizNo();
+            }else {
+                System.out.println(response.getErrorCode());
+                System.out.println(response.getErrorMessage());
+                return "error";
+            }
         } catch (ZhimaApiException e) {
             e.printStackTrace();
             return "error";

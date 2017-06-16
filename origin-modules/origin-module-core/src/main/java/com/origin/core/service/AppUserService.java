@@ -11,4 +11,5 @@ public interface AppUserService {
     IAppUser findById(Integer id);
     IAppUser findFirst(IAppUser appUser);
     List<IAppUser> find(IAppUser appUser);
+    void saveUser(IAppUser appUser);
 }

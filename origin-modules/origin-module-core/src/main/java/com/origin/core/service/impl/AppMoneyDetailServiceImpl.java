@@ -8,6 +8,7 @@ import com.origin.core.dto.AppMoneyDetailDTO;
 import com.origin.core.dto.AppUserTaskDTO;
 import com.origin.core.service.AppMoneyDetailService;
 import com.origin.core.util.JPushUtil;
+import com.origin.core.util.StringUtil;
 import com.origin.data.dao.*;
 import com.origin.data.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -178,7 +179,9 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         appMessage.setContentExtra(contentExtra);
         appMessageDao.save(appMessage);
 
-        JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_alert(userAlias, content));
+        if (!StringUtil.isNullOrBlank(userAlias)){
+            JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_alert(userAlias, content));
+        }
     }
 
     //flag true:增加 false:减少

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -26,6 +27,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/admin/appMessage")
+@ApiIgnore
 public class AdminAppMessageController {
 
 	Logger log = LoggerFactory.getLogger(AdminAppMessageController.class);
@@ -87,8 +89,14 @@ public class AdminAppMessageController {
 		AjaxResult ajaxResult = new AjaxResult();
     	ajaxResult.setSuccess(false);
     	try {
-    		String id = request.getParameter("id");
-			appMessageService.delete(Integer.parseInt(id));
+    		String content = request.getParameter("content");
+    		IAppMessage appMessage = new AppMessageDTO();
+    		appMessage.setContent(content);
+    		List<IAppMessage> appMessages = appMessageService.find(appMessage);
+			for (IAppMessage message:appMessages) {
+				message.setDeleteFlag(1);
+			}
+			appMessageService.updateBatch(appMessages);
     		ajaxResult.setSuccess(true);
     	} catch (Exception e) {
     		e.printStackTrace();

@@ -34,4 +34,6 @@ D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\my
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppZhima.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\common\BaseEntity.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\UserRole.java
+D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppMessage.java
 D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\entity\AppTask.java
+D:\lc\code\originnew\origin-data\origin-mybatis\src\main\java\com\origin\data\mybatis\dao\AppMessageDao.java

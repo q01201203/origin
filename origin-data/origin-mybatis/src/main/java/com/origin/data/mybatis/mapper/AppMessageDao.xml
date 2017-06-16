@@ -21,7 +21,7 @@
 			<if test="updateDate != null">AND update_date=#{updateDate}</if>
 			<if test="type != null">AND type=#{type}</if>
 			<if test="status != null">AND status=#{status}</if>
-			<if test="content != null">AND content LIKE CONCAT('%', #{content}, '%')</if>
+			<if test="content != null">AND content=#{content}</if>
 			<if test="contentExtra != null">AND content_extra=#{contentExtra}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
 			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
@@ -51,9 +51,9 @@
         <include refid="queryParams"/>
     </select>
     <select id="findSystemMessage" parameterType="com.origin.data.mybatis.entity.AppMessage" resultType="com.origin.data.mybatis.entity.AppMessage">
-        SELECT id,create_date,type,content
+        SELECT id,create_date,type,content,delete_flag
         FROM ogn_app_message m
-        GROUP BY m.content
+        GROUP BY m.content DESC
         HAVING m.type = 2 AND m.delete_flag = 0
         <if test="content != null">AND m.content LIKE CONCAT('%', #{content}, '%')</if>
     </select>

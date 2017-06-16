@@ -25,6 +25,7 @@ D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IAppVa
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppStuDetailDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppGuideDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\ITestDao.java
+D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IAppMessage.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppFeedbackDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppTaskDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IUser.java
@@ -32,6 +33,7 @@ D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IAppZh
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppUserTaskDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppUserDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IRoleResourceDao.java
+D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppMessageDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\IAppPersonDetail.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\dao\IAppValidcodeDao.java
 D:\lc\code\originnew\origin-data-api\src\main\java\com\origin\data\entity\BasePermission.java
