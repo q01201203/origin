@@ -1,7 +1,7 @@
 
-accessid= 'LTAI2LrquSp4tQ6z';
-accesskey= '3E3vaSHM18K4T5bNmEXUNsFAWgIN7d';
-host = 'http://renxinghua.oss-cn-shanghai.aliyuncs.com';
+accessid= '';
+accesskey= '';
+host = '';
 
 g_dirname = ''
 g_object_name = ''
