@@ -13,32 +13,36 @@ import java.util.List;
 @Service
 public class AppGuideServiceImpl  implements AppGuideService {
 
-@Autowired
-private IAppGuideDao<IAppGuide,Integer> appGuideDao;
+    @Autowired
+    private IAppGuideDao<IAppGuide,Integer> appGuideDao;
 
-@Override
-public void save(IAppGuide appGuide) {
-appGuideDao.save(appGuide);
-}
+    @Override
+    public void save(IAppGuide appGuide) {
+    appGuideDao.save(appGuide);
+    }
 
-@Override
-public void delete(Integer id) {
-appGuideDao.delete(id);
-}
+    @Override
+    public void delete(Integer id) {
+    appGuideDao.delete(id);
+    }
 
-@Override
-public void update(IAppGuide appGuide) {
-    appGuide.setUpdateDate(new Date());
-    appGuideDao.update(appGuide);
-}
+    @Override
+    public void update(IAppGuide appGuide) {
+        appGuide.setUpdateDate(new Date());
+        appGuideDao.update(appGuide);
+    }
 
-@Override
-public IAppGuide findById(Integer id) {
-return appGuideDao.findByPK(id);
-}
+    @Override
+    public IAppGuide findById(Integer id) {
+    return appGuideDao.findByPK(id);
+    }
 
-@Override
-public List<IAppGuide> find(IAppGuide appGuide) {
-    return appGuideDao.find(appGuide);
+    @Override
+    public List<IAppGuide> find(IAppGuide appGuide) {
+        return appGuideDao.find(appGuide);
+        }
+
+    public List<IAppGuide> findOrderBy(IAppGuide appGuide) {
+        return appGuideDao.findOrderBy(appGuide);
     }
 }

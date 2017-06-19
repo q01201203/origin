@@ -44,6 +44,11 @@
         <include refid="selectPart"/>
         <include refid="queryParams"/>
     </select>
+    <select id="findOrderBy" parameterType="com.origin.data.mybatis.entity.AppGuide" resultType="com.origin.data.mybatis.entity.AppGuide">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+        ORDER BY guide_type ASC
+    </select>
     <insert id="save" parameterType="com.origin.data.mybatis.entity.AppGuide">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()

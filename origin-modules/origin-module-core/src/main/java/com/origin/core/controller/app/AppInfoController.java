@@ -98,7 +98,7 @@ public class AppInfoController {
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
 		IAppGuide appGuide = new AppGuideDTO();
-		List<IAppGuide> appGuides = appGuideService.find(appGuide);
+		List<IAppGuide> appGuides = appGuideService.findOrderBy(appGuide);
 		return Result.createSuccessResult(appGuides,"获取安全指南成功");
 	}
 

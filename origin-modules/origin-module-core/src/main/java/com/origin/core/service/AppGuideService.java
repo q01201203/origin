@@ -1,6 +1,7 @@
 package com.origin.core.service;
 
 import com.origin.data.entity.IAppGuide;
+
 import java.util.List;
 
 public interface AppGuideService {
@@ -10,4 +11,5 @@ public interface AppGuideService {
     void update(IAppGuide appGuide);
     IAppGuide findById(Integer id);
     List<IAppGuide> find(IAppGuide appGuide);
+    List<IAppGuide> findOrderBy(IAppGuide appGuide);
 }
