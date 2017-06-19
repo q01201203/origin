@@ -50,6 +50,11 @@
         <include refid="selectPart"/>
         <include refid="queryParams"/>
     </select>
+    <select id="findOrderBy" parameterType="com.origin.data.mybatis.entity.AppMessage" resultType="com.origin.data.mybatis.entity.AppMessage">
+        <include refid="selectPart"/>
+        <include refid="queryParams"/>
+        ORDER BY status DESC,create_date DESC
+    </select>
     <select id="findSystemMessage" parameterType="com.origin.data.mybatis.entity.AppMessage" resultType="com.origin.data.mybatis.entity.AppMessage">
         SELECT id,create_date,type,content,delete_flag
         FROM ogn_app_message m

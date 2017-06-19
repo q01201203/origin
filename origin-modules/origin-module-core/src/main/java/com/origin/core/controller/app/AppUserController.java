@@ -794,7 +794,7 @@ public class AppUserController {
 		if (!StringUtil.isNullOrBlank(type)){
 			appMessage.setType(Integer.parseInt(type));
 		}
-		List<IAppMessage> appMessages = appMessageService.find(appMessage);
+		List<IAppMessage> appMessages = appMessageService.findOrderBy(appMessage);
 
 		return Result.createSuccessResult(appMessages,"获取用户消息列表成功");
 	}

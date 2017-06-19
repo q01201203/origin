@@ -78,4 +78,9 @@ public class AppMessageServiceImpl  implements AppMessageService {
     public void updateBatch(List<IAppMessage> appMessages){
         appMessageDao.updateBatch(appMessages);
     }
+
+    @Override
+    public List<IAppMessage> findOrderBy(IAppMessage appMessage) {
+        return appMessageDao.findOrderBy(appMessage);
+    }
 }
