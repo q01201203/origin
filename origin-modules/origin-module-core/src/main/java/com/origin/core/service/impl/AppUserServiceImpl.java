@@ -60,7 +60,7 @@ public class AppUserServiceImpl  implements AppUserService {
     @Override
     public void saveUser(IAppUser appUser) {
         IAppUser user = new AppUserDTO();
-        appUser.setMobile(appUser.getMobile());
+        user.setMobile(appUser.getMobile());
         user = appUserDao.findFirst(user);
         if (user==null){
             appUserDao.save(appUser);

@@ -11,14 +11,7 @@
         $('#editForm').validator({
             ignore: ':hidden',
             fields : {
-					createDate : ':required;length[~20]',
-					updateDate : ':required;length[~20]',
-					type : ':required;length[~20]',
-					status : ':required;length[~20]',
-					content : ':required;length[~20]',
-					contentExtra : ':required;length[~20]',
-					uid : ':required;length[~20]',
-					deleteFlag : ':required;length[~20]'
+                content : ':required;length[~140]'
             },
             valid : function(form){
                 var laodIdx = layer.load();
@@ -62,8 +55,8 @@
                         <td class="l_title w200">消息内容</td>
                         <td>
                             <div class="J_toolsBar fl">
-                                <div class="t_text w200 ml10">
-                                    <input type="text" name="content" value="" maxlength="100"/>
+                                <div class="t_textarea w300 ml10">
+                                    <textarea name="content" id="" cols="40" rows="10" maxlength="140"></textarea>
                                 </div>
                             </div>
                         </td>

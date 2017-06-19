@@ -26,7 +26,7 @@
                 </div>
                 <div class="t_button ml10">
                     <a class="abtn blue" href="javascript:myEdit();">
-                        <i class="icon"></i>新增
+                        <i class="icon"></i>发送系统消息
                     </a>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                             <td>
                                 <span>类型</span>
                             </td>
-                            <td>
+                            <td style="width: 1000px">
                                 <span>内容</span>
                             </td>
                             <td>
@@ -115,7 +115,7 @@
             layer.open({
                 title : title,
                 type : 1,
-                area : ['700px', '450px'],
+                area : ['700px', '300px'],
                 content : str,
                 btn : ['确定', '取消'],
                 yes : function(index, layero){

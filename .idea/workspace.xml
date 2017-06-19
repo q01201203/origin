@@ -8,13 +8,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appFeedback/dialog/appFeedback_edit.jsp" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/target/origin-data-api-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-data-api/target/origin-data-api-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin.war" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/origin-tool-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/origin-tool-mybatis-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppGuideDao.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppGuideDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppGuideDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppGuideDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppGuideService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppGuideService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppGuideServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppGuideServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appFeedback/appFeedback_list.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appFeedback/appFeedback_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/appMessage_list.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/appMessage_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/dialog/appMessage_edit.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/dialog/appMessage_edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/ServiceTest.UserRoleServiceTest.txt" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/ServiceTest.UserRoleServiceTest.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/ServiceTest.UserServiceTest.txt" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/ServiceTest.UserServiceTest.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/origin-modules/origin-module-core/target/" />
     <ignored path="$PROJECT_DIR$/origin-tool/target/" />
@@ -50,123 +61,107 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AppMessageDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMessageDao.xml">
+      <file leaf-file-name="appFeedback_list.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appFeedback/appFeedback_list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="45" />
+            <state relative-caret-position="3370">
+              <caret line="135" column="11" lean-forward="false" selection-start-line="135" selection-start-column="11" selection-end-line="135" selection-end-column="11" />
               <folding>
-                <marker date="1497837089033" expanded="true" signature="243:513" ph="SELECT id, c... ogn_app_message" />
-                <marker date="1497837089033" expanded="true" signature="2763:2898" ph="SELECT id,cr... ogn_app_message" />
-                <marker date="1497837089033" expanded="true" signature="2763:3003" ph="SELECT id,cr... ogn_app_message" />
-                <marker date="1497837089033" expanded="true" signature="5352:5987" ph="UPDATE ogn_a... " />
-                <marker date="1497837089033" expanded="true" signature="6130:6888" ph="update ogn_a... " />
-                <marker date="1497837089033" expanded="true" signature="6975:7017" ph="DELETE FROM " />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IAppMessageDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMessageDao.java">
+      <file leaf-file-name="appTask_list.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTask_list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="36" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IAppGuideDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppGuideDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppGuideDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppGuideDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
-              <folding>
-                <marker date="1497837915653" expanded="true" signature="241:477" ph="SELECT id, c... ogn_app_guide" />
-                <marker date="1497837915653" expanded="true" signature="3786:4321" ph="UPDATE ogn_a... " />
-                <marker date="1497837915653" expanded="true" signature="4464:5094" ph="update ogn_a... " />
-                <marker date="1497837915653" expanded="true" signature="5181:5221" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppInfoController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="100" column="64" lean-forward="false" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppMessageServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMessageServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="84" selection-end-column="5" />
-              <folding>
-                <element signature="e#2380#2381#0" expanded="true" />
-                <element signature="e#2434#2435#0" expanded="true" />
-                <element signature="e#2516#2517#0" expanded="true" />
-                <element signature="e#2576#2577#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppGuideServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppGuideServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="45" column="47" lean-forward="false" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
-              <folding>
-                <element signature="e#1087#1088#0" expanded="true" />
-                <element signature="e#1143#1144#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppMessageService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMessageService.java">
+      <file leaf-file-name="appTaskDetail.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="58" />
+              <caret line="15" column="99" lean-forward="false" selection-start-line="15" selection-start-column="99" selection-end-line="15" selection-end-column="99" />
+              <folding>
+                <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#div#0;n#th#0;n#tr#0;n#tfoot#0;n#table#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppGuideService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppGuideService.java">
+      <file leaf-file-name="AppInfoController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="31" />
+            <state relative-caret-position="488">
+              <caret line="132" column="55" lean-forward="false" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IAppMessage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMessage.java">
+      <file leaf-file-name="ZhimaUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/ZhimaUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="390">
+              <caret line="167" column="28" lean-forward="false" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="531">
+              <caret line="149" column="14" lean-forward="false" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
+              <folding>
+                <marker date="1497860574850" expanded="true" signature="4132:4141" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_edit.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/user/dialog/user_edit.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-375">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppUserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="444">
+              <caret line="150" column="39" lean-forward="false" selection-start-line="150" selection-start-column="31" selection-end-line="150" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppUserServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="62" column="12" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -183,21 +178,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateUBalance</find>
-      <find>balance</find>
-      <find>up</find>
-      <find>update</find>
-      <find>updateB</find>
-      <find>updateBa</find>
-      <find>updateBala</find>
-      <find>updateBalan</find>
-      <find>updateBalance</find>
-      <find>updateBalanc</find>
-      <find>f</find>
-      <find>fin</find>
-      <find>fini</find>
-      <find>finis</find>
-      <find>finishtas</find>
       <find>finishta</find>
       <find>finisht</find>
       <find>finish</find>
@@ -213,6 +193,21 @@
       <find>submit</find>
       <find>125.84.83.215</find>
       <find>LTAI2LrquSp4tQ6z</find>
+      <find>editForm</find>
+      <find>delete</find>
+      <find>myQuery</find>
+      <find>status</find>
+      <find>myVisit</find>
+      <find>selectfiles</find>
+      <find>myForm</find>
+      <find>postfiles</find>
+      <find>queryForm</find>
+      <find>&lt;td name</find>
+      <find>myUpload</find>
+      <find>selectFile</find>
+      <find>ossfile</find>
+      <find>uploadTip</find>
+      <find>savere</find>
     </findStrings>
     <replaceStrings>
       <replace>/admin/appUser</replace>
@@ -258,9 +253,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppFeedbackDao.xml" />
-        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" />
-        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppPersonDetailDao.xml" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppStuDetailDao.xml" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppTaskDao.xml" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserBankDao.xml" />
@@ -288,17 +280,13 @@
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppTaskController.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AppMessageController.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/dialog/appMessage_edit.jsp" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/JPushUtil.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/ZhimaTest.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/ZhimaUtil.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/appMessage_list.jsp" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppMessageController.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/Test.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMessageDao.xml" />
         <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMessageDao.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMessageService.java" />
@@ -309,6 +297,13 @@
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppGuideServiceImpl.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppGuideService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/dialog/appMessage_edit.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/appMessage_list.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appFeedback/appFeedback_list.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -1656,7 +1651,141 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="font" />
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-module-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nice-validator-0.7.3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-module-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nice-validator-0.7.3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-module-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nice-validator-0.7.3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -5931,11 +6060,11 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.Test.testDecode" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ZhimaTest.test3" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Test.testDate" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.Test.testss" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Generator" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Generator" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Test.testDecode" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ZhimaTest.test3" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.Test.testDate" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.Test.testss" />
       </list>
     </recent_temporary>
   </component>
@@ -5982,7 +6111,7 @@
       <workItem from="1497402526604" duration="21343000" />
       <workItem from="1497490006030" duration="21487000" />
       <workItem from="1497579174428" duration="17938000" />
-      <workItem from="1497834727947" duration="3213000" />
+      <workItem from="1497834727947" duration="20406000" />
     </task>
     <task id="LOCAL-00001" summary="delete product">
       <created>1494493589166</created>
@@ -6173,7 +6302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497837382800</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="update guide api">
+      <created>1497838020606</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1497838020606</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -6209,7 +6345,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="551061000" />
+    <option name="totallyTimeSpent" value="568254000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -6221,7 +6357,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -6243,7 +6379,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.324295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5911063" sideWeight="0.4914712" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5911063" sideWeight="0.4914712" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3033049" sideWeight="0.48698482" order="0" side_tool="false" content_ui="combo" />
@@ -6330,8 +6466,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="delete product" />
-    <MESSAGE value="delete product more" />
     <MESSAGE value="add custom token" />
     <MESSAGE value="add register function" />
     <MESSAGE value="add validcode and modify modelXml.ftl" />
@@ -6355,7 +6489,9 @@
     <MESSAGE value="add message module 2" />
     <MESSAGE value="delete apikey" />
     <MESSAGE value="update message api" />
-    <option name="LAST_COMMIT_MESSAGE" value="update message api" />
+    <MESSAGE value="update guide api" />
+    <MESSAGE value="update ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="update ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6368,176 +6504,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="110" column="17" lean-forward="false" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appFeedback/appFeedback_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="15" column="9" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="53" column="34" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/UserRoleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/RoleResourceDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppUserDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1725">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1497430865244" expanded="true" signature="240:884" ph="SELECT id, c... ogn_app_user" />
-            <marker date="1497430865244" expanded="true" signature="8110:9827" ph="UPDATE ogn_a... " />
-            <marker date="1497430865244" expanded="true" signature="9970:12006" ph="update ogn_a... " />
-            <marker date="1497430865244" expanded="true" signature="12093:12132" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppUserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="69" lean-forward="true" selection-start-line="4" selection-start-column="69" selection-end-line="4" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/UserDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1494380435477" expanded="true" signature="231:453" ph="SELECT id,au... ogn_user" />
-            <marker date="1494380435477" expanded="true" signature="3460:4324" ph="update ogn_u... " />
-            <marker date="1494380435477" expanded="true" signature="4461:5494" ph="update ogn_u... " />
-            <marker date="1494380435477" expanded="true" signature="5645:5693" ph="update ogn_u... " />
-            <marker date="1494380435477" expanded="true" signature="5786:5821" ph="delete from " />
-            <marker date="1494380435477" expanded="true" signature="5969:6278" ph="SELECT id,au... " />
-            <marker date="1494380435477" expanded="true" signature="6392:6529" ph="SELECT ogn_r... ogn_user_role" />
-            <marker date="1494380435477" expanded="true" signature="6630:6675" ph="DELETE FROM " />
-            <marker date="1494380435477" expanded="true" signature="6742:6782" ph="DELETE FROM " />
-            <marker date="1494380435477" expanded="true" signature="6787:6839" ph="INSERT INTO ogn_user_role... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/RoleDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-201">
-          <caret line="76" column="27" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/RoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="498" column="34" lean-forward="false" selection-start-line="498" selection-start-column="34" selection-end-line="498" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/cn/jpush/api/jpush-client/3.2.17/jpush-client-3.2.17.jar!/cn/jpush/api/push/model/audience/Audience.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/RoleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="62" column="16" lean-forward="false" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/ZhimaTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/ZhimaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="178" column="13" lean-forward="false" selection-start-line="175" selection-start-column="37" selection-end-line="178" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/appMessage_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="155" column="37" lean-forward="false" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppValidcodeDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="76" lean-forward="false" selection-start-line="4" selection-start-column="76" selection-end-line="4" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/font/icomoon.svg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -6551,13 +6517,6 @@
         <state relative-caret-position="550">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="87" column="33" lean-forward="true" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -6592,30 +6551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appUser_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2625">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/dialog/appMessage_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1400">
-          <caret line="56" column="45" lean-forward="false" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/dialog/appTask_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskAudit.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -6631,14 +6566,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appMoneyDetail_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1400">
-          <caret line="56" column="53" lean-forward="false" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -6677,36 +6604,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="27" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="27" />
-          <folding>
-            <marker date="1497836057781" expanded="true" signature="4132:4141" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppMessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="94" column="77" lean-forward="false" selection-start-line="94" selection-start-column="67" selection-end-line="94" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IBaseDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="796" column="69" lean-forward="false" selection-start-line="796" selection-start-column="58" selection-end-line="796" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -6745,21 +6646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMessageDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="45" />
-          <folding>
-            <marker date="1497837089033" expanded="true" signature="243:513" ph="SELECT id, c... ogn_app_message" />
-            <marker date="1497837089033" expanded="true" signature="2763:2898" ph="SELECT id,cr... ogn_app_message" />
-            <marker date="1497837089033" expanded="true" signature="2763:3003" ph="SELECT id,cr... ogn_app_message" />
-            <marker date="1497837089033" expanded="true" signature="5352:5987" ph="UPDATE ogn_a... " />
-            <marker date="1497837089033" expanded="true" signature="6130:6888" ph="update ogn_a... " />
-            <marker date="1497837089033" expanded="true" signature="6975:7017" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppGuideDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -6769,19 +6655,6 @@
             <marker date="1497837915653" expanded="true" signature="3786:4321" ph="UPDATE ogn_a... " />
             <marker date="1497837915653" expanded="true" signature="4464:5094" ph="update ogn_a... " />
             <marker date="1497837915653" expanded="true" signature="5181:5221" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMessageServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="84" selection-end-column="5" />
-          <folding>
-            <element signature="e#2380#2381#0" expanded="true" />
-            <element signature="e#2434#2435#0" expanded="true" />
-            <element signature="e#2516#2517#0" expanded="true" />
-            <element signature="e#2576#2577#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -6815,16 +6688,287 @@
         <state relative-caret-position="713">
           <caret line="45" column="47" lean-forward="false" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
           <folding>
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1143#1144#0" expanded="true" />
+            <element signature="e#1087#1088#0" expanded="false" />
+            <element signature="e#1143#1144#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/css/desktop.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="310" column="17" lean-forward="false" selection-start-line="310" selection-start-column="17" selection-end-line="310" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/appMessage_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#td#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppMessageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="55" column="75" lean-forward="false" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMessageServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="60" column="46" lean-forward="false" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMessageDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="57" column="33" lean-forward="false" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="33" />
+          <folding>
+            <marker date="1497837089033" expanded="true" signature="243:513" ph="SELECT id, c... ogn_app_message" />
+            <marker date="1497837089033" expanded="true" signature="2763:2898" ph="SELECT id,cr... ogn_app_message" />
+            <marker date="1497837089033" expanded="true" signature="2763:3003" ph="SELECT id,cr... ogn_app_message" />
+            <marker date="1497837089033" expanded="true" signature="5352:5987" ph="UPDATE ogn_a... " />
+            <marker date="1497837089033" expanded="true" signature="6130:6888" ph="update ogn_a... " />
+            <marker date="1497837089033" expanded="true" signature="6975:7017" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppFeedbackDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="40" column="35" lean-forward="false" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="35" />
+          <folding>
+            <marker date="1497230244474" expanded="true" signature="244:364" ph="SELECT f.id,... ogn_app_feedback" />
+            <marker date="1497230244474" expanded="true" signature="1916:2144" ph="SELECT f.id,... ogn_app_feedback" />
+            <marker date="1497230244474" expanded="true" signature="3380:3808" ph="UPDATE ogn_a... " />
+            <marker date="1497230244474" expanded="true" signature="3951:4460" ph="update ogn_a... " />
+            <marker date="1497230244474" expanded="true" signature="4547:4619" ph="UPDATE ogn_a... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminFeedbackController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="76" column="65" lean-forward="false" selection-start-line="76" selection-start-column="61" selection-end-line="76" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppFeedbackServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="45" column="30" lean-forward="false" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appFeedback/dialog/appFeedback_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2226">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/common/jstl.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="57" lean-forward="false" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appMoneyDetail_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="248" column="36" lean-forward="false" selection-start-line="248" selection-start-column="36" selection-end-line="248" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/dialog/appMessage_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="57" column="57" lean-forward="false" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/nice-validator-0.7.3/src/jquery.validator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="166" column="4" lean-forward="false" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/nice-validator-0.7.3/jquery.validator.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1376">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/nice-validator-0.7.3/jquery.validator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/nice-validator-0.7.3/local/zh_CN.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="80" column="18" lean-forward="false" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/user/dialog/role_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/user/dialog/menu_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appUser_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/user/dialog/user_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-375">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/dialog/appTask_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="21" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appFeedback/appFeedback_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3370">
+          <caret line="135" column="11" lean-forward="false" selection-start-line="135" selection-start-column="11" selection-end-line="135" selection-end-column="11" />
+          <folding>
+            <element signature="n#style#0;n#td#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTask_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="149" column="14" lean-forward="false" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
+          <folding>
+            <marker date="1497860574850" expanded="true" signature="4132:4141" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="99" lean-forward="false" selection-start-line="15" selection-start-column="99" selection-end-line="15" selection-end-column="99" />
+          <folding>
+            <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#div#0;n#th#0;n#tr#0;n#tfoot#0;n#table#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/ZhimaUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="167" column="28" lean-forward="false" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="100" column="64" lean-forward="false" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
+        <state relative-caret-position="488">
+          <caret line="132" column="55" lean-forward="false" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="150" column="39" lean-forward="false" selection-start-line="150" selection-start-column="31" selection-end-line="150" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="62" column="12" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
           <folding />
         </state>
       </provider>

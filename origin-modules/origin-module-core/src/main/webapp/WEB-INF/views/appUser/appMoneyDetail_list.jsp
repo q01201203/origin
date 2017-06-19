@@ -246,7 +246,7 @@
             layer.open({
                 title : title,
                 type : 1,
-                area : ['700px', '450px'],
+                area : ['700px', '300px'],
                 content : str,
                 btn : ['确定', '取消'],
                 yes : function(index, layero){

@@ -29,7 +29,7 @@
 					<tbody>
 					<c:if test="${operation == 'update'}">
 						<tr>
-							<td class="l_title"><b class="cRed">*</b> 创建时间</td>
+							<td class="l_title"> 创建时间</td>
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w240 ml10">
@@ -39,7 +39,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="l_title "><b class="cRed">*</b> 更新时间</td>
+							<td class="l_title "> 更新时间</td>
 							<td>
 								<div class="J_toolsBar fl">
 									<div class="t_text w240 ml10">
@@ -50,7 +50,7 @@
 						</tr>
 					</c:if>
 					 <tr>
-						<td class="l_title "><b class="cRed">*</b> 任务名称</td>
+						<td class="l_title "><c:if test="${operation == 'add'}"><b class="cRed">*</b></c:if> 任务名称</td>
                          <td>
                              <div class="J_toolsBar fl">
                                  <div class="t_text w240 ml10">
@@ -90,7 +90,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="l_title "><b class="cRed">*</b> 任务金额</td>
+						<td class="l_title "><c:if test="${operation == 'add'}"><b class="cRed">*</b></c:if> 任务金额</td>
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w240 ml10">
@@ -118,17 +118,19 @@
 								<div class="t_label w240 ml10">
 									<div id="container">
 										<a href="javascript:myVisit('taskImg');" class='btn'>查看</a>
-										<a href="javascript:myUpload();" class='btn'>选择文件</a>
+										<a href="javascript:selectFile('taskImg');" class='btn'>选择文件</a>
 										<a href="javascript:myUpload('taskImg');" class='btn'>开始上传</a>
 									</div>
 								</div>
 							</div>
 						</td>
-						<td>
-							<div class="J_toolsBar fl">
-								<div class="t_label w240 ml10">
-									<div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
-									<pre id="console"></pre>
+						<td name="taskImg">
+							<div id="uploadTip">
+								<div  class="J_toolsBar fl">
+									<div class="t_label w240 ml10">
+										<div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+										<pre id="console"></pre>
+									</div>
 								</div>
 							</div>
 						</td>
@@ -215,8 +217,12 @@
 							<div class="J_toolsBar fl">
 								<div class="t_label w240 ml10">
 									<a href="javascript:myVisit('taskDetailedStep');" class='btn'>查看</a>
+									<a href="javascript:selectFile('taskDetailedStep');" class='btn'>选择文件</a>
+									<a href="javascript:myUpload('taskDetailedStep');" class='btn'>开始上传</a>
 								</div>
 							</div>
+						</td>
+						<td name="taskDetailedStep">
 						</td>
 					</tr>
 					<tr>
@@ -271,6 +277,17 @@
 		$(function(){
 			$('#myForm').validator({
 				fields : {
+                    taskName : ':required;length[~20]',
+                    taskNumber : ':required;digits',
+                    taskType : ':required;',
+                    taskMoney : ':required;digits',
+                    taskImg : ':required;',
+                    taskHot : ':required;',
+                    taskStartTime : ':required;',
+                    taskEndTime : ':required;',
+                    taskSimpleStep : ':required;',
+                    taskDetailedStep : ':required;',
+                    taskLink : ':required;'
 				},
 				valid : function(form){
 					var loadIdx = layer.load();
@@ -292,7 +309,7 @@
 		});
 		
 		function addTask(){
-		    if (confirm("确认添加吗？添加后将无法修改任务名称和金额").title("提示")){
+		    if (confirm("确认添加吗？添加后将无法修改任务名称和金额")){
                 $('#myForm').submit();
 			}
 		}
@@ -300,10 +317,24 @@
 			$('#myForm').submit();
         }
 
+        function selectFile(name){
+            $('#uploadTip').remove();
+			var div = '<div id="uploadTip">'
+				+'<div class="J_toolsBar fl">'
+				+'<div class="t_label w240 ml10">'
+				+ '<div id="ossfile"></div>'
+				+ '<pre id="console"></pre>'
+				+ '</div>'
+                + '</div>'
+				+ '</div>';
+			$("td[name="+name+"]").empty().append(div);
+			document.getElementById('selectfiles').click();
+        }
+
         function myUpload(name){
             if(name == null || name == ''){
-                document.getElementById('ossfile').innerHTML = '';
-                document.getElementById('selectfiles').click();
+                //document.getElementById('ossfile').innerHTML = '';
+                //document.getElementById('selectfiles').click();
 			}else{
                 document.getElementById('postfiles').name = name;
                 document.getElementById('postfiles').click();

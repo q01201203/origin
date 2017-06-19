@@ -36,7 +36,7 @@
                             <td>
                                 <span>创建时间</span>
                             </td>
-                            <td>
+                            <td style="width: 1000px">
                                 <span>内容</span>
                             </td>
                             <td>
@@ -62,7 +62,7 @@
                                                 <fmt:formatDate value="${r.createDate  }" pattern="yyyy-MM-dd HH:mm:ss"/>
                                             </div>
                                         </td>
-                                        <td style="width: 1000px">
+                                        <td>
                                             <div class="t_text tc">
                                                 ${r.content  }
                                             </div>
@@ -102,38 +102,6 @@
 </div>
 <script src="${ctx }/static/plugins/chosen_v1.6.2/chosen.jquery.js"></script>
 <script type="text/javascript">
-    function myEdit(id){
-        var loadIdx = layer.load();
-        var title = '添加区域';
-        if(!id){
-            id = '';
-        }else{
-            title = '修改区域';
-        }
-        $.post('${ctx}/admin/appFeedback/dialog/appFeedback_edit?id='+id, {}, function(str){
-
-            layer.close(loadIdx);
-
-            layer.open({
-                title : title,
-                type : 1,
-                area : ['700px', '450px'],
-                content : str,
-                btn : ['确定', '取消'],
-                yes : function(index, layero){
-                    mySubmit();
-                },
-                btn2 : function(index, layero){
-                    layer.close(index);
-                }
-            });
-        });
-    }
-
-
-    function mySubmit(){
-        $('#editForm').submit();
-    }
 
     function myQuery(){
         $('#queryForm').submit();
@@ -166,7 +134,6 @@
             });
 
         });
-
     }
 </script>
 </body>
