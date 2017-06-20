@@ -51,7 +51,7 @@ public class BasePermission implements IBasePermission{
 	}
 
 	public void prePersist() {
-		System.out.println("lccccccccccc");
+		System.out.println("renxinhua prePersist");
 		if(this.createDate == null){
 			this.setCreateDate(new Date());
 		}

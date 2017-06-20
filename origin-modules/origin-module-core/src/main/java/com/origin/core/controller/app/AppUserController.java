@@ -62,7 +62,6 @@ public class AppUserController {
 	@ApiOperation(value = "app用户登录", httpMethod = "POST", response = Result.class, notes = "登录返回一个token")
 	public Object login(@RequestParam(value = "mobile") String mobile ,
 						@RequestParam(value = "pwd") String pwd) throws Exception {
-		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -114,7 +113,7 @@ public class AppUserController {
 	public String saveRegisterInfo(HttpServletRequest request) throws Exception{
 		String params = request.getParameter("params");
 		String sign = request.getParameter("sign");
-		System.out.println("zhima params = "+params +" sign = "+sign);
+		System.out.println("renxinhua zhima params = "+params +" sign = "+sign);
 		ZhimaUtil zhimaUtil = new ZhimaUtil();
 		String result = zhimaUtil.getResult(params,sign);
 
@@ -127,7 +126,7 @@ public class AppUserController {
 		String success = map.get("success").toString();
 		String error_code = map.get("error_code").toString();
 		String state = map.get("state").toString();
-		System.out.println("open_id = "+open_id+" error_message = "+error_message+" success = "+success+
+		System.out.println("renxinhua open_id = "+open_id+" error_message = "+error_message+" success = "+success+
 				" error_code = "+error_code+" state = "+state);
 		String[] datas = state.split("\\,");
 		String mobile = datas[0];
@@ -135,7 +134,7 @@ public class AppUserController {
 		String alias = datas[2];
 		String zhimaCertName = datas[3];
 		String zhimaCertNo = datas[4];
-		System.out.println("mobile = "+mobile+" pwd = "+pwd+" alias = "+alias+" zhimaCertName = "+zhimaCertName
+		System.out.println("renxinhua mobile = "+mobile+" pwd = "+pwd+" alias = "+alias+" zhimaCertName = "+zhimaCertName
 				+" zhimaCertNo = "+zhimaCertNo);
 
 		if (!"error".equals(result) && result!=null){
@@ -170,7 +169,6 @@ public class AppUserController {
 	@ApiOperation(value = "app用户重置密码", httpMethod = "POST", response = Result.class, notes = "重置密码")
 	public Object resetPwd(@RequestParam(value = "mobile") String mobile ,
 						   @RequestParam(value = "pwd") String pwd) throws Exception {
-		System.out.println("请求的mobile为" + mobile + "\n请求的passWord为" + pwd);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -195,7 +193,6 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的payPwd为" + payPwd);
 		String regex = "^\\d{6}$"; //验证密码
 		if (StringUtil.isNullOrBlank(payPwd) || !payPwd.matches(regex)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
@@ -221,7 +218,6 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的face为" + face);
 		if (StringUtil.isNullOrBlank(face)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -251,9 +247,6 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的idFrontImg为" + idFrontImg + "\n请求的idBackImg为" +
-				idBackImg+ "\n请求的idName为" + idName+ "\n请求的idNumber为" +
-				idNumber+ "\n请求的category为" + category);
 		if (StringUtil.isNullOrBlank(idFrontImg)||StringUtil.isNullOrBlank(idBackImg)
 				||StringUtil.isNullOrBlank(idName)||StringUtil.isNullOrBlank(idNumber)
 				||StringUtil.isNullOrBlank(category)){
@@ -283,7 +276,6 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的portrait为" + portrait);
 		if (StringUtil.isNullOrBlank(portrait)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -307,7 +299,6 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的nickname为" + nickname);
 		if (StringUtil.isNullOrBlank(nickname)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -326,8 +317,8 @@ public class AppUserController {
 	@ApiOperation(value = "app用户保存个人信息", httpMethod = "GET", response = Result.class,
 			notes = "保存用户详细信息 category(1:学生(infoSchool,infoDepartment,infoClass,infoRoomNumber) " +
 					"2:社会人群(infoCompanyName,infoCompanyAddress,infoQq,infoWeixin,infoHome))")
-	@ApiImplicitParams({@ApiImplicitParam(name = "infoMobile" ,value = "infoMobile",paramType = "query"
-			,dataType = "string") ,
+	@ApiImplicitParams({
+			/*@ApiImplicitParam(name = "infoMobile" ,value = "infoMobile",paramType = "query",dataType = "string") ,*/
 			@ApiImplicitParam(name = "infoSchool" ,value = "infoSchool",paramType = "query",dataType = "string"),
 			@ApiImplicitParam(name = "infoDepartment" ,value = "infoDepartment",paramType = "query",dataType = "string"),
 			@ApiImplicitParam(name = "infoClass" ,value = "infoClass",paramType = "query",dataType = "string"),
@@ -354,7 +345,7 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的category为" + category);
+		System.out.println("renxinhua 请求的category为" + category);
 		if (StringUtil.isNullOrBlank(category)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -369,7 +360,7 @@ public class AppUserController {
 	}
 
 	private Object savePersonInfo(HttpServletRequest request, Integer uId) {
-		String infoMobile = request.getParameter("infoMobile");
+		//String infoMobile = request.getParameter("infoMobile");
 		String infoCompanyName = request.getParameter("infoCompanyName");
 		String infoCompanyAddress = request.getParameter("infoCompanyAddress");
 		String infoQq = request.getParameter("infoQq");
@@ -379,13 +370,13 @@ public class AppUserController {
 		String infoEmycontactMobile = request.getParameter("infoEmycontactMobile");
 		String infoContactRelation = request.getParameter("infoContactRelation");
 		String infoContactMobile = request.getParameter("infoContactMobile");
-		System.out.println("请求的infoMobile为" + infoMobile + "\n请求的infoCompanyAddress为" +
+		System.out.println(/*"请求的infoMobile为" + infoMobile +*/ "\n请求的infoCompanyAddress为" +
 				infoCompanyAddress +"\n请求的infoQq为" + infoQq+ "\n请求的infoWeixin为" +
 				infoWeixin+ "\n请求的infoHome为" + infoHome+ "\n请求的infoEmycontactRelation为" +
 				infoEmycontactRelation+ "\n请求的infoEmycontactMobile为" + infoEmycontactMobile+
 				"\n请求的infoContactRelation为" + infoContactRelation+ "\n请求的infoContactMobile为" +
 				infoContactMobile+ "\n请求的infoCompanyName为" + infoCompanyName);
-		if (StringUtil.isNullOrBlank(infoMobile)||StringUtil.isNullOrBlank(infoCompanyAddress)
+		if (/*StringUtil.isNullOrBlank(infoMobile)||*/StringUtil.isNullOrBlank(infoCompanyAddress)
 				||StringUtil.isNullOrBlank(infoQq)||StringUtil.isNullOrBlank(infoWeixin)
 				||StringUtil.isNullOrBlank(infoHome)||StringUtil.isNullOrBlank(infoEmycontactRelation)
 				||StringUtil.isNullOrBlank(infoEmycontactMobile)||StringUtil.isNullOrBlank(infoContactRelation)
@@ -400,7 +391,7 @@ public class AppUserController {
 			save = true;
 			appPersonDetail = new AppPersonDetailDTO();
 		}
-		appPersonDetail.setInfoMobile(infoMobile);
+		/*appPersonDetail.setInfoMobile(infoMobile);*/
 		appPersonDetail.setInfoCompanyAddress(infoCompanyAddress);
 		appPersonDetail.setInfoCompanyName(infoCompanyName);
 		appPersonDetail.setInfoQq(infoQq);
@@ -420,7 +411,7 @@ public class AppUserController {
 	}
 
 	private Object saveStudentInfo(HttpServletRequest request, Integer uId) {
-		String infoMobile = request.getParameter("infoMobile");
+		//String infoMobile = request.getParameter("infoMobile");
 		String infoSchool = request.getParameter("infoSchool");
 		String infoDepartment = request.getParameter("infoDepartment");
 		String infoClass = request.getParameter("infoClass");
@@ -429,13 +420,13 @@ public class AppUserController {
 		String infoEmycontactMobile = request.getParameter("infoEmycontactMobile");
 		String infoContactRelation = request.getParameter("infoContactRelation");
 		String infoContactMobile = request.getParameter("infoContactMobile");
-		System.out.println("请求的infoMobile为" + infoMobile + "\n请求的infoSchool为" +
+		System.out.println(/*"请求的infoMobile为" + infoMobile + */"\n请求的infoSchool为" +
 				infoSchool+ "\n请求的infoDepartment为" + infoDepartment+ "\n请求的infoClass为" +
 				infoClass+ "\n请求的infoRoomNumber为" + infoRoomNumber+ "\n请求的infoEmycontactRelation为" +
 				infoEmycontactRelation+ "\n请求的infoEmycontactMobile为" + infoEmycontactMobile+
 				"\n请求的infoContactRelation为" + infoContactRelation+ "\n请求的infoContactMobile为" +
 				infoContactMobile);
-		if (StringUtil.isNullOrBlank(infoMobile)||StringUtil.isNullOrBlank(infoSchool)
+		if (/*StringUtil.isNullOrBlank(infoMobile)||*/StringUtil.isNullOrBlank(infoSchool)
 				||StringUtil.isNullOrBlank(infoDepartment)||StringUtil.isNullOrBlank(infoClass)
 				||StringUtil.isNullOrBlank(infoRoomNumber)||StringUtil.isNullOrBlank(infoEmycontactRelation)
 				||StringUtil.isNullOrBlank(infoEmycontactMobile)||StringUtil.isNullOrBlank(infoContactRelation)
@@ -449,10 +440,9 @@ public class AppUserController {
 		if (appStuDetail == null){
 			save = true;
 			appStuDetail = new AppStuDetailDTO();
-			System.out.println("renxinhua null");
 		}
 
-		appStuDetail.setInfoMobile(infoMobile);
+		//appStuDetail.setInfoMobile(infoMobile);
 		appStuDetail.setInfoSchool(infoSchool);
 		appStuDetail.setInfoDepartment(infoDepartment);
 		appStuDetail.setInfoClass(infoClass);
@@ -490,8 +480,7 @@ public class AppUserController {
 		String bankNumber = appUserBank.getBankNumber();
 		String bankMobile = appUserBank.getBankMobile();
 		Integer bankType = appUserBank.getBankType();
-		System.out.println("请求的bankName为" + bankName + "\n请求的bankNumber为" +
-				bankNumber+ "\n请求的bankMobile为" + bankMobile+"\n请求的bankType为" + bankType);
+
 		if (StringUtil.isNullOrBlank(bankName)||StringUtil.isNullOrBlank(bankNumber)
 				||StringUtil.isNullOrBlank(bankMobile) ||bankType ==null){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
@@ -503,7 +492,6 @@ public class AppUserController {
 		if (appUserBankDTO == null){
 			save = true;
 			appUserBankDTO = new AppUserBankDTO();
-			System.out.println("renxinhua null");
 		}
 
 		appUserBankDTO.setBankNumber(bankNumber);
@@ -539,7 +527,7 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的money为" + askMoney + "\n请求的type为" + type);
+		System.out.println("renxinhua 请求的money为" + askMoney + "\n请求的type为" + type);
 		if (StringUtil.isNullOrBlank(type)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -547,7 +535,7 @@ public class AppUserController {
 		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
 		appMoneyDetail.setUid(uId);
 		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
-			System.out.println("请求的repayTimeType为" + repayTimeType);
+			System.out.println("renxinhua 请求的repayTimeType为" + repayTimeType);
 			if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayTimeType)){
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
@@ -568,7 +556,7 @@ public class AppUserController {
 			appMoneyDetailService.save(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("借款申请成功");
 		}else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
-			System.out.println("请求的repayWay为" + repayWay);
+			System.out.println("renxinhua 请求的repayWay为" + repayWay);
 			if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayWay)){
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
@@ -625,7 +613,7 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的type为" + type);
+		System.out.println("renxinhua 请求的type为" + type);
 		if (StringUtil.isNullOrBlank(type)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -669,7 +657,7 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的content为" + content);
+		System.out.println("renxinhua 请求的content为" + content);
 		if (StringUtil.isNullOrBlank(content)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}

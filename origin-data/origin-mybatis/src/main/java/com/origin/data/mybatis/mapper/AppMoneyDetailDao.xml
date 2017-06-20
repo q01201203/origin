@@ -74,6 +74,7 @@
     <select id="find" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultType="com.origin.data.mybatis.entity.AppMoneyDetail">
         <include refid="selectPart"/>
         <include refid="queryParams"/>
+        ORDER BY create_date DESC
     </select>
 
     <select id="findTotalActualMoney" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultType="Double">
@@ -179,6 +180,7 @@
     <select id="findMoneyUser" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultMap="appMoneyDetailMap">
         <include refid="selectPart"/>
         <include refid="queryParams"/>
+        ORDER BY create_date DESC
     </select>
 
 

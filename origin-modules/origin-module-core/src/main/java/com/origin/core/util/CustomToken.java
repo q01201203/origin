@@ -40,7 +40,7 @@ public class CustomToken {
         SimpleToken simpleToken = (SimpleToken) request.getAttribute("token");
         Integer uid = (Integer) simpleToken.getId();
         Integer authority = (Integer) simpleToken.getAuthority();
-        System.out.println("lic uid = "+ uid +" authority = "+authority);
+
         if (uid!=null && authority!=null){
             if (!check(authority, needAthority)){
                 return Result.create(ResultCode.SSO_PERMISSION_ERROR).setMessage("权限等级不够");
@@ -55,7 +55,7 @@ public class CustomToken {
     public static Object tokenValidate(SimpleToken simpleToken,int needAthority){
         Integer uid = (Integer) simpleToken.getId();
         Integer authority = (Integer) simpleToken.getAuthority();
-        System.out.println("lic uid = "+ uid +" authority = "+authority);
+
         if (uid!=null && authority!=null){
             if (!check(authority, needAthority)){
                 return Result.create(ResultCode.SSO_PERMISSION_ERROR).setMessage("权限等级不够");

@@ -38,7 +38,7 @@ public class ShiroDBRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		System.out.println("lic ShiroDBRealm111111111111");
+		System.out.println("renxinhua doGetAuthorizationInfo");
 		String userName = (String) principals.getPrimaryPrincipal();
 		IUser user = userService.findUserByName(userName);
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
@@ -69,7 +69,7 @@ public class ShiroDBRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
-		System.out.println("lic ShiroDBRealm2222222222222");
+		System.out.println("renxinhua doGetAuthenticationInfo");
 		UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
         
         if(StringUtils.isEmpty(token.getUsername())){

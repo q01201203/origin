@@ -2,10 +2,7 @@ package com.origin.core.util;
 
 import com.antgroup.zmxy.openplatform.api.DefaultZhimaClient;
 import com.antgroup.zmxy.openplatform.api.ZhimaApiException;
-import com.antgroup.zmxy.openplatform.api.request.ZhimaAuthInfoAuthorizeRequest;
-import com.antgroup.zmxy.openplatform.api.request.ZhimaAuthInfoAuthqueryRequest;
-import com.antgroup.zmxy.openplatform.api.request.ZhimaCreditScoreGetRequest;
-import com.antgroup.zmxy.openplatform.api.request.ZhimaCustomerCertificationInitializeRequest;
+import com.antgroup.zmxy.openplatform.api.request.*;
 import com.antgroup.zmxy.openplatform.api.response.ZhimaAuthInfoAuthqueryResponse;
 import com.antgroup.zmxy.openplatform.api.response.ZhimaCreditScoreGetResponse;
 import com.antgroup.zmxy.openplatform.api.response.ZhimaCustomerCertificationInitializeResponse;
@@ -60,7 +57,7 @@ public class ZhimaUtil {
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
         try {
             String url = client.generatePageRedirectInvokeUrl(req);
-            System.out.println("zhima url = "+url);
+            System.out.println("renxinhua zhima url = "+url);
             return url;
         } catch (ZhimaApiException e) {
             e.printStackTrace();
@@ -79,7 +76,7 @@ public class ZhimaUtil {
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
         try {
             ZhimaAuthInfoAuthqueryResponse response =(ZhimaAuthInfoAuthqueryResponse)client.execute(req);
-            System.out.println("authorized = "+response.getAuthorized()+" openid = "+response.getOpenId() +
+            System.out.println("renxinhua authorized = "+response.getAuthorized()+" openid = "+response.getOpenId() +
                     " isSuccess = "+response.isSuccess()+" getErrorCode = "+response.getErrorCode()+" getErrorMessage = " +
                     response.getErrorMessage());
             if (response.getAuthorized()){
@@ -111,7 +108,7 @@ public class ZhimaUtil {
         String[] strings = new String[2];
         try {
             ZhimaCreditScoreGetResponse response =(ZhimaCreditScoreGetResponse)client.execute(req);
-            System.out.println("score = "+response.getZmScore()+" bizno = "+response.getBizNo()+" isSuccess = "+response.isSuccess() +
+            System.out.println("renxinhua score = "+response.getZmScore()+" bizno = "+response.getBizNo()+" isSuccess = "+response.isSuccess() +
                     " getErrorCode = "+response.getErrorCode()+" getErrorMessage = "+response.getErrorMessage());
             if (response.isSuccess()){
                 strings[0] = response.getZmScore();
@@ -131,20 +128,17 @@ public class ZhimaUtil {
         //判断串中是否有%，有则需要decode
         if(params.indexOf("%") != -1) {
             params = URLDecoder.decode(params, "utf-8");
-            System.out.println("zhima result 1 ");
         }
         if(sign.indexOf("%") != -1) {
             sign = URLDecoder.decode(sign, "utf-8");
-            System.out.println("zhima result 2 ");
         }
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
         try {
             String result = client.decryptAndVerifySign(params, sign);
             if(result.indexOf("%") != -1) {
                 result = URLDecoder.decode(result, "utf-8");
-                System.out.println("zhima result 3 ");
             }
-            System.out.println("zhima result = "+result);
+            System.out.println("renxinhua zhima result = "+result);
             return result;
         } catch (ZhimaApiException e) {
             e.printStackTrace();
@@ -181,6 +175,23 @@ public class ZhimaUtil {
                 System.out.println(response.getErrorMessage());
                 return "error";
             }
+        } catch (ZhimaApiException e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    public String  zhimaCustomerCertificationCertify() {
+        ZhimaCustomerCertificationCertifyRequest req = new ZhimaCustomerCertificationCertifyRequest();
+        req.setChannel("apppc");
+        req.setPlatform("zmop");
+        req.setBizNo("ZM201705173000000323200000189778");// 必要参数
+        req.setReturnUrl("http://www.taobao.com");// 必要参数
+        DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
+        try {
+            String url = client.generatePageRedirectInvokeUrl(req);
+            System.out.println(url);
+            return url;
         } catch (ZhimaApiException e) {
             e.printStackTrace();
             return "error";

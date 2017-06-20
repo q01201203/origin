@@ -67,6 +67,7 @@
     <select id="find" parameterType="com.origin.data.mybatis.entity.AppTask" resultType="com.origin.data.mybatis.entity.AppTask">
         <include refid="selectPart"/>
         <include refid="queryParams"/>
+        ORDER BY create_date DESC
     </select>
     <insert id="save" parameterType="com.origin.data.mybatis.entity.AppTask">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">

@@ -28,7 +28,7 @@ public class LoginController {
 	
 	@RequestMapping("/do_login")
 	public String doLogin(HttpServletRequest request, Model model){
-		System.out.println("LoginController1111111111");
+		System.out.println("renxinhua LoginController");
 		String username = request.getParameter("username");
 		String pwd = request.getParameter("pwd");
 		

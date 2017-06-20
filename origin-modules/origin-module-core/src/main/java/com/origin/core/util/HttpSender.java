@@ -59,7 +59,7 @@ public class HttpSender {
 
         try {
             String returnString = HttpSender.batchSend(url, un, pw, phone, msg, rd, ex);
-            System.out.println("253 = "+returnString);
+            System.out.println("renxinhua 253 = "+returnString);
             if (returnString.charAt(returnString.indexOf(",")+1) == '0'){
                 return validcode;
             }else {
@@ -68,7 +68,7 @@ public class HttpSender {
             // TODO 处理返回值,参见HTTP协议文档
         } catch (Exception e) {
             // TODO 处理异常
-            System.out.println("253 Exception");
+            System.out.println("renxinhua 253 Exception");
             e.printStackTrace();
             return -1;
         }

@@ -30,7 +30,7 @@ public final class XmlUtil
     org.jdom2.Document document = null;
     try {
       if (filePath.startsWith("http")) {
-        System.out.println("http开头的暂不处理");
+        System.out.println("renxinhua http开头的暂不处理");
 
          }
       try {

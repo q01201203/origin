@@ -60,7 +60,7 @@ public class AppInfoController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("请求的taskType为" + taskType + "\n请求的taskHot为" + taskHot);
+		System.out.println("renxinhua 请求的taskType为" + taskType + "\n请求的taskHot为" + taskHot);
 
 		IAppTask appTask = new AppTaskDTO();
 		if (!StringUtil.isNullOrBlank(taskType)){
@@ -135,6 +135,22 @@ public class AppInfoController {
 			return Result.createSuccessResult(bizNo,"获取BizNo成功");
 		}else {
 			return Result.createErrorResult().setMessage("获取BizNo失败");
+		}
+
+	}
+
+	@RequestMapping(value = "/getZhimaCertificationUrl" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取芝麻认证Url", httpMethod = "GET", response = Result.class,
+			notes = "无需传入参数")
+	public Object getZhimaCertificationUrl() throws Exception{
+
+		ZhimaUtil zhimaUtil = new ZhimaUtil();
+		String result = zhimaUtil.zhimaCustomerCertificationCertify();
+		if (!"error".equals(result) && result!=null){
+			return Result.createSuccessResult(result,"获取芝麻认证Url成功");
+		}else {
+			return Result.createErrorResult().setMessage("获取芝麻认证Url失败");
 		}
 
 	}

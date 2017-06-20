@@ -18,7 +18,7 @@ public class AppTokenFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("lic AppTokenFilter doFilter");
+        System.out.println("renxinhua AppTokenFilter doFilter");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String servletPath = request.getServletPath();
 
@@ -31,7 +31,7 @@ public class AppTokenFilter implements Filter{
                 }
             }
         }
-        System.out.println("servletpath = "+ servletPath +" isExclude = "+isExcluded);
+        System.out.println("renxinhua servletpath = "+ servletPath +" isExclude = "+isExcluded);
         if (isExcluded){
             filterChain.doFilter(request,servletResponse);
         }else {
@@ -48,7 +48,6 @@ public class AppTokenFilter implements Filter{
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("lic AppTokenFilter init");
         excludedPaths = filterConfig.getInitParameter("excludedPaths");
         if (!StringUtil.isNullOrBlank(excludedPaths)){
             excludedPathsArray = excludedPaths.split(",");
@@ -57,6 +56,6 @@ public class AppTokenFilter implements Filter{
 
     @Override
     public void destroy() {
-        System.out.println("lic AppTokenFilter destroy");
+
     }
 }

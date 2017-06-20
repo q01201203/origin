@@ -92,7 +92,6 @@ public class AppValidcodeController {
 		appValidcode.setValidcode(String.valueOf(validcode));
 		appValidcode.setType(Integer.parseInt(type));
 		appValidcodeService.save(appValidcode);
-		System.out.println("lic i = "+appValidcode.getId());
 		return true;
 	}
 

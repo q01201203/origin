@@ -45,8 +45,8 @@
     <select id="findFirst" parameterType="com.origin.data.mybatis.entity.AppValidcode" resultType="com.origin.data.mybatis.entity.AppValidcode">
         <include refid="selectPart"/>
         <include refid="queryParams"/>
-        AND create_date =
-        (SELECT MAX(create_date)
+        AND id =
+        (SELECT MAX(id)
         FROM ogn_app_validcode
         WHERE 1=1
         <include refid="queryParams"/>

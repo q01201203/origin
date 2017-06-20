@@ -207,7 +207,7 @@
 						</td>
 					</tr>
 					<c:if test="${appUser.category eq 1}">
-						<tr>
+						<!--<tr>
 							<td class="l_title "><b class="cRed">*</b> 详细信息手机号</td>
 							<td>
 								<div class="J_toolsBar fl">
@@ -216,7 +216,7 @@
 									</div>
 								</div>
 							</td>
-						</tr>
+						</tr>-->
 						<tr>
 							<td class="l_title "><b class="cRed">*</b> 学校</td>
 							<td>
@@ -331,7 +331,7 @@
 						</tr>
 					</c:if>
 					<c:if test="${appUser.category eq 2}">
-						<tr>
+						<!--<tr>
 							<td class="l_title "><b class="cRed">*</b> 详细信息手机号</td>
 							<td>
 								<div class="J_toolsBar fl">
@@ -340,7 +340,7 @@
 									</div>
 								</div>
 							</td>
-						</tr>
+						</tr>-->
 						<tr>
 							<td class="l_title "><b class="cRed">*</b> 公司名称</td>
 							<td>
