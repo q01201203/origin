@@ -57,7 +57,7 @@ public class AppUserServiceImplTest {
         appValidcode.setValidcode("110110");
         appValidcode.setType(3);
         appValidcode.setStatus(1);
-        System.out.println("renxinhua" + appValidcodeService.findFirst(appValidcode).getCreateDate());
+        System.out.println("renxinhua" + appValidcodeService.findFirst(appValidcode).getId());
     }
 
     //获取用户收入信息

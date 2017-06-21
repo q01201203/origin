@@ -4,6 +4,8 @@ import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
 import com.origin.common.util.Md5Util;
 import com.origin.core.dto.*;
+import com.origin.core.model.IdCardRecognitionResultModel;
+import com.origin.core.model.ZhimaInfoModel;
 import com.origin.core.service.*;
 import com.origin.core.util.*;
 import com.origin.data.entity.*;
@@ -206,32 +208,6 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("添加支付密码成功");
 	}
 
-	@RequestMapping(value = "/addFace" ,method = RequestMethod.GET)
-	@ResponseBody
-	@ApiOperation(value = "app用户添加人脸图片", httpMethod = "GET", response = Result.class ,
-			notes = "添加人脸照片返回一个更高权限的 token")
-	public Object addFace(@RequestHeader(value = "Authorization" ) String token,
-						  @RequestParam(value = "face") String face) throws Exception{
-		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
-		if (!(tokenValidResult instanceof SimpleToken)){
-			return tokenValidResult;
-		}
-		Integer uId = ((SimpleToken) tokenValidResult).getId();
-
-		if (StringUtil.isNullOrBlank(face)){
-			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-		}
-
-		IAppUser appUser = new AppUserDTO();
-		appUser.setId(uId);
-		appUser.setImgFace(face);
-		appUser.setAuthority(Constants.AHORITY_MEDIUM);
-		appUser.setUpdateDate(new Date());
-		appUserService.update(appUser);
-		return Result.createSuccessResult(CustomToken.generate(new SimpleToken(uId, Constants.AHORITY_MEDIUM))
-				,"认证成功");
-	}
-
 	@RequestMapping(value = "/addIdInfo" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加身份证信息", httpMethod = "GET", response = Result.class, notes = "添加身份证信息")
@@ -242,6 +218,7 @@ public class AppUserController {
 							@RequestParam(value = "idNumber") String idNumber,
 							@RequestParam(value = "category") String category) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
+
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
@@ -812,4 +789,111 @@ public class AppUserController {
 		}
 	}
 
+
+	@RequestMapping(value = "/getZhimaCertificationUrl" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取芝麻认证Url和身份证名字和号码", httpMethod = "GET", response = Result.class,
+			notes = "传入身份证带人脸的那面图片的base64,返回芝麻认证Url和身份证名字和号码")
+	public Object getZhimaCertificationUrl(
+			@RequestHeader(value = "Authorization" ) String token,
+			@RequestParam(value = "idFrontImgBase64") String idFrontImgBase64,
+			@RequestParam(value = "idBackImgBase64") String idBackImgBase64 ) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token), Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		if (StringUtil.isNullOrBlank(idBackImgBase64)||StringUtil.isNullOrBlank(idFrontImgBase64)){
+			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+		}
+
+		String identityCardFrontInfo = IdCardRecognitionUtil.recognize(idFrontImgBase64,IdCardRecognitionUtil.TYPE_FRONT);
+		if (!"error".equals(identityCardFrontInfo) && identityCardFrontInfo!=null) {
+			String identityCardBackInfo = IdCardRecognitionUtil.recognize(idBackImgBase64, IdCardRecognitionUtil.TYPE_BACK);
+			if (!"error".equals(identityCardBackInfo) && identityCardBackInfo != null) {
+				IdCardRecognitionResultModel idCardRecognitionResultModel = JsonUtil.json2Object(identityCardBackInfo, IdCardRecognitionResultModel.class);
+				String name = idCardRecognitionResultModel.getResult().getName();
+				String identityNumber = idCardRecognitionResultModel.getResult().getNumber();
+				System.out.println("name = " + name + " identityNumber = " + identityNumber);
+				if (!StringUtil.isNullOrEmpty(name) && !StringUtil.isNullOrEmpty(identityNumber)) {
+					ZhimaUtil zhimaUtil = new ZhimaUtil();
+					String bizNo = zhimaUtil.zhimaCustomerCertificationInitialize(name, identityNumber);
+					if (!"error".equals(bizNo) && bizNo != null) {
+						String url = zhimaUtil.zhimaCustomerCertificationCertify(token, bizNo);
+						if (!"error".equals(url) && url != null) {
+							ZhimaInfoModel zhimaInfoModel = new ZhimaInfoModel();
+							zhimaInfoModel.setUrl(url);
+							zhimaInfoModel.setIdName(name);
+							zhimaInfoModel.setIdNumber(identityNumber);
+							return Result.createSuccessResult(zhimaInfoModel, "获取芝麻认证Url成功");
+						} else {
+							return Result.createErrorResult().setMessage("获取芝麻认证Url失败");
+						}
+					} else {
+						return Result.createErrorResult().setMessage("获取BizNo失败");
+					}
+				} else {
+					return Result.createErrorResult().setMessage("身份证名字或号码未识别出来");
+				}
+			} else {
+				return Result.createErrorResult().setMessage("身份证背面识别失败");
+			}
+		}else {
+			return Result.createErrorResult().setMessage("身份证正面识别失败");
+		}
+	}
+
+	//芝麻人脸识别回调接口
+	@RequestMapping(value = "/zhimaCertificationCallback" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiIgnore
+	public String zhimaCertificationCallback(HttpServletRequest request) throws Exception{
+		String token = request.getParameter("token");
+		String params = request.getParameter("params");
+		String sign = request.getParameter("sign");
+
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token), Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return "token error";
+		}
+		Integer uid = ((SimpleToken) tokenValidResult).getId();
+
+		ZhimaUtil zhimaUtil = new ZhimaUtil();
+		String result = zhimaUtil.getResult(params,sign);
+		System.out.println("renxinhua uid = "+uid +" result = "+result);
+		Map map = StringUtil.urlSplit(result);
+		String passed = "";
+		if (map.get("passed")!=null){
+			passed = map.get("passed").toString();
+		}
+		String failed_reason = "";
+		if (map.get("failed_reason")!=null){
+			failed_reason = map.get("failed_reason").toString();
+		}
+
+		IAppUser appUser = appUserService.findById(uid);
+		if (appUser!=null){
+			String alias = appUser.getJpushAlias();
+			if (Boolean.parseBoolean(passed)){
+				appUser.setImgFace("true");
+				appUser.setAuthority(Constants.AHORITY_MEDIUM);
+				appUserService.update(appUser);
+				if (!StringUtil.isNullOrBlank(alias)) {
+					JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, "认证成功token="+
+							CustomToken.generate(new SimpleToken(uid, Constants.AHORITY_MEDIUM))));
+				}
+				return "success";
+			}else {
+				appUser.setImgFace("false");
+				appUserService.update(appUser);
+				if (!StringUtil.isNullOrBlank(alias)) {
+					JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, "认证失败"));
+				}
+				return "error "+failed_reason;
+			}
+		}else {
+			return "无此用户";
+		}
+	}
 }

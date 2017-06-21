@@ -1,6 +1,5 @@
 package com.origin.core.controller.app;
 
-import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
 import com.origin.core.dto.AppConstantsDTO;
 import com.origin.core.dto.AppGuideDTO;
@@ -9,7 +8,10 @@ import com.origin.core.service.AppConstantsService;
 import com.origin.core.service.AppGuideService;
 import com.origin.core.service.AppTaskService;
 import com.origin.core.service.AppUserService;
-import com.origin.core.util.*;
+import com.origin.core.util.Constants;
+import com.origin.core.util.CustomToken;
+import com.origin.core.util.SimpleToken;
+import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppConstants;
 import com.origin.data.entity.IAppGuide;
 import com.origin.data.entity.IAppTask;
@@ -117,41 +119,5 @@ public class AppInfoController {
 		}
 		List<IAppConstants> appConstantsList = appConstantsService.find(appConstants);
 		return Result.createSuccessResult(appConstantsList,"获取常量成功");
-	}
-
-	@RequestMapping(value = "/getZhimaBizNo" ,method = RequestMethod.GET)
-	@ResponseBody
-	@ApiOperation(value = "获取芝麻初始化BizNo", httpMethod = "GET", response = Result.class,
-			notes = "传入身份证名字和身份证号,返回bizNo")
-	public Object getZhimaBizNo(@RequestParam(value = "name") String name ,
-							   @RequestParam(value = "identityCard") String identityCard ) throws Exception{
-		if (StringUtil.isNullOrBlank(name)||StringUtil.isNullOrBlank(identityCard)){
-			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-		}
-
-		ZhimaUtil zhimaUtil = new ZhimaUtil();
-		String bizNo = zhimaUtil.zhimaCustomerCertificationInitialize(name,identityCard);
-		if (!"error".equals(bizNo) && bizNo!=null){
-			return Result.createSuccessResult(bizNo,"获取BizNo成功");
-		}else {
-			return Result.createErrorResult().setMessage("获取BizNo失败");
-		}
-
-	}
-
-	@RequestMapping(value = "/getZhimaCertificationUrl" ,method = RequestMethod.GET)
-	@ResponseBody
-	@ApiOperation(value = "获取芝麻认证Url", httpMethod = "GET", response = Result.class,
-			notes = "无需传入参数")
-	public Object getZhimaCertificationUrl() throws Exception{
-
-		ZhimaUtil zhimaUtil = new ZhimaUtil();
-		String result = zhimaUtil.zhimaCustomerCertificationCertify();
-		if (!"error".equals(result) && result!=null){
-			return Result.createSuccessResult(result,"获取芝麻认证Url成功");
-		}else {
-			return Result.createErrorResult().setMessage("获取芝麻认证Url失败");
-		}
-
 	}
 }

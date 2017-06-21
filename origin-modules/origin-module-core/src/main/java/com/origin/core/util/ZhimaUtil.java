@@ -181,12 +181,12 @@ public class ZhimaUtil {
         }
     }
 
-    public String  zhimaCustomerCertificationCertify() {
+    public String  zhimaCustomerCertificationCertify(String token ,String bizNo) {
         ZhimaCustomerCertificationCertifyRequest req = new ZhimaCustomerCertificationCertifyRequest();
-        req.setChannel("apppc");
+        //req.setChannel("apppc");
         req.setPlatform("zmop");
-        req.setBizNo("ZM201705173000000323200000189778");// 必要参数
-        req.setReturnUrl("http://www.taobao.com");// 必要参数
+        req.setBizNo(bizNo);// 必要参数
+        req.setReturnUrl("http://106.14.11.68:8070/origin/app/user/zhimaCertificationCallback?token="+token+"&");// 必要参数
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
         try {
             String url = client.generatePageRedirectInvokeUrl(req);
