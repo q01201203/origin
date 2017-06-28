@@ -23,6 +23,16 @@ public class AppZhimaDTO implements IAppZhima {
     /**  */
 	private String score;//;
     /**  */
+	private String errorMessage;//;
+    /**  */
+	private String isMatched;//;
+    /**  */
+	private String verifyCode;//;
+    /**  */
+	private String hit;//;
+    /**  */
+	private String riskCode;//;
+    /**  */
 	private Integer uid;//;
     /**  */
 	private Integer deleteFlag;// = Integer.valueOf(0);
@@ -82,6 +92,46 @@ public class AppZhimaDTO implements IAppZhima {
 		this.score = score;
 	}
 
+	public String getErrorMessage() {
+		return this.errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public String getIsMatched() {
+		return this.isMatched;
+	}
+
+	public void setIsMatched(String isMatched) {
+		this.isMatched = isMatched;
+	}
+
+	public String getVerifyCode() {
+		return this.verifyCode;
+	}
+
+	public void setVerifyCode(String verifyCode) {
+		this.verifyCode = verifyCode;
+	}
+
+	public String getHit() {
+		return this.hit;
+	}
+
+	public void setHit(String hit) {
+		this.hit = hit;
+	}
+
+	public String getRiskCode() {
+		return this.riskCode;
+	}
+
+	public void setRiskCode(String riskCode) {
+		this.riskCode = riskCode;
+	}
+
 	public Integer getUid() {
 		return this.uid;
 	}
@@ -124,6 +174,11 @@ public class AppZhimaDTO implements IAppZhima {
 		+",type="+this.getType()
 		+",bizNo="+this.getBizNo()
 		+",score="+this.getScore()
+		+",errorMessage="+this.getErrorMessage()
+		+",isMatched="+this.getIsMatched()
+		+",verifyCode="+this.getVerifyCode()
+		+",hit="+this.getHit()
+		+",riskCode="+this.getRiskCode()
 		+",uid="+this.getUid()
 		+",deleteFlag="+this.getDeleteFlag()
 		+"]";

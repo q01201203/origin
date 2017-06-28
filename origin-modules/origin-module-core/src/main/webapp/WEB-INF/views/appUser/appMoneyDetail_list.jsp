@@ -16,8 +16,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>${menu_name } - ${title }</title>
+    <link href="${ctx }/static/plugins/chosen_v1.6.2/chosen.css" rel="stylesheet" />
 </head>
-<link href="${ctx }/static/plugins/chosen_v1.6.2/chosen.css" rel="stylesheet" />
 
 <body <%@ include file="../common/skin.jsp" %>>
 <%@ include file="../common/head.jsp" %>

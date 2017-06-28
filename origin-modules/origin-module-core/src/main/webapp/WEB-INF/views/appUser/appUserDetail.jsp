@@ -17,6 +17,11 @@
 				<table width="800px" class="not_hightlight">
 					<tbody>
 					<tr>
+						<td class="l_title" style="width: 220px"></td>
+						<td style="width: 240px"></td>
+						<td></td>
+					</tr>
+					<tr>
 						<td class="l_title"><b class="cRed">*</b> 创建时间</td>
                          <td>
                              <div class="J_toolsBar fl">
@@ -84,18 +89,109 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="l_title "><b class="cRed">*</b> 芝麻信用分</td>
+						<td class="l_title "><b class="cRed">*</b> 芝麻信用分[350-950]</td>
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w240 ml10">
-									${appUser.zhimaScore}
+									<c:choose>
+										<c:when test="${appZhimas[0].errorMessage == null ||appZhimas[0].errorMessage == ''}">
+											${appZhimas[0].score}
+										</c:when>
+										<c:otherwise>
+											${appZhimas[0].errorMessage}
+										</c:otherwise>
+									</c:choose>
 								</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td class="l_title " style="width: 150px"><b class="cRed">*</b> 人脸图片地址</td>
-						<td style="width: 240px">
+						<td class="l_title "><b class="cRed">*</b> 芝麻行业关注名单是否命中(命中则有过不良记录)</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_text w240 ml10">
+									<c:choose>
+										<c:when test="${appZhimas[1].errorMessage == null ||appZhimas[1].errorMessage == ''}">
+											${appZhimas[1].isMatched}
+										</c:when>
+										<c:otherwise>
+											${appZhimas[1].errorMessage}
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="l_title " style="height: auto"><b class="cRed">*</b> 芝麻欺诈评分[0-100](分数越高信息越真实)</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_text w240 ml10">
+									<c:choose>
+										<c:when test="${appZhimas[2].errorMessage == null ||appZhimas[2].errorMessage == ''}">
+											${appZhimas[2].score}
+										</c:when>
+										<c:otherwise>
+											${appZhimas[2].errorMessage}
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="l_title "><b class="cRed">*</b> 芝麻欺诈信息验证</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_text w240 ml10" <c:if test="${appZhimas[3] !=null}">style="height: auto"</c:if>>
+									<c:choose>
+										<c:when test="${appZhimas[3].errorMessage == null ||appZhimas[3].errorMessage == ''}">
+											${appZhimas[3].verifyCode}
+										</c:when>
+										<c:otherwise>
+											${appZhimas[3].errorMessage}
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_label w240 ml10">
+									<a target="view_window" href="https://b.zmxy.com.cn/product/productDetail.htm?productId=w1010100000000002859&scene=nav" class='btn'>查看验证码说明</a>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="l_title "><b class="cRed">*</b> 芝麻欺诈关注清单是否命中</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_text w240 ml10">
+									<c:choose>
+										<c:when test="${appZhimas[4].errorMessage == null ||appZhimas[4].errorMessage == ''}">
+											${appZhimas[4].hit}
+											<c:if test="${appZhimas[4].riskCode!=null &&appZhimas[4].riskCode!='null'&&
+											appZhimas[4].riskCode!=''}">,${appZhimas[4].riskCode}</c:if>
+										</c:when>
+										<c:otherwise>
+											${appZhimas[4].errorMessage}
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_label w240 ml10">
+									<a target="view_window" href="https://b.zmxy.com.cn/product/productDetail.htm?productId=w1010100003000001283&scene=nav" class='btn'>查看风险代码表说明</a>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="l_title "><b class="cRed">*</b> 人脸图片地址</td>
+						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w240 ml10" >
 									<input id="imgFace" type="text" name="imgFace"  value="${appUser.imgFace}"/>

@@ -1,14 +1,13 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.AppZhimaService;
 import com.origin.data.dao.IAppZhimaDao;
 import com.origin.data.entity.IAppZhima;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AppZhimaServiceImpl  implements AppZhimaService {
@@ -44,5 +43,10 @@ public class AppZhimaServiceImpl  implements AppZhimaService {
     @Override
     public List<IAppZhima> find(IAppZhima appZhima) {
         return appZhimaDao.find(appZhima);
+    }
+
+    @Override
+    public List<IAppZhima> findZhimaInfoByUid(Integer id){
+        return appZhimaDao.findZhimaInfoByUid(id);
     }
 }

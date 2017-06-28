@@ -1,9 +1,12 @@
 package com.origin.core.controller.app;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
 import com.origin.common.util.Md5Util;
 import com.origin.core.dto.*;
+import com.origin.core.model.DataWithPageModel;
 import com.origin.core.model.IdCardRecognitionResultModel;
 import com.origin.core.model.ZhimaInfoModel;
 import com.origin.core.service.*;
@@ -13,6 +16,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,9 +65,11 @@ public class AppUserController {
 	//query
 	@RequestMapping(value = "/login" , method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "app用户登录", httpMethod = "POST", response = Result.class, notes = "登录返回一个token")
+	@ApiOperation(value = "app用户登录", httpMethod = "POST", response = Result.class, notes = "传入手机号密码和极光推送的别名" +
+			"，返回一个token")
 	public Object login(@RequestParam(value = "mobile") String mobile ,
-						@RequestParam(value = "pwd") String pwd) throws Exception {
+						@RequestParam(value = "pwd") String pwd,
+						@RequestParam(value = "alias" ,required = false) String alias) throws Exception {
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -72,6 +78,10 @@ public class AppUserController {
 		appUser.setPwd(Md5Util.generatePassword(pwd));
 		appUser = appUserService.findFirst(appUser);
 		if (appUser!=null){
+			if (!StringUtil.isNullOrBlank(alias)){
+				appUser.setJpushAlias(alias);
+				appUserService.update(appUser);
+			}
 			return Result.createSuccessResult(CustomToken.generate(new SimpleToken(appUser.getId(),
 					appUser.getAuthority())),"登录成功");
 		}
@@ -242,17 +252,16 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("添加成功");
 	}
 
-	@RequestMapping(value = "/addPortrait" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/updatePortrait" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加头像", httpMethod = "GET", response = Result.class, notes = "添加头像")
-	public Object addPortrait(@RequestHeader(value = "Authorization" ) String token,
+	public Object updatePortrait(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "portrait") String portrait) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
-
 		if (StringUtil.isNullOrBlank(portrait)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -262,13 +271,13 @@ public class AppUserController {
 		appUser.setImgPortrait(portrait);
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
-		return Result.createSuccessResult().setMessage("添加头像成功");
+		return Result.createSuccessResult().setMessage("更新头像成功");
 	}
 
-	@RequestMapping(value = "/addNickname" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/updateNickname" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加用户昵称", httpMethod = "GET", response = Result.class, notes = "添加昵称")
-	public Object addNickname(@RequestHeader(value = "Authorization" ) String token,
+	public Object updateNickname(@RequestHeader(value = "Authorization" ) String token,
 							  @RequestParam(value = "nickname") String nickname) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){
@@ -285,7 +294,7 @@ public class AppUserController {
 		appUser.setNickname(nickname);
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
-		return Result.createSuccessResult().setMessage("添加昵称成功");
+		return Result.createSuccessResult().setMessage("更新昵称成功");
 	}
 
 	//other operation
@@ -580,10 +589,12 @@ public class AppUserController {
 	@ResponseBody
 	@ApiOperation(value = "app用户获取钱信息", httpMethod = "GET", response = Result.class,
 			notes = "获取钱信息 钱使用money_actual字段 必传type(1:借钱 2:还钱 3:提现 4:收入) 可选status(1:待审核" +
-					"2:审核通过 3:审核未通过)")
+					"2:审核通过 3:审核未通过) currentPage当前页（不填默认第一页），pageSize每页条数（不填默认为10）")
 	public Object getMoney(@RequestHeader(value = "Authorization" ) String token,
 						   @RequestParam(value = "type") String type,
-						   @RequestParam(value = "status" ,required = false) String status) throws Exception{
+						   @RequestParam(value = "status" ,required = false) String status,
+						   @RequestParam(value = "currentPage" ,required = false) String currentPageStr,
+						   @RequestParam(value = "pageSize" ,required = false) String pageSizeStr) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
@@ -595,6 +606,14 @@ public class AppUserController {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 
+		int currentPage = 1;
+		int pageSize = 10;
+		if(StringUtils.isNotBlank(currentPageStr)){
+			currentPage = Integer.parseInt(currentPageStr);
+		}
+		if(StringUtils.isNotBlank(pageSizeStr)){
+			pageSize = Integer.parseInt(pageSizeStr);
+		}
 		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
 		appMoneyDetail.setUid(uId);
 		if (!StringUtil.isNullOrBlank(status)){
@@ -603,21 +622,41 @@ public class AppUserController {
 
 		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
+			PageHelper.startPage(currentPage, pageSize);
 			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
-			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("借款信息查询成功");
+			PageInfo<IAppMoneyDetail> page = new PageInfo(appMoneyDetails);
+			DataWithPageModel<IAppMoneyDetail> dataWithPageModel = new DataWithPageModel<>();
+			dataWithPageModel.setData(appMoneyDetails);
+			dataWithPageModel.setPageInfo(page);
+			return Result.createSuccessResult().setData(dataWithPageModel).setMessage("借款信息查询成功");
 		} else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
+			PageHelper.startPage(currentPage, pageSize);
 			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
-			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("还款信息查询成功");
+			PageInfo<IAppMoneyDetail> page = new PageInfo(appMoneyDetails);
+			DataWithPageModel<IAppMoneyDetail> dataWithPageModel = new DataWithPageModel<>();
+			dataWithPageModel.setData(appMoneyDetails);
+			dataWithPageModel.setPageInfo(page);
+			return Result.createSuccessResult().setData(dataWithPageModel).setMessage("还款信息查询成功");
 		} else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_WITHDRAW);
+			PageHelper.startPage(currentPage, pageSize);
 			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
-			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("提现信息查询成功");
+			PageInfo<IAppMoneyDetail> page = new PageInfo(appMoneyDetails);
+			DataWithPageModel<IAppMoneyDetail> dataWithPageModel = new DataWithPageModel<>();
+			dataWithPageModel.setData(appMoneyDetails);
+			dataWithPageModel.setPageInfo(page);
+			return Result.createSuccessResult().setData(dataWithPageModel).setMessage("提现信息查询成功");
 		} else if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_INCOME);
+			PageHelper.startPage(currentPage, pageSize);
 			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
 			//List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.findIncomeInfo(appMoneyDetail);
-			return Result.createSuccessResult().setData(appMoneyDetails).setMessage("收入信息查询成功");
+			PageInfo<IAppMoneyDetail> page = new PageInfo(appMoneyDetails);
+			DataWithPageModel<IAppMoneyDetail> dataWithPageModel = new DataWithPageModel<>();
+			dataWithPageModel.setData(appMoneyDetails);
+			dataWithPageModel.setPageInfo(page);
+			return Result.createSuccessResult().setData(dataWithPageModel).setMessage("收入信息查询成功");
 		} else {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -704,6 +743,7 @@ public class AppUserController {
 
 		IAppUser appUser = appUserService.findById(uId);
 		Double moneyMax = appUser.getMoneyMax();
+		String zhimaScore = appUser.getZhimaScore();
 
 		Double borrow = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
 		Double repay = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
@@ -713,8 +753,11 @@ public class AppUserController {
 
 		Double needRepay = borrow - repay;
 		Double balance = income - withdraw - repayBalance;
+		Double balance2 = appUser.getBalance();
+		System.out.println("renxinhua b1 = "+balance+" b2 = "+balance2);
 		Double borrowLine = moneyMax - needRepay;
-		HashMap<String,Double> moneyMap = new HashMap();
+
+		Map<String,Object> moneyMap = new HashMap();
 		moneyMap.put("borrowTotal",borrow);
 		moneyMap.put("repayTotal",repay);
 		moneyMap.put("withdrawTotal",withdraw);
@@ -724,6 +767,7 @@ public class AppUserController {
 		moneyMap.put("balance",balance);
 		moneyMap.put("moneyMax",moneyMax);
 		moneyMap.put("borrowLine",borrowLine);
+		moneyMap.put("zhimaScore",zhimaScore);
 		return Result.createSuccessResult(moneyMap,"获取app用户钱信息");
 	}
 
@@ -745,23 +789,42 @@ public class AppUserController {
 
 	@RequestMapping(value = "/getUserMessage" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "获取用户消息列表", httpMethod = "GET", response = Result.class, notes = "传入参数type(1、个人消息2、系统消息)")
+	@ApiOperation(value = "获取用户消息列表", httpMethod = "GET", response = Result.class, notes = "传入参数type" +
+			"(1、个人消息2、系统消息),status状态(0已读1未读) currentPage当前页（不填默认第一页），pageSize每页条数（不填默认为10）")
 	public Object getUserMessage(@RequestHeader(value = "Authorization") String token,
-								 @RequestParam(value = "type" ,required = false) String type) throws Exception{
+								 @RequestParam(value = "type" ,required = false) String type,
+								 @RequestParam(value = "status" ,required = false) String status,
+								 @RequestParam(value = "currentPage" ,required = false) String currentPageStr,
+								 @RequestParam(value = "pageSize" ,required = false) String pageSizeStr) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
+		int currentPage = 1;
+		int pageSize = 10;
+		if(StringUtils.isNotBlank(currentPageStr)){
+			currentPage = Integer.parseInt(currentPageStr);
+		}
+		if(StringUtils.isNotBlank(pageSizeStr)){
+			pageSize = Integer.parseInt(pageSizeStr);
+		}
 		IAppMessage appMessage = new AppMessageDTO();
 		appMessage.setUid(uId);
 		if (!StringUtil.isNullOrBlank(type)){
 			appMessage.setType(Integer.parseInt(type));
 		}
+		if (!StringUtil.isNullOrBlank(status)){
+			appMessage.setStatus(Integer.parseInt(status));
+		}
+		PageHelper.startPage(currentPage, pageSize);
 		List<IAppMessage> appMessages = appMessageService.findOrderBy(appMessage);
-
-		return Result.createSuccessResult(appMessages,"获取用户消息列表成功");
+		PageInfo<IAppMessage> page = new PageInfo(appMessages);
+		DataWithPageModel<IAppMessage> dataWithPageModel = new DataWithPageModel<>();
+		dataWithPageModel.setData(appMessages);
+		dataWithPageModel.setPageInfo(page);
+		return Result.createSuccessResult(dataWithPageModel,"获取用户消息列表成功");
 	}
 
 	@RequestMapping(value = "/updateUserMessage" ,method = RequestMethod.GET)
@@ -894,6 +957,28 @@ public class AppUserController {
 			}
 		}else {
 			return "无此用户";
+		}
+	}
+
+	@RequestMapping(value = "/getIsSecondaryLoan" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取用户是否是二次借款", httpMethod = "GET", response = Result.class, notes = "获取用户是否是二次借款")
+	public Object getIsSecondaryLoan(@RequestHeader(value = "Authorization" ) String token) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+		appMoneyDetail.setUid(uId);
+		appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
+		appMoneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_SUCCESS);
+		List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
+		if (appMoneyDetails!=null&&appMoneyDetails.size()>0){
+			return Result.createSuccessResult(true,"该用户为二次借款");
+		}else{
+			return Result.createSuccessResult(false,"该用户还未借款成功");
 		}
 	}
 }

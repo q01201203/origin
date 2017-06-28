@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class AppZhima implements IAppZhima {
 
-	private static final long serialVersionUID = 3026919301355746L;
+	private static final long serialVersionUID = 23554094670216155L;
 	
 	/**  */
 	private Integer id;//;
@@ -22,6 +22,16 @@ public class AppZhima implements IAppZhima {
 	private String bizNo;//;
 	/**  */
 	private String score;//;
+	/**  */
+	private String errorMessage;//;
+	/**  */
+	private String isMatched;//;
+	/**  */
+	private String verifyCode;//;
+	/**  */
+	private String hit;//;
+	/**  */
+	private String riskCode;//;
 	/**  */
 	private Integer uid;//;
 	/**  */
@@ -76,6 +86,46 @@ public class AppZhima implements IAppZhima {
 		this.score = score;
 	}
 	
+	public String getErrorMessage() {
+		return this.errorMessage;
+	}
+	
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+	
+	public String getIsMatched() {
+		return this.isMatched;
+	}
+	
+	public void setIsMatched(String isMatched) {
+		this.isMatched = isMatched;
+	}
+	
+	public String getVerifyCode() {
+		return this.verifyCode;
+	}
+	
+	public void setVerifyCode(String verifyCode) {
+		this.verifyCode = verifyCode;
+	}
+	
+	public String getHit() {
+		return this.hit;
+	}
+	
+	public void setHit(String hit) {
+		this.hit = hit;
+	}
+	
+	public String getRiskCode() {
+		return this.riskCode;
+	}
+	
+	public void setRiskCode(String riskCode) {
+		this.riskCode = riskCode;
+	}
+	
 	public Integer getUid() {
 		return this.uid;
 	}
@@ -118,6 +168,11 @@ public class AppZhima implements IAppZhima {
 		+",type="+this.getType()
 		+",bizNo="+this.getBizNo()
 		+",score="+this.getScore()
+		+",errorMessage="+this.getErrorMessage()
+		+",isMatched="+this.getIsMatched()
+		+",verifyCode="+this.getVerifyCode()
+		+",hit="+this.getHit()
+		+",riskCode="+this.getRiskCode()
 		+",uid="+this.getUid()
 		+",deleteFlag="+this.getDeleteFlag()
 		+"]";

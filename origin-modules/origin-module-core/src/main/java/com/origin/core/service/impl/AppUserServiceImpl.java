@@ -72,22 +72,83 @@ public class AppUserServiceImpl  implements AppUserService {
             if (resultCreditScore!=null){
                 IAppZhima zhimaDTO = new AppZhimaDTO();
                 zhimaDTO.setType(IAppZhima.TYPE_CREDIT_SCORE);
-                zhimaDTO.setScore(resultCreditScore[0]);
-                zhimaDTO.setBizNo(resultCreditScore[1]);
+                zhimaDTO.setBizNo(resultCreditScore[2]);
+                if (Boolean.parseBoolean(resultCreditScore[0])){
+                    zhimaDTO.setScore(resultCreditScore[3]);
+                    appUser.setZhimaScore(resultCreditScore[3]);
+                    appUserDao.update(appUser);
+                }else{
+                    zhimaDTO.setErrorMessage(resultCreditScore[1]);
+                }
                 zhimaDTO.setUid(appUser.getId());
                 appZhimaDao.save(zhimaDTO);
-
-                appUser.setZhimaScore(resultCreditScore[0]);
-                appUserDao.update(appUser);
-            }else{
-                appUser.setZhimaScore("600");
-                appUserDao.update(appUser);
             }
+
             String alias = appUser.getJpushAlias();
             if (!StringUtil.isNullOrBlank(alias)) {
                 JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, "注册成功"));
             }
-        }
 
+            //行业关注清单
+            String[] resultCreditWatchlistii = zhimaUtil.zhimaCreditWatchlistiiGet(appUser.getZhimaOpenid());
+            if (resultCreditWatchlistii!=null){
+                IAppZhima zhimaDTO = new AppZhimaDTO();
+                zhimaDTO.setType(IAppZhima.TYPE_CREDIT_WATCHLISTII);
+                zhimaDTO.setBizNo(resultCreditWatchlistii[2]);
+                if (Boolean.parseBoolean(resultCreditWatchlistii[0])){
+                    zhimaDTO.setIsMatched(resultCreditWatchlistii[3]);
+                }else{
+                    zhimaDTO.setErrorMessage(resultCreditWatchlistii[1]);
+                }
+                zhimaDTO.setUid(appUser.getId());
+                appZhimaDao.save(zhimaDTO);
+            }
+
+            //欺诈评分
+            String[] resultCreditAntifraudScore = zhimaUtil.zhimaCreditAntifraudScoreGet(appUser.getZhimaCertNo(),appUser.getZhimaCertName(),appUser.getMobile());
+            if (resultCreditAntifraudScore !=null){
+                IAppZhima zhimaDTO = new AppZhimaDTO();
+                zhimaDTO.setType(IAppZhima.TYPE_CREDIT_ANTIFRAUD_SCORE);
+                zhimaDTO.setBizNo(resultCreditAntifraudScore[2]);
+                if (Boolean.parseBoolean(resultCreditAntifraudScore[0])){
+                    zhimaDTO.setScore(resultCreditAntifraudScore[3]);
+                }else{
+                    zhimaDTO.setErrorMessage(resultCreditAntifraudScore[1]);
+                }
+                zhimaDTO.setUid(appUser.getId());
+                appZhimaDao.save(zhimaDTO);
+            }
+
+            //欺诈信息验证
+            String[] resultCreditAntifraudVerify = zhimaUtil.zhimaCreditAntifraudVerify(appUser.getZhimaCertNo(),appUser.getZhimaCertName(),appUser.getMobile());
+            if (resultCreditAntifraudVerify !=null){
+                IAppZhima zhimaDTO = new AppZhimaDTO();
+                zhimaDTO.setType(IAppZhima.TYPE_CREDIT_ANTIFRAUDVERIFY);
+                zhimaDTO.setBizNo(resultCreditAntifraudVerify[2]);
+                if (Boolean.parseBoolean(resultCreditAntifraudVerify[0])){
+                    zhimaDTO.setVerifyCode(resultCreditAntifraudVerify[3]);
+                }else{
+                    zhimaDTO.setErrorMessage(resultCreditAntifraudVerify[1]);
+                }
+                zhimaDTO.setUid(appUser.getId());
+                appZhimaDao.save(zhimaDTO);
+            }
+
+            //欺诈关注清单
+            String[] resultCreditAntifraudRiskList = zhimaUtil.zhimaCreditAntifraudRiskList(appUser.getZhimaCertNo(),appUser.getZhimaCertName(),appUser.getMobile());
+            if (resultCreditAntifraudRiskList !=null){
+                IAppZhima zhimaDTO = new AppZhimaDTO();
+                zhimaDTO.setType(IAppZhima.TYPE_CREDIT_ANTIFRAUD_RISKLIST);
+                zhimaDTO.setBizNo(resultCreditAntifraudRiskList[2]);
+                if (Boolean.parseBoolean(resultCreditAntifraudRiskList[0])){
+                    zhimaDTO.setHit(resultCreditAntifraudRiskList[3]);
+                    zhimaDTO.setRiskCode(resultCreditAntifraudRiskList[4]);
+                }else{
+                    zhimaDTO.setErrorMessage(resultCreditAntifraudRiskList[1]);
+                }
+                zhimaDTO.setUid(appUser.getId());
+                appZhimaDao.save(zhimaDTO);
+            }
+        }
     }
 }

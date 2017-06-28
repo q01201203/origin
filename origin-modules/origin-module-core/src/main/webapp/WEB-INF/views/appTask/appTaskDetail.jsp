@@ -14,7 +14,7 @@
 <head>
 	<link href="${ctx }/static/plugins/chosen_v1.6.2/chosen.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="${ctx }/static/plugins/oss-h5-upload-js-direct/style.css"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>${menu_name } - ${title }</title>
 </head>
 <body <%@ include file="../common/skin.jsp" %>>
@@ -26,6 +26,16 @@
 				<input type="hidden" name="id" value="${appTask.id }"/>
 			<div class="J_formTable l_form_table">
 				<table width="1200px" class="not_hightlight">
+					<thead>
+					<tr>
+						<td style="width: 200px">
+						</td>
+						<td style="width: 400px">
+						</td>
+						<td style="width: 250px">
+						</td>
+					</tr>
+					</thead>
 					<tbody>
 					<c:if test="${operation == 'update'}">
 						<tr>
@@ -105,15 +115,15 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="l_title " style="width: 150px"><b class="cRed">*</b> 任务图片地址</td>
-						<td style="width: 240px">
+						<td class="l_title "><b class="cRed">*</b> 任务图片地址</td>
+						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w240 ml10">
-									<input id="taskImg" type="text" name="taskImg"  value="${appTask.taskImg}"/>
+									<input id="taskImg" onclick="javascript:selectFile('taskImg');" type="text" name="taskImg"  value="${appTask.taskImg}"/>
 								</div>
 							</div>
 						</td>
-						<td style="width: 240px">
+						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_label w240 ml10">
 									<div id="container">
@@ -209,11 +219,11 @@
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_text w240 ml10">
-									<input id="taskDetailedStep" type="text" name="taskDetailedStep"  value="${appTask.taskDetailedStep}"/>
+									<input id="taskDetailedStep" onclick="javascript:selectFile('taskDetailedStep');" type="text" name="taskDetailedStep"  value="${appTask.taskDetailedStep}"/>
 								</div>
 							</div>
 						</td>
-						<td style="width: 240px">
+						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_label w240 ml10">
 									<a href="javascript:myVisit('taskDetailedStep');" class='btn'>查看</a>
@@ -234,7 +244,7 @@
 								</div>
 							</div>
 						</td>
-						<td style="width: 240px">
+						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_label w240 ml10">
 									<a href="javascript:myVisit('taskLink');" class='btn'>查看</a>
@@ -282,7 +292,7 @@
                     taskType : ':required;',
                     taskMoney : ':required;digits',
                     taskImg : ':required;',
-                    taskHot : ':required;',
+                    taskHot : ':checked;',
                     taskStartTime : ':required;',
                     taskEndTime : ':required;',
                     taskSimpleStep : ':required;',
@@ -350,14 +360,13 @@
                 window.open(url);
 			}
         }
-
-
 	</script>
-	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/crypto1/crypto/crypto.js"></script>
-	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/crypto1/hmac/hmac.js"></script>
-	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/crypto1/sha1/sha1.js"></script>
-	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/base64.js"></script>
-	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/plupload-2.1.2/js/plupload.full.min.js"></script>
-	<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/upload.js"></script>
+
 </body>
 </html>
+<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/crypto1/crypto/crypto.js"></script>
+<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/crypto1/hmac/hmac.js"></script>
+<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/crypto1/sha1/sha1.js"></script>
+<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/base64.js"></script>
+<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+<script type="text/javascript" src="${ctx }/static/plugins/oss-h5-upload-js-direct/upload.js"></script>

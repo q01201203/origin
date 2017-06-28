@@ -47,6 +47,9 @@ public class AdminAppUserController {
 	@Autowired
 	private AppMoneyDetailService appMoneyDetailService;
 
+	@Autowired
+	private AppZhimaService appZhimaService;
+
 	@RequestMapping("/user/list")
 	public String userList(HttpServletRequest request, Model model) throws ParseException {
 		String id = request.getParameter("id");
@@ -191,6 +194,9 @@ public class AdminAppUserController {
 			appUserBank.setUid(uid);
 			appUserBank = appUserBankService.findFirst(appUserBank);
 			model.addAttribute("appUserBank", appUserBank);
+
+			List<IAppZhima> appZhimas = appZhimaService.findZhimaInfoByUid(uid);
+			model.addAttribute("appZhimas", appZhimas);
 		}
 		model.addAttribute(Constants.MENU_NAME, "用户详情");
 		return "appUser/appUserDetail";

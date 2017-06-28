@@ -31,12 +31,12 @@ public class Test {
         }
     }
 
-    @org.junit.Test
+    //@org.junit.Test
     public void testFinally(){
         System.out.println("x = "+Test.test());
     }
 
-    @org.junit.Test
+    //@org.junit.Test
     public void testDate(){
         StringBuffer sb = new StringBuffer();
         sb.append(StringUtil.getNow("yyyyMMddhhmmssSSS"));
@@ -51,7 +51,7 @@ public class Test {
                 + UUID.randomUUID().toString());
     }
 
-    @org.junit.Test
+    //@org.junit.Test
     public void testDecode(){
         String result = "open_id=268806749671786140099668503&error_message=%E6%93%8D%E4%BD%9C%E6%88%90%E5%8A%9F&state=mobile%3A13637857084pwd%3A110110&error_code=SUCCESS&app_id=1003280&success=true";
         Map map = StringUtil.urlSplit(result);

@@ -117,6 +117,7 @@ public class AppInfoController {
 		if(StringUtils.isNotBlank(key)){
 			appConstants.setKey(key);
 		}
+		appConstants.setDeleteFlag(0);
 		List<IAppConstants> appConstantsList = appConstantsService.find(appConstants);
 		return Result.createSuccessResult(appConstantsList,"获取常量成功");
 	}

@@ -5,8 +5,8 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\LoginController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\app\AppInfoController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppStuDetailDTO.java
+D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\model\DataWithPageModel.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\JPushUtil.java
-D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\IdCardRecognitionResultDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\exception\CustomSimpleMappingExceptionHandler.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppZhimaService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppFeedbackServiceImpl.java
@@ -25,8 +25,10 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\TestService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppConstantsService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppUserTaskServiceImpl.java
+D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\AdminAppConstantsController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\ResourceServiceImpl.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\IdCardRecognitionUtil.java
+D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\model\ZhimaInfoModel.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppMoneyDetailService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\UserRoleService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\RoleServiceImpl.java
@@ -76,6 +78,7 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppMoneyDetailDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\RoleDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\RoleResourceServiceImpl.java
+D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\model\IdCardRecognitionResultModel.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppPersonDetailServiceImpl.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\JsonUtil.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\AdminAppTaskController.java

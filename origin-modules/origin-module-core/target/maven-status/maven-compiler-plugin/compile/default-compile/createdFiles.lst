@@ -16,11 +16,14 @@ com\origin\core\exception\SystemException.class
 com\origin\core\util\JPushUtil.class
 com\origin\core\service\UserService.class
 com\origin\core\shiro\RememberAuthenticationFilter.class
+com\origin\core\model\IdCardRecognitionResultModel$ResultBean.class
 com\origin\core\dto\ResourceDTO.class
+com\origin\core\model\IdCardRecognitionResultModel.class
 com\origin\core\shiro\ShiroDBRealm.class
 com\origin\core\util\WebUtils.class
 com\origin\core\exception\CustomSimpleMappingExceptionHandler.class
 com\origin\core\service\impl\UserRoleServiceImpl.class
+com\origin\core\model\ZhimaInfoModel.class
 com\origin\core\util\StringUtil.class
 com\origin\core\dto\UserDTO.class
 com\origin\core\exception\BusinessException.class
