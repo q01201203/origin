@@ -48,6 +48,7 @@
 
 <div id="addForm" class="mgt40">
     <form action="${ctx }/admin/appMessage/ajax/update" id="editForm" method="post">
+        <input type="hidden" name="id" value="${id}"/>
         <div class="">
             <div class="J_formTable l_form_table">
                 <table class="not_hightlight">

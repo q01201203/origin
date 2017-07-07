@@ -69,6 +69,25 @@
         <include refid="queryParams"/>
         ORDER BY create_date DESC
     </select>
+    <select id="findByName" parameterType="com.origin.data.mybatis.entity.AppTask" resultType="com.origin.data.mybatis.entity.AppTask">
+        <include refid="selectPart"/>
+        <if test="id != null">AND id=#{id}</if>
+        <if test="createDate != null">AND create_date=#{createDate}</if>
+        <if test="updateDate != null">AND update_date=#{updateDate}</if>
+        <if test="taskName != null">AND task_name LIKE CONCAT('%', #{taskName}, '%')</if>
+        <if test="taskNumber != null">AND task_number=#{taskNumber}</if>
+        <if test="taskType != null">AND task_type=#{taskType}</if>
+        <if test="taskMoney != null">AND task_money=#{taskMoney}</if>
+        <if test="taskImg != null">AND task_img=#{taskImg}</if>
+        <if test="taskHot != null">AND task_hot=#{taskHot}</if>
+        <if test="taskStartTime != null">AND task_startTime=#{taskStartTime}</if>
+        <if test="taskEndTime != null">AND task_endTime=#{taskEndTime}</if>
+        <if test="taskSimpleStep != null">AND task_simpleStep=#{taskSimpleStep}</if>
+        <if test="taskDetailedStep != null">AND task_detailedStep=#{taskDetailedStep}</if>
+        <if test="taskLink != null">AND task_link=#{taskLink}</if>
+        <if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
+        ORDER BY create_date DESC
+    </select>
     <insert id="save" parameterType="com.origin.data.mybatis.entity.AppTask">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()

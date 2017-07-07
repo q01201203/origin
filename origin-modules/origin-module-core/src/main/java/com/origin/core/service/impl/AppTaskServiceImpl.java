@@ -46,4 +46,9 @@ public class AppTaskServiceImpl  implements AppTaskService {
     public List<IAppTask> find(IAppTask appTask) {
         return appTaskDao.find(appTask);
     }
+
+    @Override
+    public List<IAppTask> findByName(IAppTask appTask) {
+        return appTaskDao.findByName(appTask);
+    }
 }

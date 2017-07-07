@@ -64,6 +64,15 @@ public class JPushUtil {
                 .build();
     }
 
+    public static PushPayload buildPushObject_all_alias_alert_message(String alias,String content,int messageid) {
+        return PushPayload.newBuilder()
+                .setPlatform(Platform.all())
+                .setAudience(Audience.alias(alias))
+                .setNotification(Notification.alert(content))
+                .setMessage(Message.content("messageid:"+messageid))
+                .build();
+    }
+
     public static PushPayload buildPushObject_all_alias_message(String alias,String content) {
         return PushPayload.newBuilder()
                 .setPlatform(Platform.all())

@@ -16,5 +16,5 @@ public interface AppMoneyDetailService {
     List<IAppMoneyDetail> findMoneyUser(IAppMoneyDetail appMoneyDetail);
     Result saveIncome(Integer uid , Integer tid,IAppMoneyDetail appMoneyDetail);
     Double findTotalActualMoney(IAppMoneyDetail appMoneyDetail);
-    void updateAudit(IAppMoneyDetail appMoneyDetail);
+    void updateAudit(IAppMoneyDetail appMoneyDetail,String messageContent);
 }

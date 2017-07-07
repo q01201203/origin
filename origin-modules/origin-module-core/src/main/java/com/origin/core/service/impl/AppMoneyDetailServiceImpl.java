@@ -142,7 +142,7 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
 
     //审核同时 修改用户余额
     @Override
-    public void updateAudit(IAppMoneyDetail appMoneyDetail) {
+    public void updateAudit(IAppMoneyDetail appMoneyDetail,String messageContent) {
         Integer mid = appMoneyDetail.getId();
         Integer status = appMoneyDetail.getStatus();
         Double moneyActual = appMoneyDetail.getMoneyActual();
@@ -168,19 +168,19 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         IAppUser appUser = appUserDao.findByPK(uid);
         String userAlias = appUser.getJpushAlias();
         String userName = appUser.getNickname();
-        String content = getContent(status, moneyActual, moneyAsk, moneyType, userName,1);
+        //String messageContent = getContent(status, moneyActual, moneyAsk, moneyType, userName,1);
         String contentExtra = getContent(status, moneyActual, moneyAsk, moneyType, userName,2);
 
         IAppMessage appMessage = new AppMessageDTO();
         appMessage.setUid(uid);
-        appMessage.setContent(content);
+        appMessage.setContent(messageContent);
         appMessage.setStatus(IAppMessage.STATUS_YES);
         appMessage.setType(IAppMessage.TYPE_PERSONAL);
         appMessage.setContentExtra(contentExtra);
         appMessageDao.save(appMessage);
 
         if (!StringUtil.isNullOrBlank(userAlias)){
-            JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_alert(userAlias, content));
+            JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_alert_message(userAlias, messageContent,appMessage.getId()));
         }
     }
 

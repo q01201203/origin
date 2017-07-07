@@ -66,6 +66,7 @@
                                     <a href="${ctx }/admin/appUser/money/list?type=2&uid=${r.id}"><i class="icon">&#xe227;</i>还款记录</a>
                                     <a href="${ctx }/admin/appUser/money/list?type=3&uid=${r.id}"><i class="icon">&#xe227;</i>提现记录</a>
                                     <a href="${ctx }/admin/appUser/money/list?type=4&uid=${r.id}"><i class="icon">&#xe227;</i>收入记录</a>
+                                    <a href="javascript:sendMessage('${r.id }');"><i class="icon">&#xe0c9;</i>推送通知</a>
                                 </div>
                             </td>
                         </tr>
@@ -156,6 +157,27 @@
 
         });
 
+    }
+
+    function sendMessage(id){
+        var loadIdx = layer.load();
+        var title = '发送消息';
+        $.post('${ctx}/admin/appMessage/dialog/appMessage_edit', {id:id}, function(str){
+            layer.close(loadIdx);
+            layer.open({
+                title : title,
+                type : 1,
+                area : ['700px', '300px'],
+                content : str,
+                btn : ['确定', '取消'],
+                yes : function(index, layero){
+                    mySubmit();
+                },
+                btn2 : function(index, layero){
+                    layer.close(index);
+                }
+            });
+        });
     }
 </script>
 </body>

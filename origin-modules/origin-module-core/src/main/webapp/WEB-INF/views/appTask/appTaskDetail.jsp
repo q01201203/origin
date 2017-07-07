@@ -89,7 +89,7 @@
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_label w240 ml10">
-									<select data-placeholder="选择父菜单" class="chosen-select" name="taskType">
+									<select data-placeholder="选择类型" class="chosen-select" name="taskType">
 										<option value="" >选择类型</option>
 										<option value="1" ${appTask.taskType eq 1 ? "selected=\"selected\"":""}>普通任务</option>
 										<option value="2" ${appTask.taskType eq 2 ? "selected=\"selected\"":""}>高额任务</option>

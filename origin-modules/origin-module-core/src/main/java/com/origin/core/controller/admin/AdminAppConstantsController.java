@@ -83,7 +83,7 @@ public class AdminAppConstantsController {
         model.addAttribute("page", page);
     	model.addAttribute("appConstantss", appConstantss);
     	model.addAttribute("queryDTO", params);
-    	model.addAttribute(Constants.MENU_NAME, "appConstants列表");
+    	model.addAttribute(Constants.MENU_NAME, "资源管理列表");
 
     	return "appConstants/appConstants_list";
 	}

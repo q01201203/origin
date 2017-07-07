@@ -28,7 +28,7 @@
                                         </c:if>
                                         <c:if test="${operation == 'add'}">
                                             <option id="type1" value="1" selected="selected">文字</option>
-                                            <option id="type2" value="2" } >图片</option>
+                                            <option id="type2" value="2" >图片</option>
                                         </c:if>
                                     </select>
                                 </div>

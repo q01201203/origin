@@ -31,6 +31,7 @@
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.2.1" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.2.1" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-ehcache:1.0.0" />
           <element id="archive" name="origin-data-api-1.0-SNAPSHOT.jar">
             <element id="module-output" name="origin-data-api" />
           </element>

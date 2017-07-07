@@ -20,7 +20,6 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -345,9 +344,29 @@ public class AdminAppUserController {
 		if(StringUtils.isNotBlank(id)){
 			IAppMoneyDetail appMoneyDetail = appMoneyDetailService.findById(Integer.parseInt(id));
 			model.addAttribute("appMoneyDetail", appMoneyDetail);
-
+			IAppUser appUser = appUserService.findById(appMoneyDetail.getUid());
+			model.addAttribute("appUser", appUser);
+			Double borrowLine = getBorrowLine(appMoneyDetail.getUid());
+			System.out.println("renxinhua borrowLine = "+borrowLine);
+			model.addAttribute("borrowLine", borrowLine);
 		}
 		return "appUser/dialog/appMoneyDetail_edit";
+	}
+
+	private Double getBorrowLine(int uId){
+		IAppMoneyDetail moneyDetail = new AppMoneyDetailDTO();
+		moneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
+		moneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_SUCCESS);
+		moneyDetail.setUid(uId);
+		Double borrow = appMoneyDetailService.findTotalActualMoney(moneyDetail);
+		borrow = (borrow == null ?0:borrow);
+		moneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
+		Double repay = appMoneyDetailService.findTotalActualMoney(moneyDetail);
+		repay = (repay == null ?0:repay);
+		IAppUser appUser = appUserService.findById(uId);
+		Double moneyMax = appUser.getMoneyMax();
+		System.out.println("renxinhua borrow = "+borrow+" repay = "+repay+" moneyMax = "+moneyMax);
+		return moneyMax - borrow + repay;
 	}
 
 	@RequestMapping("/money/ajax/update")
@@ -360,15 +379,20 @@ public class AdminAppUserController {
 			String id = request.getParameter("id");
 			String moneyActual = request.getParameter("moneyActual");
 			String status = request.getParameter("status");
+			String message = request.getParameter("message");
+			System.out.println("renxinhua message = "+message);
 			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
 			if(StringUtils.isNotBlank(id)){
 				appMoneyDetail = appMoneyDetailService.findById(Integer.parseInt(id));
 			}
-			appMoneyDetail.setUpdateDate(new Date());
-			appMoneyDetail.setMoneyActual(Double.parseDouble(moneyActual));
+			if(StringUtils.isNotBlank(moneyActual)){
+				appMoneyDetail.setMoneyActual(Double.parseDouble(moneyActual));
+			}else {
+				appMoneyDetail.setMoneyActual(0d);
+			}
 			appMoneyDetail.setStatus( Integer.parseInt(status));
 			if(StringUtils.isNotBlank(id)){
-				appMoneyDetailService.updateAudit(appMoneyDetail);
+				appMoneyDetailService.updateAudit(appMoneyDetail,message);
 			}
 			ajaxResult.setSuccess(true);
 		} catch (Exception e) {

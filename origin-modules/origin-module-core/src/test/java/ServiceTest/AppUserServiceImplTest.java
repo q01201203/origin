@@ -107,7 +107,7 @@ public class AppUserServiceImplTest {
         if (StringUtils.isNotBlank(moneyActual)){
             appMoneyDetail.setMoneyActual(Double.parseDouble(moneyActual));
         }
-        appMoneyDetailService.updateAudit(appMoneyDetail);
+        appMoneyDetailService.updateAudit(appMoneyDetail,"sdfs");
     }
 
     //@Test

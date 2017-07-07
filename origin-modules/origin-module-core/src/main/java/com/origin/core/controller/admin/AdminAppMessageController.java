@@ -6,6 +6,7 @@ import com.origin.common.dto.AjaxResult;
 import com.origin.core.dto.AppMessageDTO;
 import com.origin.core.service.AppMessageService;
 import com.origin.core.util.Constants;
+import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppMessage;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -64,18 +65,29 @@ public class AdminAppMessageController {
 	}
     @RequestMapping("/dialog/appMessage_edit")
     public String edit(HttpServletRequest request, Model model){
-    	return "appMessage/dialog/appMessage_edit";
+		String id = request.getParameter("id");
+		if (!StringUtil.isNullOrBlank(id)){
+			model.addAttribute("id",id);
+		}
+		return "appMessage/dialog/appMessage_edit";
     }
+
     @RequestMapping("/ajax/update")
     @ResponseBody
     public AjaxResult ajaxUpdate(HttpServletRequest request){
     	AjaxResult ajaxResult = new AjaxResult();
     	ajaxResult.setSuccess(false);
     	try {
+    		String id = request.getParameter("id");
     		String content = request.getParameter("content");
     		IAppMessage appMessages = new AppMessageDTO();
 			appMessages.setContent(content);
-			appMessageService.saveBatchSystemMessage(appMessages);
+			if (!StringUtil.isNullOrBlank(id)){
+				appMessages.setUid(Integer.parseInt(id));
+				appMessageService.savePersonalMessage(appMessages);
+			}else{
+				appMessageService.saveBatchSystemMessage(appMessages);
+			}
     		ajaxResult.setSuccess(true);
 		} catch (Exception e) {
     		e.printStackTrace();

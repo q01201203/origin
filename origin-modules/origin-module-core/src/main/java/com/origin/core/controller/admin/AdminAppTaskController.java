@@ -119,7 +119,7 @@ public class AdminAppTaskController {
 			params.setDeleteFlag( Integer.parseInt(deleteFlag));
 		}
 		PageHelper.startPage(currentPage, pageSize);
-		List<IAppTask> appTasks = appTaskService.find(params);
+		List<IAppTask> appTasks = appTaskService.findByName(params);
     	PageInfo<IAppTask> page = new PageInfo(appTasks);
         model.addAttribute("page", page);
     	model.addAttribute("appTasks", appTasks);

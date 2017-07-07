@@ -5,6 +5,7 @@ import com.origin.core.dto.AppMessageDTO;
 import com.origin.core.dto.AppUserDTO;
 import com.origin.core.service.AppMessageService;
 import com.origin.core.util.JPushUtil;
+import com.origin.core.util.StringUtil;
 import com.origin.data.dao.IAppMessageDao;
 import com.origin.data.dao.IAppUserDao;
 import com.origin.data.entity.IAppMessage;
@@ -54,6 +55,19 @@ public class AppMessageServiceImpl  implements AppMessageService {
     @Override
     public List<IAppMessage> find(IAppMessage appMessage) {
         return appMessageDao.find(appMessage);
+    }
+
+    @Override
+    public void savePersonalMessage(IAppMessage appMessage){
+        IAppUser appUser = appUserDao.findByPK(appMessage.getUid());
+        String alias = appUser.getJpushAlias();
+        String content = appMessage.getContent();
+        appMessage.setType(IAppMessage.TYPE_PERSONAL);
+        appMessageDao.save(appMessage);
+        System.out.println(appMessage.getId());
+        if (!StringUtil.isNullOrBlank(alias)){
+            JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_alert_message(alias,content,appMessage.getId()));
+        }
     }
 
     @Override

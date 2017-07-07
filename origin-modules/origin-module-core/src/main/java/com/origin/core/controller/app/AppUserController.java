@@ -7,8 +7,8 @@ import com.origin.common.model.mybatis.Result;
 import com.origin.common.util.Md5Util;
 import com.origin.core.dto.*;
 import com.origin.core.model.DataWithPageModel;
-import com.origin.core.model.IdCardRecognitionResultModel;
-import com.origin.core.model.ZhimaInfoModel;
+import com.origin.core.model.FaceThanIdcardResultModel;
+import com.origin.core.model.IdCardRecognizeResultModel;
 import com.origin.core.service.*;
 import com.origin.core.util.*;
 import com.origin.data.entity.*;
@@ -70,6 +70,7 @@ public class AppUserController {
 	public Object login(@RequestParam(value = "mobile") String mobile ,
 						@RequestParam(value = "pwd") String pwd,
 						@RequestParam(value = "alias" ,required = false) String alias) throws Exception {
+		System.out.println("renxinhua = "+mobile);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -92,7 +93,7 @@ public class AppUserController {
 	@ResponseBody
 	@ApiOperation(value = "请求芝麻信用授权", httpMethod = "POST", response = Result.class,
 			notes = "注册传入手机号，密码，JPush的alias，芝麻授权用户名，芝麻授权用户身份证，返回一个H5的url地址")
-	public Object requestZhimaAuth(@RequestParam(value = "zhimaCertName") String zhimaCertName,
+	public Object register(@RequestParam(value = "zhimaCertName") String zhimaCertName,
 								   @RequestParam(value = "zhimaCertNo") String zhimaCertNo,
 								   @RequestParam(value = "mobile") String mobile ,
 								   @RequestParam(value = "pwd") String pwd,
@@ -178,7 +179,7 @@ public class AppUserController {
 	//update
 	@RequestMapping(value = "/resetPwd")
 	@ResponseBody
-	@ApiOperation(value = "app用户重置密码", httpMethod = "POST", response = Result.class, notes = "重置密码")
+	@ApiOperation(value = "app用户重置登录密码", httpMethod = "POST", response = Result.class, notes = "重置登录密码")
 	public Object resetPwd(@RequestParam(value = "mobile") String mobile ,
 						   @RequestParam(value = "pwd") String pwd) throws Exception {
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
@@ -196,7 +197,7 @@ public class AppUserController {
 
 	@RequestMapping(value = "/addPayPwd" ,method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加支付密码", httpMethod = "POST", response = Result.class, notes = "添加支付密码")
+	@ApiOperation(value = "app用户添加或者更新支付密码", httpMethod = "POST", response = Result.class, notes = "添加或者更新支付密码")
 	public Object addPayPwd(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "payPwd") String payPwd) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -218,14 +219,16 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("添加支付密码成功");
 	}
 
-	@RequestMapping(value = "/addIdInfo" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/updateIdinfoAndFace" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加身份证信息", httpMethod = "GET", response = Result.class, notes = "添加身份证信息")
-	public Object addIdInfo(@RequestHeader(value = "Authorization" ) String token,
+	@ApiOperation(value = "app用户添加身份证信息和人脸图片和分类", httpMethod = "GET", response = Result.class, notes = "" +
+			"添加身份证信息和人脸图片和分类，返回一个新token")
+	public Object updateIdinfoAndFace(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "idFrontImg") String idFrontImg,
 							@RequestParam(value = "idBackImg") String idBackImg,
 							@RequestParam(value = "idName") String idName,
 							@RequestParam(value = "idNumber") String idNumber,
+							@RequestParam(value = "face") String face,
 							@RequestParam(value = "category") String category) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 
@@ -235,7 +238,7 @@ public class AppUserController {
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
 		if (StringUtil.isNullOrBlank(idFrontImg)||StringUtil.isNullOrBlank(idBackImg)
-				||StringUtil.isNullOrBlank(idName)||StringUtil.isNullOrBlank(idNumber)
+				||StringUtil.isNullOrBlank(idName)||StringUtil.isNullOrBlank(idNumber)||StringUtil.isNullOrBlank(face)
 				||StringUtil.isNullOrBlank(category)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -246,10 +249,12 @@ public class AppUserController {
 		appUser.setImgIdBack(idBackImg);
 		appUser.setUserIdName(idName);
 		appUser.setUserIdNumber(idNumber);
+		appUser.setImgFace(face);
 		appUser.setCategory(Integer.parseInt(category));
-		appUser.setUpdateDate(new Date());
+		appUser.setAuthority(Constants.AHORITY_MEDIUM);
 		appUserService.update(appUser);
-		return Result.createSuccessResult().setMessage("添加成功");
+		return Result.createSuccessResult((CustomToken.generate(new SimpleToken(uId,
+				Constants.AHORITY_MEDIUM))),"更新信息成功");
 	}
 
 	@RequestMapping(value = "/updatePortrait" ,method = RequestMethod.GET)
@@ -274,9 +279,9 @@ public class AppUserController {
 		return Result.createSuccessResult().setMessage("更新头像成功");
 	}
 
-	@RequestMapping(value = "/updateNickname" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/updateNickname" ,method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加用户昵称", httpMethod = "GET", response = Result.class, notes = "添加昵称")
+	@ApiOperation(value = "app用户添加用户昵称", httpMethod = "POST", response = Result.class, notes = "添加昵称")
 	public Object updateNickname(@RequestHeader(value = "Authorization" ) String token,
 							  @RequestParam(value = "nickname") String nickname) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -322,7 +327,7 @@ public class AppUserController {
 					,dataType = "string"),
 			@ApiImplicitParam(name = "infoContactMobile" ,value = "infoContactMobile",paramType = "query"
 					,dataType = "string")})
-	public Object addIdInfo(@RequestHeader(value = "Authorization") String token,
+	public Object savePersonInfo(@RequestHeader(value = "Authorization") String token,
 							@RequestParam(value = "category") String category,
 							HttpServletRequest request) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
@@ -454,7 +459,7 @@ public class AppUserController {
 			,dataType = "string"),@ApiImplicitParam(name = "bankType" ,value = "bankType",paramType = "query"
 			,dataType = "int"),@ApiImplicitParam(name = "bankMobile" ,value = "bankMobile",paramType = "query"
 			,dataType = "string")})
-	public Object addBankInfo(@RequestHeader(value = "Authorization" ) String token,
+	public Object saveBankInfo(@RequestHeader(value = "Authorization" ) String token,
 							   @ApiIgnore AppUserBankDTO appUserBank) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
 		if (!(tokenValidResult instanceof SimpleToken)){
@@ -495,8 +500,8 @@ public class AppUserController {
 
 	@RequestMapping(value = "/submitMoney" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户保存钱信息", httpMethod = "GET", response = Result.class,
-			notes = "提交借钱请求 借钱(askMoney、type=1、repayTimeType(1:7天 2:15天)) 还钱(askMoney、type=2、" +
+	@ApiOperation(value = "app用户提交钱信息(借钱、还钱、提现、收入(完成任务))", httpMethod = "GET", response = Result.class,
+			notes = "提交钱信息 借钱(askMoney、type=1、repayTimeType(1:7天 2:15天)) 还钱(askMoney、type=2、" +
 					"repayWay(1:支付宝 2:银行卡))  提现(askMoney、type=3)  收入(type=4、taskId（任务ID）、" +
 					"taskUserName(完成任务的用户名)、taskMobile(完成任务的手机号)))")
 	public Object submitMoney(@RequestHeader(value = "Authorization" ) String token,
@@ -789,9 +794,11 @@ public class AppUserController {
 
 	@RequestMapping(value = "/getUserMessage" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "获取用户消息列表", httpMethod = "GET", response = Result.class, notes = "传入参数type" +
-			"(1、个人消息2、系统消息),status状态(0已读1未读) currentPage当前页（不填默认第一页），pageSize每页条数（不填默认为10）")
+	@ApiOperation(value = "获取用户单条消息或者列表", httpMethod = "GET", response = Result.class, notes = "如果传入消息ID则获取单条消息" +
+			"否则获取列表传入参数type(1、个人消息2、系统消息),status状态(0已读1未读) currentPage当前页（不填默认第一页），" +
+			"pageSize每页条数（不填默认为10）")
 	public Object getUserMessage(@RequestHeader(value = "Authorization") String token,
+								 @RequestParam(value = "mid" ,required = false) String mid,
 								 @RequestParam(value = "type" ,required = false) String type,
 								 @RequestParam(value = "status" ,required = false) String status,
 								 @RequestParam(value = "currentPage" ,required = false) String currentPageStr,
@@ -802,29 +809,34 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		int currentPage = 1;
-		int pageSize = 10;
-		if(StringUtils.isNotBlank(currentPageStr)){
-			currentPage = Integer.parseInt(currentPageStr);
+		if (StringUtils.isNotBlank(mid)){
+			IAppMessage appMessage = appMessageService.findById(Integer.parseInt(mid));
+			return Result.createSuccessResult(appMessage,"获取用户消息成功");
+		}else{
+			int currentPage = 1;
+			int pageSize = 10;
+			if(StringUtils.isNotBlank(currentPageStr)){
+				currentPage = Integer.parseInt(currentPageStr);
+			}
+			if(StringUtils.isNotBlank(pageSizeStr)){
+				pageSize = Integer.parseInt(pageSizeStr);
+			}
+			IAppMessage appMessage = new AppMessageDTO();
+			appMessage.setUid(uId);
+			if (!StringUtil.isNullOrBlank(type)){
+				appMessage.setType(Integer.parseInt(type));
+			}
+			if (!StringUtil.isNullOrBlank(status)){
+				appMessage.setStatus(Integer.parseInt(status));
+			}
+			PageHelper.startPage(currentPage, pageSize);
+			List<IAppMessage> appMessages = appMessageService.findOrderBy(appMessage);
+			PageInfo<IAppMessage> page = new PageInfo(appMessages);
+			DataWithPageModel<IAppMessage> dataWithPageModel = new DataWithPageModel<>();
+			dataWithPageModel.setData(appMessages);
+			dataWithPageModel.setPageInfo(page);
+			return Result.createSuccessResult(dataWithPageModel,"获取用户消息列表成功");
 		}
-		if(StringUtils.isNotBlank(pageSizeStr)){
-			pageSize = Integer.parseInt(pageSizeStr);
-		}
-		IAppMessage appMessage = new AppMessageDTO();
-		appMessage.setUid(uId);
-		if (!StringUtil.isNullOrBlank(type)){
-			appMessage.setType(Integer.parseInt(type));
-		}
-		if (!StringUtil.isNullOrBlank(status)){
-			appMessage.setStatus(Integer.parseInt(status));
-		}
-		PageHelper.startPage(currentPage, pageSize);
-		List<IAppMessage> appMessages = appMessageService.findOrderBy(appMessage);
-		PageInfo<IAppMessage> page = new PageInfo(appMessages);
-		DataWithPageModel<IAppMessage> dataWithPageModel = new DataWithPageModel<>();
-		dataWithPageModel.setData(appMessages);
-		dataWithPageModel.setPageInfo(page);
-		return Result.createSuccessResult(dataWithPageModel,"获取用户消息列表成功");
 	}
 
 	@RequestMapping(value = "/updateUserMessage" ,method = RequestMethod.GET)
@@ -852,8 +864,103 @@ public class AppUserController {
 		}
 	}
 
+	@RequestMapping(value = "/getIsSecondaryLoan" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取用户是否是二次借款", httpMethod = "GET", response = Result.class, notes = "获取用户是否是二次借款")
+	public Object getIsSecondaryLoan(@RequestHeader(value = "Authorization" ) String token) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-	@RequestMapping(value = "/getZhimaCertificationUrl" ,method = RequestMethod.GET)
+		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+		appMoneyDetail.setUid(uId);
+		appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
+		appMoneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_SUCCESS);
+		List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
+		if (appMoneyDetails!=null&&appMoneyDetails.size()>0){
+			return Result.createSuccessResult(true,"该用户为二次借款");
+		}else{
+			return Result.createSuccessResult(false,"该用户还未借款成功");
+		}
+	}
+
+	@RequestMapping(value = "/getIdCardRecognizeInfo" ,method = RequestMethod.POST)
+	@ResponseBody
+	@ApiOperation(value = "获取人脸识别结果", httpMethod = "POST", response = Result.class,
+			notes = "传入身份证base64,返回识别结果")
+	public Object getIdCardRecognizeInfo(@RequestHeader(value = "Authorization") String token,
+										 @RequestParam(value = "idFrontImgBase64") String idFrontImgBase64,
+										 @RequestParam(value = "idBackImgBase64") String idBackImgBase64) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token), Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		if (StringUtil.isNullOrBlank(idBackImgBase64)||StringUtil.isNullOrBlank(idFrontImgBase64)){
+			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+		}
+
+		YituUtil yituUtil = new YituUtil();
+		String identityCardFrontInfo = yituUtil.idCardRecognize(idFrontImgBase64);
+		String identityCardBackInfo = yituUtil.idCardRecognize(idBackImgBase64);
+		if (!"error".equals(identityCardFrontInfo)&& !"error".equals(identityCardBackInfo)) {
+			IdCardRecognizeResultModel frontInfo = JsonUtil.json2Object(identityCardFrontInfo, IdCardRecognizeResultModel.class);
+			IdCardRecognizeResultModel backInfo = JsonUtil.json2Object(identityCardBackInfo, IdCardRecognizeResultModel.class);
+			if (frontInfo.getRtn()!=0){
+				return Result.createErrorResult().setMessage("获取身份证正面识别结果失败:"+frontInfo.getMessage());
+			}else if (backInfo.getRtn()!=0){
+				return Result.createErrorResult().setMessage("获取身份证背面识别结果失败:"+backInfo.getMessage());
+			}else {
+				Map<String,Object> resultMap = new HashMap<>();
+				resultMap.put("citizenId",frontInfo.getIdcard_ocr_result().getCitizen_id());
+				resultMap.put("name",frontInfo.getIdcard_ocr_result().getName());
+				return Result.createSuccessResult(resultMap, "获取身份证识别结果成功");
+			}
+		}else {
+			return Result.createErrorResult().setMessage("识别接口调用失败");
+		}
+	}
+
+	@RequestMapping(value = "/getFaceThanIdcardInfo" ,method = RequestMethod.POST)
+	@ResponseBody
+	@ApiOperation(value = "获取人脸身份证比对结果", httpMethod = "POST", response = Result.class,
+			notes = "传入人脸大礼包base64，身份证base64返回识别结果")
+	public Object getFaceThanIdcardInfo(@RequestHeader(value = "Authorization" ) String token,
+										   @RequestParam(value = "faceBase64") String faceBase64,
+										   @RequestParam(value = "idcardBase64") String idcardBase64 ) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token), Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		if (StringUtil.isNullOrBlank(faceBase64)||StringUtil.isNullOrBlank(idcardBase64)){
+			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+		}
+
+		YituUtil yituUtil = new YituUtil();
+		String faceThanIdcardInfo = yituUtil.faceThanIdcard(idcardBase64,faceBase64);
+		if (!"error".equals(faceThanIdcardInfo)) {
+			FaceThanIdcardResultModel faceThanIdcardResultModel = JsonUtil.json2Object(faceThanIdcardInfo, FaceThanIdcardResultModel.class);
+			if (faceThanIdcardResultModel.getRtn()==0){
+				Map<String,Object> resultMap = new HashMap<>();
+				resultMap.put("pairVerifyResult",faceThanIdcardResultModel.getPair_verify_result());
+				resultMap.put("pairVerifySimilarity",faceThanIdcardResultModel.getPair_verify_similarity());
+				resultMap.put("message",faceThanIdcardResultModel.getMessage());
+				resultMap.put("queryImageContents",faceThanIdcardResultModel.getQuery_image_package_result().getQuery_image_contents());
+				return Result.createSuccessResult(resultMap, "获取比对结果成功");
+			}else {
+				return Result.createErrorResult().setMessage("获取比对结果失败:"+faceThanIdcardResultModel.getMessage());
+			}
+		}else {
+			return Result.createErrorResult().setMessage("比对接口调用失败");
+		}
+	}
+
+	/*@RequestMapping(value = "/getZhimaCertificationUrl" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "获取芝麻认证Url和身份证名字和号码", httpMethod = "GET", response = Result.class,
 			notes = "传入身份证带人脸的那面图片的base64,返回芝麻认证Url和身份证名字和号码")
@@ -872,9 +979,9 @@ public class AppUserController {
 		}
 
 		String identityCardFrontInfo = IdCardRecognitionUtil.recognize(idFrontImgBase64,IdCardRecognitionUtil.TYPE_FRONT);
-		if (!"error".equals(identityCardFrontInfo) && identityCardFrontInfo!=null) {
+		if (!"error".equals(identityCardFrontInfo)) {
 			String identityCardBackInfo = IdCardRecognitionUtil.recognize(idBackImgBase64, IdCardRecognitionUtil.TYPE_BACK);
-			if (!"error".equals(identityCardBackInfo) && identityCardBackInfo != null) {
+			if (!"error".equals(identityCardBackInfo)) {
 				IdCardRecognitionResultModel idCardRecognitionResultModel = JsonUtil.json2Object(identityCardBackInfo, IdCardRecognitionResultModel.class);
 				String name = idCardRecognitionResultModel.getResult().getName();
 				String identityNumber = idCardRecognitionResultModel.getResult().getNumber();
@@ -958,27 +1065,5 @@ public class AppUserController {
 		}else {
 			return "无此用户";
 		}
-	}
-
-	@RequestMapping(value = "/getIsSecondaryLoan" ,method = RequestMethod.GET)
-	@ResponseBody
-	@ApiOperation(value = "获取用户是否是二次借款", httpMethod = "GET", response = Result.class, notes = "获取用户是否是二次借款")
-	public Object getIsSecondaryLoan(@RequestHeader(value = "Authorization" ) String token) throws Exception{
-		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
-		if (!(tokenValidResult instanceof SimpleToken)){
-			return tokenValidResult;
-		}
-		Integer uId = ((SimpleToken) tokenValidResult).getId();
-
-		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
-		appMoneyDetail.setUid(uId);
-		appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
-		appMoneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_SUCCESS);
-		List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
-		if (appMoneyDetails!=null&&appMoneyDetails.size()>0){
-			return Result.createSuccessResult(true,"该用户为二次借款");
-		}else{
-			return Result.createSuccessResult(false,"该用户还未借款成功");
-		}
-	}
+	}*/
 }
