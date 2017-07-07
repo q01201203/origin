@@ -1,7 +1,7 @@
 
-accessid= '';
-accesskey= '';
-host = '';
+accessid= 'LTAI2LrquSp4tQ6z';
+accesskey= '3E3vaSHM18K4T5bNmEXUNsFAWgIN7d';
+host = 'http://renxinghua.oss-cn-shanghai.aliyuncs.com';
 
 g_dirname = ''
 g_object_name = ''
@@ -191,4 +191,6 @@ var uploader = new plupload.Uploader({
 	}
 });
 
-uploader.init();
+$(function () {
+    uploader.init();
+})
