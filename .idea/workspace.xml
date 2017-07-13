@@ -7,9 +7,47 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="add zhima recognition">
+    <list default="true" id="16f5d442-a81c-4ec2-b397-b485e23596c2" name="Default" comment="1、修改可借额度和余额的计算方式&#10;2、添加利率&#10;3、任务添加删除&#10;4、添加验证码功能&#10;5、修改页面功能">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/yzm/gVerify.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/target/origin-data-api-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-data-api/target/origin-data-api-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/target/origin-mybatis-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/images/login_bg.jpg" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/images/login_bg.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-data-api-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/lib/origin-mybatis-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/static/images/login_bg.jpg" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/static/images/login_bg.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin.war" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/origin-tool-mybatis-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/target/origin-tool-mybatis-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppTask.java" afterPath="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/resources/jdbc.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-data/origin-mybatis/target/classes/jdbc.properties" afterPath="$PROJECT_DIR$/origin-data/origin-mybatis/target/classes/jdbc.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppConstantsController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppConstantsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppTaskController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppTaskController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppUserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminFeedbackController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminFeedbackController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminGuideController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminGuideController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appConstants/dialog/appConstants_edit.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appConstants/dialog/appConstants_edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appGuide/dialog/appGuide_edit.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appGuide/dialog/appGuide_edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTask_list.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTask_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appMoneyDetail_edit.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appMoneyDetail_edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appUser_edit.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appUser_edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/login.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/login.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/views/login.jsp" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/origin-module-core-1.0-SNAPSHOT/WEB-INF/views/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/ServiceTest.UserRoleServiceTest.txt" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/ServiceTest.UserRoleServiceTest.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/ServiceTest.UserServiceTest.txt" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/ServiceTest.UserServiceTest.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/TEST-ServiceTest.UserRoleServiceTest.xml" afterPath="$PROJECT_DIR$/origin-modules/origin-module-core/target/surefire-reports/TEST-ServiceTest.UserRoleServiceTest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/origin-modules/origin-module-core/target/" />
     <ignored path="$PROJECT_DIR$/origin-tool/target/" />
@@ -45,11 +83,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AppUserController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppUserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-444">
-              <caret line="800" column="91" lean-forward="true" selection-start-line="800" selection-start-column="91" selection-end-line="800" selection-end-column="91" />
+            <state relative-caret-position="18425">
+              <caret line="765" column="64" lean-forward="false" selection-start-line="765" selection-start-column="56" selection-end-line="765" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminAppUserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppUserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1085">
+              <caret line="354" column="38" lean-forward="false" selection-start-line="354" selection-start-column="38" selection-end-line="354" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -58,9 +108,85 @@
       <file leaf-file-name="appGuide_edit.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appGuide/dialog/appGuide_edit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="699">
-              <caret line="99" column="35" lean-forward="false" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+            <state relative-caret-position="875">
+              <caret line="35" column="122" lean-forward="false" selection-start-line="35" selection-start-column="122" selection-end-line="35" selection-end-column="122" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appTaskDetail.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="230" column="63" lean-forward="false" selection-start-line="230" selection-start-column="63" selection-end-line="230" selection-end-column="63" />
+              <folding>
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+              <folding>
+                <marker date="1499918307293" expanded="true" signature="4040:4049" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appMoneyDetail_edit.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appMoneyDetail_edit.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="12" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appMoneyDetail_list.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6200">
+              <caret line="248" column="36" lean-forward="false" selection-start-line="248" selection-start-column="36" selection-end-line="248" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppMoneyDetailService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppMoneyDetailDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2125">
+              <caret line="85" column="33" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="33" />
+              <folding>
+                <marker date="1499830220341" expanded="true" signature="247:744" ph="SELECT id, c... ogn_app_money_detail" />
+                <marker date="1499830220341" expanded="true" signature="3813:3889" ph="SELECT SUM(m... ogn_app_money_detail" />
+                <marker date="1499830220341" expanded="true" signature="4069:4142" ph="SELECT SUM(m... ogn_app_money_detail" />
+                <marker date="1499830220341" expanded="true" signature="7040:8318" ph="UPDATE ogn_a... " />
+                <marker date="1499830220341" expanded="true" signature="8461:9974" ph="update ogn_a... " />
+                <marker date="1499830220341" expanded="true" signature="10061:10108" ph="DELETE FROM " />
+                <marker date="1499830220341" expanded="true" signature="10504:10908" ph="SELECT m.id,... ogn_app_money_detail" />
+                <marker date="1499830220341" expanded="true" signature="11656:11732" ph="SELECT id,mo... ogn_app_user" />
+                <marker date="1499830220341" expanded="true" signature="11835:11914" ph="SELECT id,ta... ogn_app_task" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,95 +194,17 @@
       <file leaf-file-name="AppMoneyDetailServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="182" column="81" lean-forward="false" selection-start-line="182" selection-start-column="81" selection-end-line="182" selection-end-column="81" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appGuide_list.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appGuide/appGuide_list.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="19" column="76" lean-forward="false" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminGuideController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminGuideController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="78" column="63" lean-forward="false" selection-start-line="78" selection-start-column="52" selection-end-line="78" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppGuideDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppGuideDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="54" column="85" lean-forward="false" selection-start-line="54" selection-start-column="85" selection-end-line="54" selection-end-column="85" />
+            <state relative-caret-position="4450">
+              <caret line="200" column="13" lean-forward="false" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
               <folding>
-                <marker date="1499393363714" expanded="true" signature="376:612" ph="SELECT id, c... ogn_app_guide" />
-                <marker date="1499393363714" expanded="true" signature="4389:4924" ph="UPDATE ogn_a... " />
-                <marker date="1499393363714" expanded="true" signature="5067:5697" ph="update ogn_a... " />
-                <marker date="1499393363714" expanded="true" signature="5784:5824" ph="DELETE FROM " />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1269#1270#0" expanded="false" />
+                <element signature="e#1313#1314#0" expanded="false" />
+                <element signature="e#1556#1557#0" expanded="false" />
+                <element signature="e#1609#1610#0" expanded="false" />
+                <element signature="e#1848#1849#0" expanded="false" />
+                <element signature="e#1909#1910#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppTaskDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppTaskDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1862">
-              <caret line="72" column="34" lean-forward="false" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
-              <folding>
-                <marker date="1499247732741" expanded="true" signature="240:692" ph="SELECT id, c... ogn_app_task" />
-                <marker date="1499247732741" expanded="true" signature="7282:8443" ph="UPDATE ogn_a... " />
-                <marker date="1499247732741" expanded="true" signature="8586:9954" ph="update ogn_a... " />
-                <marker date="1499247732741" expanded="true" signature="10041:10080" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppFeedbackDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppFeedbackDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-              <folding>
-                <marker date="1499224937321" expanded="true" signature="244:364" ph="SELECT f.id,... ogn_app_feedback" />
-                <marker date="1499224937321" expanded="true" signature="1916:2144" ph="SELECT f.id,... ogn_app_feedback" />
-                <marker date="1499224937321" expanded="true" signature="3380:3808" ph="UPDATE ogn_a... " />
-                <marker date="1499224937321" expanded="true" signature="3951:4460" ph="update ogn_a... " />
-                <marker date="1499224937321" expanded="true" signature="4547:4619" ph="UPDATE ogn_a... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppMessageServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMessageServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="68" column="41" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JPushUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/JPushUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="58" column="61" lean-forward="false" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="61" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -173,42 +221,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>appguide</find>
-      <find>nick</find>
-      <find>mybatis-ehcache</find>
-      <find>defaultCache</find>
-      <find>tmpdir</find>
-      <find>ehcache-core</find>
-      <find>xml</find>
-      <find>org_cache</find>
-      <find>net.sf.ehcache</find>
-      <find>ehcache-spring-annotations</find>
-      <find>ehcache</find>
-      <find>@Test</find>
-      <find>ehc</find>
-      <find>after</find>
-      <find>_</find>
-      <find>getmoneyto</find>
-      <find>result</find>
-      <find>dialog/appMessage_edit</find>
-      <find>二次</find>
-      <find>JPushUtil.sendPush</find>
-      <find>appMoneyDetail</find>
-      <find>money</find>
-      <find>getmoneytotal</find>
-      <find>updateNickname</find>
-      <find>noBorrowLine</find>
-      <find>alert</find>
-      <find>LIKE CONCAT('%', #{content}, '%')</find>
-      <find>nickname</find>
+      <find>new date</find>
+      <find>l.setRepayTime</find>
+      <find>findTotalActualMoney</find>
+      <find>money_ask</find>
+      <find>needr</find>
+      <find>s</find>
+      <find>set</find>
+      <find>setb</find>
+      <find>setba</find>
+      <find>setbal</find>
+      <find>setbala</find>
+      <find>setbalan</find>
+      <find>setbalanc</find>
+      <find>setbalance</find>
+      <find>submitmo</find>
+      <find>getmoneyt</find>
+      <find>savew</find>
+      <find>appMoneyDetail.type</find>
+      <find>$('input[name=&quot;moneyActual&quot;]')</find>
       <find>message</find>
-      <find>getmessage</find>
+      <find>messageSelector</find>
+      <find>$('input[name=&quot;message&quot;]')</find>
+      <find>borrowLine</find>
+      <find>getmoneyto</find>
+      <find>getTotalActualMoney</find>
+      <find>appUser</find>
+      <find>addAttribute</find>
+      <find>textarea</find>
+      <find>&lt;textarea</find>
+      <find>taskSimpleStep</find>
     </findStrings>
     <replaceStrings>
-      <replace>updateFinishTask</replace>
-      <replace>/money/list</replace>
-      <replace>/money/dialog/appMoneyDetail_edit</replace>
-      <replace>appTask</replace>
       <replace>OGN_APP_CONSTANTS.key</replace>
       <replace>OGN_APP_CONSTANTS.value</replace>
       <replace>w240</replace>
@@ -235,6 +279,10 @@
       <replace>/admin/appConstants</replace>
       <replace>value</replace>
       <replace>/admin/appGuide</replace>
+      <replace>DateUtils.parseDateTime</replace>
+      <replace>$('textarea[name=&quot;moneyActual&quot;]')</replace>
+      <replace>moneyActualSelector</replace>
+      <replace>messageSelector</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -248,19 +296,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/common/common.jsp" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/common/ossUpload.jsp" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appConstants/appConstants_list.jsp" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppValidcodeController.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/ZhimaUtil.java" />
-        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppZhima.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppZhimaDao.xml" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppZhimaService.java" />
         <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppZhimaDao.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppZhimaServiceImpl.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/yituUtil.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/IdCardRecognitionUtil.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/dialog/appMessage_edit.jsp" />
@@ -268,11 +305,6 @@
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppMessageController.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/model/FaceThanIdcardResultModel.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AppGuideController.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppConstantsController.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appConstants/dialog/appConstants_edit.jsp" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminGuideController.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext-cache.xml" />
@@ -280,25 +312,41 @@
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppFeedbackDao.xml" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/ZhimaTest.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/YituUtil.java" />
-        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppTaskDao.xml" />
         <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppTaskDao.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppTaskService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppTaskController.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/model/IdCardRecognizeResultModel.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUser_list.jsp" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppUserController.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appMoneyDetail_edit.jsp" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appGuide/appGuide_list.jsp" />
         <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppGuideDao.xml" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appGuide/dialog/appGuide_edit.jsp" />
-        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMessageServiceImpl.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/JPushUtil.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUser_list.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appUser_edit.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/login.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTask_list.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java" />
+        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppTask.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppConstantsController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppTaskController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminFeedbackController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminGuideController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appConstants/dialog/appConstants_edit.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appGuide/dialog/appGuide_edit.jsp" />
+        <option value="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties" />
+        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml" />
+        <option value="$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java" />
         <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appMoneyDetail_edit.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppUserController.java" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp" />
+        <option value="$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js" />
       </list>
     </option>
   </component>
@@ -369,7 +417,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1924" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -778,7 +826,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -856,6 +903,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1859,7 +1910,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="font" />
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="originnew" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="origin-module-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oss-h5-upload-js-direct" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2721,8 +2814,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2736,21 +2830,21 @@
     <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\lib" />
-      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appUser\dialog" />
-      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\scripts" />
-      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appUser" />
-      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.origin.core.controller.admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\static\plugins\yzm" />
       <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\test\java\Test" />
       <recent name="D:\lc\code\originnew\origin-common\src\main\java\com\origin\common\util" />
       <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views" />
       <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\static\plugins" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.origin.core.controller.admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\static\images" />
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\static\images\skin" />
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\lib" />
+      <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\WEB-INF\views\appUser\dialog" />
       <recent name="D:\lc\code\originnew\origin-modules\origin-module-core\src\main\webapp\scripts" />
     </key>
   </component>
@@ -6329,7 +6423,11 @@
       <workItem from="1499131534241" duration="15682000" />
       <workItem from="1499216903071" duration="17130000" />
       <workItem from="1499303850344" duration="14748000" />
-      <workItem from="1499390358929" duration="5575000" />
+      <workItem from="1499390358929" duration="22377000" />
+      <workItem from="1499653109551" duration="8596000" />
+      <workItem from="1499736180631" duration="3395000" />
+      <workItem from="1499822280670" duration="20126000" />
+      <workItem from="1499907892898" duration="5717000" />
     </task>
     <task id="LOCAL-00001" summary="delete product">
       <created>1494493589166</created>
@@ -6562,7 +6660,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499396047379</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="添加安全指南管理">
+      <created>1499396237007</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1499396237007</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -6598,7 +6703,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="779315000" />
+    <option name="totallyTimeSpent" value="833951000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -6610,13 +6715,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5911063" sideWeight="0.510661" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275488" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14818764" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1475322" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -6632,11 +6737,12 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.324295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.61496747" sideWeight="0.48933902" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5130152" sideWeight="0.48933902" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23294243" sideWeight="0.48264644" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24356224" sideWeight="0.48264644" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20948827" sideWeight="0.5173536" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23880596" sideWeight="0.5082353" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -6646,7 +6752,6 @@
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -6682,7 +6787,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add saveinfo api" />
     <MESSAGE value="add money api" />
     <MESSAGE value="add swagger" />
     <MESSAGE value="add app api" />
@@ -6707,11 +6811,20 @@
     <MESSAGE value="add zhima recognition" />
     <MESSAGE value="添加芝麻所有产品" />
     <MESSAGE value="添加推送个人消息，添加任务模糊查询，借款审核不能超过额度，添加身份证识别和人脸认证" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加推送个人消息，添加任务模糊查询，借款审核不能超过额度，添加身份证识别和人脸认证" />
+    <MESSAGE value="添加安全指南管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加安全指南管理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppUserController.java</url>
+          <line>242</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -6720,518 +6833,416 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppConstantsDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="44" selection-end-column="38" />
-          <folding>
-            <marker date="1497230244349" expanded="true" signature="245:500" ph="SELECT id, c... ogn_app_constants" />
-            <marker date="1497230244349" expanded="true" signature="3488:4006" ph="UPDATE ogn_a... " />
-            <marker date="1497230244349" expanded="true" signature="4149:4762" ph="update ogn_a... " />
-            <marker date="1497230244349" expanded="true" signature="4849:4893" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appConstants/appConstants_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-962">
-          <caret line="105" column="48" lean-forward="true" selection-start-line="105" selection-start-column="48" selection-end-line="112" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appConstants/dialog/appConstants_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="30" column="73" lean-forward="false" selection-start-line="30" selection-start-column="73" selection-end-line="30" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTask_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskAudit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="32" column="74" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="91" column="104" lean-forward="false" selection-start-line="91" selection-start-column="96" selection-end-line="91" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/dialog/appTask_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="142" column="19" lean-forward="false" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUser_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
-          <caret line="53" column="38" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+          <caret line="60" column="36" lean-forward="true" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-ehcache/1.0.0/mybatis-ehcache-1.0.0.jar!/org/mybatis/caches/ehcache/LoggingEhcache.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        <state relative-caret-position="136">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="40" />
+        <state relative-caret-position="311">
+          <caret line="463" column="0" lean-forward="false" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="403" column="0" lean-forward="false" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="470" column="0" lean-forward="false" selection-start-line="470" selection-start-column="0" selection-end-line="470" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/applicationContext-cache.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-          <folding />
+        <state relative-caret-position="136">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/resources/ehcache.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/resources/mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/Test/ZhimaTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="103" column="63" lean-forward="false" selection-start-line="103" selection-start-column="52" selection-end-line="103" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/YituUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2000">
-          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminFeedbackController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="61" column="64" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppConstantsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="85" column="54" lean-forward="false" selection-start-line="85" selection-start-column="54" selection-end-line="85" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppStuDetailDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppPersonDetailDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IBaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppTaskService.java">
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appUser_edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppTaskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2400">
-          <caret line="121" column="59" lean-forward="false" selection-start-line="121" selection-start-column="59" selection-end-line="121" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppTaskDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="29" />
+          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppTaskServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/common/common.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="50" column="36" lean-forward="false" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#519#520#0" expanded="false" />
-            <element signature="e#559#560#0" expanded="false" />
-            <element signature="e#611#612#0" expanded="false" />
-            <element signature="e#648#649#0" expanded="false" />
-            <element signature="e#849#850#0" expanded="false" />
-            <element signature="e#895#896#0" expanded="false" />
-            <element signature="e#960#961#0" expanded="false" />
-            <element signature="e#1012#1013#0" expanded="false" />
-            <element signature="e#1078#1079#0" expanded="false" />
-            <element signature="e#1125#1126#0" expanded="false" />
-            <element signature="e#1197#1198#0" expanded="false" />
-            <element signature="e#1250#1251#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/model/IdCardRecognizeResultModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#1011#1012#0" expanded="false" />
-            <element signature="e#1041#1042#0" expanded="false" />
-            <element signature="e#1087#1088#0" expanded="false" />
-            <element signature="e#1125#1126#0" expanded="false" />
-            <element signature="e#1152#1153#0" expanded="false" />
-            <element signature="e#1178#1179#0" expanded="false" />
-            <element signature="e#1213#1214#0" expanded="false" />
-            <element signature="e#1243#1244#0" expanded="false" />
-            <element signature="e#1897#1898#0" expanded="false" />
-            <element signature="e#1935#1936#0" expanded="false" />
-            <element signature="e#1985#1986#0" expanded="false" />
-            <element signature="e#2031#2032#0" expanded="false" />
-            <element signature="e#2070#2071#0" expanded="false" />
-            <element signature="e#2109#2110#0" expanded="false" />
-            <element signature="e#2161#2162#0" expanded="false" />
-            <element signature="e#2209#2210#0" expanded="false" />
-            <element signature="e#2436#2437#0" expanded="false" />
-            <element signature="e#2473#2474#0" expanded="false" />
-            <element signature="e#2521#2522#0" expanded="false" />
-            <element signature="e#2565#2566#0" expanded="false" />
-            <element signature="e#2790#2791#0" expanded="false" />
-            <element signature="e#2825#2826#0" expanded="false" />
-            <element signature="e#2869#2870#0" expanded="false" />
-            <element signature="e#2909#2910#0" expanded="false" />
-            <element signature="e#2946#2947#0" expanded="false" />
-            <element signature="e#2983#2984#0" expanded="false" />
-            <element signature="e#3031#3032#0" expanded="false" />
-            <element signature="e#3075#3076#0" expanded="false" />
-            <element signature="e#3112#3113#0" expanded="false" />
-            <element signature="e#3149#3150#0" expanded="false" />
-            <element signature="e#3197#3198#0" expanded="false" />
-            <element signature="e#3241#3242#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/model/FaceThanIdcardResultModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="e#256405#256406#0" expanded="false" />
-            <element signature="e#256445#256446#0" expanded="false" />
-            <element signature="e#256511#256512#0" expanded="false" />
-            <element signature="e#256569#256570#0" expanded="false" />
-            <element signature="e#256603#256604#0" expanded="false" />
-            <element signature="e#256633#256634#0" expanded="false" />
-            <element signature="e#256679#256680#0" expanded="false" />
-            <element signature="e#256717#256718#0" expanded="false" />
-            <element signature="e#256759#256760#0" expanded="false" />
-            <element signature="e#256800#256801#0" expanded="false" />
-            <element signature="e#256865#256866#0" expanded="false" />
-            <element signature="e#256925#256926#0" expanded="false" />
-            <element signature="e#256974#256975#0" expanded="false" />
-            <element signature="e#257019#257020#0" expanded="false" />
-            <element signature="e#257237#257238#0" expanded="false" />
-            <element signature="e#257286#257287#0" expanded="false" />
-            <element signature="e#257494#257495#0" expanded="false" />
-            <element signature="e#257520#257521#0" expanded="false" />
-            <element signature="e#257555#257556#0" expanded="false" />
-            <element signature="e#257585#257586#0" expanded="false" />
-            <element signature="e#513705#513706#0" expanded="false" />
-            <element signature="e#513760#513761#0" expanded="false" />
-            <element signature="e#513969#513970#0" expanded="false" />
-            <element signature="e#514014#514015#0" expanded="false" />
-            <element signature="e#514079#514080#0" expanded="false" />
-            <element signature="e#514139#514140#0" expanded="false" />
-            <element signature="e#514186#514187#0" expanded="false" />
-            <element signature="e#514233#514234#0" expanded="false" />
-            <element signature="e#514302#514303#0" expanded="false" />
-            <element signature="e#514366#514367#0" expanded="false" />
-            <element signature="e#514423#514424#0" expanded="false" />
-            <element signature="e#514474#514475#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppMessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="86" column="53" lean-forward="false" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="53" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/images/drop_up.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/images/drop_right.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/images/drop_down.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/images/login_bg.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/yzm/gVerify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/css/desktop.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="88" column="63" lean-forward="true" selection-start-line="88" selection-start-column="63" selection-end-line="88" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUserDetail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="125">
+          <caret line="5" column="71" lean-forward="true" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppMoneyDetail.java">
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/appMessage_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appMessage/dialog/appMessage_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="66" column="34" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="34" />
-          <folding>
-            <marker date="1499237781952" expanded="true" signature="247:744" ph="SELECT id, c... ogn_app_money_detail" />
-            <marker date="1499237781952" expanded="true" signature="3813:3889" ph="SELECT SUM(m... ogn_app_money_detail" />
-            <marker date="1499237781952" expanded="true" signature="6787:8065" ph="UPDATE ogn_a... " />
-            <marker date="1499237781952" expanded="true" signature="8208:9721" ph="update ogn_a... " />
-            <marker date="1499237781952" expanded="true" signature="9808:9855" ph="DELETE FROM " />
-            <marker date="1499237781952" expanded="true" signature="10251:10655" ph="SELECT m.id,... ogn_app_money_detail" />
-            <marker date="1499237781952" expanded="true" signature="11403:11479" ph="SELECT id,mo... ogn_app_user" />
-            <marker date="1499237781952" expanded="true" signature="11582:11661" ph="SELECT id,ta... ogn_app_task" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appUser_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="68" column="114" lean-forward="false" selection-start-line="68" selection-start-column="114" selection-end-line="68" selection-end-column="114" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/test/java/ServiceTest/AppUserServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="109" column="57" lean-forward="false" selection-start-line="109" selection-start-column="57" selection-end-line="109" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="394" column="44" lean-forward="true" selection-start-line="394" selection-start-column="44" selection-end-line="394" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appMoneyDetail_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1904">
-          <caret line="78" column="17" lean-forward="false" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppTaskDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1862">
-          <caret line="72" column="34" lean-forward="false" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
-          <folding>
-            <marker date="1499247732741" expanded="true" signature="240:692" ph="SELECT id, c... ogn_app_task" />
-            <marker date="1499247732741" expanded="true" signature="7282:8443" ph="UPDATE ogn_a... " />
-            <marker date="1499247732741" expanded="true" signature="8586:9954" ph="update ogn_a... " />
-            <marker date="1499247732741" expanded="true" signature="10041:10080" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppFeedbackDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding>
-            <marker date="1499224937321" expanded="true" signature="244:364" ph="SELECT f.id,... ogn_app_feedback" />
-            <marker date="1499224937321" expanded="true" signature="1916:2144" ph="SELECT f.id,... ogn_app_feedback" />
-            <marker date="1499224937321" expanded="true" signature="3380:3808" ph="UPDATE ogn_a... " />
-            <marker date="1499224937321" expanded="true" signature="3951:4460" ph="update ogn_a... " />
-            <marker date="1499224937321" expanded="true" signature="4547:4619" ph="UPDATE ogn_a... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMessageServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="68" column="41" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/util/JPushUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="58" column="61" lean-forward="false" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="182" column="81" lean-forward="false" selection-start-line="182" selection-start-column="81" selection-end-line="182" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminGuideController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="78" column="63" lean-forward="false" selection-start-line="78" selection-start-column="52" selection-end-line="78" selection-end-column="63" />
+        <state relative-caret-position="1027">
+          <caret line="148" column="20" lean-forward="false" selection-start-line="148" selection-start-column="16" selection-end-line="148" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appGuide/appGuide_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="19" column="76" lean-forward="false" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
+        <state relative-caret-position="2950">
+          <caret line="118" column="45" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="118" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/entity/IAppTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="14" column="57" lean-forward="false" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appConstants/appConstants_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3125">
+          <caret line="125" column="59" lean-forward="false" selection-start-line="118" selection-start-column="48" selection-end-line="125" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-common/src/main/java/com/origin/common/util/DateUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="73" column="36" lean-forward="false" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskAudit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3900">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminFeedbackController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="115" column="38" lean-forward="false" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTask_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1337">
+          <caret line="118" column="45" lean-forward="false" selection-start-line="118" selection-start-column="45" selection-end-line="118" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/user/dialog/role_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/user/dialog/menu_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/user/dialog/user_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="104" column="73" lean-forward="false" selection-start-line="104" selection-start-column="69" selection-end-line="104" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appConstants/dialog/appConstants_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="66" column="150" lean-forward="false" selection-start-line="66" selection-start-column="150" selection-end-line="66" selection-end-column="150" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/resources/dubbo.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/resources/applicationContext-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminGuideController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="63" column="33" lean-forward="false" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/dialog/appTask_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="73" column="31" lean-forward="false" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppConstantsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="65" column="33" lean-forward="false" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppTaskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="178" column="35" lean-forward="false" selection-start-line="178" selection-start-column="35" selection-end-line="178" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data-api/src/main/java/com/origin/data/dao/IAppMoneyDetailDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppMoneyDetailDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="85" column="33" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="33" />
+          <folding>
+            <marker date="1499830220341" expanded="true" signature="247:744" ph="SELECT id, c... ogn_app_money_detail" />
+            <marker date="1499830220341" expanded="true" signature="3813:3889" ph="SELECT SUM(m... ogn_app_money_detail" />
+            <marker date="1499830220341" expanded="true" signature="4069:4142" ph="SELECT SUM(m... ogn_app_money_detail" />
+            <marker date="1499830220341" expanded="true" signature="7040:8318" ph="UPDATE ogn_a... " />
+            <marker date="1499830220341" expanded="true" signature="8461:9974" ph="update ogn_a... " />
+            <marker date="1499830220341" expanded="true" signature="10061:10108" ph="DELETE FROM " />
+            <marker date="1499830220341" expanded="true" signature="10504:10908" ph="SELECT m.id,... ogn_app_money_detail" />
+            <marker date="1499830220341" expanded="true" signature="11656:11732" ph="SELECT id,mo... ogn_app_user" />
+            <marker date="1499830220341" expanded="true" signature="11835:11914" ph="SELECT id,ta... ogn_app_task" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/AppMoneyDetailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/service/impl/AppMoneyDetailServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4450">
+          <caret line="200" column="13" lean-forward="false" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1269#1270#0" expanded="false" />
+            <element signature="e#1313#1314#0" expanded="false" />
+            <element signature="e#1556#1557#0" expanded="false" />
+            <element signature="e#1609#1610#0" expanded="false" />
+            <element signature="e#1848#1849#0" expanded="false" />
+            <element signature="e#1909#1910#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/appMoneyDetail_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6200">
+          <caret line="248" column="36" lean-forward="false" selection-start-line="248" selection-start-column="36" selection-end-line="248" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18425">
+          <caret line="765" column="64" lean-forward="false" selection-start-line="765" selection-start-column="56" selection-end-line="765" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/admin/AdminAppUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1085">
+          <caret line="354" column="38" lean-forward="false" selection-start-line="354" selection-start-column="38" selection-end-line="354" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appGuide/dialog/appGuide_edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="699">
-          <caret line="99" column="35" lean-forward="false" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+        <state relative-caret-position="875">
+          <caret line="35" column="122" lean-forward="false" selection-start-line="35" selection-start-column="122" selection-end-line="35" selection-end-column="122" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-data/origin-mybatis/src/main/java/com/origin/data/mybatis/mapper/AppGuideDao.xml">
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appUser/dialog/appMoneyDetail_edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="54" column="85" lean-forward="false" selection-start-line="54" selection-start-column="85" selection-end-line="54" selection-end-column="85" />
+        <state relative-caret-position="125">
+          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/WEB-INF/views/appTask/appTaskDetail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="230" column="63" lean-forward="false" selection-start-line="230" selection-start-column="63" selection-end-line="230" selection-end-column="63" />
           <folding>
-            <marker date="1499393363714" expanded="true" signature="376:612" ph="SELECT id, c... ogn_app_guide" />
-            <marker date="1499393363714" expanded="true" signature="4389:4924" ph="UPDATE ogn_a... " />
-            <marker date="1499393363714" expanded="true" signature="5067:5697" ph="update ogn_a... " />
-            <marker date="1499393363714" expanded="true" signature="5784:5824" ph="DELETE FROM " />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/java/com/origin/core/controller/app/AppUserController.java">
+    <entry file="file://$PROJECT_DIR$/origin-modules/origin-module-core/src/main/webapp/static/plugins/oss-h5-upload-js-direct/upload.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-444">
-          <caret line="800" column="91" lean-forward="true" selection-start-line="800" selection-start-column="91" selection-end-line="800" selection-end-column="91" />
-          <folding />
+        <state relative-caret-position="75">
+          <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+          <folding>
+            <marker date="1499918307293" expanded="true" signature="4040:4049" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

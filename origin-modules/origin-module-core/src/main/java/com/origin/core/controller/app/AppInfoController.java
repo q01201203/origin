@@ -71,6 +71,7 @@ public class AppInfoController {
 		if (!StringUtil.isNullOrBlank(taskHot)){
 			appTask.setTaskHot(Integer.parseInt(taskHot));
 		}
+		appTask.setDeleteFlag(0);
 		List<IAppTask> appTasks = appTaskService.find(appTask);
 		return Result.createSuccessResult(appTasks,"获取任务成功");
 	}

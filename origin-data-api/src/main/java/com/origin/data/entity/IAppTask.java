@@ -12,7 +12,7 @@ public interface IAppTask extends Serializable {
 
 	public final static Integer STATUS_NO = 0; //不可用
 
-
+	public final static Integer TYPE_TIMELIMIT= 3; //限时任务
 
 
 	Integer getId();

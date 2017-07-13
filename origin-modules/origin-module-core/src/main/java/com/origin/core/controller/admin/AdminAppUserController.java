@@ -49,6 +49,9 @@ public class AdminAppUserController {
 	@Autowired
 	private AppZhimaService appZhimaService;
 
+	@Autowired
+	private AppConstantsService appConstantsService;
+
 	@RequestMapping("/user/list")
 	public String userList(HttpServletRequest request, Model model) throws ParseException {
 		String id = request.getParameter("id");
@@ -161,6 +164,7 @@ public class AdminAppUserController {
 
     	return "appUser/appUser_list";
 	}
+
     @RequestMapping("/user/dialog/appUser_edit")
     public String userEdit(HttpServletRequest request, Model model){
     	String id = request.getParameter("id");
@@ -236,27 +240,28 @@ public class AdminAppUserController {
     		}else{
 				appUser = new AppUserDTO();
     		}
-			appUser.setCreateDate(StringUtil.parseDateTime(createDate));
-			appUser.setUpdateDate(StringUtil.parseDateTime(updateDate));
-			appUser.setMobile(mobile);
-			appUser.setPwd(pwd);
-			appUser.setPayPwd(payPwd);
-			appUser.setBalance(Double.parseDouble(balance));
-			appUser.setAuthority( Integer.parseInt(authority));
-			appUser.setMoneyMax( Double.parseDouble(moneyMax));
-			appUser.setZhimaCertName(zhimaCertName);
-			appUser.setZhimaCertNo(zhimaCertNo);
-			appUser.setZhimaOpenid(zhimaOpenid);
-			appUser.setZhimaScore(zhimaScore);
-			appUser.setImgFace(imgFace);
-			appUser.setImgIdFront(imgIdFront);
-			appUser.setImgIdBack(imgIdBack);
-			appUser.setUserIdName(userIdName);
-			appUser.setUserIdNumber(userIdNumber);
-			appUser.setImgPortrait(imgPortrait);
-			appUser.setNickname(nickname);
-			appUser.setCategory( Integer.parseInt(category));
-			appUser.setDeleteFlag( Integer.parseInt(deleteFlag));
+			if(StringUtils.isNotBlank(createDate)){appUser.setCreateDate(StringUtil.parseDateTime(createDate));}
+			if(StringUtils.isNotBlank(updateDate)){appUser.setUpdateDate(StringUtil.parseDateTime(updateDate));}
+			if(StringUtils.isNotBlank(mobile)){appUser.setMobile(mobile);}
+			if(StringUtils.isNotBlank(pwd)){appUser.setPwd(pwd);}
+			if(StringUtils.isNotBlank(payPwd)){appUser.setPayPwd(payPwd);}
+			if(StringUtils.isNotBlank(balance)){appUser.setBalance(Double.parseDouble(balance));}
+			if(StringUtils.isNotBlank(authority)){appUser.setAuthority( Integer.parseInt(authority));}
+			if(StringUtils.isNotBlank(moneyMax)){appUser.setMoneyMax( Double.parseDouble(moneyMax));}
+			if(StringUtils.isNotBlank(zhimaCertName)){appUser.setZhimaCertName(zhimaCertName);}
+			if(StringUtils.isNotBlank(zhimaCertNo)){appUser.setZhimaCertNo(zhimaCertNo);}
+			if(StringUtils.isNotBlank(zhimaOpenid)){appUser.setZhimaOpenid(zhimaOpenid);}
+			if(StringUtils.isNotBlank(zhimaScore)){appUser.setZhimaScore(zhimaScore);}
+			if(StringUtils.isNotBlank(imgFace)){appUser.setImgFace(imgFace);}
+			if(StringUtils.isNotBlank(imgIdFront)){appUser.setImgIdFront(imgIdFront);}
+			if(StringUtils.isNotBlank(imgIdBack)){appUser.setImgIdBack(imgIdBack);}
+			if(StringUtils.isNotBlank(userIdName)){appUser.setUserIdName(userIdName);}
+			if(StringUtils.isNotBlank(userIdNumber)){appUser.setUserIdNumber(userIdNumber);}
+			if(StringUtils.isNotBlank(imgPortrait)){appUser.setImgPortrait(imgPortrait);}
+			if(StringUtils.isNotBlank(nickname)){appUser.setNickname(nickname);}
+			if(StringUtils.isNotBlank(category)){appUser.setCategory( Integer.parseInt(category));}
+			if(StringUtils.isNotBlank(deleteFlag)){appUser.setDeleteFlag( Integer.parseInt(deleteFlag));}
+
     		if(StringUtils.isNotBlank(id)){
 				appUserService.update(appUser);
     		}else{
@@ -346,9 +351,18 @@ public class AdminAppUserController {
 			model.addAttribute("appMoneyDetail", appMoneyDetail);
 			IAppUser appUser = appUserService.findById(appMoneyDetail.getUid());
 			model.addAttribute("appUser", appUser);
-			Double borrowLine = getBorrowLine(appMoneyDetail.getUid());
-			System.out.println("renxinhua borrowLine = "+borrowLine);
+			Double borrowLine = 0d;
+			String interestRate = "0.0";
+			if (IAppMoneyDetail.TYPE_BORROW.equals(appMoneyDetail.getType())){
+				borrowLine = getBorrowLine(appMoneyDetail.getUid());
+				System.out.println("renxinhua borrowLine = "+borrowLine);
+				IAppConstants appConstants = new AppConstantsDTO();
+				appConstants.setKey("interestRate");
+				appConstants = appConstantsService.findFirst(appConstants);
+				interestRate = appConstants.getValue();
+			}
 			model.addAttribute("borrowLine", borrowLine);
+			model.addAttribute("interestRate",interestRate);
 		}
 		return "appUser/dialog/appMoneyDetail_edit";
 	}

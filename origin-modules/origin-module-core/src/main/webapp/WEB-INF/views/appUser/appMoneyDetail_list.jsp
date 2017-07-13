@@ -237,7 +237,7 @@
         if(!id){
             id = '';
         }else{
-            title = '修改区域';
+            title = '审核';
         }
         $.post('${ctx}/admin/appUser/money/dialog/appMoneyDetail_edit?id='+id, {}, function(str){
 
@@ -246,7 +246,7 @@
             layer.open({
                 title : title,
                 type : 1,
-                area : ['700px', '300px'],
+                area : ['700px', '450px'],
                 content : str,
                 btn : ['确定', '取消'],
                 yes : function(index, layero){

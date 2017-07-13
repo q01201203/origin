@@ -9,4 +9,5 @@ public interface IAppMoneyDetailDao<T, PK extends Serializable> extends IBaseDao
     List<IAppMoneyDetail> findIncomeInfo(IAppMoneyDetail appMoneyDetail);
     List<IAppMoneyDetail> findMoneyUser(IAppMoneyDetail appMoneyDetail);
     Double findTotalActualMoney(IAppMoneyDetail appMoneyDetail);
+    Double findTotalAskMoney(IAppMoneyDetail appMoneyDetail);
 }

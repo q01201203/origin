@@ -77,9 +77,30 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
     }
 
     @Override
+    public void saveWithdraw(IAppMoneyDetail appMoneyDetail) {
+        save(appMoneyDetail);
+        Integer uid = appMoneyDetail.getUid();
+        Double money = appMoneyDetail.getMoneyAsk();
+        //修改余额
+        updateUserBalance(uid,money,false);
+    }
+
+    @Override
+    public void saveRepay(IAppMoneyDetail appMoneyDetail) {
+        save(appMoneyDetail);
+        //修改余额
+        if (IAppMoneyDetail.REPAY_WAY_BALANCE.equals(appMoneyDetail.getRepayWay())){
+            Integer uid = appMoneyDetail.getUid();
+            Double money = appMoneyDetail.getMoneyAsk();
+            updateUserBalance(uid,money,false);
+        }
+    }
+
+    @Override
     public Result saveIncome(Integer uid, Integer tid,IAppMoneyDetail appMoneyDetail) {
         IAppTask appTask = appTaskDao.findByPK(tid);
         Integer taskNumber = appTask.getTaskNumber();
+        Integer taskType = appTask.getTaskType();
         String taskName = appTask.getTaskName();
         Double taskMoney = appTask.getTaskMoney();
         Date taskEndTime = appTask.getTaskEndTime();
@@ -91,10 +112,12 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         }
 
         //判断任务时间
-        System.out.println("renxinhua nowtime = "+ nowTime + " endtime = "+ taskEndTime);
-        if (nowTime.after(taskEndTime)){
-            System.out.println("renxinhua 任务过期");
-            return Result.create(ResultCode.SERVICE_ERROR).setMessage("任务过期");
+        if (taskType.equals(IAppTask.TYPE_TIMELIMIT)){
+            System.out.println("renxinhua nowtime = "+ nowTime + " endtime = "+ taskEndTime);
+            if (nowTime.after(taskEndTime)){
+                System.out.println("renxinhua 任务过期");
+                return Result.create(ResultCode.SERVICE_ERROR).setMessage("任务过期");
+            }
         }
 
         IAppUserTask appUserTask = new AppUserTaskDTO();
@@ -140,6 +163,11 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         return appMoneyDetailDao.findTotalActualMoney(appMoneyDetail);
     }
 
+    @Override
+    public Double findTotalAskMoney(IAppMoneyDetail appMoneyDetail) {
+        return appMoneyDetailDao.findTotalAskMoney(appMoneyDetail);
+    }
+
     //审核同时 修改用户余额
     @Override
     public void updateAudit(IAppMoneyDetail appMoneyDetail,String messageContent) {
@@ -155,12 +183,21 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
             appMoneyDetail = appMoneyDetailDao.findByPK(mid);
             if (IAppMoneyDetail.TYPE_REPAY.equals(appMoneyDetail.getType())){
                 if (IAppMoneyDetail.REPAY_WAY_BALANCE.equals(appMoneyDetail.getRepayWay())){
-                    updateUserBalance(appMoneyDetail,false);
+                    updateUserBalance(uid,moneyAsk - moneyActual,true);
                 }
             }else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(appMoneyDetail.getType())){
-                updateUserBalance(appMoneyDetail,false);
+                updateUserBalance(uid,moneyAsk - moneyActual,true);
             }else if (IAppMoneyDetail.TYPE_INCOME.equals(appMoneyDetail.getType())){
-                updateUserBalance(appMoneyDetail,true);
+                updateUserBalance(uid,moneyActual,true);
+            }
+        }else if (IAppMoneyDetail.STATUS_AUDIT_FAIL.equals(status)){
+            appMoneyDetail = appMoneyDetailDao.findByPK(mid);
+            if (IAppMoneyDetail.TYPE_REPAY.equals(appMoneyDetail.getType())){
+                if (IAppMoneyDetail.REPAY_WAY_BALANCE.equals(appMoneyDetail.getRepayWay())){
+                    updateUserBalance(uid,moneyAsk,true);
+                }
+            }else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(appMoneyDetail.getType())){
+                updateUserBalance(uid,moneyAsk,true);
             }
         }
 
@@ -185,15 +222,13 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
     }
 
     //flag true:增加 false:减少
-    private void updateUserBalance(IAppMoneyDetail appMoneyDetail,boolean flag) {
-        Integer uid = appMoneyDetail.getUid();
-        Double moneyActual = appMoneyDetail.getMoneyActual();
+    private void updateUserBalance(Integer uid,Double money,boolean flag) {
         IAppUser appUser = appUserDao.findByPK(uid);
         Double balance = appUser.getBalance();
         if (flag){
-            balance = balance + moneyActual;
+            balance = balance + money;
         }else{
-            balance = balance - moneyActual;
+            balance = balance - money;
         }
         appUser.setBalance(balance);
         appUserDao.update(appUser);

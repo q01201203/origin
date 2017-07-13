@@ -59,14 +59,32 @@ $(function(){
 	                <div class="m_input">
 	                    <input placeholder="请输入密码" type="password" name="pwd" id="pwd"/>
 	                </div>
+					<div class="m_input">
+						<input type="text" id="code_input" value="" placeholder="请输入验证码"/>
+					</div>
+					<div id="v_container" style="width: 200px;height: 50px;margin-top: 15px"></div>
 	                <div class="m_btn">
-	                    <a href="javascript:mySubmit();">登录</a>
+	                    <a id="my_button">登录</a>
 	                </div>
 	            </div>
             </form>
         </div>
     </div>
-	
 	<%@ include file="common/footer.jsp" %>
 </body>
 </html>
+
+<script src="${ctx }/static/plugins/yzm/gVerify.js"></script>
+<script>
+    var verifyCode = new GVerify("v_container");
+
+    document.getElementById("my_button").onclick = function(){
+        var res = verifyCode.validate(document.getElementById("code_input").value);
+        mySubmit();
+        /*if(res){
+            mySubmit();
+        }else{
+            alert("验证码错误");
+        }*/
+    }
+</script>

@@ -67,6 +67,13 @@
 								</div>
 							</div>
 						</td>
+						<td>
+							<div class="J_toolsBar fl">
+								<div class="t_label w240 ml10">
+									<a href="javascript:myEditMoneyMax('${appUser.id }');" class='btn'>修改额度</a>
+								</div>
+							</div>
+						</td>
 					</tr>
 					<tr>
 						<td class="l_title "><b class="cRed">*</b> 芝麻授权用户名</td>
@@ -655,10 +662,38 @@
 			});
 			
 		});
-		
-		function mySubmit(){
-			$('#myForm').submit();
-		}
+
+        function myEditMoneyMax(id){
+            var loadIdx = layer.load();
+            var title = '添加区域';
+            if(!id){
+                id = '';
+            }else{
+                title = '修改区域';
+            }
+            $.post('${ctx}/admin/appUser/user/dialog/appUser_edit', {id:id}, function(str){
+
+                layer.close(loadIdx);
+
+                layer.open({
+                    title : title,
+                    type : 1,
+                    area : ['700px', '450px'],
+                    content : str,
+                    btn : ['确定', '取消'],
+                    yes : function(index, layero){
+                        mySubmit();
+                    },
+                    btn2 : function(index, layero){
+                        layer.close(index);
+                    }
+                });
+            });
+        }
+
+        function mySubmit(){
+            $('#editForm').submit();
+        }
 
         function myVisit(name){
             var url = $("#"+name).val();

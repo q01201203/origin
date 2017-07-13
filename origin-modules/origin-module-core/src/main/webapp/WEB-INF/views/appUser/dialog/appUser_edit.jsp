@@ -9,6 +9,9 @@
     $(function(){
 
         $('#editForm').validator({
+            rules: {
+                money: [/^[1-9][0-9]*00$/,'请输入100的整数']
+            },
             ignore: ':hidden',
             fields : {
 					//createDate : ':required;',
@@ -17,7 +20,7 @@
 					pwd : ':required;password',
 					payPwd : ':length[6]',
 					//authority : '',
-					//moneyMax : '',
+					moneyMax : 'required;money',
 					//alipayUsername : '',
 					//alipayUseraccout : '',
 					//imgFace : '',
@@ -68,7 +71,7 @@
         <div class="">
             <div class="J_formTable l_form_table">
                 <table class="not_hightlight">
-                    <tr>
+                    <!--<tr>
                         <td class="l_title w200"> 创建时间</td>
                         <td>
                             <div class="J_toolsBar fl">
@@ -127,7 +130,7 @@
                                 </div>
                             </div>
                         </td>
-                    </tr>
+                    </tr>-->
                     <tr>
                         <td class="l_title w200"> 额度</td>
                         <td>
@@ -138,22 +141,22 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="l_title w200"> 支付宝名称</td>
+                    <!--<tr>
+                        <td class="l_title w200"> 芝麻认证身份证号</td>
                         <td>
                             <div class="J_toolsBar fl">
                                 <div class="t_text w200 ml10">
-                                    <input type="text" name="alipayUsername" value="${appUser.alipayUsername }" maxlength="20"/>
+                                    <input type="text" name="zhimaCertNo" value="${appUser.zhimaCertNo }" maxlength="20"/>
                                 </div>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td class="l_title w200"> 支付宝账号</td>
+                        <td class="l_title w200"> 芝麻认证姓名</td>
                         <td>
                             <div class="J_toolsBar fl">
                                 <div class="t_text w200 ml10">
-                                    <input type="text" name="alipayUseraccout" value="${appUser.alipayUseraccout }" maxlength="20"/>
+                                    <input type="text" name="zhimaCertName" value="${appUser.zhimaCertName }" maxlength="20"/>
                                 </div>
                             </div>
                         </td>
@@ -253,7 +256,7 @@
                                 </div>
                             </div>
                         </td>
-                    </tr>
+                    </tr>-->
                 </table>
             </div>
         </div>

@@ -9,6 +9,23 @@
             no_results_text: "未找到",
             width : '100%'
         });
+
+        var limitTimeContent = $("#limitTime").html();
+
+        if (parentChosen.val() == 3){
+            $("#limitTime").empty().append(limitTimeContent);
+        }else{
+            $("#limitTime").empty();
+        }
+
+        $(".chosen-select").chosen().change(function(){
+            //do
+			if (parentChosen.val() == 3){
+                $("#limitTime").empty().append(limitTimeContent);
+			}else{
+                $("#limitTime").empty();
+			}
+        });
     });
 </script>
 <head>
@@ -30,7 +47,7 @@
 					<tr>
 						<td style="width: 200px">
 						</td>
-						<td style="width: 400px">
+						<td style="width: 450px">
 						</td>
 						<td style="width: 250px">
 						</td>
@@ -89,7 +106,7 @@
 						<td>
 							<div class="J_toolsBar fl">
 								<div class="t_label w240 ml10">
-									<select data-placeholder="选择类型" class="chosen-select" name="taskType">
+									<select id="taskType" data-placeholder="选择类型" class="chosen-select" name="taskType">
 										<option value="" >选择类型</option>
 										<option value="1" ${appTask.taskType eq 1 ? "selected=\"selected\"":""}>普通任务</option>
 										<option value="2" ${appTask.taskType eq 2 ? "selected=\"selected\"":""}>高额任务</option>
@@ -180,36 +197,38 @@
 							</div>
 						</td>
 					</tr>
-					<tr>
-						<td class="l_title "><b class="cRed">*</b> 任务开始时间</td>
-						<td>
-							<div class="J_toolsBar fl">
-								<div class="t_text w240 ml10">
-									<input id="startDate" type="text" name="taskStartTime" class="Wdate" placeholder="选择日期"
-										   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'endDate\')}'})"
-										   value="<fmt:formatDate value="${appTask.taskStartTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
+					<tbody id="limitTime">
+						<tr>
+							<td class="l_title "><b class="cRed">*</b> 任务开始时间</td>
+							<td>
+								<div class="J_toolsBar fl">
+									<div class="t_text w240 ml10">
+										<input id="startDate" type="text" name="taskStartTime" class="Wdate" placeholder="选择日期"
+											   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'endDate\')}'})"
+											   value="<fmt:formatDate value="${appTask.taskStartTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
+									</div>
 								</div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="l_title "><b class="cRed">*</b> 任务结束时间</td>
-						<td>
-							<div class="J_toolsBar fl">
-								<div class="t_text w240 ml10">
-									<input id="endDate" type="text" name="taskEndTime" class="Wdate" placeholder="选择日期"
-										   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'startDate\')}'})"
-										   value="<fmt:formatDate value="${appTask.taskEndTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="l_title "><b class="cRed">*</b> 任务结束时间</td>
+							<td>
+								<div class="J_toolsBar fl">
+									<div class="t_text w240 ml10">
+										<input id="endDate" type="text" name="taskEndTime" class="Wdate" placeholder="选择日期"
+											   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'startDate\')}'})"
+											   value="<fmt:formatDate value="${appTask.taskEndTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
+									</div>
 								</div>
-							</div>
-						</td>
-					</tr>
+							</td>
+						</tr>
+					</tbody>
 					<tr>
 						<td class="l_title "><b class="cRed">*</b> 任务简单步骤</td>
 						<td>
 							<div class="J_toolsBar fl">
-								<div class="t_text w240 ml10">
-									<input type="text" name="taskSimpleStep"  value="${appTask.taskSimpleStep}"/>
+								<div class="t_textarea w240 ml10">
+									<textarea cols="31" rows="5" name="taskSimpleStep" style="width: auto">${appTask.taskSimpleStep}</textarea>
 								</div>
 							</div>
 						</td>
@@ -286,16 +305,19 @@
 	<script type="text/javascript">
 		$(function(){
 			$('#myForm').validator({
+                rules: {
+                    number: [/^[1-9]\d*$/,'请输入大于0的正整数']
+                },
 				fields : {
-                    taskName : ':required;length[~20]',
-                    taskNumber : ':required;digits',
+                    taskName : ':required;length[~6]',
+                    taskNumber : ':required;digits;number',
                     taskType : ':required;',
                     taskMoney : ':required;digits',
                     taskImg : ':required;',
                     taskHot : ':checked;',
                     taskStartTime : ':required;',
                     taskEndTime : ':required;',
-                    taskSimpleStep : ':required;',
+                    taskSimpleStep : ':required;length[~80]',
                     taskDetailedStep : ':required;',
                     taskLink : ':required;'
 				},

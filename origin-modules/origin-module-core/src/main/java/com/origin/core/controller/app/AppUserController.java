@@ -562,7 +562,8 @@ public class AppUserController {
 			appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
 			appMoneyDetail.setRepayWay(Integer.parseInt(repayWay));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
-			appMoneyDetailService.save(appMoneyDetail);
+			appMoneyDetail.setRepayTime(new Date());
+			appMoneyDetailService.saveRepay(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("还款申请成功");
 		}else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){
 			if (StringUtil.isNullOrBlank(askMoney)){
@@ -576,7 +577,7 @@ public class AppUserController {
 
 			appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_WITHDRAW);
-			appMoneyDetailService.save(appMoneyDetail);
+			appMoneyDetailService.saveWithdraw(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("提现申请成功");
 		}else if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
 			if (StringUtil.isNullOrBlank(taskId)||StringUtil.isNullOrBlank(taskUserName)||StringUtil.isNullOrBlank(taskMobile)){
@@ -750,30 +751,52 @@ public class AppUserController {
 		Double moneyMax = appUser.getMoneyMax();
 		String zhimaScore = appUser.getZhimaScore();
 
-		Double borrow = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
-		Double repay = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
-		Double withdraw = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_WITHDRAW);
-		Double income = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_INCOME);
-		Double repayBalance = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_INCOME,IAppMoneyDetail.REPAY_WAY_BALANCE);
+		//审核通过实际的钱
+		Double borrowActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+		Double repayActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
+		Double withdrawActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_WITHDRAW);
+		Double incomeActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_INCOME);
+		Double repayBalanceActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_INCOME,IAppMoneyDetail.REPAY_WAY_BALANCE);
+		//审核中申请的钱
+		Double borrowAsk = getTotalAskMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+		Double repayAsk = getTotalAskMoney(uId,IAppMoneyDetail.TYPE_REPAY);
+		Double withdrawAsk = getTotalAskMoney(uId,IAppMoneyDetail.TYPE_WITHDRAW);
+		Double repayBalanceAsk = getTotalAskMoney(uId,IAppMoneyDetail.TYPE_INCOME,IAppMoneyDetail.REPAY_WAY_BALANCE);
 
-		Double needRepay = borrow - repay;
-		Double balance = income - withdraw - repayBalance;
+		Double needRepay = borrowActual - repayActual - repayAsk;
+		Double balance = incomeActual - withdrawActual - withdrawAsk - repayBalanceActual - repayBalanceAsk;
 		Double balance2 = appUser.getBalance();
 		System.out.println("renxinhua b1 = "+balance+" b2 = "+balance2);
-		Double borrowLine = moneyMax - needRepay;
+		Double borrowLine = moneyMax - borrowActual - borrowAsk + repayActual;
 
 		Map<String,Object> moneyMap = new HashMap();
-		moneyMap.put("borrowTotal",borrow);
-		moneyMap.put("repayTotal",repay);
-		moneyMap.put("withdrawTotal",withdraw);
-		moneyMap.put("incomeTotal",income);
-		moneyMap.put("repayBalance",repayBalance);
+		moneyMap.put("borrowTotal",borrowActual);
+		moneyMap.put("repayTotal",repayActual);
+		moneyMap.put("withdrawTotal",withdrawActual);
+		moneyMap.put("incomeTotal",incomeActual);
+		moneyMap.put("repayBalance",repayBalanceActual);
 		moneyMap.put("needRepay",needRepay);
 		moneyMap.put("balance",balance);
 		moneyMap.put("moneyMax",moneyMax);
 		moneyMap.put("borrowLine",borrowLine);
 		moneyMap.put("zhimaScore",zhimaScore);
 		return Result.createSuccessResult(moneyMap,"获取app用户钱信息");
+	}
+
+	private Double getTotalAskMoney(Integer uId,Integer type){
+		return getTotalAskMoney(uId,type,null);
+	}
+
+	private Double getTotalAskMoney(Integer uId,Integer type,Integer repayWay){
+		IAppMoneyDetail moneyDetail = new AppMoneyDetailDTO();
+		moneyDetail.setType(type);
+		moneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_WAIT);
+		if (repayWay!=null){
+			moneyDetail.setRepayWay(repayWay);
+		}
+		moneyDetail.setUid(uId);
+		Double totalAskMoney = appMoneyDetailService.findTotalAskMoney(moneyDetail);
+		return totalAskMoney==null?0:totalAskMoney;
 	}
 
 	private Double getTotalActualMoney(Integer uId,Integer type){
@@ -917,6 +940,8 @@ public class AppUserController {
 				Map<String,Object> resultMap = new HashMap<>();
 				resultMap.put("citizenId",frontInfo.getIdcard_ocr_result().getCitizen_id());
 				resultMap.put("name",frontInfo.getIdcard_ocr_result().getName());
+				resultMap.put("idcardTypeFront",frontInfo.getIdcard_ocr_result().getIdcard_type());
+				resultMap.put("idcardTypeBack",backInfo.getIdcard_ocr_result().getIdcard_type());
 				return Result.createSuccessResult(resultMap, "获取身份证识别结果成功");
 			}
 		}else {

@@ -64,7 +64,7 @@
                             <td>
                                 <div class="J_toolsBar fl">
                                     <div class="t_text w200 ml10">
-                                        <input id="valueContent" type="text" name="value" value="${appConstants.value}" />
+                                        <input id="valueContent" type="text" name="value" value="${appConstants.value}" data-rule="required;length[~16]"/>
                                     </div>
                                 </div>
                             </td>
@@ -76,7 +76,8 @@
                             <td>
                                 <div class="J_toolsBar fl">
                                     <div class="t_text w240 ml10">
-                                        <input id="value" onclick="javascript:selectFile('value');" type="text" name="value"  value="${appConstants.value}"/>
+                                        <input id="value" onclick="javascript:selectFile('value');" type="text" name="value"
+                                               value="${appConstants.value}" data-rule="required"/>
                                     </div>
                                 </div>
                             </td>
@@ -127,7 +128,6 @@
             fields : {
                 type : ':required;',
                 key : ':required;',
-                value : ':required;'
             },
             valid : function(form){
                 var laodIdx = layer.load();

@@ -59,10 +59,10 @@ public class AdminFeedbackController {
 			params.setId( Integer.parseInt(id));
 		}
 		if(StringUtils.isNotBlank(createDate)){
-			params.setCreateDate(DateUtils.parseDate(createDate));
+			params.setCreateDate(DateUtils.parseDateTime(createDate));
 		}
 		if(StringUtils.isNotBlank(updateDate)){
-			params.setUpdateDate(DateUtils.parseDate(updateDate));
+			params.setUpdateDate(DateUtils.parseDateTime(updateDate));
 		}
 		if(StringUtils.isNotBlank(content)){
 			params.setContent(content);
@@ -112,8 +112,8 @@ public class AdminFeedbackController {
     		}else{
 				appFeedback = new AppFeedbackDTO();
     		}
-			appFeedback.setCreateDate(DateUtils.parseDate(createDate));
-			appFeedback.setUpdateDate(DateUtils.parseDate(updateDate));
+			appFeedback.setCreateDate(DateUtils.parseDateTime(createDate));
+			appFeedback.setUpdateDate(DateUtils.parseDateTime(updateDate));
 			appFeedback.setContent(content);
 			appFeedback.setUid( Integer.parseInt(uid));
 			appFeedback.setDeleteFlag( Integer.parseInt(deleteFlag));

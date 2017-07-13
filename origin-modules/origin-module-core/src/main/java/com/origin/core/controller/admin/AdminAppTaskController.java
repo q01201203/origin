@@ -77,10 +77,10 @@ public class AdminAppTaskController {
 			params.setId( Integer.parseInt(id));
 		}
 		if(StringUtils.isNotBlank(createDate)){
-			params.setCreateDate(DateUtils.parseDate(createDate));
+			params.setCreateDate(DateUtils.parseDateTime(createDate));
 		}
 		if(StringUtils.isNotBlank(updateDate)){
-			params.setUpdateDate(DateUtils.parseDate(updateDate));
+			params.setUpdateDate(DateUtils.parseDateTime(updateDate));
 		}
 		if(StringUtils.isNotBlank(taskName)){
 			params.setTaskName(taskName);
@@ -101,10 +101,10 @@ public class AdminAppTaskController {
 			params.setTaskHot( Integer.parseInt(taskHot));
 		}
 		if(StringUtils.isNotBlank(taskStartTime)){
-			params.setTaskStartTime(DateUtils.parseDate(taskStartTime));
+			params.setTaskStartTime(DateUtils.parseDateTime(taskStartTime));
 		}
 		if(StringUtils.isNotBlank(taskEndTime)){
-			params.setTaskEndTime(DateUtils.parseDate(taskEndTime));
+			params.setTaskEndTime(DateUtils.parseDateTime(taskEndTime));
 		}
 		if(StringUtils.isNotBlank(taskSimpleStep)){
 			params.setTaskSimpleStep(taskSimpleStep);
@@ -175,8 +175,8 @@ public class AdminAppTaskController {
 			}
 			appTask.setTaskImg(taskImg);
 			appTask.setTaskHot( Integer.parseInt(taskHot));
-			appTask.setTaskStartTime(DateUtils.parseDate(taskStartTime));
-			appTask.setTaskEndTime(DateUtils.parseDate(taskEndTime));
+			appTask.setTaskStartTime(DateUtils.parseDateTime(taskStartTime));
+			appTask.setTaskEndTime(DateUtils.parseDateTime(taskEndTime));
 			appTask.setTaskSimpleStep(taskSimpleStep);
 			appTask.setTaskDetailedStep(taskDetailedStep);
 			appTask.setTaskLink(taskLink);
@@ -202,8 +202,13 @@ public class AdminAppTaskController {
 		AjaxResult ajaxResult = new AjaxResult();
     	ajaxResult.setSuccess(false);
     	try {
-    		String id = request.getParameter("id");
-			appTaskService.delete(Integer.parseInt(id));
+			String id = request.getParameter("id");
+			String deleteFlag = request.getParameter("deleteFlag");
+			IAppTask appTask = new AppTaskDTO();
+			appTask.setId(Integer.parseInt(id));
+			appTask.setDeleteFlag(Integer.parseInt(deleteFlag));
+			appTaskService.update(appTask);
+			//appTaskService.delete(Integer.parseInt(id));
     		ajaxResult.setSuccess(true);
     	} catch (Exception e) {
     		e.printStackTrace();

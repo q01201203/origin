@@ -58,10 +58,10 @@ public class AdminGuideController {
 			params.setId( Integer.parseInt(id));
 		}
 		if(StringUtils.isNotBlank(createDate)){
-			params.setCreateDate(DateUtils.parseDate(createDate));
+			params.setCreateDate(DateUtils.parseDateTime(createDate));
 		}
 		if(StringUtils.isNotBlank(updateDate)){
-			params.setUpdateDate(DateUtils.parseDate(updateDate));
+			params.setUpdateDate(DateUtils.parseDateTime(updateDate));
 		}
 		if(StringUtils.isNotBlank(guideName)){
 			params.setGuideName(guideName);

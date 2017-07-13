@@ -83,6 +83,12 @@
         where 1=1
         <include refid="queryParams"/>
     </select>
+    <select id="findTotalAskMoney" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail" resultType="Double">
+        SELECT SUM(money_ask)
+        FROM ogn_app_money_detail
+        where 1=1
+        <include refid="queryParams"/>
+    </select>
 
     <insert id="save" parameterType="com.origin.data.mybatis.entity.AppMoneyDetail">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
