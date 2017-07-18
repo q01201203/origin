@@ -91,7 +91,7 @@ public class AppUserController {
 
 	@RequestMapping(value = "/register" ,method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "请求芝麻信用授权", httpMethod = "POST", response = Result.class,
+	@ApiOperation(value = "app用户注册", httpMethod = "POST", response = Result.class,
 			notes = "注册传入手机号，密码，JPush的alias，芝麻授权用户名，芝麻授权用户身份证，返回一个H5的url地址")
 	public Object register(@RequestParam(value = "zhimaCertName") String zhimaCertName,
 								   @RequestParam(value = "zhimaCertNo") String zhimaCertNo,
@@ -111,7 +111,7 @@ public class AppUserController {
 		}else {
 			ZhimaUtil zhimaUtil = new ZhimaUtil();
 			String result = zhimaUtil.zhimaAuthInfoAuthorize(zhimaCertName, zhimaCertNo, mobile, pwd, alias);
-			if (!"error".equals(result) && result != null) {
+			if ( result != null && !"error".equals(result)) {
 				return Result.createSuccessResult(result, "成功返回芝麻认证url");
 			} else {
 				return Result.createErrorResult().setMessage("返回芝麻认证url失败");
@@ -150,7 +150,7 @@ public class AppUserController {
 		System.out.println("renxinhua mobile = "+mobile+" pwd = "+pwd+" alias = "+alias+" zhimaCertName = "+zhimaCertName
 				+" zhimaCertNo = "+zhimaCertNo);
 
-		if (!"error".equals(result) && result!=null){
+		if (result!=null && !"error".equals(result)){
 			if ("true".equals(success)){
 				//保存注册信息
 				IAppUser appUser = new AppUserDTO();
@@ -179,7 +179,8 @@ public class AppUserController {
 	//update
 	@RequestMapping(value = "/resetPwd")
 	@ResponseBody
-	@ApiOperation(value = "app用户重置登录密码", httpMethod = "POST", response = Result.class, notes = "重置登录密码")
+	@ApiOperation(value = "app用户重置登录密码", httpMethod = "POST", response = Result.class, notes = "重置登录密码，传入手机号" +
+			"密码")
 	public Object resetPwd(@RequestParam(value = "mobile") String mobile ,
 						   @RequestParam(value = "pwd") String pwd) throws Exception {
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
@@ -187,8 +188,8 @@ public class AppUserController {
 		}
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
-		IAppUser appUser2 = appUserService.findFirst(appUser);
-		appUser.setId(appUser2.getId());
+		appUser = appUserService.findFirst(appUser);
+		appUser.setId(appUser.getId());
 		appUser.setPwd(Md5Util.generatePassword(pwd));
 		appUser.setUpdateDate(new Date());
 		appUserService.update(appUser);
@@ -197,7 +198,8 @@ public class AppUserController {
 
 	@RequestMapping(value = "/addPayPwd" ,method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加或者更新支付密码", httpMethod = "POST", response = Result.class, notes = "添加或者更新支付密码")
+	@ApiOperation(value = "app用户添加或者更新支付密码", httpMethod = "POST", response = Result.class, notes = "添加或者更新支付密码" +
+			"，传入支付密码")
 	public Object addPayPwd(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "payPwd") String payPwd) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -222,7 +224,8 @@ public class AppUserController {
 	@RequestMapping(value = "/updateIdinfoAndFace" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加身份证信息和人脸图片和分类", httpMethod = "GET", response = Result.class, notes = "" +
-			"添加身份证信息和人脸图片和分类，返回一个新token")
+			"添加身份证信息（正面图片地址，背面图片地址，姓名，身份证号）和人脸图片地址和分类（1、学生2、" +
+			"社会人群），返回一个新token")
 	public Object updateIdinfoAndFace(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "idFrontImg") String idFrontImg,
 							@RequestParam(value = "idBackImg") String idBackImg,
@@ -259,7 +262,8 @@ public class AppUserController {
 
 	@RequestMapping(value = "/updatePortrait" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加头像", httpMethod = "GET", response = Result.class, notes = "添加头像")
+	@ApiOperation(value = "app用户添加头像", httpMethod = "GET", response = Result.class, notes = "添加头像" +
+			"，传入头像图片地址")
 	public Object updatePortrait(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "portrait") String portrait) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -281,7 +285,8 @@ public class AppUserController {
 
 	@RequestMapping(value = "/updateNickname" ,method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "app用户添加用户昵称", httpMethod = "POST", response = Result.class, notes = "添加昵称")
+	@ApiOperation(value = "app用户添加用户昵称", httpMethod = "POST", response = Result.class, notes = "添加昵称" +
+			"，传入用户昵称")
 	public Object updateNickname(@RequestHeader(value = "Authorization" ) String token,
 							  @RequestParam(value = "nickname") String nickname) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -306,8 +311,8 @@ public class AppUserController {
 	@RequestMapping(value = "/savePersonInfo" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存个人信息", httpMethod = "GET", response = Result.class,
-			notes = "保存用户详细信息 category(1:学生(infoSchool,infoDepartment,infoClass,infoRoomNumber) " +
-					"2:社会人群(infoCompanyName,infoCompanyAddress,infoQq,infoWeixin,infoHome))")
+			notes = "保存用户详细信息 category(1:学生需传(infoSchool,infoDepartment,infoClass,infoRoomNumber) " +
+					"2:社会人群需传(infoCompanyName,infoCompanyAddress,infoQq,infoWeixin,infoHome))")
 	@ApiImplicitParams({
 			/*@ApiImplicitParam(name = "infoMobile" ,value = "infoMobile",paramType = "query",dataType = "string") ,*/
 			@ApiImplicitParam(name = "infoSchool" ,value = "infoSchool",paramType = "query",dataType = "string"),
@@ -453,12 +458,12 @@ public class AppUserController {
 
 	@RequestMapping(value = "/saveBankInfo" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户保存银行信息", httpMethod = "GET", response = Result.class, notes = "保存用户银行信息")
-	@ApiImplicitParams({@ApiImplicitParam(name = "bankName" ,value = "bankName",paramType = "query"
-			,dataType = "string") ,@ApiImplicitParam(name = "bankNumber" ,value = "bankNumber",paramType = "query"
-			,dataType = "string"),@ApiImplicitParam(name = "bankType" ,value = "bankType",paramType = "query"
-			,dataType = "int"),@ApiImplicitParam(name = "bankMobile" ,value = "bankMobile",paramType = "query"
-			,dataType = "string")})
+	@ApiOperation(value = "app用户保存银行信息", httpMethod = "GET", response = Result.class, notes = "保存用户银行信息" +
+			"，必传银行名字bankName，银行卡号bankNumber，银行卡类型bankType，银行卡预留手机号bankMobile")
+	@ApiImplicitParams({@ApiImplicitParam(name = "bankName" ,value = "bankName",paramType = "query",dataType = "string") ,
+			@ApiImplicitParam(name = "bankNumber" ,value = "bankNumber",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "bankType" ,value = "bankType",paramType = "query",dataType = "int"),
+			@ApiImplicitParam(name = "bankMobile" ,value = "bankMobile",paramType = "query",dataType = "string")})
 	public Object saveBankInfo(@RequestHeader(value = "Authorization" ) String token,
 							   @ApiIgnore AppUserBankDTO appUserBank) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
@@ -533,10 +538,10 @@ public class AppUserController {
 			//借钱不能大于可借额度
 			IAppUser appUser = appUserService.findById(uId);
 			Double moneyMax = appUser.getMoneyMax();
-			Double borrow = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
-			Double repay = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
-			Double needRepay = borrow - repay;
-			Double borrowLine = moneyMax - needRepay;
+			Double borrowActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+			Double borrowAsk = getTotalAskMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+			Double repayActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
+			Double borrowLine = moneyMax - borrowActual - borrowAsk + repayActual;
 			if (Double.parseDouble(askMoney)>borrowLine){
 				return Result.create(ResultCode.SERVICE_ERROR).setMessage("借钱金额大于可借额度");
 			}
@@ -670,7 +675,8 @@ public class AppUserController {
 
 	@RequestMapping(value = "/saveFeedback" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户保存反馈信息", httpMethod = "GET", response = Result.class, notes = "saveFeedback")
+	@ApiOperation(value = "app用户保存反馈信息", httpMethod = "GET", response = Result.class, notes = "保存反馈信息，" +
+			"传入内容content")
 	public Object saveFeedback(@RequestHeader(value = "Authorization" ) String token,
 							   @RequestParam(value = "content") String content) throws Exception {
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token), Constants.AHORITY_MEDIUM);
@@ -693,7 +699,7 @@ public class AppUserController {
 
 	@RequestMapping(value = "/getUserBank" ,method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "获取app用户银行信息", httpMethod = "GET", response = Result.class, notes = "getUserBank")
+	@ApiOperation(value = "获取app用户银行信息", httpMethod = "GET", response = Result.class, notes = "获取用户银行卡信息")
 	public Object getUserBank(@RequestHeader(value = "Authorization" ) String token) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){

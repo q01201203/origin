@@ -88,6 +88,7 @@
         <if test="uid != null">AND ogn_app_user_task.uid=#{uid}</if>
         <if test="tid != null">AND ogn_app_user_task.tid=#{tid}</if>
         <if test="appMoneyDetail != null">AND m.status=#{appMoneyDetail.status}</if>
+        ORDER BY m.update_date DESC
     </select>
 
     <resultMap type="com.origin.data.mybatis.entity.AppUserTask" id="appUserTaskInfoMap">

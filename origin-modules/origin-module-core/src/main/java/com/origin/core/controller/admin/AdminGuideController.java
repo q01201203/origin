@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -27,6 +28,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/admin/appGuide")
+@ApiIgnore
 public class AdminGuideController {
 
 	Logger log = LoggerFactory.getLogger(AdminGuideController.class);

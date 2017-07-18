@@ -67,7 +67,7 @@
     <select id="find" parameterType="com.origin.data.mybatis.entity.AppTask" resultType="com.origin.data.mybatis.entity.AppTask">
         <include refid="selectPart"/>
         <include refid="queryParams"/>
-        ORDER BY create_date DESC
+        ORDER BY update_date DESC
     </select>
     <select id="findByName" parameterType="com.origin.data.mybatis.entity.AppTask" resultType="com.origin.data.mybatis.entity.AppTask">
         <include refid="selectPart"/>

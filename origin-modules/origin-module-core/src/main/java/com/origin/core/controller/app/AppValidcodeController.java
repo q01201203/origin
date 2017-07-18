@@ -40,7 +40,7 @@ public class AppValidcodeController {
 	@RequestMapping(value = "/send" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户发送验证码", httpMethod = "GET", response = Result.class,
-			notes = "type(1:注册 2:重置密码 3:借钱) ")
+			notes = "必填参数mobile，type(1:注册 2:重置密码 3:借钱) ")
 	public Object send(@RequestParam(value = "mobile") String mobile ,
 					   @RequestParam(value = "type") String type) throws Exception{
 		if (StringUtil.isNullOrBlank(mobile) || StringUtil.isNullOrBlank(type)){
@@ -97,7 +97,8 @@ public class AppValidcodeController {
 
 	@RequestMapping(value = "/validate",method = RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value = "app用户验证验证码", httpMethod = "GET", response = Result.class, notes = "validate")
+	@ApiOperation(value = "app用户验证验证码", httpMethod = "GET", response = Result.class, notes = "必填参数" +
+			"mobile,type(1:注册 2:重置密码 3:借钱),validcode")
 	public Object validate(@RequestParam(value = "mobile") String mobile ,
 						   @RequestParam(value = "type") String type ,
 						   @RequestParam(value = "validcode") String validcode) throws Exception{

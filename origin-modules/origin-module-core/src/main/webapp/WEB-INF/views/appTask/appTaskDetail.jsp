@@ -306,7 +306,8 @@
 		$(function(){
 			$('#myForm').validator({
                 rules: {
-                    number: [/^[1-9]\d*$/,'请输入大于0的正整数']
+                    number: [/^[1-9]\d*$/,'请输入大于0的正整数'],
+					website:[/^https?:\/\/.+$/,'请以http或者https开头']
                 },
 				fields : {
                     taskName : ':required;length[~6]',
@@ -319,7 +320,7 @@
                     taskEndTime : ':required;',
                     taskSimpleStep : ':required;length[~80]',
                     taskDetailedStep : ':required;',
-                    taskLink : ':required;'
+                    taskLink : ':required;website'
 				},
 				valid : function(form){
 					var loadIdx = layer.load();
