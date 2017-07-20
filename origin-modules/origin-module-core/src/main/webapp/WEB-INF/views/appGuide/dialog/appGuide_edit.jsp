@@ -33,7 +33,7 @@
                         <td>
                             <div class="J_toolsBar fl">
                                 <div class="t_text w200 ml10">
-                                    <input type="text" name="guideContent" value="${appGuide.guideContent }" maxlength="140"/>
+                                    <input type="text" name="guideContent" value="${appGuide.guideContent }" maxlength="120"/>
                                 </div>
                             </div>
                         </td>

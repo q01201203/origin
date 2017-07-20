@@ -308,9 +308,9 @@ public class AppUserController {
 	}
 
 	//other operation
-	@RequestMapping(value = "/savePersonInfo" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/savePersonInfo" ,method = RequestMethod.POST)
 	@ResponseBody
-	@ApiOperation(value = "app用户保存个人信息", httpMethod = "GET", response = Result.class,
+	@ApiOperation(value = "app用户保存个人信息", httpMethod = "POST", response = Result.class,
 			notes = "保存用户详细信息 category(1:学生需传(infoSchool,infoDepartment,infoClass,infoRoomNumber) " +
 					"2:社会人群需传(infoCompanyName,infoCompanyAddress,infoQq,infoWeixin,infoHome))")
 	@ApiImplicitParams({
@@ -507,7 +507,7 @@ public class AppUserController {
 	@ResponseBody
 	@ApiOperation(value = "app用户提交钱信息(借钱、还钱、提现、收入(完成任务))", httpMethod = "GET", response = Result.class,
 			notes = "提交钱信息 借钱(askMoney、type=1、repayTimeType(1:7天 2:15天)) 还钱(askMoney、type=2、" +
-					"repayWay(1:支付宝 2:银行卡))  提现(askMoney、type=3)  收入(type=4、taskId（任务ID）、" +
+					"repayWay(1:支付宝 2:银行卡)、pid借钱的id、delayMoney滞纳金)  提现(askMoney、type=3)  收入(type=4、taskId（任务ID）、" +
 					"taskUserName(完成任务的用户名)、taskMobile(完成任务的手机号)))")
 	public Object submitMoney(@RequestHeader(value = "Authorization" ) String token,
 							  @RequestParam(value = "askMoney",required = false) String askMoney,
@@ -516,7 +516,9 @@ public class AppUserController {
 							  @RequestParam(value = "repayWay",required = false) String repayWay,
 							  @RequestParam(value = "taskId",required = false) String taskId,
 							  @RequestParam(value = "taskUserName",required = false) String taskUserName,
-							  @RequestParam(value = "taskMobile",required = false) String taskMobile) throws Exception{
+							  @RequestParam(value = "taskMobile",required = false) String taskMobile,
+							  @RequestParam(value = "pid",required = false) String pid,
+							  @RequestParam(value = "delayMoney",required = false) String delayMoney) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
@@ -548,6 +550,7 @@ public class AppUserController {
 
 			appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
 			appMoneyDetail.setRepayTimeType(Integer.parseInt(repayTimeType));
+			appMoneyDetail.setRepayStatus(IAppMoneyDetail.REPAY_STATUS_NO);
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
 			appMoneyDetailService.save(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("借款申请成功");
@@ -568,6 +571,8 @@ public class AppUserController {
 			appMoneyDetail.setRepayWay(Integer.parseInt(repayWay));
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
 			appMoneyDetail.setRepayTime(new Date());
+			appMoneyDetail.setPid(Integer.parseInt(pid));
+			appMoneyDetail.setDelayMoney(Double.parseDouble(delayMoney));
 			appMoneyDetailService.saveRepay(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("还款申请成功");
 		}else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){
@@ -600,10 +605,11 @@ public class AppUserController {
 	@ResponseBody
 	@ApiOperation(value = "app用户获取钱信息", httpMethod = "GET", response = Result.class,
 			notes = "获取钱信息 钱使用money_actual字段 必传type(1:借钱 2:还钱 3:提现 4:收入) 可选status(1:待审核" +
-					"2:审核通过 3:审核未通过) currentPage当前页（不填默认第一页），pageSize每页条数（不填默认为10）")
+					"2:审核通过 3:审核未通过) 借钱可选repayStatus(1、已还0、未还) currentPage当前页（不填默认第一页），pageSize每页条数（不填默认为10）")
 	public Object getMoney(@RequestHeader(value = "Authorization" ) String token,
 						   @RequestParam(value = "type") String type,
 						   @RequestParam(value = "status" ,required = false) String status,
+						   @RequestParam(value = "repayStatus",required = false) String repayStatus,
 						   @RequestParam(value = "currentPage" ,required = false) String currentPageStr,
 						   @RequestParam(value = "pageSize" ,required = false) String pageSizeStr) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
@@ -633,6 +639,9 @@ public class AppUserController {
 
 		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
 			appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
+			if (!StringUtil.isNullOrBlank(repayStatus)){
+				appMoneyDetail.setRepayStatus(Integer.parseInt(repayStatus));
+			}
 			PageHelper.startPage(currentPage, pageSize);
 			List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
 			PageInfo<IAppMoneyDetail> page = new PageInfo(appMoneyDetails);

@@ -296,7 +296,7 @@ public class AdminAppUserController {
     //add lic 170526 钱记录
 	@RequestMapping(value = "/money/list")
 	public String getMoney(HttpServletRequest request,Model model) throws Exception{
-
+		String id = request.getParameter("id");
 		String uid = request.getParameter("uid");
 		String type = request.getParameter("type");
 		String status = request.getParameter("status");
@@ -319,6 +319,9 @@ public class AdminAppUserController {
 		}
 		if(StringUtils.isNotBlank(status)){
 			params.setStatus( Integer.parseInt(status));
+		}
+		if(StringUtils.isNotBlank(id)){
+			params.setId( Integer.parseInt(id));
 		}
 
 		PageHelper.startPage(currentPage, pageSize);

@@ -7,10 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/origin-data/origin-data.iml" filepath="$PROJECT_DIR$/origin-data/origin-data.iml" />
       <module fileurl="file://$PROJECT_DIR$/origin-data-api/origin-data-api.iml" filepath="$PROJECT_DIR$/origin-data-api/origin-data-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/origin-modules/origin-module-core/origin-module-core.iml" filepath="$PROJECT_DIR$/origin-modules/origin-module-core/origin-module-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/origin-modules/origin-modules.iml" filepath="$PROJECT_DIR$/origin-modules/origin-modules.iml" />
       <module fileurl="file://$PROJECT_DIR$/origin-data/origin-mybatis/origin-mybatis.iml" filepath="$PROJECT_DIR$/origin-data/origin-mybatis/origin-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/origin-tool/origin-tool.iml" filepath="$PROJECT_DIR$/origin-tool/origin-tool.iml" />
       <module fileurl="file://$PROJECT_DIR$/origin-tool/origin-tool-mybatis/origin-tool-mybatis.iml" filepath="$PROJECT_DIR$/origin-tool/origin-tool-mybatis/origin-tool-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/origin-modules/renxinhuaAPI/renxinhuaAPI.iml" filepath="$PROJECT_DIR$/origin-modules/renxinhuaAPI/renxinhuaAPI.iml" />
     </modules>
   </component>
 </project>

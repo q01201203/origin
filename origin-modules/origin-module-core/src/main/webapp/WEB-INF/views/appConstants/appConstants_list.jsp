@@ -51,6 +51,9 @@
                                 <span>字段</span>
                             </td>
                             <td>
+                                <span>说明</span>
+                            </td>
+                            <td>
                                 <span>内容</span>
                             </td>
                             <td>
@@ -94,6 +97,33 @@
                                         <td>
                                             <div class="t_text tc">
                                                 ${r.key  }
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t_text tc">
+                                                <c:choose>
+                                                    <c:when test="${r.key eq 'version' }">
+                                                        版本号
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'banner' }">
+                                                        轮播图
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'headTip' }">
+                                                        顶部展示图
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'logo' }">
+                                                        logo
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'radio' }">
+                                                        广播
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'interestRate' }">
+                                                        利率
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'overdueInterestRate' }">
+                                                        逾期利率
+                                                    </c:when>
+                                                </c:choose>
                                             </div>
                                         </td>
                                         <td>

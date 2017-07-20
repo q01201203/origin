@@ -33,6 +33,14 @@ public interface IAppMoneyDetail extends Serializable {
 
 	public final static Integer REPAY_WAY_BALANCE = 3; //余额
 
+	public final static Integer REPAY_TIME_TYPE_7 = 1; //7天期限
+
+	public final static Integer REPAY_TIME_TYPE_15 = 2; //15天期限
+
+	public final static Integer REPAY_STATUS_YES = 1; //已还
+
+	public final static Integer REPAY_STATUS_NO = 0; //未还
+
 	Integer getId();
 
 	void setId(Integer id);
@@ -84,6 +92,26 @@ public interface IAppMoneyDetail extends Serializable {
 	String getTaskMobile();
 
 	void setTaskMobile(String taskMobile);
+
+	Integer getPid();
+
+	void setPid(Integer pid);
+
+	Double getDelayMoney();
+
+	void setDelayMoney(Double delayMoney);
+
+	Date getRepayDeadline();
+
+	void setRepayDeadline(Date repayDeadline);
+
+	Integer getRepayStatus();
+
+	void setRepayStatus(Integer repayStatus);
+
+	String getScheduleId();
+
+	void setScheduleId(String scheduleId);
 
 	String getExtensionOne();
 

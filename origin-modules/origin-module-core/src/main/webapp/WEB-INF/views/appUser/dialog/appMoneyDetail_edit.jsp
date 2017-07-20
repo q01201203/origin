@@ -55,7 +55,11 @@
         }else if(type == 4){
             message += "任务";
         }
-        message += ${appMoneyDetail.moneyAsk} + "元";
+        if (type == 2){
+            message += ${appMoneyDetail.moneyAsk + appMoneyDetail.delayMoney} + "元";
+        } else{
+            message += ${appMoneyDetail.moneyAsk} + "元";
+        }
         var messagef;
         if (${borrowLine <= 0 && appMoneyDetail.type == 1}){
             messagef = message + "未能通过审核,你已经没有借款额度了";
@@ -65,7 +69,9 @@
                 var interest = numSub(moneyActualSelector.val(),principal);
                 messagef = message + "实际到账"+ principal + "元，手续费和利息为" + interest +"已成功通过审核";
                 $('div[name="tips"]').text("打款金额为"+principal+"元");
-            }else{
+            } else if (type == 2){
+                messagef = message + "已成功通过审核";
+            } else{
                 messagef = message + "实际到账"+ moneyActualSelector.val() +"元" +"已成功通过审核";
             }
         }
@@ -78,6 +84,8 @@
                 var interest = numSub(moneyActualSelector.val(),principal);
                 messagef = message + "实际到账"+ principal + "元，手续费和利息为" + interest +"已成功通过审核";
                 $('div[name="tips"]').text("打款金额为"+principal+"元");
+            }else if (type == 2){
+                messagef = message + "已成功通过审核";
             }else{
                 messagef = message + "实际到账"+ moneyActualSelector.val() +"元" +"已成功通过审核";
             }
@@ -93,6 +101,8 @@
                     var interest = numSub(moneyActualSelector.val(),principal);
                     messagef = message + "实际到账"+ principal + "元，手续费和利息为" + interest +"已成功通过审核";
                     $('div[name="tips"]').text("打款金额为"+principal+"元");
+                }else if (type == 2){
+                    messagef = message + "已成功通过审核";
                 }else{
                     messagef = message + "实际到账"+ moneyActualSelector.val() +"元" +"已成功通过审核";
                 }
@@ -201,39 +211,64 @@
                         <c:when test="${borrowLine <= 0 && appMoneyDetail.type == 1}">
                         </c:when>
                         <c:otherwise>
-                            <tr id="parentMenuSelect">
-                                <td class="l_title w200">
-                                    <c:choose>
-                                        <c:when test="${appMoneyDetail.type == 1}">
-                                            用户需还金额
-                                        </c:when>
-                                        <c:otherwise>
-                                            实际金额
-                                        </c:otherwise>
-                                    </c:choose>
-                                </td>
-                                <td>
-                                    <div class="J_toolsBar fl">
-                                        <div class="t_text w200 ml10">
-                                            <input type="text" name="moneyActual" value="${appMoneyDetail.moneyActual }" maxlength="20"/>
+                            <tbody id="parentMenuSelect">
+                                <tr>
+                                    <td class="l_title w200">
+                                        <c:choose>
+                                            <c:when test="${appMoneyDetail.type == 1}">
+                                                用户需还金额
+                                            </c:when>
+                                            <c:when test="${appMoneyDetail.type == 2}">
+                                                本息
+                                            </c:when>
+                                            <c:otherwise>
+                                                实际金额
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                    <td>
+                                        <div class="J_toolsBar fl">
+                                            <div class="t_text w200 ml10">
+                                                <c:choose>
+                                                    <c:when test="${appMoneyDetail.type == 2}">
+                                                        ${appMoneyDetail.moneyAsk }
+                                                        <input type="hidden" name="moneyActual" value="${appMoneyDetail.moneyAsk }" maxlength="20"/>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <input type="text" name="moneyActual" value="${appMoneyDetail.moneyActual }" maxlength="20"/>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                                <c:choose>
+                                    <c:when test="${appMoneyDetail.type == 1}">
+                                        <tr >
+                                            <td class="l_title w200"> 提示</td>
+                                            <td>
+                                                <div class="J_toolsBar fl">
+                                                    <div name="tips" class="t_text w200 ml10">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:when>
+                                    <c:when test="${appMoneyDetail.type == 2}">
+                                        <tr >
+                                            <td class="l_title w200"> 逾期滞纳金</td>
+                                            <td>
+                                                <div class="J_toolsBar fl">
+                                                    <div class="t_text w200 ml10">
+                                                            ${appMoneyDetail.delayMoney }
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:when>
+                                </c:choose>
+                            </tbody>
                         </c:otherwise>
-                    </c:choose>
-                    <c:choose>
-                        <c:when test="${appMoneyDetail.type == 1}">
-                            <tr >
-                                <td class="l_title w200"> 提示</td>
-                                <td>
-                                    <div class="J_toolsBar fl">
-                                        <div name="tips" class="t_text w200 ml10">
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </c:when>
                     </c:choose>
                     <tr >
                         <td class="l_title w200"> 消息</td>

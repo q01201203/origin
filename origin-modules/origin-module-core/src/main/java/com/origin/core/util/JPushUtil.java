@@ -9,6 +9,7 @@ import cn.jpush.api.push.model.Platform;
 import cn.jpush.api.push.model.PushPayload;
 import cn.jpush.api.push.model.audience.Audience;
 import cn.jpush.api.push.model.notification.Notification;
+import cn.jpush.api.schedule.ScheduleResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -79,5 +80,56 @@ public class JPushUtil {
                 .setAudience(Audience.alias(alias))
                 .setMessage(Message.content(content))
                 .build();
+    }
+
+    public static String createSingleSchedule(String name,String time,String alias,String content) {
+        JPushClient jpushClient = new JPushClient(MASTER_SECRET, APP_KEY);
+        //String name = "test_schedule_example";
+        //String time = "2017-07-18 09:46:00";
+        //PushPayload push = PushPayload.alertAll("test schedule example.");
+        PushPayload push = buildPushObject_all_alias_alert(alias,content);
+        try {
+            ScheduleResult result = jpushClient.createSingleSchedule(name, time, push);
+            LOG.info("schedule result is " + result);
+            return result.getSchedule_id();
+        } catch (APIConnectionException e) {
+            LOG.error("Connection error. Should retry later. ", e);
+        } catch (APIRequestException e) {
+            LOG.error("Error response from JPush server. Should review and fix it. ", e);
+            LOG.info("HTTP Status: " + e.getStatus());
+            LOG.info("Error Code: " + e.getErrorCode());
+            LOG.info("Error Message: " + e.getErrorMessage());
+        }
+        return "error";
+    }
+
+    public static void deleteSchedule(String scheduleId) {
+        JPushClient jpushClient = new JPushClient(MASTER_SECRET, APP_KEY);
+
+        try {
+            jpushClient.deleteSchedule(scheduleId);
+        } catch (APIConnectionException e) {
+            LOG.error("Connection error. Should retry later. ", e);
+        } catch (APIRequestException e) {
+            LOG.error("Error response from JPush server. Should review and fix it. ", e);
+            LOG.info("HTTP Status: " + e.getStatus());
+            LOG.info("Error Code: " + e.getErrorCode());
+            LOG.info("Error Message: " + e.getErrorMessage());
+        }
+    }
+
+    public void updateSchedule(String scheduleId,String alias,String content) {
+        JPushClient jpushClient = new JPushClient(MASTER_SECRET, APP_KEY);
+        PushPayload payload = buildPushObject_all_alias_alert(alias,content);
+        try {
+            jpushClient.updateSchedulePush(scheduleId, payload);
+        } catch (APIConnectionException e) {
+            LOG.error("Connection error. Should retry later. ", e);
+        } catch (APIRequestException e) {
+            LOG.error("Error response from JPush server. Should review and fix it. ", e);
+            LOG.info("HTTP Status: " + e.getStatus());
+            LOG.info("Error Code: " + e.getErrorCode());
+            LOG.info("Error Message: " + e.getErrorMessage());
+        }
     }
 }

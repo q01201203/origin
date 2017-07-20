@@ -14,6 +14,8 @@ import com.origin.data.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -142,6 +144,7 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
 
         //任务数量减一
         appTask.setTaskNumber(taskNumber-1);
+        appTask.setUpdateDate(new Date());
         appTaskDao.update(appTask);
 
         //增加收入记录
@@ -177,26 +180,26 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         Double moneyAsk = appMoneyDetail.getMoneyAsk();
         Integer moneyType = appMoneyDetail.getType();
         Integer uid = appMoneyDetail.getUid();
-        appMoneyDetailDao.update(appMoneyDetail);
+        update(appMoneyDetail);
         //审核通过修改用户余额
         if (IAppMoneyDetail.STATUS_AUDIT_SUCCESS.equals(status)){
             appMoneyDetail = appMoneyDetailDao.findByPK(mid);
-            if (IAppMoneyDetail.TYPE_REPAY.equals(appMoneyDetail.getType())){
+            if (IAppMoneyDetail.TYPE_REPAY.equals(moneyType)){
                 if (IAppMoneyDetail.REPAY_WAY_BALANCE.equals(appMoneyDetail.getRepayWay())){
                     updateUserBalance(uid,moneyAsk - moneyActual,true);
                 }
-            }else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(appMoneyDetail.getType())){
+            }else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(moneyType)){
                 updateUserBalance(uid,moneyAsk - moneyActual,true);
-            }else if (IAppMoneyDetail.TYPE_INCOME.equals(appMoneyDetail.getType())){
+            }else if (IAppMoneyDetail.TYPE_INCOME.equals(moneyType)){
                 updateUserBalance(uid,moneyActual,true);
             }
         }else if (IAppMoneyDetail.STATUS_AUDIT_FAIL.equals(status)){
             appMoneyDetail = appMoneyDetailDao.findByPK(mid);
-            if (IAppMoneyDetail.TYPE_REPAY.equals(appMoneyDetail.getType())){
+            if (IAppMoneyDetail.TYPE_REPAY.equals(moneyType)){
                 if (IAppMoneyDetail.REPAY_WAY_BALANCE.equals(appMoneyDetail.getRepayWay())){
                     updateUserBalance(uid,moneyAsk,true);
                 }
-            }else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(appMoneyDetail.getType())){
+            }else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(moneyType)){
                 updateUserBalance(uid,moneyAsk,true);
             }
         }
@@ -219,6 +222,54 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         if (!StringUtil.isNullOrBlank(userAlias)){
             JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_alert_message(userAlias, messageContent,appMessage.getId()));
         }
+
+        //如果是借钱成功则发送定时推送，如果还钱成功则取消
+        if (IAppMoneyDetail.STATUS_AUDIT_SUCCESS.equals(status)){
+            if (IAppMoneyDetail.TYPE_BORROW.equals(moneyType)){
+                appMoneyDetail = appMoneyDetailDao.findByPK(mid);
+                Integer repayTimeType = appMoneyDetail.getRepayTimeType();
+                Date auditTime = appMoneyDetail.getUpdateDate();
+                int repayDay = 0;
+                int advanceDay = 3; //提前推送的天数
+                if (IAppMoneyDetail.REPAY_TIME_TYPE_7.equals(repayTimeType)){
+                    repayDay = 7 ;
+                }else if (IAppMoneyDetail.REPAY_TIME_TYPE_15.equals(repayTimeType)){
+                    repayDay = 15 ;
+                }
+                Date repayDayTime = dateIncre(auditTime,repayDay -advanceDay); //还款提醒日期
+                Date repayDeadline = dateIncre(auditTime,repayDay);//还款截止日期
+                System.out.println("renxinhua repayDayTime = "+repayDayTime +" repayDeadline = "+ repayDeadline);
+                appMoneyDetail.setRepayDeadline(repayDeadline);
+
+                if (!StringUtil.isNullOrBlank(userAlias)){
+                    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    String scheduleId = JPushUtil.createSingleSchedule("borrow",sdf.format(repayDayTime),userAlias,"您还有借款未还清，请及时还清");
+                    appMoneyDetail.setScheduleId(scheduleId);
+                }
+                update(appMoneyDetail);
+            }else if (IAppMoneyDetail.TYPE_REPAY.equals(moneyType)){
+                appMoneyDetail = appMoneyDetailDao.findByPK(mid);
+                Integer pid = appMoneyDetail.getPid();
+                if (pid != null){
+                    appMoneyDetail = appMoneyDetailDao.findByPK(pid);
+                    String scheduleId = appMoneyDetail.getScheduleId();
+                    if (!StringUtil.isNullOrBlank(scheduleId)){
+                        JPushUtil.deleteSchedule(scheduleId);
+                    }
+                    //更新借款记录的还款状态
+                    appMoneyDetail.setRepayStatus(IAppMoneyDetail.REPAY_STATUS_YES);
+                    update(appMoneyDetail);
+                }
+            }
+        }
+    }
+
+    private Date dateIncre(Date date,int day){
+        Calendar ca=Calendar.getInstance();
+        ca.setTime(date);
+        ca.add(Calendar.DAY_OF_YEAR, day);
+        System.out.println("renxinhua date = "+date);
+        return ca.getTime();
     }
 
     //flag true:增加 false:减少
@@ -231,6 +282,7 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
             balance = balance - money;
         }
         appUser.setBalance(balance);
+        appUser.setUpdateDate(new Date());
         appUserDao.update(appUser);
     }
 

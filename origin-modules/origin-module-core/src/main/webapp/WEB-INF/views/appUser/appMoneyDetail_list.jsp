@@ -74,6 +74,12 @@
                                 <td>
                                     <span>还款期限</span>
                                 </td>
+                                <td>
+                                    <span>截止日期</span>
+                                </td>
+                                <td>
+                                    <span>还款状态</span>
+                                </td>
                             </c:if>
                             <c:if test="${queryDTO.type eq 2}">
                                 <td>
@@ -81,6 +87,12 @@
                                 </td>
                                 <td>
                                     <span>还款时间</span>
+                                </td>
+                                <td>
+                                    <span>逾期滞纳金</span>
+                                </td>
+                                <td>
+                                    <span>对应借款记录</span>
                                 </td>
                             </c:if>
                             <c:if test="${queryDTO.type eq 4}">
@@ -160,6 +172,19 @@
                                                     </c:choose>
                                                 </div>
                                             </td>
+                                            <td>
+                                                <div class="t_text tc">
+                                                        <fmt:formatDate value="${r.repayDeadline}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="t_text tc">
+                                                    <c:choose>
+                                                        <c:when test="${r.repayStatus eq 1 }">已还款</c:when>
+                                                        <c:when test="${r.repayStatus eq 0 }">未还款</c:when>
+                                                    </c:choose>
+                                                </div>
+                                            </td>
                                         </c:if>
                                         <c:if test="${queryDTO.type eq 2}">
                                             <td>
@@ -174,6 +199,16 @@
                                             <td>
                                                 <div class="t_text tc">
                                                     <fmt:formatDate value="${r.repayTime  }" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="t_text tc">
+                                                        ${r.delayMoney}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="t_link">
+                                                    <a href="${ctx}/admin/appUser/money/list?type=1&id=${r.pid}"><i class="icon"></i>查看</a>
                                                 </div>
                                             </td>
                                         </c:if>

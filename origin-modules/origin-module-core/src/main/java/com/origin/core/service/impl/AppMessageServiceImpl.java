@@ -90,6 +90,9 @@ public class AppMessageServiceImpl  implements AppMessageService {
     }
 
     public void updateBatch(List<IAppMessage> appMessages){
+        for (IAppMessage appMessage:appMessages) {
+            appMessage.setUpdateDate(new Date());
+        }
         appMessageDao.updateBatch(appMessages);
     }
 

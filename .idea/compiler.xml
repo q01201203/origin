@@ -11,6 +11,8 @@
         <module name="origin-module-core" />
         <module name="origin-mybatis" />
         <module name="origin-tool-mybatis" />
+        <module name="renxinhuaAdmin" />
+        <module name="renxinhuaAPI" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,10 +21,13 @@
       <module name="origin-data" target="1.8" />
       <module name="origin-data-api" target="1.8" />
       <module name="origin-module-core" target="1.8" />
+      <module name="origin-module-core (1)" target="1.8" />
       <module name="origin-modules" target="1.8" />
       <module name="origin-mybatis" target="1.8" />
       <module name="origin-tool" target="1.8" />
       <module name="origin-tool-mybatis" target="1.8" />
+      <module name="renxinhuaAdmin" target="1.8" />
+      <module name="renxinhuaAPI" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

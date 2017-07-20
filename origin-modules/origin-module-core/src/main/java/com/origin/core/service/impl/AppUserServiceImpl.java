@@ -76,6 +76,7 @@ public class AppUserServiceImpl  implements AppUserService {
                 if (Boolean.parseBoolean(resultCreditScore[0])){
                     zhimaDTO.setScore(resultCreditScore[3]);
                     appUser.setZhimaScore(resultCreditScore[3]);
+                    appUser.setUpdateDate(new Date());
                     appUserDao.update(appUser);
                 }else{
                     zhimaDTO.setErrorMessage(resultCreditScore[1]);

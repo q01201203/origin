@@ -16,6 +16,11 @@
         		    task_name,
         		    task_username,
         		    task_mobile,
+        		    pid,
+        		    delayMoney,
+        		    repayDeadline,
+        		    repayStatus,
+        		    scheduleId,
         		    extension_one,
         		    extension_two,
         		    uid,
@@ -37,6 +42,11 @@
 			<if test="taskName != null">AND task_name=#{taskName}</if>
 			<if test="taskUsername != null">AND task_username=#{taskUsername}</if>
 			<if test="taskMobile != null">AND task_mobile=#{taskMobile}</if>
+			<if test="pid != null">AND pid=#{pid}</if>
+			<if test="delayMoney != null">AND delayMoney=#{delayMoney}</if>
+			<if test="repayDeadline != null">AND repayDeadline=#{repayDeadline}</if>
+			<if test="repayStatus != null">AND repayStatus=#{repayStatus}</if>
+			<if test="scheduleId != null">AND scheduleId=#{scheduleId}</if>
 			<if test="extensionOne != null">AND extension_one=#{extensionOne}</if>
 			<if test="extensionTwo != null">AND extension_two=#{extensionTwo}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
@@ -56,6 +66,11 @@
     	<result property="taskName" column="task_name"/>
     	<result property="taskUsername" column="task_username"/>
     	<result property="taskMobile" column="task_mobile"/>
+    	<result property="pid" column="pid"/>
+    	<result property="delayMoney" column="delayMoney"/>
+    	<result property="repayDeadline" column="repayDeadline"/>
+    	<result property="repayStatus" column="repayStatus"/>
+    	<result property="scheduleId" column="scheduleId"/>
     	<result property="extensionOne" column="extension_one"/>
     	<result property="extensionTwo" column="extension_two"/>
     	<result property="uid" column="uid"/>
@@ -108,6 +123,11 @@
                         <if test="taskName != null">`task_name`,</if>
                         <if test="taskUsername != null">`task_username`,</if>
                         <if test="taskMobile != null">`task_mobile`,</if>
+                        <if test="pid != null">`pid`,</if>
+                        <if test="delayMoney != null">`delayMoney`,</if>
+                        <if test="repayDeadline != null">`repayDeadline`,</if>
+                        <if test="repayStatus != null">`repayStatus`,</if>
+                        <if test="scheduleId != null">`scheduleId`,</if>
                         <if test="extensionOne != null">`extension_one`,</if>
                         <if test="extensionTwo != null">`extension_two`,</if>
                         <if test="uid != null">`uid`,</if>
@@ -128,6 +148,11 @@
                         <if test="taskName != null">#{taskName},</if>
                         <if test="taskUsername != null">#{taskUsername},</if>
                         <if test="taskMobile != null">#{taskMobile},</if>
+                        <if test="pid != null">#{pid},</if>
+                        <if test="delayMoney != null">#{delayMoney},</if>
+                        <if test="repayDeadline != null">#{repayDeadline},</if>
+                        <if test="repayStatus != null">#{repayStatus},</if>
+                        <if test="scheduleId != null">#{scheduleId},</if>
                         <if test="extensionOne != null">#{extensionOne},</if>
                         <if test="extensionTwo != null">#{extensionTwo},</if>
                         <if test="uid != null">#{uid},</if>
@@ -150,6 +175,11 @@
                 <if test="taskName != null">,task_name=#{taskName}</if>
                 <if test="taskUsername != null">,task_username=#{taskUsername}</if>
                 <if test="taskMobile != null">,task_mobile=#{taskMobile}</if>
+                <if test="pid != null">,pid=#{pid}</if>
+                <if test="delayMoney != null">,delayMoney=#{delayMoney}</if>
+                <if test="repayDeadline != null">,repayDeadline=#{repayDeadline}</if>
+                <if test="repayStatus != null">,repayStatus=#{repayStatus}</if>
+                <if test="scheduleId != null">,scheduleId=#{scheduleId}</if>
                 <if test="extensionOne != null">,extension_one=#{extensionOne}</if>
                 <if test="extensionTwo != null">,extension_two=#{extensionTwo}</if>
                 <if test="uid != null">,uid=#{uid}</if>
@@ -172,6 +202,11 @@
                     <if test="item.taskName != null">,task_name=#{item.taskName}</if>
                     <if test="item.taskUsername != null">,task_username=#{item.taskUsername}</if>
                     <if test="item.taskMobile != null">,task_mobile=#{item.taskMobile}</if>
+                    <if test="item.pid != null">,pid=#{item.pid}</if>
+                    <if test="item.delayMoney != null">,delayMoney=#{item.delayMoney}</if>
+                    <if test="item.repayDeadline != null">,repayDeadline=#{item.repayDeadline}</if>
+                    <if test="item.repayStatus != null">,repayStatus=#{item.repayStatus}</if>
+                    <if test="item.scheduleId != null">,scheduleId=#{item.scheduleId}</if>
                     <if test="item.extensionOne != null">,extension_one=#{item.extensionOne}</if>
                     <if test="item.extensionTwo != null">,extension_two=#{item.extensionTwo}</if>
                     <if test="item.uid != null">,uid=#{item.uid}</if>

@@ -39,6 +39,16 @@ public class AppMoneyDetailDTO implements IAppMoneyDetail {
     /**  */
 	private String taskMobile;//;
     /**  */
+	private Integer pid;//;
+    /**  */
+	private Double delayMoney;//;
+    /**  */
+	private Date repayDeadline;//;
+    /**  */
+	private Integer repayStatus;//;
+    /**  */
+	private String scheduleId;//;
+    /**  */
 	private String extensionOne;//;
     /**  */
 	private String extensionTwo;//;
@@ -174,6 +184,46 @@ public class AppMoneyDetailDTO implements IAppMoneyDetail {
 		this.taskMobile = taskMobile;
 	}
 
+	public Integer getPid() {
+		return this.pid;
+	}
+
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
+
+	public Double getDelayMoney() {
+		return this.delayMoney;
+	}
+
+	public void setDelayMoney(Double delayMoney) {
+		this.delayMoney = delayMoney;
+	}
+
+	public Date getRepayDeadline() {
+		return this.repayDeadline;
+	}
+
+	public void setRepayDeadline(Date repayDeadline) {
+		this.repayDeadline = repayDeadline;
+	}
+
+	public Integer getRepayStatus() {
+		return this.repayStatus;
+	}
+
+	public void setRepayStatus(Integer repayStatus) {
+		this.repayStatus = repayStatus;
+	}
+
+	public String getScheduleId() {
+		return this.scheduleId;
+	}
+
+	public void setScheduleId(String scheduleId) {
+		this.scheduleId = scheduleId;
+	}
+
 	public String getExtensionOne() {
 		return this.extensionOne;
 	}
@@ -249,6 +299,11 @@ public class AppMoneyDetailDTO implements IAppMoneyDetail {
 		+",taskName="+this.getTaskName()
 		+",taskUsername="+this.getTaskUsername()
 		+",taskMobile="+this.getTaskMobile()
+		+",pid="+this.getPid()
+		+",delayMoney="+this.getDelayMoney()
+		+",repayDeadline="+this.getRepayDeadline()
+		+",repayStatus="+this.getRepayStatus()
+		+",scheduleId="+this.getScheduleId()
 		+",extensionOne="+this.getExtensionOne()
 		+",extensionTwo="+this.getExtensionTwo()
 		+",uid="+this.getUid()
