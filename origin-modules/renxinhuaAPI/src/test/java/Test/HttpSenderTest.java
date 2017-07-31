@@ -1,8 +1,8 @@
 package Test;
 
 
-import com.origin.core.util.HttpSender;
 import org.junit.Test;
+import util.HttpSender;
 
 public class HttpSenderTest {
 

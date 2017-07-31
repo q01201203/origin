@@ -69,7 +69,7 @@ public class AppInfoController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("renxinhua 请求的taskType为" + taskType + "\n请求的taskHot为" + taskHot);
+		log.debug("renxinhua 请求的taskType为" + taskType + "\n请求的taskHot为" + taskHot);
 
 		int currentPage = 1;
 		int pageSize = 10;
@@ -132,6 +132,24 @@ public class AppInfoController {
 	@ApiOperation(value = "获取app常量", httpMethod = "GET", response = Result.class,
 			notes = "获取app常量,可选参数type(1:文字2:图片),可选参数key为键value为值")
 	public Object getConstants(@RequestParam(value = "type" ,required = false) String type ,
+							   @RequestParam(value = "key" ,required = false) String key ) throws Exception{
+		IAppConstants appConstants = new AppConstantsDTO();
+		if(StringUtils.isNotBlank(type)){
+			appConstants.setType(type);
+		}
+		if(StringUtils.isNotBlank(key)){
+			appConstants.setKey(key);
+		}
+		appConstants.setDeleteFlag(0);
+		List<IAppConstants> appConstantsList = appConstantsService.find(appConstants);
+		return Result.createSuccessResult(appConstantsList,"获取常量成功");
+	}
+
+	@RequestMapping(value = "/getOverdueInterest" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取逾期利息", httpMethod = "GET", response = Result.class,
+			notes = "获取逾期利息")
+	public Object getOverdueInterest(@RequestParam(value = "type" ,required = false) String type ,
 							   @RequestParam(value = "key" ,required = false) String key ) throws Exception{
 		IAppConstants appConstants = new AppConstantsDTO();
 		if(StringUtils.isNotBlank(type)){

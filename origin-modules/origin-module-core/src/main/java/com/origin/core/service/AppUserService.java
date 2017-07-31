@@ -9,7 +9,6 @@ public interface AppUserService {
     void delete(Integer id);
     void update(IAppUser appUser);
     IAppUser findById(Integer id);
-    IAppUser findFirst(IAppUser appUser);
     List<IAppUser> find(IAppUser appUser);
-    void saveUser(IAppUser appUser);
+    void updateUserZhimaInfo(IAppUser appUser);
 }

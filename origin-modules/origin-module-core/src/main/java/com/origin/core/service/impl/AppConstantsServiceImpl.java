@@ -38,11 +38,6 @@ private IAppConstantsDao<IAppConstants,Integer> appConstantsDao;
     }
 
     @Override
-    public IAppConstants findFirst(IAppConstants appConstants) {
-        return appConstantsDao.findFirst(appConstants);
-    }
-
-    @Override
     public List<IAppConstants> find(IAppConstants appConstants) {
         return appConstantsDao.find(appConstants);
     }

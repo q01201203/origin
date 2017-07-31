@@ -1,12 +1,10 @@
 package com.origin.core.service.impl;
 
 
-import com.origin.core.dto.AppUserDTO;
+import com.origin.common.model.mybatis.Result;
 import com.origin.core.dto.AppZhimaDTO;
 import com.origin.core.service.AppUserService;
-import com.origin.core.util.JPushUtil;
-import com.origin.core.util.StringUtil;
-import com.origin.core.util.ZhimaUtil;
+import com.origin.core.util.*;
 import com.origin.data.dao.IAppUserDao;
 import com.origin.data.dao.IAppZhimaDao;
 import com.origin.data.entity.IAppUser;
@@ -48,108 +46,120 @@ public class AppUserServiceImpl  implements AppUserService {
     }
 
     @Override
-    public IAppUser findFirst(IAppUser appUser) {
-        return appUserDao.findFirst(appUser);
-    }
-
-    @Override
     public List<IAppUser> find(IAppUser appUser) {
         return appUserDao.find(appUser);
     }
 
     @Override
-    public void saveUser(IAppUser appUser) {
-        IAppUser user = new AppUserDTO();
-        user.setMobile(appUser.getMobile());
-        user = appUserDao.findFirst(user);
-        if (user==null){
-            appUserDao.save(appUser);
+    public void updateUserZhimaInfo(IAppUser appUser) {
+        String alias = appUser.getJpushAlias();
+        Integer uId = appUser.getId();
+        update(appUser);
 
-            appUser = appUserDao.findFirst(appUser);
-            //获取芝麻信用分
-            ZhimaUtil zhimaUtil = new ZhimaUtil();
-            String[] resultCreditScore = zhimaUtil.zhimaCreditScoreGet(appUser.getZhimaOpenid());
-            if (resultCreditScore!=null){
-                IAppZhima zhimaDTO = new AppZhimaDTO();
-                zhimaDTO.setType(IAppZhima.TYPE_CREDIT_SCORE);
-                zhimaDTO.setBizNo(resultCreditScore[2]);
-                if (Boolean.parseBoolean(resultCreditScore[0])){
-                    zhimaDTO.setScore(resultCreditScore[3]);
-                    appUser.setZhimaScore(resultCreditScore[3]);
-                    appUser.setUpdateDate(new Date());
-                    appUserDao.update(appUser);
-                }else{
-                    zhimaDTO.setErrorMessage(resultCreditScore[1]);
+        //获取芝麻信用分
+        ZhimaUtil zhimaUtil = new ZhimaUtil();
+        String[] resultCreditScore = zhimaUtil.zhimaCreditScoreGet(appUser.getZhimaOpenid());
+        if (resultCreditScore!=null){
+            IAppZhima zhimaDTO = new AppZhimaDTO();
+            zhimaDTO.setType(IAppZhima.TYPE_CREDIT_SCORE);
+            zhimaDTO.setBizNo(resultCreditScore[2]);
+            if (Boolean.parseBoolean(resultCreditScore[0])){
+                zhimaDTO.setScore(resultCreditScore[3]);
+                //更新用户芝麻信用分和权限
+                appUser.setZhimaScore(resultCreditScore[3]);
+                appUser.setAuthority(Constants.AHORITY_MEDIUM);
+                update(appUser);
+                //推送成功消息回调
+                if (!StringUtil.isNullOrBlank(alias)) {
+                    try {
+                        String result = JsonUtil.object2Json(Result.createSuccessResult((CustomToken.generate(new SimpleToken(uId,
+                                Constants.AHORITY_MEDIUM))),"获取芝麻信用分成功"));
+                        JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, result));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        String result = JsonUtil.object2Json(Result.createErrorResult().setMessage("生成token异常"));
+                        JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, result));
+                    }
+
                 }
-                zhimaDTO.setUid(appUser.getId());
-                appZhimaDao.save(zhimaDTO);
+            }else{
+                zhimaDTO.setErrorMessage(resultCreditScore[1]);
+                //推送失败消息回调
+                if (!StringUtil.isNullOrBlank(alias)) {
+                    String result = JsonUtil.object2Json(Result.createErrorResult().setMessage("获取芝麻信用分失败，" +
+                            "error_message:"+resultCreditScore[1]));
+                    JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, result));
+                }
             }
-
-            String alias = appUser.getJpushAlias();
+            zhimaDTO.setUid(appUser.getId());
+            appZhimaDao.save(zhimaDTO);
+        }else{
+            //推送失败消息回调
             if (!StringUtil.isNullOrBlank(alias)) {
-                JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, "注册成功"));
+                String result = JsonUtil.object2Json(Result.createErrorResult().setMessage("芝麻信用接口返回为null"));
+                JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, result));
             }
+        }
 
-            //行业关注清单
-            String[] resultCreditWatchlistii = zhimaUtil.zhimaCreditWatchlistiiGet(appUser.getZhimaOpenid());
-            if (resultCreditWatchlistii!=null){
-                IAppZhima zhimaDTO = new AppZhimaDTO();
-                zhimaDTO.setType(IAppZhima.TYPE_CREDIT_WATCHLISTII);
-                zhimaDTO.setBizNo(resultCreditWatchlistii[2]);
-                if (Boolean.parseBoolean(resultCreditWatchlistii[0])){
-                    zhimaDTO.setIsMatched(resultCreditWatchlistii[3]);
-                }else{
-                    zhimaDTO.setErrorMessage(resultCreditWatchlistii[1]);
-                }
-                zhimaDTO.setUid(appUser.getId());
-                appZhimaDao.save(zhimaDTO);
+        //行业关注清单
+        String[] resultCreditWatchlistii = zhimaUtil.zhimaCreditWatchlistiiGet(appUser.getZhimaOpenid());
+        if (resultCreditWatchlistii!=null){
+            IAppZhima zhimaDTO = new AppZhimaDTO();
+            zhimaDTO.setType(IAppZhima.TYPE_CREDIT_WATCHLISTII);
+            zhimaDTO.setBizNo(resultCreditWatchlistii[2]);
+            if (Boolean.parseBoolean(resultCreditWatchlistii[0])){
+                zhimaDTO.setIsMatched(resultCreditWatchlistii[3]);
+            }else{
+                zhimaDTO.setErrorMessage(resultCreditWatchlistii[1]);
             }
+            zhimaDTO.setUid(appUser.getId());
+            appZhimaDao.save(zhimaDTO);
+        }
 
-            //欺诈评分
-            String[] resultCreditAntifraudScore = zhimaUtil.zhimaCreditAntifraudScoreGet(appUser.getZhimaCertNo(),appUser.getZhimaCertName(),appUser.getMobile());
-            if (resultCreditAntifraudScore !=null){
-                IAppZhima zhimaDTO = new AppZhimaDTO();
-                zhimaDTO.setType(IAppZhima.TYPE_CREDIT_ANTIFRAUD_SCORE);
-                zhimaDTO.setBizNo(resultCreditAntifraudScore[2]);
-                if (Boolean.parseBoolean(resultCreditAntifraudScore[0])){
-                    zhimaDTO.setScore(resultCreditAntifraudScore[3]);
-                }else{
-                    zhimaDTO.setErrorMessage(resultCreditAntifraudScore[1]);
-                }
-                zhimaDTO.setUid(appUser.getId());
-                appZhimaDao.save(zhimaDTO);
+        //欺诈评分
+        String[] resultCreditAntifraudScore = zhimaUtil.zhimaCreditAntifraudScoreGet(appUser.getZhimaCertNo(),appUser.getZhimaCertName(),appUser.getMobile());
+        if (resultCreditAntifraudScore !=null){
+            IAppZhima zhimaDTO = new AppZhimaDTO();
+            zhimaDTO.setType(IAppZhima.TYPE_CREDIT_ANTIFRAUD_SCORE);
+            zhimaDTO.setBizNo(resultCreditAntifraudScore[2]);
+            if (Boolean.parseBoolean(resultCreditAntifraudScore[0])){
+                zhimaDTO.setScore(resultCreditAntifraudScore[3]);
+            }else{
+                zhimaDTO.setErrorMessage(resultCreditAntifraudScore[1]);
             }
+            zhimaDTO.setUid(appUser.getId());
+            appZhimaDao.save(zhimaDTO);
+        }
 
-            //欺诈信息验证
-            String[] resultCreditAntifraudVerify = zhimaUtil.zhimaCreditAntifraudVerify(appUser.getZhimaCertNo(),appUser.getZhimaCertName(),appUser.getMobile());
-            if (resultCreditAntifraudVerify !=null){
-                IAppZhima zhimaDTO = new AppZhimaDTO();
-                zhimaDTO.setType(IAppZhima.TYPE_CREDIT_ANTIFRAUDVERIFY);
-                zhimaDTO.setBizNo(resultCreditAntifraudVerify[2]);
-                if (Boolean.parseBoolean(resultCreditAntifraudVerify[0])){
-                    zhimaDTO.setVerifyCode(resultCreditAntifraudVerify[3]);
-                }else{
-                    zhimaDTO.setErrorMessage(resultCreditAntifraudVerify[1]);
-                }
-                zhimaDTO.setUid(appUser.getId());
-                appZhimaDao.save(zhimaDTO);
+        //欺诈信息验证
+        String[] resultCreditAntifraudVerify = zhimaUtil.zhimaCreditAntifraudVerify(appUser.getZhimaCertNo(),appUser.getZhimaCertName(),appUser.getMobile());
+        if (resultCreditAntifraudVerify !=null){
+            IAppZhima zhimaDTO = new AppZhimaDTO();
+            zhimaDTO.setType(IAppZhima.TYPE_CREDIT_ANTIFRAUDVERIFY);
+            zhimaDTO.setBizNo(resultCreditAntifraudVerify[2]);
+            if (Boolean.parseBoolean(resultCreditAntifraudVerify[0])){
+                zhimaDTO.setVerifyCode(resultCreditAntifraudVerify[3]);
+            }else{
+                zhimaDTO.setErrorMessage(resultCreditAntifraudVerify[1]);
             }
+            zhimaDTO.setUid(appUser.getId());
+            appZhimaDao.save(zhimaDTO);
+        }
 
-            //欺诈关注清单
-            String[] resultCreditAntifraudRiskList = zhimaUtil.zhimaCreditAntifraudRiskList(appUser.getZhimaCertNo(),appUser.getZhimaCertName(),appUser.getMobile());
-            if (resultCreditAntifraudRiskList !=null){
-                IAppZhima zhimaDTO = new AppZhimaDTO();
-                zhimaDTO.setType(IAppZhima.TYPE_CREDIT_ANTIFRAUD_RISKLIST);
-                zhimaDTO.setBizNo(resultCreditAntifraudRiskList[2]);
-                if (Boolean.parseBoolean(resultCreditAntifraudRiskList[0])){
-                    zhimaDTO.setHit(resultCreditAntifraudRiskList[3]);
-                    zhimaDTO.setRiskCode(resultCreditAntifraudRiskList[4]);
-                }else{
-                    zhimaDTO.setErrorMessage(resultCreditAntifraudRiskList[1]);
-                }
-                zhimaDTO.setUid(appUser.getId());
-                appZhimaDao.save(zhimaDTO);
+        //欺诈关注清单
+        String[] resultCreditAntifraudRiskList = zhimaUtil.zhimaCreditAntifraudRiskList(appUser.getZhimaCertNo(),appUser.getZhimaCertName(),appUser.getMobile());
+        if (resultCreditAntifraudRiskList !=null){
+            IAppZhima zhimaDTO = new AppZhimaDTO();
+            zhimaDTO.setType(IAppZhima.TYPE_CREDIT_ANTIFRAUD_RISKLIST);
+            zhimaDTO.setBizNo(resultCreditAntifraudRiskList[2]);
+            if (Boolean.parseBoolean(resultCreditAntifraudRiskList[0])){
+                zhimaDTO.setHit(resultCreditAntifraudRiskList[3]);
+                zhimaDTO.setRiskCode(resultCreditAntifraudRiskList[4]);
+            }else{
+                zhimaDTO.setErrorMessage(resultCreditAntifraudRiskList[1]);
             }
+            zhimaDTO.setUid(appUser.getId());
+            appZhimaDao.save(zhimaDTO);
         }
     }
 }

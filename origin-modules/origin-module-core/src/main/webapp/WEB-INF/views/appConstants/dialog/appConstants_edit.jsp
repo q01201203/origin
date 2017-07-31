@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/plugins/oss-h5-upload-js-direct/style.css"/>
 </head>
 
+<html>
 <body>
 <div id="addForm" class="mgt40">
     <form action="${ctx }/admin/appConstants/ajax/update" id="editForm" method="post">

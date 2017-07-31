@@ -10,6 +10,8 @@ import com.origin.data.dao.IAppMessageDao;
 import com.origin.data.dao.IAppUserDao;
 import com.origin.data.entity.IAppMessage;
 import com.origin.data.entity.IAppUser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,7 @@ import java.util.List;
 @Service
 public class AppMessageServiceImpl  implements AppMessageService {
 
+    Logger log = LoggerFactory.getLogger(AppMessageServiceImpl.class);
     @Autowired
     private IAppMessageDao<IAppMessage,Integer> appMessageDao;
 
@@ -48,11 +51,6 @@ public class AppMessageServiceImpl  implements AppMessageService {
     }
 
     @Override
-    public IAppMessage findFirst(IAppMessage appMessage) {
-        return appMessageDao.findFirst(appMessage);
-    }
-
-    @Override
     public List<IAppMessage> find(IAppMessage appMessage) {
         return appMessageDao.find(appMessage);
     }
@@ -64,7 +62,7 @@ public class AppMessageServiceImpl  implements AppMessageService {
         String content = appMessage.getContent();
         appMessage.setType(IAppMessage.TYPE_PERSONAL);
         appMessageDao.save(appMessage);
-        System.out.println(appMessage.getId());
+        log.debug(""+appMessage.getId());
         if (!StringUtil.isNullOrBlank(alias)){
             JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_alert_message(alias,content,appMessage.getId()));
         }

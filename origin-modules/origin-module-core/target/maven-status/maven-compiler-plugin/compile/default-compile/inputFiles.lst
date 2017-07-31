@@ -3,7 +3,6 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\SimpleToken.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppZhimaServiceImpl.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\LoginController.java
-D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\app\AppInfoController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppStuDetailDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\model\DataWithPageModel.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\JPushUtil.java
@@ -16,10 +15,8 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\RoleResourceService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppUserBankService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppUserBankServiceImpl.java
-D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\filter\AppTokenFilter.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\AdminAppUserController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\WebHelper.java
-D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\YituUtil.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppPersonDetailService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppTaskService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\UserServiceImpl.java
@@ -29,14 +26,12 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppUserTaskServiceImpl.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\AdminAppConstantsController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\ResourceServiceImpl.java
-D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\IdCardRecognitionUtil.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\model\ZhimaInfoModel.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppMoneyDetailService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\UserRoleService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\RoleServiceImpl.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppUserBankDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppZhimaDTO.java
-D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\app\AppUserController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\JsonResultBean.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\ResourceService.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\RoleService.java
@@ -48,7 +43,6 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\exception\BusinessExceptionWapper.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppValidcodeDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\AppUserTaskService.java
-D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\app\AppValidcodeController.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppConstantsServiceImpl.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\model\FaceThanIdcardResultModel.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\controller\admin\UserController.java
@@ -91,6 +85,5 @@ D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppMessageDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\RoleResourceDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\service\impl\AppGuideServiceImpl.java
-D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\util\HttpSender.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\AppUserTaskDTO.java
 D:\lc\code\originnew\origin-modules\origin-module-core\src\main\java\com\origin\core\dto\UserDTO.java

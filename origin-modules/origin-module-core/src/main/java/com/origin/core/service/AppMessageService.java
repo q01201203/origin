@@ -10,7 +10,6 @@ public interface AppMessageService {
     void delete(Integer id);
     void update(IAppMessage appMessage);
     IAppMessage findById(Integer id);
-    IAppMessage findFirst(IAppMessage appMessage);
     List<IAppMessage> find(IAppMessage appMessage);
     public List<IAppMessage> findSystemMessage(IAppMessage appMessage);
     public void saveBatchSystemMessage(IAppMessage appMessage);

@@ -35,6 +35,11 @@ $(function(){
 	    var ev = document.all ? window.event : e;
 	    if(ev.keyCode==13) {
 	    	mySubmit();
+			/*if(res){
+			 mySubmit();
+			 }else{
+			 alert("验证码错误");
+			 }*/
 	    }
 	}
 	

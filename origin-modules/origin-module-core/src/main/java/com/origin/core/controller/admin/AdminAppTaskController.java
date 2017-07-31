@@ -221,7 +221,7 @@ public class AdminAppTaskController {
 	public String userDetailEdit(HttpServletRequest request, Model model){
 		String id = request.getParameter("id");
 		String operation = request.getParameter("operation");
-		System.out.println("renxinhua operation = "+operation);
+		log.debug("renxinhua operation = "+operation);
 		if(StringUtils.isNotBlank(id)){
 			IAppTask appTask = appTaskService.findById(Integer.parseInt(id));
 			model.addAttribute("appTask", appTask);

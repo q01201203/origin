@@ -185,17 +185,32 @@ public class AdminAppUserController {
 			if (IAppUser.CATEGORY_STU.equals(appUser.getCategory())){
 				IAppStuDetail appStuDetail = new AppStuDetailDTO();
 				appStuDetail.setUid(uid);
-				appStuDetail = appStuDetailService.findFirst(appStuDetail);
+				List<IAppStuDetail> appStuDetails = appStuDetailService.find(appStuDetail);
+				if (appStuDetails!=null&&appStuDetails.size()>0){
+					appStuDetail = appStuDetails.get(0);
+				}else{
+					appStuDetail = null;
+				}
 				model.addAttribute("appStuDetail", appStuDetail);
 			}else if (IAppUser.CATEGORY_PERSON.equals(appUser.getCategory())){
 				IAppPersonDetail appPersonDetail = new AppPersonDetailDTO();
 				appPersonDetail.setUid(uid);
-				appPersonDetail = appPersonDetailService.findFirst(appPersonDetail);
+				List<IAppPersonDetail> appPersonDetails = appPersonDetailService.find(appPersonDetail);
+				if (appPersonDetails!=null&&appPersonDetails.size()>0){
+					appPersonDetail = appPersonDetails.get(0);
+				}else{
+					appPersonDetail = null;
+				}
 				model.addAttribute("appPersonDetail", appPersonDetail);
 			}
 			IAppUserBank appUserBank = new AppUserBankDTO();
 			appUserBank.setUid(uid);
-			appUserBank = appUserBankService.findFirst(appUserBank);
+			List<IAppUserBank> appUserBanks = appUserBankService.find(appUserBank);
+			if (appUserBanks!=null&&appUserBanks.size()>0){
+				appUserBank = appUserBanks.get(0);
+			}else {
+				appUserBank = null;
+			}
 			model.addAttribute("appUserBank", appUserBank);
 
 			List<IAppZhima> appZhimas = appZhimaService.findZhimaInfoByUid(uid);
@@ -358,11 +373,14 @@ public class AdminAppUserController {
 			String interestRate = "0.0";
 			if (IAppMoneyDetail.TYPE_BORROW.equals(appMoneyDetail.getType())){
 				borrowLine = getBorrowLine(appMoneyDetail.getUid());
-				System.out.println("renxinhua borrowLine = "+borrowLine);
+				log.debug("renxinhua borrowLine = "+borrowLine);
 				IAppConstants appConstants = new AppConstantsDTO();
 				appConstants.setKey("interestRate");
-				appConstants = appConstantsService.findFirst(appConstants);
-				interestRate = appConstants.getValue();
+				List<IAppConstants> appConstantsList = appConstantsService.find(appConstants);
+				if (appConstantsList!=null&&appConstantsList.size()>0){
+					appConstants = appConstantsList.get(0);
+					interestRate = appConstants.getValue();
+				}
 			}
 			model.addAttribute("borrowLine", borrowLine);
 			model.addAttribute("interestRate",interestRate);
@@ -382,7 +400,7 @@ public class AdminAppUserController {
 		repay = (repay == null ?0:repay);
 		IAppUser appUser = appUserService.findById(uId);
 		Double moneyMax = appUser.getMoneyMax();
-		System.out.println("renxinhua borrow = "+borrow+" repay = "+repay+" moneyMax = "+moneyMax);
+		log.debug("renxinhua borrow = "+borrow+" repay = "+repay+" moneyMax = "+moneyMax);
 		return moneyMax - borrow + repay;
 	}
 
@@ -397,7 +415,7 @@ public class AdminAppUserController {
 			String moneyActual = request.getParameter("moneyActual");
 			String status = request.getParameter("status");
 			String message = request.getParameter("message");
-			System.out.println("renxinhua message = "+message);
+			log.debug("renxinhua message = "+message);
 			IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
 			if(StringUtils.isNotBlank(id)){
 				appMoneyDetail = appMoneyDetailService.findById(Integer.parseInt(id));

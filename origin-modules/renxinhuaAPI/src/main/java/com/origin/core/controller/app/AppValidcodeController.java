@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * Controller
  * 
@@ -50,7 +52,12 @@ public class AppValidcodeController {
 		appUser.setMobile(mobile);
 		switch (type){
 			case IAppValidcode.TYPE_REGISTER:
-				appUser = appUserService.findFirst(appUser);
+				List<IAppUser> appUsers = appUserService.find(appUser);
+				if (appUsers!=null&&appUsers.size()>0){
+					appUser = appUsers.get(0);
+				}else{
+					appUser = null;
+				}
 				if (appUser==null){
 					if (saveValidcode(mobile, type)){
 						return Result.createSuccessResult().setMessage("发送验证码成功");
@@ -61,7 +68,12 @@ public class AppValidcodeController {
 					return Result.createErrorResult().setMessage("用户已存在");
 				}
 			case IAppValidcode.TYPE_RESETPWD:
-				appUser = appUserService.findFirst(appUser);
+				appUsers = appUserService.find(appUser);
+				if (appUsers!=null&&appUsers.size()>0){
+					appUser = appUsers.get(0);
+				}else{
+					appUser = null;
+				}
 				if (appUser!=null){
 					if (saveValidcode(mobile, type)){
 						return Result.createSuccessResult().setMessage("发送验证码成功");
@@ -110,7 +122,13 @@ public class AppValidcodeController {
 		appValidcode.setValidcode(validcode);
 		appValidcode.setType(Integer.parseInt(type));
 		appValidcode.setStatus(IAppValidcode.STATUS_YES);
-		IAppValidcode appValidcodeResult = appValidcodeService.findFirst(appValidcode);
+		IAppValidcode appValidcodeResult;
+		List<IAppValidcode> appValidcodeResults = appValidcodeService.find(appValidcode);
+		if (appValidcodeResults!=null&&appValidcodeResults.size()>0){
+			appValidcodeResult = appValidcodeResults.get(0);
+		}else{
+			appValidcodeResult = null;
+		}
 		if (appValidcodeResult!=null){
 			appValidcodeResult.setStatus(IAppValidcode.STATUS_NO);
 			appValidcodeService.update(appValidcodeResult);

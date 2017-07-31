@@ -38,11 +38,6 @@ public class AppFeedbackServiceImpl  implements AppFeedbackService {
     }
 
     @Override
-    public IAppFeedback findFirst(IAppFeedback appFeedback) {
-        return appFeedbackDao.findFirst(appFeedback);
-    }
-
-    @Override
     public List<IAppFeedback> find(IAppFeedback appFeedback) {
         appFeedback.setDeleteFlag(0);
         return appFeedbackDao.find(appFeedback);

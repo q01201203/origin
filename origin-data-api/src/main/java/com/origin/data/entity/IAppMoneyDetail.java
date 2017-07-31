@@ -41,6 +41,8 @@ public interface IAppMoneyDetail extends Serializable {
 
 	public final static Integer REPAY_STATUS_NO = 0; //未还
 
+	public final static Integer REPAY_STATUS_WAIT = 2; //还款待审核
+
 	Integer getId();
 
 	void setId(Integer id);

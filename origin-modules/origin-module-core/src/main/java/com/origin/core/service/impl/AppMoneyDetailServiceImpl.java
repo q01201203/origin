@@ -11,6 +11,8 @@ import com.origin.core.util.JPushUtil;
 import com.origin.core.util.StringUtil;
 import com.origin.data.dao.*;
 import com.origin.data.entity.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,8 @@ import java.util.List;
 
 @Service
 public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
+
+    Logger log = LoggerFactory.getLogger(AppMoneyDetailServiceImpl.class);
 
     @Autowired
     private IAppMoneyDetailDao<IAppMoneyDetail,Integer> appMoneyDetailDao;
@@ -59,11 +63,6 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
     }
 
     @Override
-    public IAppMoneyDetail findFirst(IAppMoneyDetail appMoneyDetail) {
-        return appMoneyDetailDao.findFirst(appMoneyDetail);
-    }
-
-    @Override
     public List<IAppMoneyDetail> find(IAppMoneyDetail appMoneyDetail) {
         return appMoneyDetailDao.find(appMoneyDetail);
     }
@@ -89,7 +88,12 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
 
     @Override
     public void saveRepay(IAppMoneyDetail appMoneyDetail) {
+        //保存还款记录
         save(appMoneyDetail);
+        //修改借款记录的还款状态
+        appMoneyDetail = findById(appMoneyDetail.getPid());
+        appMoneyDetail.setRepayStatus(IAppMoneyDetail.REPAY_STATUS_WAIT);
+        update(appMoneyDetail);
         //修改余额
         if (IAppMoneyDetail.REPAY_WAY_BALANCE.equals(appMoneyDetail.getRepayWay())){
             Integer uid = appMoneyDetail.getUid();
@@ -109,15 +113,15 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         Date nowTime = new Date();
         //判断数量
         if (taskNumber<1){
-            System.out.println("renxinhua number 小于1");
+            log.debug("renxinhua number 小于1");
             return Result.create(ResultCode.SERVICE_ERROR).setMessage("任务数量没了");
         }
 
         //判断任务时间
         if (taskType.equals(IAppTask.TYPE_TIMELIMIT)){
-            System.out.println("renxinhua nowtime = "+ nowTime + " endtime = "+ taskEndTime);
+            log.debug("renxinhua nowtime = "+ nowTime + " endtime = "+ taskEndTime);
             if (nowTime.after(taskEndTime)){
-                System.out.println("renxinhua 任务过期");
+                log.debug("renxinhua 任务过期");
                 return Result.create(ResultCode.SERVICE_ERROR).setMessage("任务过期");
             }
         }
@@ -131,14 +135,14 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         List<IAppUserTask> appUserTasks = appUserTaskDao.findTaskUserInfo(appUserTask);
         //防止重复提交
         if (appUserTasks.size()>0){
-            System.out.println("renxinhua 重复提交1");
+            log.debug("renxinhua 重复提交1");
             return Result.create(ResultCode.SERVICE_ERROR).setMessage("重复提交");
         }
         appMoneyDetailDTO.setStatus(IAppMoneyDetail.STATUS_AUDIT_SUCCESS);
         appUserTask.setAppMoneyDetail(appMoneyDetailDTO);
         appUserTasks = appUserTaskDao.findTaskUserInfo(appUserTask);
         if (appUserTasks.size()>0){
-            System.out.println("renxinhua 重复提交2");
+            log.debug("renxinhua 重复提交2");
             return Result.create(ResultCode.SERVICE_ERROR).setMessage("重复提交");
         }
 
@@ -152,7 +156,7 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         appMoneyDetail.setTaskName(taskName);
         appMoneyDetail.setMoneyAsk(taskMoney);
         appMoneyDetailDao.save(appMoneyDetail);
-        System.out.println("money id "+appMoneyDetail.getId());
+        log.debug("money id "+appMoneyDetail.getId());
         Integer mid = appMoneyDetail.getId();
 
         //中间关系表添加记录
@@ -180,6 +184,7 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         Double moneyAsk = appMoneyDetail.getMoneyAsk();
         Integer moneyType = appMoneyDetail.getType();
         Integer uid = appMoneyDetail.getUid();
+        Integer pid = appMoneyDetail.getPid();
         update(appMoneyDetail);
         //审核通过修改用户余额
         if (IAppMoneyDetail.STATUS_AUDIT_SUCCESS.equals(status)){
@@ -238,7 +243,7 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
                 }
                 Date repayDayTime = dateIncre(auditTime,repayDay -advanceDay); //还款提醒日期
                 Date repayDeadline = dateIncre(auditTime,repayDay);//还款截止日期
-                System.out.println("renxinhua repayDayTime = "+repayDayTime +" repayDeadline = "+ repayDeadline);
+                log.debug("renxinhua repayDayTime = "+repayDayTime +" repayDeadline = "+ repayDeadline);
                 appMoneyDetail.setRepayDeadline(repayDeadline);
 
                 if (!StringUtil.isNullOrBlank(userAlias)){
@@ -248,16 +253,30 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
                 }
                 update(appMoneyDetail);
             }else if (IAppMoneyDetail.TYPE_REPAY.equals(moneyType)){
-                appMoneyDetail = appMoneyDetailDao.findByPK(mid);
-                Integer pid = appMoneyDetail.getPid();
                 if (pid != null){
                     appMoneyDetail = appMoneyDetailDao.findByPK(pid);
                     String scheduleId = appMoneyDetail.getScheduleId();
                     if (!StringUtil.isNullOrBlank(scheduleId)){
                         JPushUtil.deleteSchedule(scheduleId);
                     }
-                    //更新借款记录的还款状态
+                }
+            }
+        }
+
+        //更新借款记录的还款状态
+        if (IAppMoneyDetail.STATUS_AUDIT_SUCCESS.equals(status)){
+            if (IAppMoneyDetail.TYPE_REPAY.equals(moneyType)){
+                if (pid != null){
+                    appMoneyDetail = appMoneyDetailDao.findByPK(pid);
                     appMoneyDetail.setRepayStatus(IAppMoneyDetail.REPAY_STATUS_YES);
+                    update(appMoneyDetail);
+                }
+            }
+        }else if (IAppMoneyDetail.STATUS_AUDIT_FAIL.equals(status)){
+            if (IAppMoneyDetail.TYPE_REPAY.equals(moneyType)) {
+                if (pid != null) {
+                    appMoneyDetail = appMoneyDetailDao.findByPK(pid);
+                    appMoneyDetail.setRepayStatus(IAppMoneyDetail.REPAY_STATUS_NO);
                     update(appMoneyDetail);
                 }
             }
@@ -268,7 +287,7 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
         Calendar ca=Calendar.getInstance();
         ca.setTime(date);
         ca.add(Calendar.DAY_OF_YEAR, day);
-        System.out.println("renxinhua date = "+date);
+        log.debug("renxinhua date = "+date);
         return ca.getTime();
     }
 

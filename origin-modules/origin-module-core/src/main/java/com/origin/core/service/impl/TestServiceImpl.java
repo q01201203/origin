@@ -1,14 +1,13 @@
 package com.origin.core.service.impl;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.origin.core.service.TestService;
 import com.origin.data.dao.ITestDao;
 import com.origin.data.entity.ITest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TestServiceImpl  implements TestService {
@@ -34,11 +33,6 @@ private ITestDao<ITest,Integer> testDao;
     @Override
     public ITest findById(Integer id) {
         return testDao.findByPK(id);
-    }
-
-    @Override
-    public ITest findFirst(ITest test) {
-        return testDao.findFirst(test);
     }
 
     @Override

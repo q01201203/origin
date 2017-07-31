@@ -9,6 +9,8 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,9 @@ import java.util.List;
 @Controller
 @ApiIgnore
 public class LoginController {
-	
+
+    Logger log = LoggerFactory.getLogger(LoginController.class);
+
 	@RequestMapping("/login")
 	public String login(){
 		return "login";
@@ -28,7 +32,7 @@ public class LoginController {
 	
 	@RequestMapping("/do_login")
 	public String doLogin(HttpServletRequest request, Model model){
-		System.out.println("renxinhua LoginController");
+		log.debug("renxinhua LoginController");
 		String username = request.getParameter("username");
 		String pwd = request.getParameter("pwd");
 		

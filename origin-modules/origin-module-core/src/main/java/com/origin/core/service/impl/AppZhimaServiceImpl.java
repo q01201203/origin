@@ -38,11 +38,6 @@ public class AppZhimaServiceImpl  implements AppZhimaService {
     }
 
     @Override
-    public IAppZhima findFirst(IAppZhima appZhima) {
-        return appZhimaDao.findFirst(appZhima);
-    }
-
-    @Override
     public List<IAppZhima> find(IAppZhima appZhima) {
         return appZhimaDao.find(appZhima);
     }

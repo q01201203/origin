@@ -10,7 +10,6 @@ public interface AppZhimaService {
     void delete(Integer id);
     void update(IAppZhima appZhima);
     IAppZhima findById(Integer id);
-    IAppZhima findFirst(IAppZhima appZhima);
     List<IAppZhima> find(IAppZhima appZhima);
 
     public List<IAppZhima> findZhimaInfoByUid(Integer id);

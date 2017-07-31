@@ -52,7 +52,7 @@ public class CustomToken {
         }
     }
 
-    public static Object tokenValidate(SimpleToken simpleToken,int needAthority){
+    public static Object tokenValidate(SimpleToken simpleToken, int needAthority){
         Integer uid = (Integer) simpleToken.getId();
         Integer authority = (Integer) simpleToken.getAuthority();
         System.out.println("renxinhua uid " +uid);

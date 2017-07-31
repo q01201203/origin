@@ -38,11 +38,6 @@ public class AppValidcodeServiceImpl  implements AppValidcodeService {
     }
 
     @Override
-    public IAppValidcode findFirst(IAppValidcode appValidcode) {
-        return appValidcodeDao.findFirst(appValidcode);
-    }
-
-    @Override
     public List<IAppValidcode> find(IAppValidcode appValidcode) {
         return appValidcodeDao.find(appValidcode);
     }

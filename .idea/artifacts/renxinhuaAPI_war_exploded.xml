@@ -35,9 +35,6 @@
           <element id="archive" name="origin-data-api-1.0-SNAPSHOT.jar">
             <element id="module-output" name="origin-data-api" />
           </element>
-          <element id="archive" name="origin-module-core-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="origin-module-core" />
-          </element>
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.7" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.7" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.7" />
@@ -115,6 +112,7 @@
         <element id="file-copy" path="$PROJECT_DIR$/origin-modules/renxinhuaAPI/target/renxinhuaAPI-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="renxinhuaAPI/web/Web" />
+      <element id="artifact" artifact-name="origin-module-core:war exploded" />
     </root>
   </artifact>
 </component>

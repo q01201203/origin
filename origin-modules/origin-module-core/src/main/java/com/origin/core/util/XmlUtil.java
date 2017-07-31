@@ -31,7 +31,6 @@ public final class XmlUtil
     try {
       if (filePath.startsWith("http")) {
         System.out.println("renxinhua http开头的暂不处理");
-
          }
       try {
 		document = builder.build(new File(filePath));

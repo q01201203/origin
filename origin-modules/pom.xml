@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>origin-module-core</module>
-        <module>renxinhuaAdmin</module>
+        <module>renxinhuaAPI</module>
     </modules>
 
 

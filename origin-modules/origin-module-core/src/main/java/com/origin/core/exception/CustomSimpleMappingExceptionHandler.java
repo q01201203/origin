@@ -25,7 +25,7 @@ public class CustomSimpleMappingExceptionHandler extends SimpleMappingExceptionR
     @Override
     protected ModelAndView doResolveException(final HttpServletRequest request, final HttpServletResponse response, final Object handler, final Exception ex) {
         //lic on
-        System.out.println("renxinhua CustomSimpleMappingExceptionHandler");
+        log.debug("renxinhua CustomSimpleMappingExceptionHandler");
         log.debug(ex.getMessage(),ex);
         //lic off
         HandlerMethod handlerMethod = (HandlerMethod) handler;

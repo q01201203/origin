@@ -53,6 +53,7 @@
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis-ehcache:1.0.0" level="project" />
     <orderEntry type="module" module-name="origin-data-api" />
+    <orderEntry type="module" module-name="origin-module-core" scope="PROVIDED" />
     <orderEntry type="module" module-name="origin-module-core" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.0-b01" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />

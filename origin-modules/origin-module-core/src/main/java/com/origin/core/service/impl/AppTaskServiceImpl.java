@@ -38,11 +38,6 @@ public class AppTaskServiceImpl  implements AppTaskService {
     }
 
     @Override
-    public IAppTask findFirst(IAppTask appTask) {
-        return appTaskDao.findFirst(appTask);
-    }
-
-    @Override
     public List<IAppTask> find(IAppTask appTask) {
         return appTaskDao.find(appTask);
     }

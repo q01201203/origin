@@ -42,8 +42,4 @@ public List<IAppStuDetail> find(IAppStuDetail appStuDetail) {
     return appStuDetailDao.find(appStuDetail);
     }
 
-    @Override
-    public IAppStuDetail findFirst(IAppStuDetail appStuDetail) {
-        return appStuDetailDao.findFirst(appStuDetail);
-    }
 }

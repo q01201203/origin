@@ -690,6 +690,6 @@ public class UserController{
 	public static void main(String[] args) {
 		/*Long i = 1L;
 		String a = (String) i;
-		System.out.println(a);*/
+		log.debug(a);*/
 	}
 }

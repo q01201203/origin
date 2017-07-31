@@ -36,11 +36,6 @@ public class AppUserTaskServiceImpl  implements AppUserTaskService {
     }
 
     @Override
-    public IAppUserTask findFirst(IAppUserTask appUserTask) {
-        return appUserTaskDao.findFirst(appUserTask);
-    }
-
-    @Override
     public List<IAppUserTask> find(IAppUserTask appUserTask) {
         return appUserTaskDao.find(appUserTask);
     }

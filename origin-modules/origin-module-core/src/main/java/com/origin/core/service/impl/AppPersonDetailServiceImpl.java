@@ -42,8 +42,4 @@ public List<IAppPersonDetail> find(IAppPersonDetail appPersonDetail) {
     return appPersonDetailDao.find(appPersonDetail);
     }
 
-    @Override
-    public IAppPersonDetail findFirst(IAppPersonDetail appPersonDetail) {
-        return appPersonDetailDao.findFirst(appPersonDetail);
-    }
 }

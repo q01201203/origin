@@ -1,7 +1,0 @@
-ServiceTest\AppUserServiceImplTest.class
-Test\TestEncryptCode.class
-ServiceTest\UserServiceTest.class
-ServiceTest\UserRoleServiceTest.class
-Test\JUnitLifecycle.class
-Test\HttpSenderTest.class
-Test\ZhimaTest.class

@@ -1,8 +1,6 @@
 package com.origin.core.shiro;
 
 
-
-
 import com.origin.core.service.ResourceService;
 import com.origin.core.service.RoleService;
 import com.origin.core.service.UserService;
@@ -19,11 +17,15 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 public class ShiroDBRealm extends AuthorizingRealm {
-	
+
+	Logger log = LoggerFactory.getLogger(ShiroDBRealm.class);
+
 	@Autowired
 	private UserService userService;
 
@@ -38,7 +40,7 @@ public class ShiroDBRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		System.out.println("renxinhua doGetAuthorizationInfo");
+		log.debug("renxinhua doGetAuthorizationInfo");
 		String userName = (String) principals.getPrimaryPrincipal();
 		IUser user = userService.findUserByName(userName);
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
@@ -69,7 +71,7 @@ public class ShiroDBRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
-		System.out.println("renxinhua doGetAuthenticationInfo");
+		log.debug("renxinhua doGetAuthenticationInfo");
 		UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
         
         if(StringUtils.isEmpty(token.getUsername())){

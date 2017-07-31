@@ -46,7 +46,7 @@
 	</filter-mapping>
 
 	<!--lic-->
-	<filter>
+	<!--<filter>
 		<filter-name>appTokenFilter</filter-name>
 		<filter-class>com.origin.core.filter.AppTokenFilter</filter-class>
 		<init-param>
@@ -59,7 +59,7 @@
 	<filter-mapping>
 		<filter-name>appTokenFilter</filter-name>
 		<url-pattern>/app/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping>-->
 
 	<servlet>
 		<servlet-name>springmvc</servlet-name>

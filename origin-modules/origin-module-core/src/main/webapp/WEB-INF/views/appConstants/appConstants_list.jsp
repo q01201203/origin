@@ -102,8 +102,11 @@
                                         <td>
                                             <div class="t_text tc">
                                                 <c:choose>
-                                                    <c:when test="${r.key eq 'version' }">
-                                                        版本号
+                                                    <c:when test="${r.key eq 'androidversion' }">
+                                                        android版本号
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'iosversion' }">
+                                                        ios版本号
                                                     </c:when>
                                                     <c:when test="${r.key eq 'banner' }">
                                                         轮播图
@@ -123,13 +126,32 @@
                                                     <c:when test="${r.key eq 'overdueInterestRate' }">
                                                         逾期利率
                                                     </c:when>
+                                                    <c:when test="${r.key eq 'registerAgreement' }">
+                                                        注册协议
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'withholdingAgreement' }">
+                                                        代扣协议
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'taskinstructions' }">
+                                                        任务须知
+                                                    </c:when>
                                                 </c:choose>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="t_text tc">
-                                                ${r.value  }
-                                            </div>
+                                            <c:choose>
+                                                <c:when test="${r.key eq 'registerAgreement' || r.key eq 'withholdingAgreement'
+                                                ||r.key eq 'taskinstructions'}">
+                                                    <div class="t_link">
+                                                        <a href="${ctx}/admin/appConstants/dialog/richText_edit?id=${r.id }"><i class="icon"></i>显示内容</a>
+                                                    </div>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <div class="t_text tc">
+                                                        ${r.value}
+                                                    </div>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </td>
                                         <td>
                                             <div class="t_text tc">
@@ -145,13 +167,25 @@
                                         </td>
                                         <td>
                                             <div class="t_link">
-                                                <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
                                                 <c:choose>
-                                                    <c:when test="${r.deleteFlag eq 0 }">
-                                                        <a href="javascript:deleteById('${r.id }', '1');"><i class="icon"></i>删除</a>
+                                                    <c:when test="${r.key eq 'androidversion' }">
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'iosversion' }">
+                                                    </c:when>
+                                                    <c:when test="${r.key eq 'registerAgreement' || r.key eq 'withholdingAgreement'
+                                                    ||r.key eq 'taskinstructions'}">
+                                                        <a href="${ctx}/admin/appConstants/dialog/richText_edit?id=${r.id }"><i class="icon"></i>编辑</a>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <a href="javascript:deleteById('${r.id }', '0');"><i class="icon"></i>恢复</a>
+                                                        <a href="javascript:myEdit('${r.id }');"><i class="icon"></i>编辑</a>
+                                                        <c:choose>
+                                                            <c:when test="${r.deleteFlag eq 0 }">
+                                                                <a href="javascript:deleteById('${r.id }', '1');"><i class="icon"></i>删除</a>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <a href="javascript:deleteById('${r.id }', '0');"><i class="icon"></i>恢复</a>
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </div>

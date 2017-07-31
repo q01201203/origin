@@ -36,22 +36,18 @@ public class ZhimaUtil {
     private String zhimaPublicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIHKa1sVYxOuQRI76/9uKOyAC5WqB7f0i+hshq8mh/MttF3JtPmcLDPtqR9ufVJmetDnuK41QA/tFqM27Bq9gt3xOSz8Vq/Wq3HEc8ZJjGMhQWdFDvglkIx/D8NaDQV1Y1WSPq8pGQHuQhuaY6ZuxF5jdjh2kGx97uWnG5TZD3HwIDAQAB";
 
     //芝麻授权
-    public String  zhimaAuthInfoAuthorize(String name,String identityCard, String mobile ,String pwd,String alias) {
+    public String  zhimaAuthInfoAuthorize(String name,String identityCard,String token) {
         ZhimaAuthInfoAuthorizeRequest req = new ZhimaAuthInfoAuthorizeRequest();
         req.setChannel("apppc");
         req.setPlatform("zmop");
         req.setIdentityType("2");// 必要参数
         req.setIdentityParam("{\"name\":\""+name+"\",\"certType\":\"IDENTITY_CARD\",\"certNo\":\""+identityCard+"\"}");// 必要参数
         StringBuffer sb = new StringBuffer();
-        sb.append(mobile);
-        sb.append(",");
-        sb.append(pwd);
-        sb.append(",");
-        sb.append(alias);
-        sb.append(",");
         sb.append(name);
         sb.append(",");
         sb.append(identityCard);
+        sb.append(",");
+        sb.append(token);
         req.setBizParams("{\"auth_code\":\"M_H5\",\"channelType\":\"app\",\"state\":\""+sb+"\"}");//
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
         try {
@@ -140,7 +136,7 @@ public class ZhimaUtil {
         DefaultZhimaClient client = new DefaultZhimaClient(gatewayUrl, appId, privateKey, zhimaPublicKey);
         try {
             ZhimaCustomerCertificationInitializeResponse response =(ZhimaCustomerCertificationInitializeResponse)client.execute(req);
-            System.out.println(response.isSuccess());
+            System.out.println(""+response.isSuccess());
             if (response.isSuccess()){
                 System.out.println(response.getBizNo());
                 return response.getBizNo();
@@ -218,9 +214,9 @@ public class ZhimaUtil {
         String[] strings = new String[4];
         try {
             ZhimaCreditAntifraudScoreGetResponse response =(ZhimaCreditAntifraudScoreGetResponse)client.execute(req);
-            System.out.println(response.isSuccess());
+            System.out.println(""+response.isSuccess());
             System.out.println(response.getBizNo());
-            System.out.println(response.getScore());
+            System.out.println(""+response.getScore());
             System.out.println(response.getErrorCode());
             System.out.println(response.getErrorMessage());
             strings[0] = String.valueOf(response.isSuccess());
@@ -245,10 +241,10 @@ public class ZhimaUtil {
         String[] strings = new String[4];
         try {
             ZhimaCreditWatchlistiiGetResponse response =(ZhimaCreditWatchlistiiGetResponse)client.execute(req);
-            System.out.println(response.isSuccess());
+            System.out.println(""+response.isSuccess());
             System.out.println(response.getBizNo());
-            System.out.println(response.getDetails());
-            System.out.println(response.getIsMatched());
+            System.out.println(""+response.getDetails());
+            System.out.println(""+response.getIsMatched());
             System.out.println(response.getErrorCode());
             System.out.println(response.getErrorMessage());
             strings[0] = String.valueOf(response.isSuccess());
@@ -283,10 +279,10 @@ public class ZhimaUtil {
         String[] strings = new String[5];
         try {
             ZhimaCreditAntifraudRiskListResponse response =(ZhimaCreditAntifraudRiskListResponse)client.execute(req);
-            System.out.println(response.isSuccess());
-            System.out.println(response.getBizNo());
+            System.out.println(""+response.isSuccess());
+            System.out.println(""+response.getBizNo());
             System.out.println(response.getHit());
-            System.out.println(response.getRiskCode());
+            System.out.println(""+response.getRiskCode());
             System.out.println(response.getErrorCode());
             System.out.println(response.getErrorMessage());
             strings[0] = String.valueOf(response.isSuccess());
@@ -322,9 +318,9 @@ public class ZhimaUtil {
         String[] strings = new String[4];
         try {
             ZhimaCreditAntifraudVerifyResponse response =(ZhimaCreditAntifraudVerifyResponse)client.execute(req);
-            System.out.println(response.isSuccess());
+            System.out.println(""+response.isSuccess());
             System.out.println(response.getBizNo());
-            System.out.println(response.getVerifyCode());
+            System.out.println(""+response.getVerifyCode());
             System.out.println(response.getErrorCode());
             System.out.println(response.getErrorMessage());
             strings[0] = String.valueOf(response.isSuccess());

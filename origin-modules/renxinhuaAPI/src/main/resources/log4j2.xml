@@ -6,7 +6,8 @@
  	<!-- ****************日志存放的路径等**************** -->
     <Properties>
         <!-- 日志基本配置 -->
-        <Property name="LOG_HOME">${sys:catalina.home}/origin</Property>
+        <!--<Property name="LOG_HOME">${sys:catalina.home}/origin</Property>-->
+        <Property name="LOG_HOME">${sys:catalina.home}/renxinhualogs/renxinhuaAPI</Property>
     </Properties>
      <!--先定义所有的appender-->
      <appenders>

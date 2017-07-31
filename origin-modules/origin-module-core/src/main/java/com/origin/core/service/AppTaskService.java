@@ -9,7 +9,6 @@ public interface AppTaskService {
     void delete(Integer id);
     void update(IAppTask appTask);
     IAppTask findById(Integer id);
-    IAppTask findFirst(IAppTask appTask);
     List<IAppTask> find(IAppTask appTask);
     List<IAppTask> findByName(IAppTask appTask);
 }

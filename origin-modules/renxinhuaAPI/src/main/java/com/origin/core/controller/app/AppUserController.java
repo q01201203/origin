@@ -23,6 +23,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+import com.origin.core.util.CustomToken;
+import com.origin.core.util.SimpleToken;
+import util.YituUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -70,14 +73,19 @@ public class AppUserController {
 	public Object login(@RequestParam(value = "mobile") String mobile ,
 						@RequestParam(value = "pwd") String pwd,
 						@RequestParam(value = "alias" ,required = false) String alias) throws Exception {
-		System.out.println("renxinhua = "+mobile);
+		log.debug("renxinhua = "+mobile);
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
 		appUser.setPwd(Md5Util.generatePassword(pwd));
-		appUser = appUserService.findFirst(appUser);
+		List<IAppUser> appUsers = appUserService.find(appUser);
+		if (appUsers!=null&&appUsers.size()>0){
+			appUser = appUsers.get(0);
+		}else{
+			appUser = null;
+		}
 		if (appUser!=null){
 			if (!StringUtil.isNullOrBlank(alias)){
 				appUser.setJpushAlias(alias);
@@ -92,41 +100,39 @@ public class AppUserController {
 	@RequestMapping(value = "/register" ,method = RequestMethod.POST)
 	@ResponseBody
 	@ApiOperation(value = "app用户注册", httpMethod = "POST", response = Result.class,
-			notes = "注册传入手机号，密码，JPush的alias，芝麻授权用户名，芝麻授权用户身份证，返回一个H5的url地址")
-	public Object register(@RequestParam(value = "zhimaCertName") String zhimaCertName,
-								   @RequestParam(value = "zhimaCertNo") String zhimaCertNo,
-								   @RequestParam(value = "mobile") String mobile ,
-								   @RequestParam(value = "pwd") String pwd,
-								   @RequestParam(value = "alias") String alias) throws Exception{
-		if (StringUtil.isNullOrBlank(zhimaCertName)||StringUtil.isNullOrBlank(zhimaCertNo)||
-				StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)
-				||StringUtil.isNullOrBlank(alias)){
+			notes = "注册传入手机号，密码")
+	public Object register(@RequestParam(value = "mobile") String mobile ,
+						   @RequestParam(value = "pwd") String pwd) throws Exception{
+		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
-		appUser = appUserService.findFirst(appUser);
+		List<IAppUser> appUsers = appUserService.find(appUser);
+		if (appUsers!=null&&appUsers.size()>0){
+			appUser = appUsers.get(0);
+		}else{
+			appUser = null;
+		}
 		if (appUser!=null){
 			return Result.createErrorResult().setMessage("用户已存在");
 		}else {
-			ZhimaUtil zhimaUtil = new ZhimaUtil();
-			String result = zhimaUtil.zhimaAuthInfoAuthorize(zhimaCertName, zhimaCertNo, mobile, pwd, alias);
-			if ( result != null && !"error".equals(result)) {
-				return Result.createSuccessResult(result, "成功返回芝麻认证url");
-			} else {
-				return Result.createErrorResult().setMessage("返回芝麻认证url失败");
-			}
+			appUser = new AppUserDTO();
+			appUser.setMobile(mobile);
+			appUser.setPwd(Md5Util.generatePassword(pwd));
+			appUserService.save(appUser);
+			return Result.createSuccessResult().setMessage("注册成功");
 		}
 	}
 
 	//芝麻认证回调接口
 	@RequestMapping(value = "/saveRegisterInfo")
-	@ResponseBody
+	//@ResponseBody
 	@ApiIgnore
 	public String saveRegisterInfo(HttpServletRequest request) throws Exception{
 		String params = request.getParameter("params");
 		String sign = request.getParameter("sign");
-		System.out.println("renxinhua zhima params = "+params +" sign = "+sign);
+		log.debug("renxinhua zhima params = "+params +" sign = "+sign);
 		ZhimaUtil zhimaUtil = new ZhimaUtil();
 		String result = zhimaUtil.getResult(params,sign);
 
@@ -139,40 +145,49 @@ public class AppUserController {
 		String success = map.get("success").toString();
 		String error_code = map.get("error_code").toString();
 		String state = map.get("state").toString();
-		System.out.println("renxinhua open_id = "+open_id+" error_message = "+error_message+" success = "+success+
+		log.debug("renxinhua open_id = "+open_id+" error_message = "+error_message+" success = "+success+
 				" error_code = "+error_code+" state = "+state);
 		String[] datas = state.split("\\,");
-		String mobile = datas[0];
-		String pwd = datas[1];
-		String alias = datas[2];
-		String zhimaCertName = datas[3];
-		String zhimaCertNo = datas[4];
-		System.out.println("renxinhua mobile = "+mobile+" pwd = "+pwd+" alias = "+alias+" zhimaCertName = "+zhimaCertName
-				+" zhimaCertNo = "+zhimaCertNo);
+		String zhimaCertName = datas[0];
+		String zhimaCertNo = datas[1];
+		String token = datas[2];
+		log.debug("renxinhua  zhimaCertName = "+zhimaCertName +" zhimaCertNo = "+zhimaCertNo +" token = "+token);
+
+		//验证权限
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			//return "permission_error";
+			return "zhimafail";
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+		IAppUser appUser = appUserService.findById(uId);
+		String alias = appUser.getJpushAlias();
 
 		if (result!=null && !"error".equals(result)){
 			if ("true".equals(success)){
-				//保存注册信息
-				IAppUser appUser = new AppUserDTO();
-				appUser.setMobile(mobile);
-				appUser.setPwd(Md5Util.generatePassword(pwd));
+				//更新芝麻信息
 				appUser.setZhimaCertName(zhimaCertName);
 				appUser.setZhimaCertNo(zhimaCertNo);
 				appUser.setZhimaOpenid(open_id);
-				appUser.setJpushAlias(alias);
-				appUserService.saveUser(appUser);
-				return "success";
+				appUserService.updateUserZhimaInfo(appUser);
+				//return "success";
+				return "zhimasuccess";
 			}else {
 				if (!StringUtil.isNullOrBlank(alias)) {
-					JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, "注册失败"));
+					String message = JsonUtil.object2Json(Result.createErrorResult().setMessage("芝麻认证授权失败，" +
+							error_code+":"+error_message));
+					JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, message));
 				}
-				return error_code+":"+error_message;
+				//return error_code+":"+error_message;
+				return "zhimafail";
 			}
 		}else {
 			if (!StringUtil.isNullOrBlank(alias)) {
-				JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, "注册失败"));
+				String message = JsonUtil.object2Json(Result.createErrorResult().setMessage("芝麻认证授权失败"));
+				JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, message));
 			}
-			return "error";
+			//return "error";
+			return "zhimafail";
 		}
 	}
 
@@ -188,12 +203,21 @@ public class AppUserController {
 		}
 		IAppUser appUser = new AppUserDTO();
 		appUser.setMobile(mobile);
-		appUser = appUserService.findFirst(appUser);
-		appUser.setId(appUser.getId());
-		appUser.setPwd(Md5Util.generatePassword(pwd));
-		appUser.setUpdateDate(new Date());
-		appUserService.update(appUser);
-		return Result.createSuccessResult().setMessage("重置密码成功");
+		List<IAppUser> appUsers = appUserService.find(appUser);
+		if (appUsers!=null&&appUsers.size()>0){
+			appUser = appUsers.get(0);
+		}else{
+			appUser = null;
+		}
+		if (appUser!=null){
+			appUser.setId(appUser.getId());
+			appUser.setPwd(Md5Util.generatePassword(pwd));
+			appUser.setUpdateDate(new Date());
+			appUserService.update(appUser);
+			return Result.createSuccessResult().setMessage("重置密码成功");
+		}else{
+			return Result.createErrorResult().setMessage("重置密码失败");
+		}
 	}
 
 	@RequestMapping(value = "/addPayPwd" ,method = RequestMethod.POST)
@@ -202,7 +226,7 @@ public class AppUserController {
 			"，传入支付密码")
 	public Object addPayPwd(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "payPwd") String payPwd) throws Exception{
-		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token), Constants.AHORITY_LOW);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
 		}
@@ -224,8 +248,8 @@ public class AppUserController {
 	@RequestMapping(value = "/updateIdinfoAndFace" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户添加身份证信息和人脸图片和分类", httpMethod = "GET", response = Result.class, notes = "" +
-			"添加身份证信息（正面图片地址，背面图片地址，姓名，身份证号）和人脸图片地址和分类（1、学生2、" +
-			"社会人群），返回一个新token")
+			"添加身份证信息（正面图片地址，背面图片地址，姓名，身份证号）和人脸图片地址和分类（1、学生2、社会人群），返回芝麻认证" +
+			"的URL")
 	public Object updateIdinfoAndFace(@RequestHeader(value = "Authorization" ) String token,
 							@RequestParam(value = "idFrontImg") String idFrontImg,
 							@RequestParam(value = "idBackImg") String idBackImg,
@@ -254,10 +278,15 @@ public class AppUserController {
 		appUser.setUserIdNumber(idNumber);
 		appUser.setImgFace(face);
 		appUser.setCategory(Integer.parseInt(category));
-		appUser.setAuthority(Constants.AHORITY_MEDIUM);
 		appUserService.update(appUser);
-		return Result.createSuccessResult((CustomToken.generate(new SimpleToken(uId,
-				Constants.AHORITY_MEDIUM))),"更新信息成功");
+
+		ZhimaUtil zhimaUtil = new ZhimaUtil();
+		String result = zhimaUtil.zhimaAuthInfoAuthorize(idName, idNumber , token);
+		if ( result != null && !"error".equals(result)) {
+			return Result.createSuccessResult(result, "成功返回芝麻认证url");
+		} else {
+			return Result.createErrorResult().setMessage("返回芝麻认证url失败");
+		}
 	}
 
 	@RequestMapping(value = "/updatePortrait" ,method = RequestMethod.GET)
@@ -341,7 +370,7 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("renxinhua 请求的category为" + category);
+		log.debug("renxinhua 请求的category为" + category);
 		if (StringUtil.isNullOrBlank(category)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -366,7 +395,7 @@ public class AppUserController {
 		String infoEmycontactMobile = request.getParameter("infoEmycontactMobile");
 		String infoContactRelation = request.getParameter("infoContactRelation");
 		String infoContactMobile = request.getParameter("infoContactMobile");
-		System.out.println(/*"请求的infoMobile为" + infoMobile +*/ "\n请求的infoCompanyAddress为" +
+		log.debug(/*"请求的infoMobile为" + infoMobile +*/ "\n请求的infoCompanyAddress为" +
 				infoCompanyAddress +"\n请求的infoQq为" + infoQq+ "\n请求的infoWeixin为" +
 				infoWeixin+ "\n请求的infoHome为" + infoHome+ "\n请求的infoEmycontactRelation为" +
 				infoEmycontactRelation+ "\n请求的infoEmycontactMobile为" + infoEmycontactMobile+
@@ -382,7 +411,12 @@ public class AppUserController {
 		boolean save = false;
 		IAppPersonDetail appPersonDetail = new AppPersonDetailDTO();
 		appPersonDetail.setUid(uId);
-		appPersonDetail = appPersonDetailService.findFirst(appPersonDetail);
+		List<IAppPersonDetail> appPersonDetails = appPersonDetailService.find(appPersonDetail);
+		if (appPersonDetails!=null&&appPersonDetails.size()>0){
+			appPersonDetail = appPersonDetails.get(0);
+		}else{
+			appPersonDetail = null;
+		}
 		if (appPersonDetail == null){
 			save = true;
 			appPersonDetail = new AppPersonDetailDTO();
@@ -416,7 +450,7 @@ public class AppUserController {
 		String infoEmycontactMobile = request.getParameter("infoEmycontactMobile");
 		String infoContactRelation = request.getParameter("infoContactRelation");
 		String infoContactMobile = request.getParameter("infoContactMobile");
-		System.out.println(/*"请求的infoMobile为" + infoMobile + */"\n请求的infoSchool为" +
+		log.debug(/*"请求的infoMobile为" + infoMobile + */"\n请求的infoSchool为" +
 				infoSchool+ "\n请求的infoDepartment为" + infoDepartment+ "\n请求的infoClass为" +
 				infoClass+ "\n请求的infoRoomNumber为" + infoRoomNumber+ "\n请求的infoEmycontactRelation为" +
 				infoEmycontactRelation+ "\n请求的infoEmycontactMobile为" + infoEmycontactMobile+
@@ -432,7 +466,12 @@ public class AppUserController {
 		boolean save = false;
 		IAppStuDetail appStuDetail = new AppStuDetailDTO();
 		appStuDetail.setUid(uId);
-		appStuDetail = appStuDetailService.findFirst(appStuDetail);
+		List<IAppStuDetail> appStuDetails = appStuDetailService.find(appStuDetail);
+		if (appStuDetails!=null&&appStuDetails.size()>0){
+			appStuDetail = appStuDetails.get(0);
+		}else{
+			appStuDetail = null;
+		}
 		if (appStuDetail == null){
 			save = true;
 			appStuDetail = new AppStuDetailDTO();
@@ -484,7 +523,12 @@ public class AppUserController {
 		boolean save = false;
 		IAppUserBank appUserBankDTO = new AppUserBankDTO();
 		appUserBankDTO.setUid(uId);
-		appUserBankDTO = appUserBankService.findFirst(appUserBankDTO);
+		List<IAppUserBank> appUserBanks = appUserBankService.find(appUserBankDTO);
+		if (appUserBanks!=null&&appUserBanks.size()>0){
+			appUserBankDTO = appUserBanks.get(0);
+		}else{
+			appUserBankDTO = null;
+		}
 		if (appUserBankDTO == null){
 			save = true;
 			appUserBankDTO = new AppUserBankDTO();
@@ -525,7 +569,7 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("renxinhua 请求的money为" + askMoney + "\n请求的type为" + type);
+		log.debug("renxinhua 请求的money为" + askMoney + "\n请求的type为" + type);
 		if (StringUtil.isNullOrBlank(type)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -533,7 +577,7 @@ public class AppUserController {
 		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
 		appMoneyDetail.setUid(uId);
 		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
-			System.out.println("renxinhua 请求的repayTimeType为" + repayTimeType);
+			log.debug("renxinhua 请求的repayTimeType为" + repayTimeType);
 			if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayTimeType)){
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
@@ -555,7 +599,7 @@ public class AppUserController {
 			appMoneyDetailService.save(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("借款申请成功");
 		}else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
-			System.out.println("renxinhua 请求的repayWay为" + repayWay);
+			log.debug("renxinhua 请求的repayWay为" + repayWay);
 			if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayWay)){
 				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 			}
@@ -605,7 +649,7 @@ public class AppUserController {
 	@ResponseBody
 	@ApiOperation(value = "app用户获取钱信息", httpMethod = "GET", response = Result.class,
 			notes = "获取钱信息 钱使用money_actual字段 必传type(1:借钱 2:还钱 3:提现 4:收入) 可选status(1:待审核" +
-					"2:审核通过 3:审核未通过) 借钱可选repayStatus(1、已还0、未还) currentPage当前页（不填默认第一页），pageSize每页条数（不填默认为10）")
+					"2:审核通过 3:审核未通过) 借钱可选repayStatus还款状态(0、未还1、已还2、待审核) currentPage当前页（不填默认第一页），pageSize每页条数（不填默认为10）")
 	public Object getMoney(@RequestHeader(value = "Authorization" ) String token,
 						   @RequestParam(value = "type") String type,
 						   @RequestParam(value = "status" ,required = false) String status,
@@ -618,7 +662,7 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("renxinhua 请求的type为" + type);
+		log.debug("renxinhua 请求的type为" + type);
 		if (StringUtil.isNullOrBlank(type)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -694,7 +738,7 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
-		System.out.println("renxinhua 请求的content为" + content);
+		log.debug("renxinhua 请求的content为" + content);
 		if (StringUtil.isNullOrBlank(content)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
@@ -738,13 +782,23 @@ public class AppUserController {
 			if (IAppUser.CATEGORY_STU.equals(appUser.getCategory())){
 				IAppStuDetail appStuDetail = new AppStuDetailDTO();
 				appStuDetail.setUid(uId);
-				appStuDetail = appStuDetailService.findFirst(appStuDetail);
-				return Result.createSuccessResult(appStuDetail,"获取用户学生信息成功");
+				List<IAppStuDetail> appStuDetails = appStuDetailService.find(appStuDetail);
+				if (appStuDetails!=null&&appStuDetails.size()>0){
+					appStuDetail = appStuDetails.get(0);
+					return Result.createSuccessResult(appStuDetail,"获取用户学生信息成功");
+				}else{
+					return Result.createErrorResult(appStuDetail,"获取用户学生信息失败");
+				}
 			}else if (IAppUser.CATEGORY_PERSON.equals(appUser.getCategory())){
 				IAppPersonDetail appPersonDetail = new AppPersonDetailDTO();
 				appPersonDetail.setUid(uId);
-				appPersonDetail = appPersonDetailService.findFirst(appPersonDetail);
-				return Result.createSuccessResult(appPersonDetail,"获取用户社会人群信息成功");
+				List<IAppPersonDetail> appPersonDetails = appPersonDetailService.find(appPersonDetail);
+				if (appPersonDetails!=null&&appPersonDetails.size()>0){
+					appPersonDetail = appPersonDetails.get(0);
+					return Result.createSuccessResult(appPersonDetail,"获取用户社会人群信息成功");
+				}else{
+					return Result.createErrorResult(appPersonDetail,"获取用户社会人群信息失败");
+				}
 			}
 		}
 		return Result.create(ResultCode.SERVICE_ERROR).setMessage("用户详细信息不存在");
@@ -781,7 +835,7 @@ public class AppUserController {
 		Double needRepay = borrowActual - repayActual - repayAsk;
 		Double balance = incomeActual - withdrawActual - withdrawAsk - repayBalanceActual - repayBalanceAsk;
 		Double balance2 = appUser.getBalance();
-		System.out.println("renxinhua b1 = "+balance+" b2 = "+balance2);
+		log.debug("renxinhua b1 = "+balance+" b2 = "+balance2);
 		Double borrowLine = moneyMax - borrowActual - borrowAsk + repayActual;
 
 		Map<String,Object> moneyMap = new HashMap();
@@ -833,12 +887,13 @@ public class AppUserController {
 	@RequestMapping(value = "/getUserMessage" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "获取用户单条消息或者列表", httpMethod = "GET", response = Result.class, notes = "如果传入消息ID则获取单条消息" +
-			"否则获取列表传入参数type(1、个人消息2、系统消息),status状态(0已读1未读) currentPage当前页（不填默认第一页），" +
-			"pageSize每页条数（不填默认为10）")
+			"否则获取列表,传入可选参数type(1、个人消息2、系统消息),可选参数status状态(0已读1未读),可选参数isGetTotal(为1的时候只获取总条数否则获取所有记录)" +
+			" currentPage当前页（不填默认第一页），pageSize每页条数（不填默认为10）")
 	public Object getUserMessage(@RequestHeader(value = "Authorization") String token,
 								 @RequestParam(value = "mid" ,required = false) String mid,
 								 @RequestParam(value = "type" ,required = false) String type,
 								 @RequestParam(value = "status" ,required = false) String status,
+								 @RequestParam(value = "isGetTotal" ,required = false) String isGetTotal,
 								 @RequestParam(value = "currentPage" ,required = false) String currentPageStr,
 								 @RequestParam(value = "pageSize" ,required = false) String pageSizeStr) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
@@ -870,10 +925,17 @@ public class AppUserController {
 			PageHelper.startPage(currentPage, pageSize);
 			List<IAppMessage> appMessages = appMessageService.findOrderBy(appMessage);
 			PageInfo<IAppMessage> page = new PageInfo(appMessages);
-			DataWithPageModel<IAppMessage> dataWithPageModel = new DataWithPageModel<>();
-			dataWithPageModel.setData(appMessages);
-			dataWithPageModel.setPageInfo(page);
-			return Result.createSuccessResult(dataWithPageModel,"获取用户消息列表成功");
+			if (StringUtil.isNullOrBlank(isGetTotal)|| !"1".equals(isGetTotal)){
+				DataWithPageModel<IAppMessage> dataWithPageModel = new DataWithPageModel<>();
+				dataWithPageModel.setData(appMessages);
+				dataWithPageModel.setPageInfo(page);
+				return Result.createSuccessResult(dataWithPageModel,"获取用户消息列表成功");
+			}else {
+				Map messageNumber = new HashMap();
+				messageNumber.put("total",page.getTotal());
+				return Result.createSuccessResult(messageNumber,"获取用户消息数量成功");
+			}
+
 		}
 	}
 
@@ -899,6 +961,25 @@ public class AppUserController {
 			return Result.createSuccessResult().setMessage("更新用户消息状态成功");
 		}else{
 			return Result.createErrorResult().setMessage("消息和用户不匹配");
+		}
+	}
+
+	@RequestMapping(value = "/getIsCertification" ,method = RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value = "获取用户是否认证完成", httpMethod = "GET", response = Result.class, notes = "获取用户是否认证完成")
+	public Object getIsCertification(@RequestHeader(value = "Authorization" ) String token) throws Exception{
+		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
+		if (!(tokenValidResult instanceof SimpleToken)){
+			return tokenValidResult;
+		}
+		Integer uId = ((SimpleToken) tokenValidResult).getId();
+
+		IAppUser appUser = appUserService.findById(uId);
+		Integer authority = appUser.getAuthority();
+		if (authority !=null && authority > Constants.AHORITY_LOW){
+			return Result.createSuccessResult(true,"该用户认证完成");
+		}else{
+			return Result.createSuccessResult(false,"该用户认证未完成");
 		}
 	}
 
@@ -1000,6 +1081,12 @@ public class AppUserController {
 		}
 	}
 
+	@RequestMapping(value = "/test")
+	@ApiIgnore
+	public String test(){
+		return "zhimasuccess";
+	}
+
 	/*@RequestMapping(value = "/getZhimaCertificationUrl" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "获取芝麻认证Url和身份证名字和号码", httpMethod = "GET", response = Result.class,
@@ -1025,7 +1112,7 @@ public class AppUserController {
 				IdCardRecognitionResultModel idCardRecognitionResultModel = JsonUtil.json2Object(identityCardBackInfo, IdCardRecognitionResultModel.class);
 				String name = idCardRecognitionResultModel.getResult().getName();
 				String identityNumber = idCardRecognitionResultModel.getResult().getNumber();
-				System.out.println("name = " + name + " identityNumber = " + identityNumber);
+				log.debug("name = " + name + " identityNumber = " + identityNumber);
 				if (!StringUtil.isNullOrEmpty(name) && !StringUtil.isNullOrEmpty(identityNumber)) {
 					ZhimaUtil zhimaUtil = new ZhimaUtil();
 					String bizNo = zhimaUtil.zhimaCustomerCertificationInitialize(name, identityNumber);
@@ -1071,7 +1158,7 @@ public class AppUserController {
 
 		ZhimaUtil zhimaUtil = new ZhimaUtil();
 		String result = zhimaUtil.getResult(params,sign);
-		System.out.println("renxinhua uid = "+uid +" result = "+result);
+		log.debug("renxinhua uid = "+uid +" result = "+result);
 		Map map = StringUtil.urlSplit(result);
 		String passed = "";
 		if (map.get("passed")!=null){

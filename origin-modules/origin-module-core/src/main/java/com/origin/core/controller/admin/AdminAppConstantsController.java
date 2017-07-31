@@ -162,4 +162,15 @@ public class AdminAppConstantsController {
     	return ajaxResult;
     }
 
+	@RequestMapping("/dialog/richText_edit")
+	public String richTextEdit(HttpServletRequest request, Model model){
+		String id = request.getParameter("id");
+
+		if(StringUtils.isNotBlank(id)){
+			IAppConstants appConstants = appConstantsService.findById(Integer.parseInt(id));
+			model.addAttribute("appConstants", appConstants);
+		}
+		model.addAttribute(Constants.MENU_NAME, "修改富文本");
+		return "appConstants/richText_edit";
+	}
 }

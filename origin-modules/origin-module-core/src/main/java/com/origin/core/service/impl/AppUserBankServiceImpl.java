@@ -38,11 +38,6 @@ public class AppUserBankServiceImpl  implements AppUserBankService {
     }
 
     @Override
-    public IAppUserBank findFirst(IAppUserBank appUserBank) {
-        return appUserBankDao.findFirst(appUserBank);
-    }
-
-    @Override
     public List<IAppUserBank> find(IAppUserBank appUserBank) {
         return appUserBankDao.find(appUserBank);
     }

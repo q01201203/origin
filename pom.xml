@@ -468,7 +468,9 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                	<warName>/origin</warName>
+                    <!--打包时是否同时打jar包（用于一个web工程依赖另一个web工程）-->
+                    <attachClasses>true</attachClasses>
+                	<!--<warName>/origin</warName>-->
                     <!-- <warName>/origin-module-core-1.0-SNAPSHOT</warName> -->
                 </configuration>
             </plugin>

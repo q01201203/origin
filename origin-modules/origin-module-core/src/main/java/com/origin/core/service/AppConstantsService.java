@@ -9,6 +9,5 @@ public interface AppConstantsService {
     void delete(Integer id);
     void update(IAppConstants appConstants);
     IAppConstants findById(Integer id);
-    IAppConstants findFirst(IAppConstants appConstants);
     List<IAppConstants> find(IAppConstants appConstants);
 }

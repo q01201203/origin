@@ -37,11 +37,6 @@ public class ${model}ServiceImpl  implements ${model}Service {
     }
 
     @Override
-    public I${model} findFirst(I${model} ${_model}) {
-        return ${_model}Dao.findFirst(${_model});
-    }
-
-    @Override
     public List<I${model}> find(I${model} ${_model}) {
         return ${_model}Dao.find(${_model});
     }

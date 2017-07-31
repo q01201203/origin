@@ -24,8 +24,17 @@
         </dependency>
         <dependency>
             <groupId>com.origin</groupId>
-            <artifactId>origin-module-core</artifactId>
+            <artifactId>renxinhuaAdmin</artifactId>
             <version>${project.parent.version}</version>
+            <type>jar</type>
+            <classifier>classes</classifier>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.origin</groupId>
+            <artifactId>renxinhuaAdmin</artifactId>
+            <version>${project.parent.version}</version>
+            <type>war</type>
         </dependency>
         <!-- J2EE支持-->
         <dependency>

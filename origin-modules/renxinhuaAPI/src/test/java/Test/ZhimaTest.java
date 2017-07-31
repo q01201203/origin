@@ -1,11 +1,11 @@
 package Test;
 
 import com.origin.core.model.IdCardRecognitionResultModel;
-import com.origin.core.util.IdCardRecognitionUtil;
 import com.origin.core.util.JsonUtil;
-import com.origin.core.util.YituUtil;
 import com.origin.core.util.ZhimaUtil;
 import org.junit.Test;
+import util.IdCardRecognitionUtil;
+import util.YituUtil;
 
 /**
  * Created by lc on 2017/6/12.
@@ -1161,6 +1161,7 @@ public class ZhimaTest {
         YituUtil yituUtil = new YituUtil();
         yituUtil.idCardRecognize(pic);
     }
+
 
     @Test
     public void test(){

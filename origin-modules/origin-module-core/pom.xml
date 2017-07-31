@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>origin-module-core</artifactId>
+    <!--<artifactId>origin-module-core</artifactId>-->
+    <artifactId>renxinhuaAdmin</artifactId>
     <packaging>war</packaging>
     <dependencies>
         <dependency>

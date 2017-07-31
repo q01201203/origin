@@ -9,6 +9,5 @@ public interface AppValidcodeService {
     void delete(Integer id);
     void update(IAppValidcode appValidcode);
     IAppValidcode findById(Integer id);
-    IAppValidcode findFirst(IAppValidcode appValidcode);
     List<IAppValidcode> find(IAppValidcode appValidcode);
 }
