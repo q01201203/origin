@@ -3,6 +3,8 @@ package Test;
 import com.origin.core.util.StringUtil;
 import jodd.util.URLDecoder;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -80,5 +82,17 @@ public class Test {
         ca.add(Calendar.DAY_OF_YEAR, 15);
         System.out.println(sdf.format(ca.getTime()));
         System.out.println("date = "+date);
+    }
+
+    @org.junit.Test
+    public void testMoney(){
+        Double initMoney = 600.00d;
+        Integer initDay = 2;
+        Double overdueInterestRate = 0.005d;
+        Double resultMoney = Math.pow((1+overdueInterestRate),initDay)*initMoney - initMoney;
+        System.out.println("resultMoney = "+resultMoney);
+        BigDecimal d = new BigDecimal(resultMoney);
+        BigDecimal i = d.setScale(2, RoundingMode.HALF_EVEN);
+        System.out.println("resultMoney = "+i);
     }
 }

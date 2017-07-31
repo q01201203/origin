@@ -2,23 +2,18 @@ package com.origin.core.controller.app;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
 import com.origin.core.dto.AppConstantsDTO;
 import com.origin.core.dto.AppGuideDTO;
 import com.origin.core.dto.AppTaskDTO;
 import com.origin.core.model.DataWithPageModel;
-import com.origin.core.service.AppConstantsService;
-import com.origin.core.service.AppGuideService;
-import com.origin.core.service.AppTaskService;
-import com.origin.core.service.AppUserService;
+import com.origin.core.service.*;
 import com.origin.core.util.Constants;
 import com.origin.core.util.CustomToken;
 import com.origin.core.util.SimpleToken;
 import com.origin.core.util.StringUtil;
-import com.origin.data.entity.IAppConstants;
-import com.origin.data.entity.IAppGuide;
-import com.origin.data.entity.IAppTask;
-import com.origin.data.entity.IAppUser;
+import com.origin.data.entity.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
@@ -28,6 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -52,6 +49,9 @@ public class AppInfoController {
 
 	@Autowired
 	private AppConstantsService appConstantsService;
+
+	@Autowired
+	private AppMoneyDetailService appMoneyDetailService;
 
 	@RequestMapping(value = "/getTask" , method = RequestMethod.GET)
 	@ResponseBody
@@ -148,18 +148,28 @@ public class AppInfoController {
 	@RequestMapping(value = "/getOverdueInterest" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "获取逾期利息", httpMethod = "GET", response = Result.class,
-			notes = "获取逾期利息")
-	public Object getOverdueInterest(@RequestParam(value = "type" ,required = false) String type ,
-							   @RequestParam(value = "key" ,required = false) String key ) throws Exception{
+			notes = "获取逾期利息,必传参数借款的id")
+	public Object getOverdueInterest(@RequestParam(value = "mid") String mid) throws Exception{
+
+		if (StringUtil.isNullOrBlank(mid)){
+			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+		}
+		IAppMoneyDetail appMoneyDetail = appMoneyDetailService.findById(Integer.parseInt(mid));
+		Double money = appMoneyDetail.getMoneyActual();
+		Date repayDeadline = appMoneyDetail.getRepayDeadline();
+		Date now = new Date();
+		int day = (int) (now.getTime() - repayDeadline.getTime())/(1000*60*60*24);
+		log.debug("money = "+money +" day = "+day);
 		IAppConstants appConstants = new AppConstantsDTO();
-		if(StringUtils.isNotBlank(type)){
-			appConstants.setType(type);
-		}
-		if(StringUtils.isNotBlank(key)){
-			appConstants.setKey(key);
-		}
-		appConstants.setDeleteFlag(0);
-		List<IAppConstants> appConstantsList = appConstantsService.find(appConstants);
-		return Result.createSuccessResult(appConstantsList,"获取常量成功");
+		appConstants.setKey("overdueInterestRate");
+		appConstants = appConstantsService.findByKey(appConstants);
+		Double overdueInterestRate = Double.parseDouble(appConstants.getValue());
+
+		Double resultMoney = Math.pow((1+overdueInterestRate),day)*money - money;
+
+		//银行家算法四舍五入
+		BigDecimal b = new BigDecimal(resultMoney);
+		resultMoney = b.setScale(2,BigDecimal.ROUND_HALF_EVEN).doubleValue();
+		return Result.createSuccessResult(resultMoney,"获取逾期利息成功");
 	}
 }

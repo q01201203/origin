@@ -135,13 +135,16 @@
                                                     <c:when test="${r.key eq 'taskinstructions' }">
                                                         任务须知
                                                     </c:when>
+                                                    <c:when test="${r.key eq 'loanAgreement' }">
+                                                        借款协议
+                                                    </c:when>
                                                 </c:choose>
                                             </div>
                                         </td>
                                         <td>
                                             <c:choose>
                                                 <c:when test="${r.key eq 'registerAgreement' || r.key eq 'withholdingAgreement'
-                                                ||r.key eq 'taskinstructions'}">
+                                                ||r.key eq 'taskinstructions'||r.key eq 'loanAgreement'}">
                                                     <div class="t_link">
                                                         <a href="${ctx}/admin/appConstants/dialog/richText_edit?id=${r.id }"><i class="icon"></i>显示内容</a>
                                                     </div>
@@ -173,7 +176,7 @@
                                                     <c:when test="${r.key eq 'iosversion' }">
                                                     </c:when>
                                                     <c:when test="${r.key eq 'registerAgreement' || r.key eq 'withholdingAgreement'
-                                                    ||r.key eq 'taskinstructions'}">
+                                                    ||r.key eq 'taskinstructions'||r.key eq 'loanAgreement'}">
                                                         <a href="${ctx}/admin/appConstants/dialog/richText_edit?id=${r.id }"><i class="icon"></i>编辑</a>
                                                     </c:when>
                                                     <c:otherwise>

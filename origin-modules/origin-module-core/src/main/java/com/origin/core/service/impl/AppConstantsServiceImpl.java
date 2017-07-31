@@ -41,4 +41,9 @@ private IAppConstantsDao<IAppConstants,Integer> appConstantsDao;
     public List<IAppConstants> find(IAppConstants appConstants) {
         return appConstantsDao.find(appConstants);
     }
+
+    @Override
+    public IAppConstants findByKey(IAppConstants appConstants) {
+        return appConstantsDao.findFirst(appConstants);
+    }
 }

@@ -10,4 +10,5 @@ public interface AppConstantsService {
     void update(IAppConstants appConstants);
     IAppConstants findById(Integer id);
     List<IAppConstants> find(IAppConstants appConstants);
+    IAppConstants findByKey(IAppConstants appConstants);
 }
