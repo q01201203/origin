@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import util.HttpSender;
 
 import java.util.List;
 
@@ -94,8 +95,8 @@ public class AppValidcodeController {
 	}
 
 	private boolean saveValidcode(String mobile, String type) {
-		int validcode = 110110;
-		//int validcode = HttpSender.send(mobile);
+		//int validcode = 110110;
+		int validcode = HttpSender.send(mobile);
 		if (validcode < 0){
 			return false;
 		}

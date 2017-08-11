@@ -306,6 +306,13 @@
             <groupId>cn.jpush.api</groupId>
             <artifactId>jpush-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>umpay_sign_V40</groupId>
+            <artifactId>umpay</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/umpay_sign_V40.jar</systemPath>
+        </dependency>
     </dependencies>
 
 </project>

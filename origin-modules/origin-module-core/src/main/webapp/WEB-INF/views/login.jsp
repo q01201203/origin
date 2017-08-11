@@ -34,12 +34,12 @@ $(function(){
 	document.onkeydown = function(e){ 
 	    var ev = document.all ? window.event : e;
 	    if(ev.keyCode==13) {
-	    	mySubmit();
-			/*if(res){
-			 mySubmit();
-			 }else{
-			 alert("验证码错误");
-			 }*/
+	    	//mySubmit();
+			if(res){
+				mySubmit();
+			}else{
+			    alert("验证码错误");
+			}
 	    }
 	}
 	
@@ -85,11 +85,11 @@ $(function(){
 
     document.getElementById("my_button").onclick = function(){
         var res = verifyCode.validate(document.getElementById("code_input").value);
-        mySubmit();
-        /*if(res){
+        //mySubmit();
+        if(res){
             mySubmit();
         }else{
             alert("验证码错误");
-        }*/
+        }
     }
 </script>

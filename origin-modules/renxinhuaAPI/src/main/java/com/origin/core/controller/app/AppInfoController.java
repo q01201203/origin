@@ -155,21 +155,34 @@ public class AppInfoController {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 		IAppMoneyDetail appMoneyDetail = appMoneyDetailService.findById(Integer.parseInt(mid));
-		Double money = appMoneyDetail.getMoneyActual();
-		Date repayDeadline = appMoneyDetail.getRepayDeadline();
-		Date now = new Date();
-		int day = (int) (now.getTime() - repayDeadline.getTime())/(1000*60*60*24);
-		log.debug("money = "+money +" day = "+day);
-		IAppConstants appConstants = new AppConstantsDTO();
-		appConstants.setKey("overdueInterestRate");
-		appConstants = appConstantsService.findByKey(appConstants);
-		Double overdueInterestRate = Double.parseDouble(appConstants.getValue());
+		Integer type = appMoneyDetail.getType();
+		if (type.equals(IAppMoneyDetail.TYPE_BORROW)){
+			Integer status = appMoneyDetail.getStatus();
+			if (status.equals(IAppMoneyDetail.STATUS_AUDIT_SUCCESS)){
+				Double money = appMoneyDetail.getMoneyActual();
+				Date repayDeadline = appMoneyDetail.getRepayDeadline();
+				Date now = new Date();
+				int day = (int) (now.getTime() - repayDeadline.getTime())/(1000*60*60*24);
+				log.debug("money = "+money +" day = "+day);
+				if (day<=0){
+					return Result.createSuccessResult(0,"该借款没有逾期利息");
+				}
+				IAppConstants appConstants = new AppConstantsDTO();
+				appConstants.setKey("overdueInterestRate");
+				appConstants = appConstantsService.findByKey(appConstants);
+				Double overdueInterestRate = Double.parseDouble(appConstants.getValue());
 
-		Double resultMoney = Math.pow((1+overdueInterestRate),day)*money - money;
+				Double resultMoney = Math.pow((1+overdueInterestRate),day)*money - money;
 
-		//银行家算法四舍五入
-		BigDecimal b = new BigDecimal(resultMoney);
-		resultMoney = b.setScale(2,BigDecimal.ROUND_HALF_EVEN).doubleValue();
-		return Result.createSuccessResult(resultMoney,"获取逾期利息成功");
+				//银行家算法四舍五入
+				BigDecimal b = new BigDecimal(resultMoney);
+				resultMoney = b.setScale(2,BigDecimal.ROUND_HALF_EVEN).doubleValue();
+				return Result.createSuccessResult(resultMoney,"获取逾期利息成功");
+			}else{
+				return Result.createErrorResult().setMessage("该借款还未审核通过");
+			}
+		}else{
+			return Result.createErrorResult().setMessage("此交易不是借款记录");
+		}
 	}
 }

@@ -498,11 +498,19 @@ public class AppUserController {
 	@RequestMapping(value = "/saveBankInfo" ,method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "app用户保存银行信息", httpMethod = "GET", response = Result.class, notes = "保存用户银行信息" +
-			"，必传银行名字bankName，银行卡号bankNumber，银行卡类型bankType，银行卡预留手机号bankMobile")
+			"，必传银行名字bankName，银行卡号bankNumber，银行卡类型bankType，银行卡预留手机号bankMobile" +
+			"bindNo注册流水号,usrBusiAgreementId用户业务协议号,usrPayAgreementId支付协议号,gateId支付银行,bankCardType银行卡类型(upay返回的)")
 	@ApiImplicitParams({@ApiImplicitParam(name = "bankName" ,value = "bankName",paramType = "query",dataType = "string") ,
 			@ApiImplicitParam(name = "bankNumber" ,value = "bankNumber",paramType = "query",dataType = "string"),
-			@ApiImplicitParam(name = "bankType" ,value = "bankType",paramType = "query",dataType = "int"),
-			@ApiImplicitParam(name = "bankMobile" ,value = "bankMobile",paramType = "query",dataType = "string")})
+			@ApiImplicitParam(name = "bankMobile" ,value = "bankMobile",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "bankType" ,value = "bankType",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "bindNo" ,value = "bindNo",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "usrBusiAgreementId" ,value = "usrBusiAgreementId",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "usrPayAgreementId" ,value = "usrPayAgreementId",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "gateId" ,value = "gateId",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "bankCardType" ,value = "bankCardType",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "identityCode" ,value = "identityCode",paramType = "query",dataType = "string"),
+			@ApiImplicitParam(name = "cardHolder" ,value = "cardHolder",paramType = "query",dataType = "string")})
 	public Object saveBankInfo(@RequestHeader(value = "Authorization" ) String token,
 							   @ApiIgnore AppUserBankDTO appUserBank) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
@@ -510,14 +518,26 @@ public class AppUserController {
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
+		IAppUser appUser = appUserService.findById(uId);
+		String merCustId = "rxh"+appUser.getMobile();
 
 		String bankName = appUserBank.getBankName();
 		String bankNumber = appUserBank.getBankNumber();
 		String bankMobile = appUserBank.getBankMobile();
 		Integer bankType = appUserBank.getBankType();
+		String bankCardType = appUserBank.getBankCardType();
+		String bindNo = appUserBank.getBindNo();
+		String usrBusiAgreementId = appUserBank.getUsrBusiAgreementId();
+		String usrPayAgreementId = appUserBank.getUsrPayAgreementId();
+		String gateId = appUserBank.getGateId();
+		String identityCode = appUserBank.getIdentityCode();
+		String cardHolder = appUserBank.getCardHolder();
 
 		if (StringUtil.isNullOrBlank(bankName)||StringUtil.isNullOrBlank(bankNumber)
-				||StringUtil.isNullOrBlank(bankMobile) ||bankType ==null){
+				||StringUtil.isNullOrBlank(bankMobile) ||StringUtil.isNullOrBlank(bankCardType)
+				||StringUtil.isNullOrBlank(usrBusiAgreementId)||StringUtil.isNullOrBlank(usrPayAgreementId)
+				||StringUtil.isNullOrBlank(gateId)||StringUtil.isNullOrBlank(identityCode)
+				||StringUtil.isNullOrBlank(cardHolder)||bankType==null){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 		boolean save = false;
@@ -538,6 +558,14 @@ public class AppUserController {
 		appUserBankDTO.setBankName(bankName);
 		appUserBankDTO.setBankMobile(bankMobile);
 		appUserBankDTO.setBankType(bankType);
+		appUserBankDTO.setBankCardType(bankCardType);
+		appUserBankDTO.setMerCustId(merCustId);
+		appUserBankDTO.setBindNo(bindNo);
+		appUserBankDTO.setUsrBusiAgreementId(usrBusiAgreementId);
+		appUserBankDTO.setUsrPayAgreementId(usrPayAgreementId);
+		appUserBankDTO.setGateId(gateId);
+		appUserBankDTO.setIdentityCode(identityCode);
+		appUserBankDTO.setCardHolder(cardHolder);
 		appUserBankDTO.setUid(uId);
 		if (save){
 			appUserBankService.save(appUserBankDTO);
@@ -551,7 +579,7 @@ public class AppUserController {
 	@ResponseBody
 	@ApiOperation(value = "app用户提交钱信息(借钱、还钱、提现、收入(完成任务))", httpMethod = "GET", response = Result.class,
 			notes = "提交钱信息 借钱(askMoney、type=1、repayTimeType(1:7天 2:15天)) 还钱(askMoney、type=2、" +
-					"repayWay(1:支付宝 2:银行卡)、pid借钱的id、delayMoney滞纳金)  提现(askMoney、type=3)  收入(type=4、taskId（任务ID）、" +
+					"repayWay(1:支付宝 2:银行卡)、pid借钱的id、delayMoney滞纳金、orderId订单号UPay)  提现(askMoney、type=3)  收入(type=4、taskId（任务ID）、" +
 					"taskUserName(完成任务的用户名)、taskMobile(完成任务的手机号)))")
 	public Object submitMoney(@RequestHeader(value = "Authorization" ) String token,
 							  @RequestParam(value = "askMoney",required = false) String askMoney,
@@ -562,7 +590,8 @@ public class AppUserController {
 							  @RequestParam(value = "taskUserName",required = false) String taskUserName,
 							  @RequestParam(value = "taskMobile",required = false) String taskMobile,
 							  @RequestParam(value = "pid",required = false) String pid,
-							  @RequestParam(value = "delayMoney",required = false) String delayMoney) throws Exception{
+							  @RequestParam(value = "delayMoney",required = false) String delayMoney,
+							  @RequestParam(value = "orderId",required = false) String orderId) throws Exception{
 		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_MEDIUM);
 		if (!(tokenValidResult instanceof SimpleToken)){
 			return tokenValidResult;
@@ -617,6 +646,7 @@ public class AppUserController {
 			appMoneyDetail.setRepayTime(new Date());
 			appMoneyDetail.setPid(Integer.parseInt(pid));
 			appMoneyDetail.setDelayMoney(Double.parseDouble(delayMoney));
+			appMoneyDetail.setExtensionOne(orderId);
 			appMoneyDetailService.saveRepay(appMoneyDetail);
 			return Result.createSuccessResult().setMessage("还款申请成功");
 		}else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){

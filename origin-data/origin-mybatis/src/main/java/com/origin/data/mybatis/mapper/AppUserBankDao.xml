@@ -10,6 +10,14 @@
         		    bank_number,
         		    bank_type,
         		    bank_mobile,
+        		    mer_cust_id,
+        		    bind_no,
+        		    bank_card_type,
+        		    usr_busi_agreement_id,
+        		    usr_pay_agreement_id,
+        		    gate_id,
+        		    identity_code,
+        		    card_holder,
         		    uid,
                     delete_flag
         FROM ogn_app_user_bank
@@ -23,6 +31,14 @@
 			<if test="bankNumber != null">AND bank_number=#{bankNumber}</if>
 			<if test="bankType != null">AND bank_type=#{bankType}</if>
 			<if test="bankMobile != null">AND bank_mobile=#{bankMobile}</if>
+			<if test="merCustId != null">AND mer_cust_id=#{merCustId}</if>
+			<if test="bindNo != null">AND bind_no=#{bindNo}</if>
+			<if test="bankCardType != null">AND bank_card_type=#{bankCardType}</if>
+			<if test="usrBusiAgreementId != null">AND usr_busi_agreement_id=#{usrBusiAgreementId}</if>
+			<if test="usrPayAgreementId != null">AND usr_pay_agreement_id=#{usrPayAgreementId}</if>
+			<if test="gateId != null">AND gate_id=#{gateId}</if>
+			<if test="identityCode != null">AND identity_code=#{identityCode}</if>
+			<if test="cardHolder != null">AND card_holder=#{cardHolder}</if>
 			<if test="uid != null">AND uid=#{uid}</if>
 			<if test="deleteFlag != null">AND delete_flag=#{deleteFlag}</if>
     </sql>
@@ -35,6 +51,14 @@
     	<result property="bankNumber" column="bank_number"/>
     	<result property="bankType" column="bank_type"/>
     	<result property="bankMobile" column="bank_mobile"/>
+    	<result property="merCustId" column="mer_cust_id"/>
+    	<result property="bindNo" column="bind_no"/>
+    	<result property="bankCardType" column="bank_card_type"/>
+    	<result property="usrBusiAgreementId" column="usr_busi_agreement_id"/>
+    	<result property="usrPayAgreementId" column="usr_pay_agreement_id"/>
+    	<result property="gateId" column="gate_id"/>
+    	<result property="identityCode" column="identity_code"/>
+    	<result property="cardHolder" column="card_holder"/>
     	<result property="uid" column="uid"/>
     	<result property="deleteFlag" column="delete_flag"/>
     </resultMap>
@@ -62,6 +86,14 @@
                         <if test="bankNumber != null">`bank_number`,</if>
                         <if test="bankType != null">`bank_type`,</if>
                         <if test="bankMobile != null">`bank_mobile`,</if>
+                        <if test="merCustId != null">`mer_cust_id`,</if>
+                        <if test="bindNo != null">`bind_no`,</if>
+                        <if test="bankCardType != null">`bank_card_type`,</if>
+                        <if test="usrBusiAgreementId != null">`usr_busi_agreement_id`,</if>
+                        <if test="usrPayAgreementId != null">`usr_pay_agreement_id`,</if>
+                        <if test="gateId != null">`gate_id`,</if>
+                        <if test="identityCode != null">`identity_code`,</if>
+                        <if test="cardHolder != null">`card_holder`,</if>
                         <if test="uid != null">`uid`,</if>
                         <if test="deleteFlag != null ">`delete_flag`</if>
             </trim>
@@ -74,6 +106,14 @@
                         <if test="bankNumber != null">#{bankNumber},</if>
                         <if test="bankType != null">#{bankType},</if>
                         <if test="bankMobile != null">#{bankMobile},</if>
+                        <if test="merCustId != null">#{merCustId},</if>
+                        <if test="bindNo != null">#{bindNo},</if>
+                        <if test="bankCardType != null">#{bankCardType},</if>
+                        <if test="usrBusiAgreementId != null">#{usrBusiAgreementId},</if>
+                        <if test="usrPayAgreementId != null">#{usrPayAgreementId},</if>
+                        <if test="gateId != null">#{gateId},</if>
+                        <if test="identityCode != null">#{identityCode},</if>
+                        <if test="cardHolder != null">#{cardHolder},</if>
                         <if test="uid != null">#{uid},</if>
                         <if test="deleteFlag != null">#{deleteFlag}</if>
             </trim>
@@ -88,6 +128,14 @@
                 <if test="bankNumber != null">,bank_number=#{bankNumber}</if>
                 <if test="bankType != null">,bank_type=#{bankType}</if>
                 <if test="bankMobile != null">,bank_mobile=#{bankMobile}</if>
+                <if test="merCustId != null">,mer_cust_id=#{merCustId}</if>
+                <if test="bindNo != null">,bind_no=#{bindNo}</if>
+                <if test="bankCardType != null">,bank_card_type=#{bankCardType}</if>
+                <if test="usrBusiAgreementId != null">,usr_busi_agreement_id=#{usrBusiAgreementId}</if>
+                <if test="usrPayAgreementId != null">,usr_pay_agreement_id=#{usrPayAgreementId}</if>
+                <if test="gateId != null">,gate_id=#{gateId}</if>
+                <if test="identityCode != null">,identity_code=#{identityCode}</if>
+                <if test="cardHolder != null">,card_holder=#{cardHolder}</if>
                 <if test="uid != null">,uid=#{uid}</if>
                 <if test="deleteFlag != null">,delete_flag=#{deleteFlag}</if>
         WHERE `id` = #{id}
@@ -102,6 +150,14 @@
                     <if test="item.bankNumber != null">,bank_number=#{item.bankNumber}</if>
                     <if test="item.bankType != null">,bank_type=#{item.bankType}</if>
                     <if test="item.bankMobile != null">,bank_mobile=#{item.bankMobile}</if>
+                    <if test="item.merCustId != null">,mer_cust_id=#{item.merCustId}</if>
+                    <if test="item.bindNo != null">,bind_no=#{item.bindNo}</if>
+                    <if test="item.bankCardType != null">,bank_card_type=#{item.bankCardType}</if>
+                    <if test="item.usrBusiAgreementId != null">,usr_busi_agreement_id=#{item.usrBusiAgreementId}</if>
+                    <if test="item.usrPayAgreementId != null">,usr_pay_agreement_id=#{item.usrPayAgreementId}</if>
+                    <if test="item.gateId != null">,gate_id=#{item.gateId}</if>
+                    <if test="item.identityCode != null">,identity_code=#{item.identityCode}</if>
+                    <if test="item.cardHolder != null">,card_holder=#{item.cardHolder}</if>
                     <if test="item.uid != null">,uid=#{item.uid}</if>
                     <if test="item.deleteFlag != null">,delete_flag=#{item.deleteFlag}</if>
                 where id=#{item.id}

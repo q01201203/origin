@@ -43,6 +43,38 @@ public interface IAppUserBank extends Serializable {
 
 	void setBankMobile(String bankMobile);
 
+	String getMerCustId();
+
+	void setMerCustId(String merCustId);
+
+	String getBindNo();
+
+	void setBindNo(String bindNo);
+
+	String getBankCardType();
+
+	void setBankCardType(String bankCardType);
+
+	String getUsrBusiAgreementId();
+
+	void setUsrBusiAgreementId(String usrBusiAgreementId);
+
+	String getUsrPayAgreementId();
+
+	void setUsrPayAgreementId(String usrPayAgreementId);
+
+	String getGateId();
+
+	void setGateId(String gateId);
+
+	String getIdentityCode();
+
+	void setIdentityCode(String identityCode);
+
+	String getCardHolder();
+
+	void setCardHolder(String cardHolder);
+
 	Integer getUid();
 
 	void setUid(Integer uid);
