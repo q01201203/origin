@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="renxinhuaAPI:war">
-    <output-path>$PROJECT_DIR$/origin-modules/renxinhuaAPI/target</output-path>
-    <root id="archive" name="renxinhuaAPI-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="renxinhuaAPI:war exploded" />
-    </root>
-  </artifact>
-</component>
