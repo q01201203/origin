@@ -1,6 +1,8 @@
 package com.origin.core.service;
 
+import com.origin.common.model.mybatis.Result;
 import com.origin.data.entity.IAppValidcode;
+
 import java.util.List;
 
 public interface AppValidcodeService {
@@ -10,4 +12,5 @@ public interface AppValidcodeService {
     void update(IAppValidcode appValidcode);
     IAppValidcode findById(Integer id);
     List<IAppValidcode> find(IAppValidcode appValidcode);
+    Result updateValidate(String mobile ,String type , String validcode);
 }

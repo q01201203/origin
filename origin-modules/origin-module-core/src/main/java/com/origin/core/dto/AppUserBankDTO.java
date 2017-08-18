@@ -1,13 +1,14 @@
 package com.origin.core.dto;
 
-import java.util.Date;
-
 import com.origin.data.entity.IAppUserBank;
+
+import java.util.Date;
 
 /**
 * 
 */
 public class AppUserBankDTO implements IAppUserBank {
+
 
 
     /**  */

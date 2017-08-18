@@ -1,6 +1,8 @@
 package com.origin.core.service.impl;
 
 
+import com.origin.common.model.mybatis.Result;
+import com.origin.core.dto.AppValidcodeDTO;
 import com.origin.core.service.AppValidcodeService;
 import com.origin.data.dao.IAppValidcodeDao;
 import com.origin.data.entity.IAppValidcode;
@@ -40,5 +42,28 @@ public class AppValidcodeServiceImpl  implements AppValidcodeService {
     @Override
     public List<IAppValidcode> find(IAppValidcode appValidcode) {
         return appValidcodeDao.find(appValidcode);
+    }
+
+    @Override
+    public Result updateValidate(String mobile, String type, String validcode) {
+        IAppValidcode appValidcode = new AppValidcodeDTO();
+        appValidcode.setMobile(mobile);
+        appValidcode.setValidcode(validcode);
+        appValidcode.setType(Integer.parseInt(type));
+        appValidcode.setStatus(IAppValidcode.STATUS_YES);
+        IAppValidcode appValidcodeResult;
+        List<IAppValidcode> appValidcodeResults = appValidcodeDao.find(appValidcode);
+        if (appValidcodeResults!=null&&appValidcodeResults.size()>0){
+            appValidcodeResult = appValidcodeResults.get(0);
+        }else{
+            appValidcodeResult = null;
+        }
+        if (appValidcodeResult!=null){
+            appValidcodeResult.setStatus(IAppValidcode.STATUS_NO);
+            update(appValidcodeResult);
+            return Result.createSuccessResult().setMessage("验证码验证成功");
+        }else {
+            return Result.createErrorResult().setMessage("验证码错误");
+        }
     }
 }

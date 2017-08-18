@@ -11,6 +11,7 @@ import com.origin.core.util.SimpleToken;
 import com.origin.core.util.StringUtil;
 import com.origin.data.entity.IAppUser;
 import com.origin.data.entity.IAppUserBank;
+import com.umpay.api.exception.VerifyException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -21,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 import util.UPay;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -242,10 +245,9 @@ public class AppUPayController {
 	@RequestMapping(value = "/merOrderInfoQuery" , method = RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value = "订单查询", httpMethod = "GET", response = Result.class, notes = "")
-	public void merOrderInfoQuery(HttpServletRequest request) throws Exception {
-		String order_id = request.getParameter("order_id");
-		String mer_date = request.getParameter("mer_date");
-		log.debug("getPlatNotifyData token = "+order_id+" mer_date = "+mer_date);
+	public Object merOrderInfoQuery(@RequestParam(value = "order_id") String order_id,
+			@RequestParam(value = "mer_date") String mer_date) throws Exception {
+		log.debug("getPlatNotifyData order_id = "+order_id+" mer_date = "+mer_date);
 
 		UPay uPay = new UPay();
 		Map res = uPay.merOrderInfoQuery(order_id,mer_date);
@@ -256,49 +258,58 @@ public class AppUPayController {
 				String settle_date = String.valueOf(res.get("settle_date"));
 				String amount = String.valueOf(res.get("amount"));
 				String trade_state = String.valueOf(res.get("trade_state"));
+				Map<String,String> result = new HashMap();
+				result.put("tradeNo",trade_no);
+				result.put("payDate",pay_date);
+				result.put("settleDate",settle_date);
+				result.put("amount",amount);
+				result.put("tradeState",trade_state);
+				return Result.createSuccessResult(result, ""+res.get("ret_msg"));
 			}else{
 				log.debug("merOrderInfoQuery fail "+res.get("ret_msg"));
+				return Result.createErrorResult().setMessage("查询失败:" + res.get("ret_msg"));
 			}
 		}else{
 			log.debug("merOrderInfoQuery error ");
+			return Result.createErrorResult().setMessage("UPay平台响应状态异常");
 		}
 	}
 
 
 	@RequestMapping(value = "/getPlatNotifyData" , method = RequestMethod.GET)
-	@ResponseBody
-	@ApiOperation(value = "支付回调地址", httpMethod = "GET", response = Result.class, notes = "")
-	public void getPlatNotifyData(HttpServletRequest request) throws Exception {
-		String order_id = request.getParameter("order_id");
-		String mer_date = request.getParameter("mer_date");
-		String ret_code = request.getParameter("ret_code");
-		log.debug("getPlatNotifyData token = "+order_id+" mer_date = "+mer_date+" ret_code = "+ret_code);
+	public void getPlatNotifyData(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HashMap resData = new HashMap();
+		HashMap data = new HashMap();
+		String resString = "";
+		String mer_id = request.getParameter("mer_id");
+		log.debug("getPlatNotifyData mer_id = "+mer_id);
+		if(!"".equals(mer_id) && null != mer_id) {
+			try {
+				//验签,不抛异常表示验签成功
+				data = (HashMap) com.umpay.api.paygate.v40.Plat2Mer_v40.getPlatNotifyData(request);
 
-		UPay uPay = new UPay();
-		Map res = uPay.merOrderInfoQuery(order_id,mer_date);
-		if (res!=null){
-			if("0000".equals(res.get("ret_code"))){
-				log.debug("merOrderInfoQuery success "+res.get("ret_msg"));
-				String trade_no = String.valueOf(res.get("trade_no"));
-				String pay_date = String.valueOf(res.get("pay_date"));
-				String settle_date = String.valueOf(res.get("settle_date"));
-				String amount = String.valueOf(res.get("amount"));
-				String trade_state = String.valueOf(res.get("trade_state"));
-				/*res = uPay.payResultNotify(trade_no,order_id,mer_date,pay_date,amount,settle_date,trade_state);
-				if (res!=null){
-					if("0000".equals(res.get("ret_code"))){
-						log.debug("getPlatNotifyData success "+res.get("ret_msg"));
-					}else{
-						log.debug("getPlatNotifyData fail "+res.get("ret_msg"));
-					}
-				}else{
-					log.debug("getPlatNotifyData error ");
-				}*/
-			}else{
-				log.debug("merOrderInfoQuery fail "+res.get("ret_msg"));
+				//验签成功 ，
+				resData.put("ret_code","0000");
+				resData.put("mer_id", request.getParameter("mer_id")); //数据可以从data里边取，也可以从request里边取。
+				resData.put("sign_type", request.getParameter("sign_type"));
+				resData.put("version", request.getParameter("version"));
+				resData.put("order_id", request.getParameter("order_id"));
+				resData.put("mer_date", request.getParameter("mer_date"));
+
+				resString = com.umpay.api.paygate.v40.Mer2Plat_v40.merNotifyResData(resData);
+
+				//商户可加入自己的处理逻辑
+			} catch (VerifyException e) {
+				//如果验签失败，则抛出异常，返回ret_code=1111
+				System.out.println("验证签名发生异常" + e);
+				resData.put("ret_code","1111");
+				resString = com.umpay.api.paygate.v40.Mer2Plat_v40.merNotifyResData(resData);
 			}
-		}else{
-			log.debug("merOrderInfoQuery error ");
 		}
+		log.debug("getPlatNotifyData resString = "+resString);
+		PrintWriter write = response.getWriter();
+		resString = "<html><META NAME=\"MobilePayPlatform\" CONTENT=\"" + resString + "\" /></html>" ;
+		write.print(resString);
+		write.flush();
 	}
 }

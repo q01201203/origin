@@ -12,9 +12,6 @@ public interface IAppUserBank extends Serializable {
 
 	public final static Integer STATUS_NO = 0; //不可用
 
-
-
-
 	Integer getId();
 
 	void setId(Integer id);

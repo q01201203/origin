@@ -118,24 +118,7 @@ public class AppValidcodeController {
 		if (StringUtil.isNullOrBlank(mobile) || StringUtil.isNullOrBlank(type) || StringUtil.isNullOrBlank(validcode)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
-		IAppValidcode appValidcode = new AppValidcodeDTO();
-		appValidcode.setMobile(mobile);
-		appValidcode.setValidcode(validcode);
-		appValidcode.setType(Integer.parseInt(type));
-		appValidcode.setStatus(IAppValidcode.STATUS_YES);
-		IAppValidcode appValidcodeResult;
-		List<IAppValidcode> appValidcodeResults = appValidcodeService.find(appValidcode);
-		if (appValidcodeResults!=null&&appValidcodeResults.size()>0){
-			appValidcodeResult = appValidcodeResults.get(0);
-		}else{
-			appValidcodeResult = null;
-		}
-		if (appValidcodeResult!=null){
-			appValidcodeResult.setStatus(IAppValidcode.STATUS_NO);
-			appValidcodeService.update(appValidcodeResult);
-			return Result.createSuccessResult().setMessage("验证码验证成功");
-		}else {
-			return Result.createErrorResult().setMessage("验证码错误");
-		}
+
+		return appValidcodeService.updateValidate(mobile, type, validcode);
 	}
 }

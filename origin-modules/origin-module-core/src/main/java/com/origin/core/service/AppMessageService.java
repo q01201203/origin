@@ -1,5 +1,6 @@
 package com.origin.core.service;
 
+import com.origin.common.model.mybatis.Result;
 import com.origin.data.entity.IAppMessage;
 
 import java.util.List;
@@ -16,4 +17,5 @@ public interface AppMessageService {
     public void updateBatch(List<IAppMessage> appMessages);
     List<IAppMessage> findOrderBy(IAppMessage appMessage);
     void savePersonalMessage(IAppMessage appMessage);
+    Result updateUserMessage(Integer uId,String mid);
 }

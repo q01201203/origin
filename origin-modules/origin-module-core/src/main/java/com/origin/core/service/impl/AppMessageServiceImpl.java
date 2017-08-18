@@ -1,6 +1,7 @@
 package com.origin.core.service.impl;
 
 
+import com.origin.common.model.mybatis.Result;
 import com.origin.core.dto.AppMessageDTO;
 import com.origin.core.dto.AppUserDTO;
 import com.origin.core.service.AppMessageService;
@@ -97,5 +98,17 @@ public class AppMessageServiceImpl  implements AppMessageService {
     @Override
     public List<IAppMessage> findOrderBy(IAppMessage appMessage) {
         return appMessageDao.findOrderBy(appMessage);
+    }
+
+    @Override
+    public Result updateUserMessage(Integer uId,String mid) {
+        IAppMessage appMessage = findById(Integer.parseInt(mid));
+        if (uId.equals(appMessage.getUid())){
+            appMessage.setStatus(IAppMessage.STATUS_NO);
+            update(appMessage);
+            return Result.createSuccessResult().setMessage("更新用户消息状态成功");
+        }else{
+            return Result.createErrorResult().setMessage("消息和用户不匹配");
+        }
     }
 }

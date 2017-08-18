@@ -1,6 +1,9 @@
 package com.origin.core.service;
 
+import com.origin.common.model.mybatis.Result;
 import com.origin.data.entity.IAppUser;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface AppUserService {
@@ -11,4 +14,7 @@ public interface AppUserService {
     IAppUser findById(Integer id);
     List<IAppUser> find(IAppUser appUser);
     void updateUserZhimaInfo(IAppUser appUser);
+    Result saveRegisterUser(String mobile , String pwd);
+    String saveRegisterInfo(HttpServletRequest request) throws Exception;
+    Result updateResetPwd(String mobile , String pwd);
 }

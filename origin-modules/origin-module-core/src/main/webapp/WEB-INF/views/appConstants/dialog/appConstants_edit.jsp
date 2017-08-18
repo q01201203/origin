@@ -65,7 +65,7 @@
                             <td>
                                 <div class="J_toolsBar fl">
                                     <div class="t_text w200 ml10">
-                                        <input id="valueContent" type="text" name="value" value="${appConstants.value}" data-rule="required;length[~16]"/>
+                                        <input id="valueContent" type="text" name="value" value="${appConstants.value}" data-rule="required"/>
                                     </div>
                                 </div>
                             </td>

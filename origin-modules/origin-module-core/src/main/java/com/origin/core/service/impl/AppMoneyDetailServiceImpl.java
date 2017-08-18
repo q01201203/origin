@@ -5,6 +5,7 @@ import com.origin.common.constants.ResultCode;
 import com.origin.common.model.mybatis.Result;
 import com.origin.core.dto.AppMessageDTO;
 import com.origin.core.dto.AppMoneyDetailDTO;
+import com.origin.core.dto.AppUserBankDTO;
 import com.origin.core.dto.AppUserTaskDTO;
 import com.origin.core.service.AppMoneyDetailService;
 import com.origin.core.util.JPushUtil;
@@ -40,6 +41,9 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
 
     @Autowired
     private IAppMessageDao<IAppMessage,Integer> appMessageDao;
+
+    @Autowired
+    private IAppUserBankDao<IAppUserBank,Integer> appUserBankDao;
 
     @Override
     public void save(IAppMoneyDetail appMoneyDetail) {
@@ -343,5 +347,121 @@ public class AppMoneyDetailServiceImpl  implements AppMoneyDetailService {
             content.append("中去查看详情");
         }
         return content.toString();
+    }
+
+    @Override
+    public Result saveSubmitMoney(Integer uId,String askMoney,String type,String repayTimeType,String repayWay,String taskId
+            ,String taskUserName,String taskMobile,String pid,String delayMoney,String orderId) {
+        IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
+        appMoneyDetail.setUid(uId);
+        if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
+            log.debug("renxinhua 请求的repayTimeType为" + repayTimeType);
+            if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayTimeType)){
+                return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+            }
+
+            //借钱不能大于可借额度
+            IAppUser appUser = appUserDao.findByPK(uId);
+            Double moneyMax = appUser.getMoneyMax();
+            Double borrowActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+            Double borrowAsk = getTotalAskMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+            Double repayActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
+            Double borrowLine = moneyMax - borrowActual - borrowAsk + repayActual;
+            if (Double.parseDouble(askMoney)>borrowLine){
+                return Result.create(ResultCode.SERVICE_ERROR).setMessage("借钱金额大于可借额度");
+            }
+
+            appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
+            appMoneyDetail.setRepayTimeType(Integer.parseInt(repayTimeType));
+            appMoneyDetail.setRepayStatus(IAppMoneyDetail.REPAY_STATUS_NO);
+            appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
+            save(appMoneyDetail);
+            return Result.createSuccessResult().setMessage("借款申请成功");
+        }else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
+            log.debug("renxinhua 请求的repayWay为" + repayWay);
+            if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayWay)){
+                return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+            }
+            //还钱不能大于需还金额
+            Double borrow = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
+            Double repay = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
+            Double needRepay = borrow - repay;
+            if (Double.parseDouble(askMoney)>needRepay){
+                return Result.create(ResultCode.SERVICE_ERROR).setMessage("还钱金额大于需还金额");
+            }
+
+            appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
+            appMoneyDetail.setRepayWay(Integer.parseInt(repayWay));
+            appMoneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
+            appMoneyDetail.setRepayTime(new Date());
+            appMoneyDetail.setPid(Integer.parseInt(pid));
+            appMoneyDetail.setDelayMoney(Double.parseDouble(delayMoney));
+            appMoneyDetail.setExtensionOne(orderId);
+            saveRepay(appMoneyDetail);
+            return Result.createSuccessResult().setMessage("还款申请成功");
+        }else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){
+            if (StringUtil.isNullOrBlank(askMoney)){
+                return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+            }
+            //提现之前判断用户是否绑定银行卡
+            IAppUserBank appUserBank = new AppUserBankDTO();
+            appUserBank.setUid(uId);
+            List<IAppUserBank> appUserBanks = appUserBankDao.find(appUserBank);
+            if (appUserBanks == null || appUserBanks.size() ==0){
+                return Result.create(ResultCode.SERVICE_ERROR).setMessage("您还未绑定银行卡");
+            }
+
+            IAppUser appUser = appUserDao.findByPK(uId);
+            Double balance = appUser.getBalance();
+            if (Double.parseDouble(askMoney)>balance){
+                return Result.create(ResultCode.SERVICE_ERROR).setMessage("提现金额大于余额");
+            }
+
+            appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
+            appMoneyDetail.setType(IAppMoneyDetail.TYPE_WITHDRAW);
+            saveWithdraw(appMoneyDetail);
+            return Result.createSuccessResult().setMessage("提现申请成功");
+        }else if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
+            if (StringUtil.isNullOrBlank(taskId)||StringUtil.isNullOrBlank(taskUserName)||StringUtil.isNullOrBlank(taskMobile)){
+                return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+            }
+            appMoneyDetail.setTaskUsername(taskUserName);
+            appMoneyDetail.setTaskMobile(taskMobile);
+            return saveIncome(uId,Integer.parseInt(taskId),appMoneyDetail);
+        }else {
+            return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
+        }
+    }
+
+    private Double getTotalAskMoney(Integer uId,Integer type){
+        return getTotalAskMoney(uId,type,null);
+    }
+
+    private Double getTotalAskMoney(Integer uId,Integer type,Integer repayWay){
+        IAppMoneyDetail moneyDetail = new AppMoneyDetailDTO();
+        moneyDetail.setType(type);
+        moneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_WAIT);
+        if (repayWay!=null){
+            moneyDetail.setRepayWay(repayWay);
+        }
+        moneyDetail.setUid(uId);
+        Double totalAskMoney = findTotalAskMoney(moneyDetail);
+        return totalAskMoney==null?0:totalAskMoney;
+    }
+
+    private Double getTotalActualMoney(Integer uId,Integer type){
+        return getTotalActualMoney(uId,type,null);
+    }
+
+    private Double getTotalActualMoney(Integer uId,Integer type,Integer repayWay){
+        IAppMoneyDetail moneyDetail = new AppMoneyDetailDTO();
+        moneyDetail.setType(type);
+        moneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_SUCCESS);
+        if (repayWay!=null){
+            moneyDetail.setRepayWay(repayWay);
+        }
+        moneyDetail.setUid(uId);
+        Double totalActualMoney = findTotalActualMoney(moneyDetail);
+        return totalActualMoney==null?0:totalActualMoney;
     }
 }

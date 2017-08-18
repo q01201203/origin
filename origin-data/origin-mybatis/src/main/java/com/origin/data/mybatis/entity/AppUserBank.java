@@ -10,7 +10,8 @@ import java.util.Date;
 public class AppUserBank implements IAppUserBank {
 
 	private static final long serialVersionUID = 23930680313127543L;
-	
+
+
 	/**  */
 	private Integer id;//;
 	/**  */

@@ -106,23 +106,7 @@ public class AppUserController {
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
-		IAppUser appUser = new AppUserDTO();
-		appUser.setMobile(mobile);
-		List<IAppUser> appUsers = appUserService.find(appUser);
-		if (appUsers!=null&&appUsers.size()>0){
-			appUser = appUsers.get(0);
-		}else{
-			appUser = null;
-		}
-		if (appUser!=null){
-			return Result.createErrorResult().setMessage("用户已存在");
-		}else {
-			appUser = new AppUserDTO();
-			appUser.setMobile(mobile);
-			appUser.setPwd(Md5Util.generatePassword(pwd));
-			appUserService.save(appUser);
-			return Result.createSuccessResult().setMessage("注册成功");
-		}
+		return appUserService.saveRegisterUser(mobile,pwd);
 	}
 
 	//芝麻认证回调接口
@@ -130,65 +114,7 @@ public class AppUserController {
 	//@ResponseBody
 	@ApiIgnore
 	public String saveRegisterInfo(HttpServletRequest request) throws Exception{
-		String params = request.getParameter("params");
-		String sign = request.getParameter("sign");
-		log.debug("renxinhua zhima params = "+params +" sign = "+sign);
-		ZhimaUtil zhimaUtil = new ZhimaUtil();
-		String result = zhimaUtil.getResult(params,sign);
-
-		Map map = StringUtil.urlSplit(result);
-		String open_id = "";
-		if (map.get("open_id")!=null){
-			open_id = map.get("open_id").toString();
-		}
-		String error_message = map.get("error_message").toString();
-		String success = map.get("success").toString();
-		String error_code = map.get("error_code").toString();
-		String state = map.get("state").toString();
-		log.debug("renxinhua open_id = "+open_id+" error_message = "+error_message+" success = "+success+
-				" error_code = "+error_code+" state = "+state);
-		String[] datas = state.split("\\,");
-		String zhimaCertName = datas[0];
-		String zhimaCertNo = datas[1];
-		String token = datas[2];
-		log.debug("renxinhua  zhimaCertName = "+zhimaCertName +" zhimaCertNo = "+zhimaCertNo +" token = "+token);
-
-		//验证权限
-		Object tokenValidResult = CustomToken.tokenValidate(CustomToken.parse(token),Constants.AHORITY_LOW);
-		if (!(tokenValidResult instanceof SimpleToken)){
-			//return "permission_error";
-			return "zhimafail";
-		}
-		Integer uId = ((SimpleToken) tokenValidResult).getId();
-		IAppUser appUser = appUserService.findById(uId);
-		String alias = appUser.getJpushAlias();
-
-		if (result!=null && !"error".equals(result)){
-			if ("true".equals(success)){
-				//更新芝麻信息
-				appUser.setZhimaCertName(zhimaCertName);
-				appUser.setZhimaCertNo(zhimaCertNo);
-				appUser.setZhimaOpenid(open_id);
-				appUserService.updateUserZhimaInfo(appUser);
-				//return "success";
-				return "zhimasuccess";
-			}else {
-				if (!StringUtil.isNullOrBlank(alias)) {
-					String message = JsonUtil.object2Json(Result.createErrorResult().setMessage("芝麻认证授权失败，" +
-							error_code+":"+error_message));
-					JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, message));
-				}
-				//return error_code+":"+error_message;
-				return "zhimafail";
-			}
-		}else {
-			if (!StringUtil.isNullOrBlank(alias)) {
-				String message = JsonUtil.object2Json(Result.createErrorResult().setMessage("芝麻认证授权失败"));
-				JPushUtil.sendPush(JPushUtil.buildPushObject_all_alias_message(alias, message));
-			}
-			//return "error";
-			return "zhimafail";
-		}
+		return appUserService.saveRegisterInfo(request);
 	}
 
 	//update
@@ -201,23 +127,7 @@ public class AppUserController {
 		if (StringUtil.isNullOrBlank(mobile)||StringUtil.isNullOrBlank(pwd)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
-		IAppUser appUser = new AppUserDTO();
-		appUser.setMobile(mobile);
-		List<IAppUser> appUsers = appUserService.find(appUser);
-		if (appUsers!=null&&appUsers.size()>0){
-			appUser = appUsers.get(0);
-		}else{
-			appUser = null;
-		}
-		if (appUser!=null){
-			appUser.setId(appUser.getId());
-			appUser.setPwd(Md5Util.generatePassword(pwd));
-			appUser.setUpdateDate(new Date());
-			appUserService.update(appUser);
-			return Result.createSuccessResult().setMessage("重置密码成功");
-		}else{
-			return Result.createErrorResult().setMessage("重置密码失败");
-		}
+		return appUserService.updateResetPwd(mobile,pwd);
 	}
 
 	@RequestMapping(value = "/addPayPwd" ,method = RequestMethod.POST)
@@ -269,6 +179,8 @@ public class AppUserController {
 				||StringUtil.isNullOrBlank(category)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
+
+
 
 		IAppUser appUser = new AppUserDTO();
 		appUser.setId(uId);
@@ -408,36 +320,8 @@ public class AppUserController {
 				||StringUtil.isNullOrBlank(infoContactMobile)||StringUtil.isNullOrBlank(infoCompanyName)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
-		boolean save = false;
-		IAppPersonDetail appPersonDetail = new AppPersonDetailDTO();
-		appPersonDetail.setUid(uId);
-		List<IAppPersonDetail> appPersonDetails = appPersonDetailService.find(appPersonDetail);
-		if (appPersonDetails!=null&&appPersonDetails.size()>0){
-			appPersonDetail = appPersonDetails.get(0);
-		}else{
-			appPersonDetail = null;
-		}
-		if (appPersonDetail == null){
-			save = true;
-			appPersonDetail = new AppPersonDetailDTO();
-		}
-		/*appPersonDetail.setInfoMobile(infoMobile);*/
-		appPersonDetail.setInfoCompanyAddress(infoCompanyAddress);
-		appPersonDetail.setInfoCompanyName(infoCompanyName);
-		appPersonDetail.setInfoQq(infoQq);
-		appPersonDetail.setInfoWeixin(infoWeixin);
-		appPersonDetail.setInfoHome(infoHome);
-		appPersonDetail.setInfoEmycontactRelation(Integer.parseInt(infoEmycontactRelation));
-		appPersonDetail.setInfoEmycontactMobile(infoEmycontactMobile);
-		appPersonDetail.setInfoContactRelation(Integer.parseInt(infoContactRelation));
-		appPersonDetail.setInfoContactMobile(infoContactMobile);
-		appPersonDetail.setUid(uId);
-		if (save){
-			appPersonDetailService.save(appPersonDetail);
-		}else {
-			appPersonDetailService.update(appPersonDetail);
-		}
-		return Result.createSuccessResult().setMessage("社会人群信息保存成功");
+		return appPersonDetailService.savePersonInfo(uId,infoCompanyName,infoCompanyAddress,infoQq,infoWeixin,infoHome,
+				infoEmycontactRelation,infoEmycontactMobile,infoContactRelation,infoContactMobile);
 	}
 
 	private Object saveStudentInfo(HttpServletRequest request, Integer uId) {
@@ -463,36 +347,8 @@ public class AppUserController {
 				||StringUtil.isNullOrBlank(infoContactMobile)){
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
-		boolean save = false;
-		IAppStuDetail appStuDetail = new AppStuDetailDTO();
-		appStuDetail.setUid(uId);
-		List<IAppStuDetail> appStuDetails = appStuDetailService.find(appStuDetail);
-		if (appStuDetails!=null&&appStuDetails.size()>0){
-			appStuDetail = appStuDetails.get(0);
-		}else{
-			appStuDetail = null;
-		}
-		if (appStuDetail == null){
-			save = true;
-			appStuDetail = new AppStuDetailDTO();
-		}
-
-		//appStuDetail.setInfoMobile(infoMobile);
-		appStuDetail.setInfoSchool(infoSchool);
-		appStuDetail.setInfoDepartment(infoDepartment);
-		appStuDetail.setInfoClass(infoClass);
-		appStuDetail.setInfoRoomnumber(infoRoomNumber);
-		appStuDetail.setInfoEmycontactRelation(Integer.parseInt(infoEmycontactRelation));
-		appStuDetail.setInfoEmycontactMobile(infoEmycontactMobile);
-		appStuDetail.setInfoContactRelation(Integer.parseInt(infoContactRelation));
-		appStuDetail.setInfoContactMobile(infoContactMobile);
-		appStuDetail.setUid(uId);
-		if (save){
-			appStuDetailService.save(appStuDetail);
-		}else {
-			appStuDetailService.update(appStuDetail);
-		}
-		return Result.createSuccessResult().setMessage("学生信息保存成功");
+		return appStuDetailService.saveStudentInfo(uId,infoSchool,infoDepartment,infoClass,infoRoomNumber,
+				infoEmycontactRelation, infoEmycontactMobile,infoContactRelation,infoContactMobile);
 	}
 
 	@RequestMapping(value = "/saveBankInfo" ,method = RequestMethod.GET)
@@ -518,61 +374,7 @@ public class AppUserController {
 			return tokenValidResult;
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
-		IAppUser appUser = appUserService.findById(uId);
-		String merCustId = "rxh"+appUser.getMobile();
-
-		String bankName = appUserBank.getBankName();
-		String bankNumber = appUserBank.getBankNumber();
-		String bankMobile = appUserBank.getBankMobile();
-		Integer bankType = appUserBank.getBankType();
-		String bankCardType = appUserBank.getBankCardType();
-		String bindNo = appUserBank.getBindNo();
-		String usrBusiAgreementId = appUserBank.getUsrBusiAgreementId();
-		String usrPayAgreementId = appUserBank.getUsrPayAgreementId();
-		String gateId = appUserBank.getGateId();
-		String identityCode = appUserBank.getIdentityCode();
-		String cardHolder = appUserBank.getCardHolder();
-
-		if (StringUtil.isNullOrBlank(bankName)||StringUtil.isNullOrBlank(bankNumber)
-				||StringUtil.isNullOrBlank(bankMobile) ||StringUtil.isNullOrBlank(bankCardType)
-				||StringUtil.isNullOrBlank(usrBusiAgreementId)||StringUtil.isNullOrBlank(usrPayAgreementId)
-				||StringUtil.isNullOrBlank(gateId)||StringUtil.isNullOrBlank(identityCode)
-				||StringUtil.isNullOrBlank(cardHolder)||bankType==null){
-			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-		}
-		boolean save = false;
-		IAppUserBank appUserBankDTO = new AppUserBankDTO();
-		appUserBankDTO.setUid(uId);
-		List<IAppUserBank> appUserBanks = appUserBankService.find(appUserBankDTO);
-		if (appUserBanks!=null&&appUserBanks.size()>0){
-			appUserBankDTO = appUserBanks.get(0);
-		}else{
-			appUserBankDTO = null;
-		}
-		if (appUserBankDTO == null){
-			save = true;
-			appUserBankDTO = new AppUserBankDTO();
-		}
-
-		appUserBankDTO.setBankNumber(bankNumber);
-		appUserBankDTO.setBankName(bankName);
-		appUserBankDTO.setBankMobile(bankMobile);
-		appUserBankDTO.setBankType(bankType);
-		appUserBankDTO.setBankCardType(bankCardType);
-		appUserBankDTO.setMerCustId(merCustId);
-		appUserBankDTO.setBindNo(bindNo);
-		appUserBankDTO.setUsrBusiAgreementId(usrBusiAgreementId);
-		appUserBankDTO.setUsrPayAgreementId(usrPayAgreementId);
-		appUserBankDTO.setGateId(gateId);
-		appUserBankDTO.setIdentityCode(identityCode);
-		appUserBankDTO.setCardHolder(cardHolder);
-		appUserBankDTO.setUid(uId);
-		if (save){
-			appUserBankService.save(appUserBankDTO);
-		}else {
-			appUserBankService.update(appUserBankDTO);
-		}
-		return Result.createSuccessResult().setMessage("银行卡信息保存成功");
+		return appUserBankService.saveBankInfo(uId,appUserBank);
 	}
 
 	@RequestMapping(value = "/submitMoney" ,method = RequestMethod.GET)
@@ -603,76 +405,8 @@ public class AppUserController {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 
-		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
-		appMoneyDetail.setUid(uId);
-		if (IAppMoneyDetail.TYPE_BORROW.equals(Integer.parseInt(type))){
-			log.debug("renxinhua 请求的repayTimeType为" + repayTimeType);
-			if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayTimeType)){
-				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-			}
-			//借钱不能大于可借额度
-			IAppUser appUser = appUserService.findById(uId);
-			Double moneyMax = appUser.getMoneyMax();
-			Double borrowActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
-			Double borrowAsk = getTotalAskMoney(uId,IAppMoneyDetail.TYPE_BORROW);
-			Double repayActual = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
-			Double borrowLine = moneyMax - borrowActual - borrowAsk + repayActual;
-			if (Double.parseDouble(askMoney)>borrowLine){
-				return Result.create(ResultCode.SERVICE_ERROR).setMessage("借钱金额大于可借额度");
-			}
-
-			appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
-			appMoneyDetail.setRepayTimeType(Integer.parseInt(repayTimeType));
-			appMoneyDetail.setRepayStatus(IAppMoneyDetail.REPAY_STATUS_NO);
-			appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
-			appMoneyDetailService.save(appMoneyDetail);
-			return Result.createSuccessResult().setMessage("借款申请成功");
-		}else if (IAppMoneyDetail.TYPE_REPAY.equals(Integer.parseInt(type))){
-			log.debug("renxinhua 请求的repayWay为" + repayWay);
-			if (StringUtil.isNullOrBlank(askMoney)||StringUtil.isNullOrBlank(repayWay)){
-				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-			}
-			//还钱不能大于需还金额
-			Double borrow = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_BORROW);
-			Double repay = getTotalActualMoney(uId,IAppMoneyDetail.TYPE_REPAY);
-			Double needRepay = borrow - repay;
-			if (Double.parseDouble(askMoney)>needRepay){
-				return Result.create(ResultCode.SERVICE_ERROR).setMessage("还钱金额大于需还金额");
-			}
-
-			appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
-			appMoneyDetail.setRepayWay(Integer.parseInt(repayWay));
-			appMoneyDetail.setType(IAppMoneyDetail.TYPE_REPAY);
-			appMoneyDetail.setRepayTime(new Date());
-			appMoneyDetail.setPid(Integer.parseInt(pid));
-			appMoneyDetail.setDelayMoney(Double.parseDouble(delayMoney));
-			appMoneyDetail.setExtensionOne(orderId);
-			appMoneyDetailService.saveRepay(appMoneyDetail);
-			return Result.createSuccessResult().setMessage("还款申请成功");
-		}else if (IAppMoneyDetail.TYPE_WITHDRAW.equals(Integer.parseInt(type))){
-			if (StringUtil.isNullOrBlank(askMoney)){
-				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-			}
-			IAppUser appUser = appUserService.findById(uId);
-			Double balance = appUser.getBalance();
-			if (Double.parseDouble(askMoney)>balance){
-				return Result.create(ResultCode.SERVICE_ERROR).setMessage("提现金额大于余额");
-			}
-
-			appMoneyDetail.setMoneyAsk(Double.parseDouble(askMoney));
-			appMoneyDetail.setType(IAppMoneyDetail.TYPE_WITHDRAW);
-			appMoneyDetailService.saveWithdraw(appMoneyDetail);
-			return Result.createSuccessResult().setMessage("提现申请成功");
-		}else if (IAppMoneyDetail.TYPE_INCOME.equals(Integer.parseInt(type))){
-			if (StringUtil.isNullOrBlank(taskId)||StringUtil.isNullOrBlank(taskUserName)||StringUtil.isNullOrBlank(taskMobile)){
-				return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-			}
-			appMoneyDetail.setTaskUsername(taskUserName);
-			appMoneyDetail.setTaskMobile(taskMobile);
-			return appMoneyDetailService.saveIncome(uId,Integer.parseInt(taskId),appMoneyDetail);
-		}else {
-			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
-		}
+		return appMoneyDetailService.saveSubmitMoney(uId,askMoney,type,repayTimeType,repayWay,taskId,taskUserName,taskMobile,
+				pid,delayMoney,orderId);
 	}
 
 	@RequestMapping(value = "/getMoney" ,method = RequestMethod.GET)
@@ -984,14 +718,7 @@ public class AppUserController {
 			return Result.create(ResultCode.VALIDATE_ERROR).setMessage("参数错误");
 		}
 
-		IAppMessage appMessage = appMessageService.findById(Integer.parseInt(mid));
-		if (uId.equals(appMessage.getUid())){
-			appMessage.setStatus(IAppMessage.STATUS_NO);
-			appMessageService.update(appMessage);
-			return Result.createSuccessResult().setMessage("更新用户消息状态成功");
-		}else{
-			return Result.createErrorResult().setMessage("消息和用户不匹配");
-		}
+		return appMessageService.updateUserMessage(uId,mid);
 	}
 
 	@RequestMapping(value = "/getIsCertification" ,method = RequestMethod.GET)
@@ -1023,12 +750,22 @@ public class AppUserController {
 		}
 		Integer uId = ((SimpleToken) tokenValidResult).getId();
 
+		//如果有借款记录则不能再次借款
+		IAppMoneyDetail borrowMoneyDetail = new AppMoneyDetailDTO();
+		borrowMoneyDetail.setUid(uId);
+		borrowMoneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_WAIT);
+		borrowMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
+		List<IAppMoneyDetail> appMoneyDetails1 = appMoneyDetailService.find(borrowMoneyDetail);
+		if (appMoneyDetails1!=null && appMoneyDetails1.size()>0){
+			return Result.create(ResultCode.SERVICE_ERROR).setMessage("当前已有借款申请在处理审核中");
+		}
+
 		IAppMoneyDetail appMoneyDetail = new AppMoneyDetailDTO();
 		appMoneyDetail.setUid(uId);
 		appMoneyDetail.setType(IAppMoneyDetail.TYPE_BORROW);
 		appMoneyDetail.setStatus(IAppMoneyDetail.STATUS_AUDIT_SUCCESS);
-		List<IAppMoneyDetail> appMoneyDetails = appMoneyDetailService.find(appMoneyDetail);
-		if (appMoneyDetails!=null&&appMoneyDetails.size()>0){
+		List<IAppMoneyDetail> appMoneyDetails2 = appMoneyDetailService.find(appMoneyDetail);
+		if (appMoneyDetails2!=null&&appMoneyDetails2.size()>0){
 			return Result.createSuccessResult(true,"该用户为二次借款");
 		}else{
 			return Result.createSuccessResult(false,"该用户还未借款成功");
@@ -1063,8 +800,17 @@ public class AppUserController {
 			}else if (backInfo.getRtn()!=0){
 				return Result.createErrorResult().setMessage("获取身份证背面识别结果失败:"+backInfo.getMessage());
 			}else {
+				//身份证只能添加一次
+				String citizenId = frontInfo.getIdcard_ocr_result().getCitizen_id();
+				IAppUser appUser = new AppUserDTO();
+				appUser.setUserIdNumber(citizenId);
+				List<IAppUser> appUsers = appUserService.find(appUser);
+				if (appUsers!=null && appUsers.size()>0){
+					return Result.createErrorResult().setMessage("无法通过认证，该身份证已经被使用");
+				}
+
 				Map<String,Object> resultMap = new HashMap<>();
-				resultMap.put("citizenId",frontInfo.getIdcard_ocr_result().getCitizen_id());
+				resultMap.put("citizenId",citizenId);
 				resultMap.put("name",frontInfo.getIdcard_ocr_result().getName());
 				resultMap.put("idcardTypeFront",frontInfo.getIdcard_ocr_result().getIdcard_type());
 				resultMap.put("idcardTypeBack",backInfo.getIdcard_ocr_result().getIdcard_type());

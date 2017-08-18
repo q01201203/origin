@@ -19,4 +19,6 @@ public interface AppMoneyDetailService {
     Double findTotalActualMoney(IAppMoneyDetail appMoneyDetail);
     Double findTotalAskMoney(IAppMoneyDetail appMoneyDetail);
     void updateAudit(IAppMoneyDetail appMoneyDetail,String messageContent);
+    Result saveSubmitMoney(Integer uId,String askMoney,String type,String repayTimeType,String repayWay,String taskId
+            ,String taskUserName,String taskMobile,String pid,String delayMoney,String orderId);
 }

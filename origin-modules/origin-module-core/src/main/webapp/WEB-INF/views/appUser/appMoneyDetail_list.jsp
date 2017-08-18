@@ -94,6 +94,9 @@
                                 <td>
                                     <span>对应借款记录</span>
                                 </td>
+                                <td>
+                                    <span>UPay订单号</span>
+                                </td>
                             </c:if>
                             <c:if test="${queryDTO.type eq 4}">
                                 <td>
@@ -209,6 +212,11 @@
                                             <td>
                                                 <div class="t_link">
                                                     <a href="${ctx}/admin/appUser/money/list?type=1&id=${r.pid}"><i class="icon"></i>查看</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="t_link">
+                                                    <a onclick="getOrderStatus(${r.extensionOne})"><i class="icon"></i>查看订单（${r.extensionOne}）结果</a>
                                                 </div>
                                             </td>
                                         </c:if>
@@ -331,6 +339,30 @@
 
         });
 
+    }
+    
+    
+    function getOrderStatus(orderid) {
+        if (orderid !=null && orderid !=''){
+            orderid = orderid+'';
+            var mer_date = orderid.substring(0,8);
+            $.get("http://106.14.11.68:8070/renxinhuaAPI/app/upay/merOrderInfoQuery?order_id="+orderid+"&mer_date="+mer_date
+                , function(result){
+                    if(result.code == 1){
+                        alert("信息描述："+result.message +"\n    " +
+                            "金额： "+result.data.amount/100 +"元\n    " +
+                            "联动交易号："+result.data.tradeNo +"\n    " +
+                            "对账日期： "+result.data.settleDate +"\n    " +
+                            "交易状态： "+result.data.tradeState +"\n    "+
+                            "支付日期： "+result.data.payDate);
+                    }else{
+                        alert("信息描述："+result.message);
+                    }
+
+                });
+        }else{
+            alert("无订单号");
+        }
     }
 </script>
 </body>

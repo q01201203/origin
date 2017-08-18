@@ -53,7 +53,7 @@
                             <td>
                                 <span>说明</span>
                             </td>
-                            <td>
+                            <td style="width: 400px">
                                 <span>内容</span>
                             </td>
                             <td>
